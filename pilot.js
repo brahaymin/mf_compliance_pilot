@@ -27,6 +27,7 @@
     legacy: { rules: [], meta: null, loaded: false, loading: false, error: null },
     query: "",
     category: "",
+    fundFamily: "",
     waiverType: "",
     intermediary: "",
   };
@@ -42,6 +43,7 @@
     snapshot: document.getElementById("snapshotInfo"),
     structuredFilters: document.getElementById("structuredFilters"),
     categoryChips: document.getElementById("categoryChips"),
+    fundFamilyFilter: document.getElementById("fundFamilyFilter"),
     waiverTypeFilter: document.getElementById("waiverTypeFilter"),
     intermediaryFilter: document.getElementById("intermediaryFilter"),
     tabStructured: document.getElementById("tabStructured"),
@@ -164,6 +166,7 @@
     var q = normalize(state.query);
     return state.structured.rules.filter(function (rule) {
       if (state.category && rule.category !== state.category) return false;
+      if (state.fundFamily && (rule.fund_family || "") !== state.fundFamily) return false;
       if (state.waiverType && (rule.waiver_type || "") !== state.waiverType) return false;
       if (state.intermediary && (rule.intermediary || "") !== state.intermediary) return false;
       return matchesStructured(rule, q);
@@ -222,10 +225,38 @@
   function fillFilterOptions() {
     var waiverTypes = {};
     var intermediaries = {};
+    var families = {};
     state.structured.rules.forEach(function (r) {
       if (r.waiver_type) waiverTypes[r.waiver_type] = true;
       if (r.intermediary) intermediaries[r.intermediary] = true;
+      if (r.fund_family) {
+        families[r.fund_family] = (families[r.fund_family] || 0) + 1;
+      }
     });
+    if (els.fundFamilyFilter) {
+      var currentFamily = els.fundFamilyFilter.value;
+      els.fundFamilyFilter.innerHTML = "";
+      var optAllFamilies = document.createElement("option");
+      optAllFamilies.value = "";
+      text(optAllFamilies, "All families");
+      els.fundFamilyFilter.appendChild(optAllFamilies);
+      Object.keys(families)
+        .sort(function (a, b) {
+          return a.localeCompare(b);
+        })
+        .forEach(function (name) {
+          var opt = document.createElement("option");
+          opt.value = name;
+          text(opt, name + " (" + families[name] + ")");
+          els.fundFamilyFilter.appendChild(opt);
+        });
+      els.fundFamilyFilter.value = currentFamily;
+      // If previous selection vanished, clear state
+      if (currentFamily && els.fundFamilyFilter.value !== currentFamily) {
+        state.fundFamily = "";
+        els.fundFamilyFilter.value = "";
+      }
+    }
     if (els.waiverTypeFilter) {
       var current = els.waiverTypeFilter.value;
       els.waiverTypeFilter.innerHTML = "";
@@ -505,7 +536,7 @@
       empty.className = "empty panel";
       text(
         empty,
-        q || state.category || state.waiverType || state.intermediary
+        q || state.category || state.fundFamily || state.waiverType || state.intermediary
           ? "No rules matched the current search/filters. Try another ticker, category, or keyword."
           : "No rules available in this sample."
       );
@@ -588,8 +619,10 @@
     els.search.value = "";
     state.query = "";
     state.category = "";
+    state.fundFamily = "";
     state.waiverType = "";
     state.intermediary = "";
+    if (els.fundFamilyFilter) els.fundFamilyFilter.value = "";
     if (els.waiverTypeFilter) els.waiverTypeFilter.value = "";
     if (els.intermediaryFilter) els.intermediaryFilter.value = "";
     fillFilterOptions();
@@ -608,6 +641,12 @@
           state.query = els.search.value || "";
           render();
         }, 120);
+      });
+    }
+    if (els.fundFamilyFilter) {
+      els.fundFamilyFilter.addEventListener("change", function () {
+        state.fundFamily = els.fundFamilyFilter.value || "";
+        render();
       });
     }
     if (els.waiverTypeFilter) {

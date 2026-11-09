@@ -83,9 +83,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .filters {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
   margin-top: 0.85rem;
+}
+@media (max-width: 900px) {
+  .filters { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
   .search-row, .filters { grid-template-columns: 1fr; }
