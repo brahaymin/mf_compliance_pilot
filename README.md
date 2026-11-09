@@ -1,31 +1,29 @@
 # MF Compliance Pilot (public demo)
 
-Static partner pilot for browsing a **sample** of mutual-fund sales-charge waiver excerpts extracted from public SEC EDGAR filings.
+Static partner pilot for browsing **structured** mutual-fund sales-charge waiver, ROA, LOI, breakpoint, and waiver-limitation excerpts from public SEC EDGAR filings.
 
 ## Live site
 
-After GitHub Pages is enabled on this repo: https://brahaymin.github.io/mf_compliance_pilot/
+https://brahaymin.github.io/mf_compliance_pilot/
 
 ## What’s included
 
 | File | Role |
 | --- | --- |
-| `index.html` | Search UI |
-| `pilot.css` / `pilot.js` | Styles and client-side search |
-| `sample_rules.json` | Privacy-screened static sample (public fund metadata + snippets only) |
+| `index.html` / `pilot.css` / `pilot.js` | Search UI (structured rules default; legacy snippets tab) |
+| `structured_rules_sample.json` | Privacy-screened Guggenheim structured sample (deduped by logical rule; tickers merged) |
+| `sample_rules.json` | Legacy regex-snippet sample (secondary tab) |
 | `.nojekyll` | Serve files as plain static assets |
 
 ## Caveats
 
-- One-time static sample for demos — **not** a complete live library.
-- Automated regex-extracted text is **unreviewed** and is **not legal advice**.
-- Fund `family` was not populated in the export source; search by fund name or ticker.
-- Contains only public regulatory fields (ticker, fund name, description, snippet, form, filing date, accession, SEC URL).
+- Guggenheim-only in the structured export (one trust currently populated).
+- Static sample for demos — **not** a complete live library.
+- Automated extraction is **unreviewed** and is **not legal advice**.
+- Public regulatory fields only.
 
 ## Local preview
 
 ```bash
 python -m http.server 8765 --directory .
 ```
-
-Open http://127.0.0.1:8765/

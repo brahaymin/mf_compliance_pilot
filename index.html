@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pilot demo of a mutual fund sales-charge waiver rules sample library. Static sample for partner review; not legal advice.">
-  <title>MF Compliance Rules Library — Pilot Sample</title>
+  <meta name="description" content="Pilot demo of structured mutual fund sales-charge waiver, ROA, LOI, and breakpoint rules. Static sample for partner review; not legal advice.">
+  <title>MF Compliance Structured Rules — Pilot Sample</title>
   <link rel="stylesheet" href="pilot.css">
 </head>
 <body>
@@ -12,28 +12,33 @@
   <main class="wrap">
     <header class="hero">
       <div class="hero-card">
-        <h1>Mutual Fund Waiver Rules — Pilot Sample</h1>
+        <h1>Mutual Fund Structured Rules — Pilot Sample</h1>
         <p>
-          Search a static sample of sales-charge waiver and related language extracted from public SEC EDGAR filings.
-          Built for a partner pilot of the MF Compliance rules library.
+          Browse a static sample of structured sales-charge waiver, rights of accumulation (ROA),
+          letter of intent (LOI), breakpoint schedule, and waiver-limitation language from public SEC EDGAR filings.
+          Currently Guggenheim-only in this export.
         </p>
         <div class="badge-row" aria-hidden="true">
-          <span class="badge">Static GitHub Pages demo</span>
+          <span class="badge">Structured rules sample</span>
           <span class="badge">Public EDGAR excerpts</span>
           <span class="badge">Not legal advice</span>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Sample dataset">
+          <button type="button" class="tab" role="tab" id="tabStructured" aria-selected="true" aria-controls="results">Structured rules</button>
+          <button type="button" class="tab" role="tab" id="tabLegacy" aria-selected="false" aria-controls="results">Legacy snippets</button>
         </div>
       </div>
     </header>
 
-    <section class="panel" aria-label="Search sample rules">
+    <section class="panel" aria-label="Search and filter rules">
       <form id="searchForm" class="search-row" role="search">
         <div>
-          <label for="searchInput">Search by ticker, fund name, family, or keyword</label>
+          <label for="searchInput">Search by ticker, fund family, intermediary, or keyword</label>
           <input
             id="searchInput"
             name="q"
             type="search"
-            placeholder="Examples: Fidelity, CDSC, breakpoint, AMBFX"
+            placeholder="Examples: Guggenheim, CDSC, breakpoint, GIBAX, Wells Fargo"
             autocomplete="off"
             spellcheck="false"
           >
@@ -41,6 +46,25 @@
         <button type="submit" class="btn-primary">Search</button>
         <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
       </form>
+
+      <div id="structuredFilters">
+        <div class="chip-row" id="categoryChips" role="group" aria-label="Category filters"></div>
+        <div class="filters">
+          <div>
+            <label for="waiverTypeFilter">Waiver type</label>
+            <select id="waiverTypeFilter">
+              <option value="">All waiver types</option>
+            </select>
+          </div>
+          <div>
+            <label for="intermediaryFilter">Intermediary</label>
+            <select id="intermediaryFilter">
+              <option value="">All intermediaries</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <div class="meta-bar" id="metaBar" aria-live="polite"></div>
       <p class="meta-bar"><strong id="resultCount">Loading…</strong></p>
       <div id="status" class="notice info" role="status" aria-live="polite">Loading sample rules…</div>
@@ -51,9 +75,8 @@
 
     <footer class="footer">
       <p>
-        Source data: public mutual-fund SEC filings. This page loads a one-time
-        <code>sample_rules.json</code> snapshot for partner demos. The fund family field was not populated
-        in the export source; search by fund name or ticker. Automated extracted text is unreviewed and is not legal advice.
+        Source data: public mutual-fund SEC filings via a structured export (<code>structured_rules_sample.json</code>).
+        Automated extracted text is unreviewed and is not legal advice. Coverage in this pilot is Guggenheim-only.
       </p>
     </footer>
   </main>
