@@ -23,10 +23,11 @@
 
   var state = {
     mode: "structured", // structured | legacy
-    structured: { rules: [], meta: null },
+    structured: { rules: [], meta: null, filings: {}, chains: {} },
     legacy: { rules: [], meta: null, loaded: false, loading: false, error: null },
     query: "",
     category: "",
+    status: "current",
     fundFamily: "",
     waiverType: "",
     intermediary: "",
@@ -44,6 +45,7 @@
     structuredFilters: document.getElementById("structuredFilters"),
     categoryChips: document.getElementById("categoryChips"),
     fundFamilyFilter: document.getElementById("fundFamilyFilter"),
+    statusFilter: document.getElementById("statusFilter"),
     waiverTypeFilter: document.getElementById("waiverTypeFilter"),
     intermediaryFilter: document.getElementById("intermediaryFilter"),
     tabStructured: document.getElementById("tabStructured"),
@@ -138,6 +140,8 @@
       rule.waiver_type,
       rule.intermediary,
       rule.notes,
+      rule.amendment_note,
+      rule.status,
       categoryLabel(rule.category),
       (rule.tickers || []).join(" "),
     ]
@@ -165,6 +169,7 @@
   function filteredStructured() {
     var q = normalize(state.query);
     return state.structured.rules.filter(function (rule) {
+      if (state.status && rule.status !== state.status) return false;
       if (state.category && rule.category !== state.category) return false;
       if (state.fundFamily && (rule.fund_family || "") !== state.fundFamily) return false;
       if (state.waiverType && (rule.waiver_type || "") !== state.waiverType) return false;
@@ -190,9 +195,11 @@
     if (state.mode === "structured") {
       bits = [
         ["Entries", String(meta.sample_entry_count || rules.length)],
+        ["Current", String((meta.status_counts && meta.status_counts.current) || 0)],
+        ["Historical", String((meta.status_counts && meta.status_counts.historical) || 0)],
         ["Tickers", String(meta.distinct_tickers_in_sample || "—")],
         ["Filings", String(meta.distinct_accessions_in_sample || "—")],
-        ["Family", "Guggenheim"],
+        ["Families", (meta.fund_families_in_sample || ["Guggenheim"]).join(", ")],
         ["Snapshot", meta.snapshot_date_america_chicago || "—"],
       ];
     } else {
@@ -352,13 +359,124 @@
     return wrap;
   }
 
+  function filingInfo(accession) {
+    var f = state.structured.filings[accession];
+    return f || null;
+  }
+
+  function secLink(url, label) {
+    var href = safeSecUrl(url);
+    if (!href) return document.createTextNode(label);
+    var a = document.createElement("a");
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    text(a, label);
+    return a;
+  }
+
+  function refLine(prefix, ref) {
+    // ref: {accession, form_type, filing_date}
+    var p = document.createElement("p");
+    var k = document.createElement("span");
+    k.className = "chain-key";
+    text(k, prefix + " ");
+    p.appendChild(k);
+    var f = filingInfo(ref.accession);
+    var label = (ref.form_type || "") + " filed " + (ref.filing_date || "?");
+    p.appendChild(secLink(f && f.edgar_url, label));
+    p.appendChild(document.createTextNode(" (" + ref.accession + ")"));
+    return p;
+  }
+
+  function renderChain(rule) {
+    var box = document.createElement("div");
+    box.className = "chain";
+    box.setAttribute("aria-label", "Version history");
+    var eff = document.createElement("p");
+    var k = document.createElement("span");
+    k.className = "chain-key";
+    text(k, "Effective: ");
+    eff.appendChild(k);
+    eff.appendChild(
+      document.createTextNode(
+        (rule.effective_from || rule.filing_date || "?") +
+          " → " +
+          (rule.effective_to ? rule.effective_to : rule.status === "current" ? "present" : "?")
+      )
+    );
+    box.appendChild(eff);
+    if (rule.days_since_prior != null && rule.prior_filing_date) {
+      var d = document.createElement("p");
+      text(
+        d,
+        rule.days_since_prior + " days after prior filing (" + rule.prior_filing_date + ") of this rule"
+      );
+      box.appendChild(d);
+    }
+    if (rule.superseded_by) box.appendChild(refLine("Superseded by", rule.superseded_by));
+    if (rule.amended_by) box.appendChild(refLine("Amended by", rule.amended_by));
+    if (rule.amendment_note) {
+      var n = document.createElement("p");
+      text(n, rule.amendment_note);
+      box.appendChild(n);
+    }
+    if (rule.chain_varies_by_ticker) {
+      var v = document.createElement("p");
+      text(v, "Version details shown for " + (rule.chain_shown_for || "first ticker") + "; other tickers may differ.");
+      box.appendChild(v);
+    }
+    var chain = state.structured.chains[rule.chain_id];
+    if (chain && chain.length > 1) {
+      var det = document.createElement("details");
+      var sum = document.createElement("summary");
+      text(sum, "Version timeline (" + chain.length + " filings)");
+      det.appendChild(sum);
+      var ol = document.createElement("ol");
+      ol.className = "timeline";
+      chain.forEach(function (item) {
+        var acc = item[0];
+        var st = item[1];
+        var f = filingInfo(acc) || {};
+        var li = document.createElement("li");
+        if (st === "current") li.className = "v-current";
+        if (acc === rule.accession) li.className += " this-version";
+        li.appendChild(secLink(f.edgar_url, (f.filing_date || "?") + " · " + (f.form_type || "")));
+        li.appendChild(
+          document.createTextNode(
+            " — " + (st === "current" ? "Current" : "Historical") + (acc === rule.accession ? " (this version)" : "")
+          )
+        );
+        ol.appendChild(li);
+      });
+      det.appendChild(ol);
+      box.appendChild(det);
+    }
+    return box;
+  }
+
   function renderStructuredCard(rule, q) {
     var card = document.createElement("article");
-    card.className = "card";
-    card.setAttribute("aria-label", categoryLabel(rule.category) + " rule");
+    card.className = "card " + (rule.status === "historical" ? "is-historical" : "is-current");
+    card.setAttribute(
+      "aria-label",
+      (rule.status === "historical" ? "Historical " : "Current ") + categoryLabel(rule.category) + " rule"
+    );
 
     var top = document.createElement("div");
     top.className = "card-top";
+
+    var st = document.createElement("span");
+    st.className = "chip status-" + (rule.status === "historical" ? "historical" : "current");
+    text(st, rule.status === "historical" ? "Historical" : "Current");
+    top.appendChild(st);
+    if (rule.is_stale) {
+      var stale = document.createElement("span");
+      stale.className = "chip stale";
+      stale.title = "Current rule whose source filing is more than 16 months old";
+      text(stale, "Possibly stale (>16 months)");
+      top.appendChild(stale);
+    }
 
     var cat = document.createElement("span");
     cat.className = "chip cat-" + (rule.category || "");
@@ -380,7 +498,7 @@
     if (rule.filing_date) {
       var date = document.createElement("span");
       date.className = "chip";
-      text(date, rule.filing_date);
+      text(date, "Filed " + rule.filing_date);
       top.appendChild(date);
     }
     if (rule.source) {
@@ -440,11 +558,13 @@
       card.appendChild(snip);
     }
 
+    card.appendChild(renderChain(rule));
+
     var foot = document.createElement("div");
     foot.className = "card-foot";
     if (rule.accession) {
       var acc = document.createElement("span");
-      text(acc, "Accession " + rule.accession);
+      text(acc, (rule.form_type || "Filing") + " · accession " + rule.accession);
       foot.appendChild(acc);
     }
     var href = safeSecUrl(rule.edgar_url);
@@ -453,7 +573,7 @@
       link.href = href;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      text(link, "View SEC filing");
+      text(link, "View EDGAR document");
       foot.appendChild(link);
     }
     card.appendChild(foot);
@@ -536,7 +656,7 @@
       empty.className = "empty panel";
       text(
         empty,
-        q || state.category || state.fundFamily || state.waiverType || state.intermediary
+        q || state.category || state.fundFamily || state.waiverType || state.intermediary || state.status
           ? "No rules matched the current search/filters. Try another ticker, category, or keyword."
           : "No rules available in this sample."
       );
@@ -566,7 +686,7 @@
     } else {
       setStatus(
         "warn",
-        "Pilot demo only — static structured sample (Guggenheim). Automated extraction is unreviewed; not legal advice."
+        "Pilot demo only — static structured sample (Guggenheim tickers). Showing Current rules by default; switch Status to see Historical versions. Automated extraction is unreviewed; not legal advice."
       );
       renderMeta();
       render();
@@ -619,6 +739,8 @@
     els.search.value = "";
     state.query = "";
     state.category = "";
+    state.status = "current";
+    if (els.statusFilter) els.statusFilter.value = "current";
     state.fundFamily = "";
     state.waiverType = "";
     state.intermediary = "";
@@ -649,6 +771,13 @@
         render();
       });
     }
+    if (els.statusFilter) {
+      els.statusFilter.value = state.status;
+      els.statusFilter.addEventListener("change", function () {
+        state.status = els.statusFilter.value || "";
+        render();
+      });
+    }
     if (els.waiverTypeFilter) {
       els.waiverTypeFilter.addEventListener("change", function () {
         state.waiverType = els.waiverTypeFilter.value || "";
@@ -672,11 +801,13 @@
       })
       .then(function (data) {
         if (!data || !Array.isArray(data.rules)) throw new Error("Structured sample missing rules array.");
-        if (data.meta && data.meta.schema && data.meta.schema !== "structured_rules_v1") {
+        if (data.meta && data.meta.schema && data.meta.schema !== "structured_rules_v2") {
           console.warn("Unexpected schema", data.meta.schema);
         }
         state.structured.meta = data.meta || {};
         state.structured.rules = data.rules || [];
+        state.structured.filings = data.filings && typeof data.filings === "object" ? data.filings : {};
+        state.structured.chains = data.chains && typeof data.chains === "object" ? data.chains : {};
         fillFilterOptions();
         setMode("structured");
       })

@@ -16,10 +16,12 @@
         <p>
           Browse a static sample of structured sales-charge waiver, rights of accumulation (ROA),
           letter of intent (LOI), breakpoint schedule, and waiver-limitation language from public SEC EDGAR filings.
-          Currently Guggenheim-only in this export.
+          Each rule is marked Current or Historical, with its filing date, the gap since the prior version,
+          and any later 497 amendment. Currently Guggenheim tickers only (including funds later moved to a successor trust).
         </p>
         <div class="badge-row" aria-hidden="true">
           <span class="badge">Structured rules sample</span>
+          <span class="badge">Current vs historical</span>
           <span class="badge">Public EDGAR excerpts</span>
           <span class="badge">Not legal advice</span>
         </div>
@@ -50,6 +52,14 @@
       <div id="structuredFilters">
         <div class="chip-row" id="categoryChips" role="group" aria-label="Category filters"></div>
         <div class="filters">
+          <div>
+            <label for="statusFilter">Status</label>
+            <select id="statusFilter">
+              <option value="current" selected>Current</option>
+              <option value="historical">Historical</option>
+              <option value="">All (current + historical)</option>
+            </select>
+          </div>
           <div>
             <label for="fundFamilyFilter">Fund family</label>
             <select id="fundFamilyFilter">

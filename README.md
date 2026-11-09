@@ -11,9 +11,13 @@ https://brahaymin.github.io/mf_compliance_pilot/
 | File | Role |
 | --- | --- |
 | `index.html` / `pilot.css` / `pilot.js` | Search UI (structured rules default; legacy snippets tab) |
-| `structured_rules_sample.json` | Privacy-screened Guggenheim structured sample (deduped by logical rule; tickers merged) |
+| `structured_rules_sample.json` | Privacy-screened Guggenheim structured sample (deduped by logical rule; tickers merged), with Current/Historical status, filing dates, days since prior filing, supersession/amendment links and version timelines |
 | `sample_rules.json` | Legacy regex-snippet sample (secondary tab) |
 | `.nojekyll` | Serve files as plain static assets |
+
+## Current vs historical
+
+Rules from each ticker's latest 485BPOS are Current; earlier versions are Historical. A later 497 that changes the wording supersedes the 485BPOS version (shown as "Amended by" / "Superseded by"). The Status filter defaults to Current.
 
 ## Caveats
 
