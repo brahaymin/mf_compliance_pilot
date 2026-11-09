@@ -401,9 +401,9 @@
     eff.appendChild(k);
     eff.appendChild(
       document.createTextNode(
-        (rule.effective_from || rule.filing_date || "?") +
+        (rule.effective_from || rule.filing_date || "unknown") +
           " → " +
-          (rule.effective_to ? rule.effective_to : rule.status === "current" ? "present" : "?")
+          (rule.effective_to ? rule.effective_to : rule.status === "current" ? "present" : "unknown")
       )
     );
     box.appendChild(eff);
@@ -435,14 +435,27 @@
       det.appendChild(sum);
       var ol = document.createElement("ol");
       ol.className = "timeline";
-      chain.forEach(function (item) {
+      // Chronological order (oldest first). Export usually pre-sorts; sort defensively.
+      var sorted = chain.slice().sort(function (a, b) {
+        var fa = filingInfo(a[0]) || {};
+        var fb = filingInfo(b[0]) || {};
+        var da = fa.filing_date || "";
+        var db = fb.filing_date || "";
+        if (da !== db) return da < db ? -1 : 1;
+        return String(a[0]).localeCompare(String(b[0]));
+      });
+      sorted.forEach(function (item) {
         var acc = item[0];
         var st = item[1];
-        var f = filingInfo(acc) || {};
+        var f = filingInfo(acc);
         var li = document.createElement("li");
         if (st === "current") li.className = "v-current";
-        if (acc === rule.accession) li.className += " this-version";
-        li.appendChild(secLink(f.edgar_url, (f.filing_date || "?") + " · " + (f.form_type || "")));
+        if (acc === rule.accession) li.className = (li.className ? li.className + " " : "") + "this-version";
+        if (f && f.filing_date) {
+          li.appendChild(secLink(f.edgar_url, f.filing_date + " · " + (f.form_type || "filing")));
+        } else {
+          li.appendChild(document.createTextNode("Filing details not in sample (" + acc + ")"));
+        }
         li.appendChild(
           document.createTextNode(
             " — " + (st === "current" ? "Current" : "Historical") + (acc === rule.accession ? " (this version)" : "")
