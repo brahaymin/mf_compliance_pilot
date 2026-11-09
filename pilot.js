@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  var STRUCTURED_URL = "structured_rules_sample.json";
-  var LEGACY_URL = "sample_rules.json";
+  var ASSET_VERSION = (document.documentElement.getAttribute("data-asset-version") || "1").replace(/[^\w.-]/g, "");
+  var STRUCTURED_URL = "structured_rules_sample.json?v=" + ASSET_VERSION;
+  var LEGACY_URL = "sample_rules.json?v=" + ASSET_VERSION;
   var SEC_URL_RE = /^https:\/\/(?:www\.)?sec\.gov\//i;
 
   var CATEGORY_LABELS = {
@@ -466,10 +467,39 @@
     var top = document.createElement("div");
     top.className = "card-top";
 
+    var isHist = rule.status === "historical";
+    var badgeRow = document.createElement("div");
+    badgeRow.className = "status-row";
     var st = document.createElement("span");
-    st.className = "chip status-" + (rule.status === "historical" ? "historical" : "current");
-    text(st, rule.status === "historical" ? "Historical" : "Current");
-    top.appendChild(st);
+    st.className = "status-badge " + (isHist ? "status-badge--historical" : "status-badge--current");
+    st.setAttribute("role", "img");
+    st.setAttribute(
+      "aria-label",
+      isHist ? "Historical rule: superseded or no longer in the latest filing" : "Current rule: language in effect"
+    );
+    var icon = document.createElement("span");
+    icon.className = "status-icon";
+    icon.setAttribute("aria-hidden", "true");
+    text(icon, isHist ? "\u21BA" : "\u2713");
+    st.appendChild(icon);
+    var lbl = document.createElement("span");
+    lbl.setAttribute("aria-hidden", "true");
+    text(lbl, isHist ? "HISTORICAL" : "CURRENT");
+    st.appendChild(lbl);
+    badgeRow.appendChild(st);
+    if (rule.filing_date) {
+      var since = document.createElement("span");
+      since.className = "status-since";
+      text(
+        since,
+        isHist
+          ? "Language from " + (rule.form_type || "filing") + " filed " + rule.filing_date +
+              (rule.effective_to ? ", replaced " + rule.effective_to : "")
+          : "In effect since " + (rule.form_type || "filing") + " filed " + rule.filing_date
+      );
+      badgeRow.appendChild(since);
+    }
+    card.appendChild(badgeRow);
     if (rule.is_stale) {
       var stale = document.createElement("span");
       stale.className = "chip stale";
@@ -771,6 +801,10 @@
         render();
       });
     }
+    try {
+      var qs = new URLSearchParams(window.location.search).get("status");
+      if (qs === "current" || qs === "historical" || qs === "all") state.status = qs === "all" ? "" : qs;
+    } catch (e) { /* ignore */ }
     if (els.statusFilter) {
       els.statusFilter.value = state.status;
       els.statusFilter.addEventListener("change", function () {
@@ -814,7 +848,7 @@
       .catch(function (err) {
         setStatus(
           "error",
-          "Failed to load structured_rules_sample.json. Serve the docs/ folder over HTTP (GitHub Pages or a local static server)."
+          "Failed to load the structured sample JSON. Serve the docs/ folder over HTTP (GitHub Pages or a local static server)."
         );
         text(els.count, "0 entries loaded");
         console.error(err);

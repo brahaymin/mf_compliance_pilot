@@ -194,11 +194,20 @@ button {
 .mark { background: #ffe9a8; color: inherit; border-radius: 3px; padding: 0 0.1em; }
 
 /* Current vs historical */
-.chip.status-current { background: #e3f6e8; color: #145a2c; font-weight: 700; }
-.chip.status-historical { background: #eceff3; color: #3d4a59; font-weight: 700; }
+.status-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem; margin: -0.1rem 0 0.6rem; }
+.status-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.32rem 0.8rem; border-radius: 999px;
+  font-size: 0.85rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #fff; line-height: 1.2; box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+.status-badge--current { background: #1f8a4c; }
+.status-badge--historical { background: #b3261e; }
+.status-icon { font-size: 1rem; line-height: 1; }
+.status-since { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
 .chip.stale { background: #fff3df; color: #7a4d00; }
-.card.is-historical { border-left: 4px solid #aab6c4; }
-.card.is-current { border-left: 4px solid #2e9e57; }
+.card.is-current { border-left: 6px solid #1f8a4c; }
+.card.is-historical { border-left: 6px solid #b3261e; background: #fdf4f3; }
 .chain { margin: 0.6rem 0 0; padding: 0.6rem 0.75rem; background: #f7f9fc; border: 1px solid var(--line); border-radius: 10px; font-size: 0.9rem; }
 .chain p { margin: 0.2rem 0; }
 .chain .chain-key { font-weight: 600; color: var(--ink); }
@@ -207,7 +216,16 @@ button {
 .chain summary:focus-visible, .chain a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 .timeline { list-style: none; margin: 0.4rem 0 0; padding: 0; }
 .timeline li { padding: 0.15rem 0 0.15rem 0.9rem; position: relative; }
-.timeline li::before { content: ""; position: absolute; left: 0; top: 0.65rem; width: 6px; height: 6px; border-radius: 50%; background: #aab6c4; }
+.timeline li::before { content: ""; position: absolute; left: 0; top: 0.55rem; width: 8px; height: 8px; border-radius: 50%; background: #b3261e; }
+.timeline li.v-current::before { background: #1f8a4c; }
 .timeline li.this-version { font-weight: 700; }
-.timeline li.this-version::before { background: var(--brand); }
-.timeline li.v-current::before { background: #2e9e57; }
+.timeline li.this-version::before { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #102a43; }
+@media (max-width: 720px) {
+  .status-badge { font-size: 0.9rem; }
+  .status-row { flex-direction: row; }
+}
+/* Narrow screens: keep cards inside the viewport */
+.results, .card { min-width: 0; max-width: 100%; }
+.card { overflow-wrap: anywhere; word-break: break-word; }
+.tier-wrap { overflow-x: auto; max-width: 100%; }
+.card-top .chip { max-width: 100%; }

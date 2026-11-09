@@ -17,6 +17,8 @@ https://brahaymin.github.io/mf_compliance_pilot/
 
 ## Current vs historical
 
+Every rule card shows a solid green **CURRENT** or red **HISTORICAL** badge. Open `?status=historical` or `?status=all` to change the default filter. Assets are cache-busted with `?v=` (see `data-asset-version` in `index.html`).
+
 Rules from each ticker's latest 485BPOS are Current; earlier versions are Historical. A later 497 that changes the wording supersedes the 485BPOS version (shown as "Amended by" / "Superseded by"). The Status filter defaults to Current.
 
 ## Caveats
