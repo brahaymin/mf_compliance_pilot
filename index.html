@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pilot demo of a mutual fund sales-charge waiver rules sample library. Static sample for partner review; not legal advice.">
+  <title>MF Compliance Rules Library — Pilot Sample</title>
+  <link rel="stylesheet" href="pilot.css">
+</head>
+<body>
+  <a class="sr-only" href="#searchInput">Skip to search</a>
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <h1>Mutual Fund Waiver Rules — Pilot Sample</h1>
+        <p>
+          Search a static sample of sales-charge waiver and related language extracted from public SEC EDGAR filings.
+          Built for a partner pilot of the MF Compliance rules library.
+        </p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Static GitHub Pages demo</span>
+          <span class="badge">Public EDGAR excerpts</span>
+          <span class="badge">Not legal advice</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel" aria-label="Search sample rules">
+      <form id="searchForm" class="search-row" role="search">
+        <div>
+          <label for="searchInput">Search by ticker, fund name, family, or keyword</label>
+          <input
+            id="searchInput"
+            name="q"
+            type="search"
+            placeholder="Examples: Fidelity, CDSC, breakpoint, AMBFX"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+        <button type="submit" class="btn-primary">Search</button>
+        <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
+      </form>
+      <div class="meta-bar" id="metaBar" aria-live="polite"></div>
+      <p class="meta-bar"><strong id="resultCount">Loading…</strong></p>
+      <div id="status" class="notice info" role="status" aria-live="polite">Loading sample rules…</div>
+      <p id="snapshotInfo" class="notice info" style="margin-top:0.75rem"></p>
+    </section>
+
+    <section id="results" class="results" aria-live="polite" aria-label="Matching rules"></section>
+
+    <footer class="footer">
+      <p>
+        Source data: public mutual-fund SEC filings. This page loads a one-time
+        <code>sample_rules.json</code> snapshot for partner demos. The fund family field was not populated
+        in the export source; search by fund name or ticker. Automated extracted text is unreviewed and is not legal advice.
+      </p>
+    </footer>
+  </main>
+  <script src="pilot.js" defer></script>
+</body>
+</html>
