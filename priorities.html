@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-asset-version="20261109-priorities">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Partner pilot of mutual-fund compliance priorities and a feature guide. Public EDGAR sample only; not legal advice.">
+  <title>Compliance priorities — MF Compliance Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261109-priorities">
+  <link rel="stylesheet" href="priorities.css?v=20261109-priorities">
+</head>
+<body>
+  <a class="sr-only" href="#priorities">Skip to priorities</a>
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a href="index.html">Rule sample</a>
+    <a href="priorities.html" aria-current="page">Priorities and feature guide</a>
+  </nav>
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <h1>Compliance priorities and feature guide</h1>
+        <p>
+          This partner pilot lists the 39 compliance ideas approved for this page,
+          grouped by the real exam or disclosure issue they address, and explains how each
+          existing or planned feature would be used.
+        </p>
+        <p>
+          Eighteen ideas are first priority, eighteen are second, and three are later
+          lineage work. Twenty-six can be built from data already in the library.
+          Thirteen are marked “Awaiting data” because they need a new public file or a
+          local prospectus parse after the historical download finishes.
+        </p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Partner pilot</span>
+          <span class="badge">39 compliance ideas</span>
+          <span class="badge">26 ready now · 13 awaiting data</span>
+          <span class="badge">Not legal advice</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="page-jump" aria-label="On this page">
+      <a href="#priorities">All 39 priorities</a>
+      <a href="#feature-guide">Feature guide</a>
+      <a href="#demos">Sample demos</a>
+    </nav>
+
+    <section class="panel" aria-label="How to read this page">
+      <p style="margin:0 0 0.6rem">
+        Each card states the compliance issue, why it matters, the exact FINRA or SEC
+        source (or that the approved write-up had no direct link), and how the database
+        helps. Research, teaching, and internal tooling ideas are excluded.
+      </p>
+      <p class="tiny" style="margin:0">
+        Demos below use only the already-screened public sample already on this site
+        (Guggenheim, New Age Alpha, and a Fidelity slice). They are illustrations, not
+        findings, and they are not legal advice. Structured rules in the full library
+        currently cover only those three families. Official family names on the fund
+        table are empty, so family views use the family name stored on the structured rule.
+        The filing library starts in 2010. Only 616 of 3,376 current breakpoint schedules
+        in the full library have parseable tier tables.
+      </p>
+    </section>
+
+    <h2 id="priorities" class="section-title">Priorities</h2>
+    <section class="panel" aria-label="Filter priorities">
+      <div class="filter-bar" id="filterBar" role="group" aria-label="Filter by tier or readiness"></div>
+      <p class="counts-line" id="priorityCounts">Loading priorities…</p>
+    </section>
+    <div id="priorityList"></div>
+
+    <h2 id="feature-guide" class="section-title">Feature guide</h2>
+    <section class="panel guide-block" aria-labelledby="existing-title">
+      <h3 id="existing-title">What the live sample already does</h3>
+      <p>
+        The public pilot at this site is a static, privacy-screened browser of structured
+        sales-charge waiver, rights of accumulation, letter of intent, breakpoint, and
+        waiver-limitation language from official SEC filings. It is a partner demo, not
+        the complete live library.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Search and filters.</strong> Reviewers can find a ticker, fund family, intermediary, or keyword, then narrow by category, current vs historical status, waiver type, and named intermediary. This is the start of a prospectus-first look-back: begin with the offering document, not informal knowledge.</li>
+        <li><strong>Current vs historical badges.</strong> Every rule is marked current (green) or historical (red), with filing date, the gap since the prior version, and any later 497 amendment. That prevents someone from applying superseded waiver text to a later trade date.</li>
+        <li><strong>Version timeline.</strong> Opening the chain shows how the same rule changed across filings, which supports “what language governed this date?” reviews.</li>
+        <li><strong>Official filing link.</strong> Each card cites the Accession Number and a link to the public SEC filing, so a reviewer can walk from a ticker to the governing prospectus excerpt.</li>
+        <li><strong>Legacy snippets tab.</strong> An older regex-extract sample remains available for comparison; the structured sample is the default.</li>
+      </ul>
+    </section>
+
+    <section class="panel guide-block" id="demos" aria-labelledby="demo-title">
+      <h3 id="demo-title">Five first-priority checks, illustrated from the public sample</h3>
+      <p>
+        These illustrations use only current rules in the already-screened public sample.
+        They show how the database would support a review. They are not exam findings
+        and they do not cover the whole mutual-fund universe.
+      </p>
+      <div id="demoRoot">
+        <p class="notice info">Loading illustrations from the public sample…</p>
+      </div>
+    </section>
+
+    <section class="panel guide-block" aria-labelledby="other-title">
+      <h3 id="other-title">Other ready-now features, and what still has to wait</h3>
+      <p>
+        The remaining ready-now ideas on the priorities list — including breakpoint
+        completeness by Series ID, the $25,000–$1 million ladder chart, householding
+        and related-party phrase banks, retirement and charity evidence for the
+        2011–2015 waiver-sweep window, R-share vs Class A sibling checks, 529 language
+        mismatches, Rule 2341 schedule quality checks, and identifier completeness —
+        can be built from tables already in the library. Several of those need Series ID
+        or the raw breakpoint tier JSON, which are in the database but not in this
+        public sample, so they are described on the cards rather than illustrated here.
+      </p>
+      <p>
+        The thirteen “Awaiting data” ideas need something the live tables do not yet
+        have: a local fee-table or prospectus HTML parse (no new SEC download), weekly
+        official ticker-file snapshots, official Series/Class Active–Inactive–Merged
+        status, Form N-CEN, or the EDGAR submissions index. Those should wait until
+        the historical download finishes.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Partner pilot. Illustrations are derived from the privacy-screened public
+        sample on this site (<code>structured_rules_sample.json</code>).
+        Automated extracts are unreviewed and are not legal advice.
+      </p>
+    </footer>
+  </main>
+  <script src="priorities.js?v=20261109-priorities" defer></script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+{
+  "source": "Derived only from the already-screened public structured_rules_sample.json. Counts and public filing identifiers only; no new EDGAR data and no personal information.",
+  "sample_meta": {
+    "snapshot_date_america_chicago": "2026-11-09 15:28 CST",
+    "schema": "structured_rules_v2",
+    "sample_entry_count": 9068,
+    "status_counts": {
+      "current": 3135,
+      "historical": 5933
+    },
+    "fund_families_in_sample": [
+      "Fidelity",
+      "Guggenheim",
+      "New Age Alpha Funds Trust"
+    ],
+    "distinct_tickers_in_sample": 560,
+    "selection_note": "Guggenheim + New Age Alpha Funds Trust: ALL current rules plus their full historical version chains (filings since 2010-01-01; unchanged 497 restatements omitted from timelines). Fidelity: stratified ≤1800 entries (Advisor tickers preferred; category/status mix) since 2025-06-01. Rules identical across share-class tickers are merged. Privacy-screened.",
+    "coverage_note": "Pilot sample for partner demos: complete Guggenheim family structured rules (all downloaded trusts, including Rydex / Transparent Value / Claymore-era ETFs which typically have no sales-charge rules) plus a Fidelity slice. Not the complete live library. Automated structured extraction is unreviewed and is not legal advice."
+  },
+  "current_rule_count": 3135,
+  "appendix_i_coverage": [
+    {
+      "fund_family": "Fidelity",
+      "current_rules": 1260,
+      "categories": {
+        "sales_charge_waiver": 252,
+        "waiver_limitation": 252,
+        "roa": 252,
+        "loi": 252,
+        "breakpoint_schedule": 252
+      },
+      "has_breakpoint": true,
+      "has_roa": true,
+      "has_loi": true,
+      "has_waiver": true,
+      "household_rows": 180,
+      "spouse_rows": 29,
+      "reinstatement_rows": 9,
+      "exchange_rows": 125,
+      "nav_transfer_rows": 0,
+      "n529_rows": 99,
+      "charity_rows": 0,
+      "named_intermediaries": 12,
+      "intermediary_names": [
+        "Ameriprise Financial",
+        "D.A. Davidson & Co.",
+        "Edward Jones",
+        "J.P. Morgan Securities LLC",
+        "Janney Montgomery Scott LLC",
+        "Merrill Lynch",
+        "Morgan Stanley",
+        "Oppenheimer & Co.",
+        "PFS Investments Inc.",
+        "Robert W. Baird & Co.",
+        "Stifel",
+        "Wells Fargo Advisors"
+      ]
+    },
+    {
+      "fund_family": "Guggenheim",
+      "current_rules": 1719,
+      "categories": {
+        "sales_charge_waiver": 1324,
+        "waiver_limitation": 66,
+        "roa": 107,
+        "loi": 82,
+        "breakpoint_schedule": 140
+      },
+      "has_breakpoint": true,
+      "has_roa": true,
+      "has_loi": true,
+      "has_waiver": true,
+      "household_rows": 70,
+      "spouse_rows": 55,
+      "reinstatement_rows": 191,
+      "exchange_rows": 121,
+      "nav_transfer_rows": 7,
+      "n529_rows": 45,
+      "charity_rows": 9,
+      "named_intermediaries": 20,
+      "intermediary_names": [
+        "Ameriprise Financial",
+        "E*Trade",
+        "Edward D. Jones & Co. (“Edward",
+        "Edward Jones",
+        "J.P. Morgan Securities LLC",
+        "JP Morgan Securities LLC",
+        "Janney Montgomery Scott LLC",
+        "Lynch brokerage",
+        "Lynch’s policies relating to sales",
+        "Merrill Lynch",
+        "Morgan Stanley",
+        "Morgan Stanley Smith Barney",
+        "Morgan Stanley Smith Barney LLC",
+        "Oppenheimer & Co.",
+        "Raymond James",
+        "Robert W. Baird & Co.",
+        "SEP IRAs, Simple IRAs or SAR-SEPs",
+        "Stifel",
+        "Wells Fargo Advisors",
+        "Wells Fargo Advisors clients"
+      ]
+    },
+    {
+      "fund_family": "New Age Alpha Funds Trust",
+      "current_rules": 156,
+      "categories": {
+        "sales_charge_waiver": 123,
+        "waiver_limitation": 3,
+        "roa": 11,
+        "loi": 9,
+        "breakpoint_schedule": 10
+      },
+      "has_breakpoint": true,
+      "has_roa": true,
+      "has_loi": true,
+      "has_waiver": true,
+      "household_rows": 9,
+      "spouse_rows": 4,
+      "reinstatement_rows": 19,
+      "exchange_rows": 13,
+      "nav_transfer_rows": 0,
+      "n529_rows": 5,
+      "charity_rows": 2,
+      "named_intermediaries": 12,
+      "intermediary_names": [
+        "Ameriprise Financial",
+        "E*Trade",
+        "Edward Jones",
+        "J.P. Morgan Securities LLC",
+        "Janney Montgomery Scott LLC",
+        "Merrill Lynch",
+        "Morgan Stanley",
+        "Oppenheimer & Co.",
+        "Raymond James",
+        "Robert W. Baird & Co.",
+        "Stifel",
+        "Wells Fargo Advisors"
+      ]
+    }
+  ],
+  "ntm_0285_checklist": [
+    {
+      "fund_family": "Fidelity",
+      "loa": true,
+      "roa": true,
+      "reinstatement": true,
+      "named_intermediaries": true,
+      "named_intermediary_count": 12,
+      "current_rules": 1260
+    },
+    {
+      "fund_family": "Guggenheim",
+      "loa": true,
+      "roa": true,
+      "reinstatement": true,
+      "named_intermediaries": true,
+      "named_intermediary_count": 20,
+      "current_rules": 1719
+    },
+    {
+      "fund_family": "New Age Alpha Funds Trust",
+      "loa": true,
+      "roa": true,
+      "reinstatement": true,
+      "named_intermediaries": true,
+      "named_intermediary_count": 12,
+      "current_rules": 156
+    }
+  ],
+  "ror_histogram": {
+    "current_reinstatement_rows": 219,
+    "windows": {
+      "60": 15,
+      "90": 79,
+      "unparsed": 125
+    },
+    "by_family": {
+      "Guggenheim": {
+        "unparsed": 114,
+        "60": 14,
+        "90": 63
+      },
+      "New Age Alpha Funds Trust": {
+        "90": 7,
+        "unparsed": 11,
+        "60": 1
+      },
+      "Fidelity": {
+        "90": 9
+      }
+    },
+    "unparsed_rows": 125,
+    "note": "Windows are parsed from public prospectus text in the sample. Many rows mention reinstatement without a clear day count, so they are marked unparsed rather than forced into a bucket."
+  },
+  "loi_13_month": {
+    "current_loi_rows": 343,
+    "cite_13_month": 233,
+    "do_not_cite_13_month": 110,
+    "nonstandard_examples": [
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-324258",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "tickers": [
+          "RMQAX",
+          "RYABX",
+          "RYAEX",
+          "RYAFX",
+          "RYAGX",
+          "RYAHX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-324260",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "tickers": [
+          "RYIDX",
+          "RYLDX",
+          "RYTMX",
+          "RYTTX",
+          "RYVLX",
+          "RYVTX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-187701",
+        "form_type": "485BPOS",
+        "filing_date": "2026-04-28",
+        "tickers": [
+          "RYMEX",
+          "RYMQX",
+          "RYMTX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-027283",
+        "form_type": "485BPOS",
+        "filing_date": "2026-01-28",
+        "tickers": [
+          "GIBAX",
+          "GIFAX",
+          "GIJAX",
+          "GILDX",
+          "GIOAX",
+          "GIYAX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-027283",
+        "form_type": "485BPOS",
+        "filing_date": "2026-01-28",
+        "tickers": [
+          "GIBAX",
+          "GIFAX",
+          "GIJAX",
+          "GILDX",
+          "GIOAX",
+          "GIYAX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-331722",
+        "form_type": "497",
+        "filing_date": "2026-08-04",
+        "tickers": [
+          "RMQAX",
+          "RYABX",
+          "RYAEX",
+          "RYAFX",
+          "RYAGX",
+          "RYAHX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-331721",
+        "form_type": "497",
+        "filing_date": "2026-08-04",
+        "tickers": [
+          "RYIDX",
+          "RYLDX",
+          "RYTMX",
+          "RYTTX",
+          "RYVLX",
+          "RYVTX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-331722",
+        "form_type": "497",
+        "filing_date": "2026-08-04",
+        "tickers": [
+          "RMQAX",
+          "RYABX",
+          "RYAEX",
+          "RYAFX",
+          "RYAGX",
+          "RYAHX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-331721",
+        "form_type": "497",
+        "filing_date": "2026-08-04",
+        "tickers": [
+          "RYIDX",
+          "RYLDX",
+          "RYTMX",
+          "RYTTX",
+          "RYVLX",
+          "RYVTX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-324258",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "tickers": [
+          "RMQAX",
+          "RYABX",
+          "RYAEX",
+          "RYAFX",
+          "RYAGX",
+          "RYAHX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-324260",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "tickers": [
+          "RYIDX",
+          "RYLDX",
+          "RYTMX",
+          "RYTTX",
+          "RYVLX",
+          "RYVTX"
+        ]
+      },
+      {
+        "fund_family": "Guggenheim",
+        "accession": "0001193125-26-187701",
+        "form_type": "485BPOS",
+        "filing_date": "2026-04-28",
+        "tickers": [
+          "RYMEX",
+          "RYMQX",
+          "RYMTX"
+        ]
+      }
+    ]
+  },
+  "intermediary_appendix": {
+    "accessions_with_named_intermediary": 93,
+    "length_histogram": {
+      "1": 46,
+      "2": 3,
+      "4": 5,
+      "5": 2,
+      "6": 8,
+      "8": 6,
+      "9": 9,
+      "10": 5,
+      "11": 4,
+      "12": 5
+    },
+    "top_appendices": [
+      {
+        "accession": "0001193125-26-027283",
+        "n_intermediaries": 12,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2026-01-28",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "J.P. Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-26-187701",
+        "n_intermediaries": 12,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2026-04-28",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "JP Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley Smith Barney LLC",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-26-324258",
+        "n_intermediaries": 12,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "JP Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley Smith Barney LLC",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-26-324260",
+        "n_intermediaries": 12,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2026-07-29",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "JP Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley Smith Barney LLC",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001580642-26-000493",
+        "n_intermediaries": 12,
+        "fund_family": "New Age Alpha Funds Trust",
+        "form_type": "485BPOS",
+        "filing_date": "2026-01-28",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "J.P. Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-22-028196",
+        "n_intermediaries": 11,
+        "fund_family": "Guggenheim",
+        "form_type": "497",
+        "filing_date": "2022-02-04",
+        "examples": [
+          "Ameriprise Financial",
+          "Edward Jones",
+          "Janney Montgomery Scott LLC",
+          "Lynch brokerage",
+          "Lynch’s policies relating to sales",
+          "Merrill Lynch",
+          "Morgan Stanley",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-24-016994",
+        "n_intermediaries": 11,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2024-01-29",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "J.P. Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley",
+          "Oppenheimer & Co."
+        ]
+      },
+      {
+        "accession": "0001193125-24-016997",
+        "n_intermediaries": 11,
+        "fund_family": "Guggenheim",
+        "form_type": "485BPOS",
+        "filing_date": "2024-01-29",
+        "examples": [
+          "Ameriprise Financial",
+          "E*Trade",
+          "Edward Jones",
+          "J.P. Morgan Securities LLC",
+          "Janney Montgomery Scott LLC",
+          "Merrill Lynch",
+          "Morgan Stanley",
+          "Oppenheimer & Co."
+        ]
+      }
+    ]
+  },
+  "nav_transfer_examples": [
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-26-027283",
+      "form_type": "485BPOS",
+      "filing_date": "2026-01-28",
+      "tickers": [
+        "GIBAX",
+        "GIFAX",
+        "GIJAX",
+        "GILDX",
+        "GIOAX",
+        "GIYAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-24-179818",
+      "form_type": "497",
+      "filing_date": "2024-07-17",
+      "tickers": [
+        "GUMAX",
+        "SSUAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-24-016994",
+      "form_type": "485BPOS",
+      "filing_date": "2024-01-29",
+      "tickers": [
+        "GUMAX",
+        "SSUAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-24-016997",
+      "form_type": "485BPOS",
+      "filing_date": "2024-01-29",
+      "tickers": [
+        "TVDAX",
+        "TVEAX",
+        "TVMAX",
+        "TVRAX",
+        "TVVAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-23-017681",
+      "form_type": "485BPOS",
+      "filing_date": "2023-01-27",
+      "tickers": [
+        "GUDAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-23-017681",
+      "form_type": "485BPOS",
+      "filing_date": "2023-01-27",
+      "tickers": [
+        "GUDAX"
+      ],
+      "category": "waiver_limitation"
+    },
+    {
+      "fund_family": "Guggenheim",
+      "accession": "0001193125-22-021639",
+      "form_type": "485BPOS",
+      "filing_date": "2022-01-28",
+      "tickers": [
+        "TVKAX"
+      ],
+      "category": "waiver_limitation"
+    }
+  ],
+  "householding_phrase_counts": {
+    "household": 259,
+    "spouse": 88,
+    "child / children": 69,
+    "401(k)": 151,
+    "529": 149,
+    "IRA": 478,
+    "trust": 122,
+    "multi-broker / other broker": 31
+  }
+}

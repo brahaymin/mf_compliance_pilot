@@ -1,0 +1,745 @@
+{
+  "source": "Approved compliance priorities list: 39 included ideas only; research, teaching, and internal-tooling ideas are excluded.",
+  "groups": [
+    {
+      "id": "rn2107",
+      "title": "FINRA Notice 21-07 discount and waiver coverage",
+      "blurb": "Firms are expected to know and apply every discount and waiver type the prospectus describes. Missing categories in written procedures and surveillance are a recurring exam finding.",
+      "ideas": [
+        {
+          "id": "S001",
+          "title": "FINRA 21-07 Appendix I vs structured category crosswalk",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A fund family’s current rules may cover breakpoints but omit householding, rights of accumulation, letters of intent, or family discounts. A surveillance checklist built from one family’s language will miss discounts another family still offers.",
+          "why": "FINRA Regulatory Notice 21-07 Appendix I is the standing list of discount types firms must be able to detect.",
+          "sources": [
+            {
+              "label": "FINRA Regulatory Notice 21-07",
+              "url": "https://www.finra.org/rules-guidance/notices/21-07"
+            }
+          ],
+          "db": "Map Appendix I types to current structured-rule categories and waiver types, and show per-family coverage gaps, with a Notice 21-07 citation in the footer.",
+          "tables": "structured_rules.category, waiver_type, status, fund_family, ticker, accession"
+        },
+        {
+          "id": "S027",
+          "title": "Item 12(a)(2) arrangement-type inventory",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Structured categories may not line up with the official Form N-1A arrangement vocabulary (letters of intent, accumulation plans, exchanges, employee-benefit plans, class-of-investor waivers), leaving coverage holes that a 21-07-style matrix would not show.",
+          "why": "Form N-1A Item 12(a)(2) enumerates the arrangement types a prospectus must describe.",
+          "sources": [
+            {
+              "label": "Form N-1A (PDF)",
+              "url": "https://www.sec.gov/files/form-n-1a.pdf"
+            }
+          ],
+          "db": "Tag current structured rules to that official vocabulary and publish a per-family coverage matrix with the Form N-1A citation in the footer.",
+          "tables": "structured_rules (current rows), fund_family, category, condition_text"
+        },
+        {
+          "id": "S029",
+          "title": "NTM 02-85 LOI/ROA vigilance checklist generator",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Supervisory procedures often lack a family-level list of whether letters of intent, rights of accumulation, reinstatement, and named intermediaries actually appear in the current prospectus, so reviewers cannot tell if procedures match the offering documents.",
+          "why": "Notice to Members 02-85 directed firms to review LOI/ROA procedures and Fund/SERV breakpoint fields against prospectus terms.",
+          "sources": [
+            {
+              "label": "Notice to Members 02-85",
+              "url": "https://www.finra.org/rules-guidance/notices/02-85"
+            }
+          ],
+          "db": "Auto-generate a per-family yes/no checklist from current structured categories and attach official filing (Accession Number) evidence.",
+          "tables": "structured_rules.category, intermediary, status, fund_family, accession"
+        }
+      ]
+    },
+    {
+      "id": "breakpoints",
+      "title": "Breakpoint, rights of accumulation, and letter-of-intent exam findings",
+      "blurb": "The 2002–2003 joint breakpoint sweep and later 2004 Form N-1A amendments established that investors must receive prospectus-described volume discounts, including rights of accumulation, letters of intent, and householding.",
+      "ideas": [
+        {
+          "id": "S005",
+          "title": "Breakpoint Item 7(a) disclosure completeness probe",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A ticker can have a current breakpoint schedule without related rights-of-accumulation, letter-of-intent, or householding language under the same Series ID, which is an incomplete discount picture for anyone applying that schedule.",
+          "why": "The 2004 breakpoint disclosure amendments to Form N-1A require disclosure of breakpoint arrangements, valuation methods, and records shareholders may need to aggregate.",
+          "sources": [
+            {
+              "label": "2004 breakpoint disclosure amendments to Form N-1A",
+              "url": "https://www.sec.gov/rules-regulations/2004/06/disclosure-breakpoint-discounts-mutual-funds"
+            }
+          ],
+          "db": "For each ticker with a current breakpoint schedule, test whether related ROA, LOI, or household language exists under the same Series ID and list the gaps.",
+          "tables": "structured_rules joined to share_classes and funds.series_id"
+        },
+        {
+          "id": "S006",
+          "title": "Standard $25k–$1M breakpoint ladder comparator",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Class A schedules that share a Series ID can differ at the standard dollar tiers, so a firm that hard-codes one ladder will mis-price some classes.",
+          "why": "FINRA’s breakpoints topic page and Notice 21-07 Appendix I use a common Class A ladder ($25,000 / $50,000 / $100,000 / $250,000 / $500,000 / $1 million).",
+          "sources": [
+            {
+              "label": "FINRA breakpoints topic page",
+              "url": "https://www.finra.org/rules-guidance/key-topics/breakpoints"
+            },
+            {
+              "label": "FINRA Regulatory Notice 21-07",
+              "url": "https://www.finra.org/rules-guidance/notices/21-07"
+            }
+          ],
+          "db": "Parse the notes JSON on current breakpoint-schedule rows and chart the load percent at those standard tiers across Class IDs in a Series. Only 616 of 3,376 current breakpoint rows have parseable tier JSON today (the rest are mostly free-text intermediary references).",
+          "tables": "structured_rules.notes (JSON tiers) where category = breakpoint_schedule and status = current"
+        },
+        {
+          "id": "S016",
+          "title": "Householding eligibility phrase bank from N-1A Item 7(a)",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Householding and related-account language is buried in free text, so eligibility engines and reviewers cannot systematically see which account holders a family actually lets you aggregate.",
+          "why": "The breakpoint disclosure rule requires listing account types, account holders, and fund holdings that may be aggregated.",
+          "sources": [
+            {
+              "label": "2004 breakpoint disclosure amendments to Form N-1A",
+              "url": "https://www.sec.gov/rules-regulations/2004/06/disclosure-breakpoint-discounts-mutual-funds"
+            }
+          ],
+          "db": "Mine current ROA and sales-charge waiver condition text for family-member and account-type phrases and normalize them into a phrase bank, without customer personal information.",
+          "tables": "structured_rules.condition_text for category in (roa, sales_charge_waiver), status = current"
+        },
+        {
+          "id": "S040",
+          "title": "ROA related-party phrase taxonomy from FAQ #2",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A family may allow spouse aggregation but not 401(k), 529, or multi-broker holdings. Treating all related-party language as identical causes both missed and wrongly granted discounts.",
+          "why": "FAQ #2 of the Breakpoints FAQ defines ROA aggregation across spouses, children, 401(k)s, 529s, and multi-broker holdings.",
+          "sources": [
+            {
+              "label": "FINRA Breakpoints Frequently Asked Questions",
+              "url": "https://www.finra.org/rules-guidance/guidance/faqs/breakpoints-frequently-asked-questions"
+            }
+          ],
+          "db": "Classify current ROA condition text into those public buckets and report coverage by fund family.",
+          "tables": "structured_rules.condition_text where category = roa and status = current"
+        },
+        {
+          "id": "S041",
+          "title": "LOI 13-month commitment confirmer (FAQ #4)",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Firms often assume every letter of intent is a 13-month commitment. Non-standard terms in the prospectus will not match a default LOI clock.",
+          "why": "FINRA Breakpoints FAQ #4 states letters of intent are usually 13 months. The sourced idea cited the FAQ in prose but had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Breakpoints FAQ #4).",
+          "db": "From current letter-of-intent rows, show the share that cite 13 months and list official filing numbers with non-standard terms.",
+          "tables": "structured_rules where category = loi and status = current"
+        },
+        {
+          "id": "S042",
+          "title": "Class B holdings in Class A breakpoint eligibility note",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Some families count Class B, C, or R holdings toward Class A breakpoints and some do not. A single firm-wide assumption will miss or over-grant discounts.",
+          "why": "FINRA Breakpoints FAQ #5 says whether Class B holdings count toward Class A breakpoints depends on the fund family prospectus. The sourced idea had no markdown URL.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Breakpoints FAQ #5).",
+          "db": "Search current ROA and breakpoint text for multi-class aggregation language and tag each Series ID yes, unclear, or no.",
+          "tables": "structured_rules condition_text / description; funds.series_id"
+        },
+        {
+          "id": "S056",
+          "title": "LOI multi-year contribution edge-case flag",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Retroactive or backdated letters of intent and contributions that span calendar years are easy to miss in a standard 13-month process, which is exactly where remediation engines break.",
+          "why": "Fund Analyzer guidance notes that LOI discounts can interact with multi-year contribution patterns. The sourced idea cited the methodology page in prose but had no markdown URL.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: FINRA Fund Analyzer methodology).",
+          "db": "Flag current LOI rows whose condition text mentions retroactive letters of intent, backdating, or multi-year contributions.",
+          "tables": "structured_rules.condition_text where category = loi and status = current"
+        },
+        {
+          "id": "S050",
+          "title": "Prospectus-first remediation workflow card",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Reviewers start from a ticker or blotter row and never reach the current prospectus language, so they apply informal knowledge instead of the filing that actually governs the trade date.",
+          "why": "FINRA Breakpoints FAQ #1 and #3 tell representatives to start with the prospectus or statement of additional information on EDGAR. The sourced idea had no markdown URL.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Breakpoints FAQ #1 and #3).",
+          "db": "One-click path from ticker to current structured rules to Accession Number to the official SEC filing URL to the local excerpt, using columns already in structured_rules and filings.",
+          "tables": "structured_rules.ticker, accession, source_snippet; filings.edgar_url"
+        }
+      ]
+    },
+    {
+      "id": "ror",
+      "title": "Rights of Reinstatement window mismatches",
+      "blurb": "FINRA’s Rights of Reinstatement targeted exam found firms hard-coding a single reinstatement window while prospectuses vary, which produces systematic missed waivers or CDSC rebates.",
+      "ideas": [
+        {
+          "id": "S002",
+          "title": "RoR window histogram aligned to FINRA exam findings",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Prospectus reinstatement windows vary (90, 180, 270 days and others), but firms often hard-code one period in surveillance, so eligible reinvestments are missed or ineligible ones are granted.",
+          "why": "FINRA Notice 21-07 and the Rights of Reinstatement targeted exam letter document this exact finding.",
+          "sources": [
+            {
+              "label": "FINRA Regulatory Notice 21-07",
+              "url": "https://www.finra.org/rules-guidance/notices/21-07"
+            },
+            {
+              "label": "Rights of Reinstatement targeted exam letter",
+              "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-rights-of-reinstatement"
+            }
+          ],
+          "db": "Parse day windows from current reinstatement condition text and descriptions into a histogram by fund family and ticker.",
+          "tables": "structured_rules.condition_text, description, fund_family, ticker, status"
+        },
+        {
+          "id": "S030",
+          "title": "Reinstatement-privilege footnote from NTM 02-85",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "The same mismatch appears when a family’s prospectus window diverges from the 180-day example historically used in industry guidance, and the default surveillance window is never revisited.",
+          "why": "Notice to Members 02-85 footnote 1 defines the reinstatement privilege (for example, reinvest within a specified period such as 180 days). The sourced idea had no markdown URL.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: NTM 02-85 footnote 1).",
+          "db": "Align parsed reinstatement windows from existing text to that definition and flag families that diverge from a stated default window.",
+          "tables": "Same reinstatement text as the RoR histogram, compared to a documented default window"
+        }
+      ]
+    },
+    {
+      "id": "nav-exchange",
+      "title": "NAV transfers and same-day exchanges (Notice 21-07 Appendix II)",
+      "blurb": "These are common waiver types in Notice 21-07 Appendix II. If they are missing from written procedures or from a family’s current extract, eligible customers pay a load they should not.",
+      "ideas": [
+        {
+          "id": "S003",
+          "title": "NAV-transfer eligibility pack for WSP authors",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "NAV-transfer rights (reinvesting proceeds from another fund family within a short window) are easy to omit from written procedures because the language is sparse and family-specific.",
+          "why": "Appendix II of Notice 21-07 defines NAV transfers (typically 30–90 day reinvestment windows across fund families).",
+          "sources": [
+            {
+              "label": "FINRA Regulatory Notice 21-07",
+              "url": "https://www.finra.org/rules-guidance/notices/21-07"
+            }
+          ],
+          "db": "Export current rules whose text mentions a NAV transfer or proceeds from the sale of shares in another fund family, keyed by Accession Number, form type, filing date, CIK, Series ID, and Class ID. Coverage is thin until more families are extracted.",
+          "tables": "structured_rules text fields + filings identifiers"
+        },
+        {
+          "id": "S017",
+          "title": "Same-day exchange waiver inventory",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Same-day exchanges within a family are a common load waiver. Without a family-level inventory, operations and written procedures cannot tell which Series IDs actually grant them.",
+          "why": "Notice 21-07 Appendix II lists same-day exchanges within a fund family as a common waiver. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: RN 21-07 Appendix II).",
+          "db": "Filter current sales-charge waiver rows that mention exchange language and group them by fund family and Series ID, with Accession Number citations.",
+          "tables": "structured_rules where category = sales_charge_waiver and status = current"
+        }
+      ]
+    },
+    {
+      "id": "intermediary",
+      "title": "Intermediary-specific sales-load variations (IM Guidance 2016-06)",
+      "blurb": "Intermediary (Appendix A) variations must name the intermediary. If the extract or the written procedures ignore broker-specific waivers, the firm applies only the “standard” prospectus terms.",
+      "ideas": [
+        {
+          "id": "S004",
+          "title": "Intermediary Appendix A vs IM Guidance 2016-06 checklist",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Some prospectus filings name many intermediaries and some name none. Reviewers cannot see how dense a trust’s Appendix A has become or whether named-broker variations are being tracked.",
+          "why": "IM Guidance Update 2016-06 says intermediary-specific sales-load variations must identify each intermediary and may live in a prospectus appendix.",
+          "sources": [
+            {
+              "label": "IM Guidance Update 2016-06 (PDF)",
+              "url": "https://www.sec.gov/investment/im-guidance-2016-06.pdf"
+            }
+          ],
+          "db": "Count distinct named intermediaries per fund family and Accession Number, and score appendix density for each 485BPOS or 497. Some extracted names are parse noise and should be excluded in the interface.",
+          "tables": "structured_rules.intermediary, fund_family, accession, status"
+        },
+        {
+          "id": "S063",
+          "title": "Intermediary-named variation “appendix length” histogram",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Appendix A length is growing unevenly. A long tail of named intermediaries on one filing is a supervision and extraction-risk signal that a single density number can hide.",
+          "why": "Builds on IM Guidance 2016-06’s appendix approach. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: IM Guidance 2016-06).",
+          "db": "Histogram distinct intermediary values per Accession Number for current structured rows.",
+          "tables": "structured_rules.intermediary, accession, status"
+        }
+      ]
+    },
+    {
+      "id": "waiver-sweep",
+      "title": "Retirement, charity, and R-share waivers (2016 Mutual Fund Waiver Sweep)",
+      "blurb": "FINRA’s Mutual Fund Waiver Sweep asked whether eligible retirement and charitable accounts received Class A waivers, and whether R shares were offered instead. Missed waivers produced large restitution.",
+      "ideas": [
+        {
+          "id": "S007",
+          "title": "Retirement/charity waiver evidence for the 2011–2015 Mutual Fund Waiver Sweep window",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Look-backs for the sweep window need prospectus evidence of retirement and charity waivers keyed to identifiers, not a keyword dump, or the review cannot answer the letter’s questions.",
+          "why": "The May 2016 Mutual Fund Waiver targeted exam letter covers January 1, 2011 – December 31, 2015 and asks about retirement and charity waivers and R shares.",
+          "sources": [
+            {
+              "label": "May 2016 Mutual Fund Waiver targeted exam letter",
+              "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-mutual-fund-waiver"
+            }
+          ],
+          "db": "Filter structured rules and filings (and the broader waiver-rule index for families not yet structured) to that filing-date range with retirement or charity language, and emit an evidence table of Accession Number, form type, CIK, Series ID, Class ID, and ticker.",
+          "tables": "structured_rules + filings; waiver_rules for families not yet structured. Filing corpus starts in 2010, so the 2011–2015 window is in range."
+        },
+        {
+          "id": "S008",
+          "title": "R-share vs Class A waiver language side-by-side",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A Series may waive the Class A load for retirement accounts but have no Class R sibling, or the reverse. Firms that assume “R shares exist whenever a retirement waiver exists” will steer accounts incorrectly.",
+          "why": "The same Mutual Fund Waiver letter asks whether firms offered R shares to eligible accounts.",
+          "sources": [
+            {
+              "label": "May 2016 Mutual Fund Waiver targeted exam letter",
+              "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-mutual-fund-waiver"
+            }
+          ],
+          "db": "Join share-class names and ticker patterns (R, R1–R6) to current waiver rows for sibling Class A tickers under the same Series ID, and flag Series IDs where Class A has retirement waivers but no Class R sibling appears.",
+          "tables": "share_classes.class_name, ticker; funds.series_id; structured_rules"
+        },
+        {
+          "id": "S064",
+          "title": "Charity/endowment waiver density map by CIK",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Charity and endowment waiver language is concentrated in some registrants and absent in others. A look-back that starts from the firm’s sold universe needs to see which registrants actually disclose those waivers.",
+          "why": "Supports Mutual Fund Waiver Sweep-style lookbacks using public text.",
+          "sources": [
+            {
+              "label": "May 2016 Mutual Fund Waiver targeted exam letter",
+              "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-mutual-fund-waiver"
+            }
+          ],
+          "db": "Chart those counts by registrant CIK and fund family, with Accession Number drill-down.",
+          "tables": "structured_rules text fields, fund_family, accession; funds.cik"
+        }
+      ]
+    },
+    {
+      "id": "529",
+      "title": "529 plan waiver language",
+      "blurb": "529 waivers and share-class rules have been a separate FINRA priority (including Notice 19-04). Prospectus text that does not match the Series’ college-savings identity is a missed- or wrongly-applied-waiver risk.",
+      "ideas": [
+        {
+          "id": "S065",
+          "title": "529 waiver language presence vs Series ID college-savings funds",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Some 529 or college-savings Series lack 529 waiver language, while some non-529 funds include 529 aggregation text. Either mismatch causes the wrong waiver to be applied.",
+          "why": "Notice 21-07 Appendix II discusses 529 waivers. Related exam history is the FINRA 529 share-class initiative. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: RN 21-07 Appendix II; related exam history includes RN 19-04).",
+          "db": "Join current rules that mention 529 or college savings to Series names containing “529” or “College,” and list both (a) 529 funds lacking waiver language and (b) non-529 funds with 529 waiver text.",
+          "tables": "structured_rules text; funds.fund_name / series_id"
+        }
+      ]
+    },
+    {
+      "id": "rule2341",
+      "title": "FINRA Rule 2341 sales-charge and “no-load” limits",
+      "blurb": "Rule 2341 caps aggregate sales charges and restricts “no-load” claims. This database cannot decide that a fund violates 2341, but it can surface schedules and claims that need a compliance review. Rule 2342 (selling just below a breakpoint) is a real exam issue, but this library has no customer trade data, so a 2342 exception board is out of scope.",
+      "ideas": [
+        {
+          "id": "S043",
+          "title": "FINRA Rule 2341(d) max-load sanity band",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A parsed Class A schedule whose top tier exceeds the applicable 2341 cap is either a parse error or a disclosure that must be reviewed before anyone relies on the number.",
+          "why": "FINRA Rule 2341(d) caps aggregate sales charges (for example, 8.5% without an asset-based charge; lower with rights of accumulation or quantity discounts).",
+          "sources": [
+            {
+              "label": "FINRA Rule 2341",
+              "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2341"
+            }
+          ],
+          "db": "Parse the maximum front-end percent from current breakpoint-schedule notes JSON and flag any schedule whose top tier exceeds the applicable 2341 band, labeled as public-schedule quality assurance rather than a violation finding. Limited today to the 616 rows with parseable tier JSON. The public sample export does not include the raw notes JSON, so this check needs the database or an extended export.",
+          "tables": "structured_rules.notes JSON tiers, category = breakpoint_schedule, status = current"
+        },
+        {
+          "id": "S044",
+          "title": "Rule 2341 “no-load” claim detector",
+          "tier": "P1",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "“No-load” or “no sales charge” language next to a Class A ticker that also has a breakpoint schedule or CDSC terms is a disclosure-consistency problem and a possible Rule 2341(d)(4) issue.",
+          "why": "Rule 2341(d)(4) restricts “no load” claims when front-end or deferred charges, or sales-related asset charges above 0.25%, exist. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: FINRA Rule 2341(d)(4)).",
+          "db": "Scan descriptions, condition text, and excerpts for those phrases near Class A tickers that also have a breakpoint schedule or CDSC language, and emit an oddity report.",
+          "tables": "structured_rules description / condition_text / source_snippet; waiver_type in (cdsc, intermediary_cdsc)"
+        },
+        {
+          "id": "S051",
+          "title": "12b-1 / service-fee context strip (Rule 2341)",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Fee-table parse of prospectuses already on disk (no new SEC download).",
+          "issue": "Waiver cards that show only the front-end load hide the ongoing 12b-1 or service fee, which is the other half of the 2341 cap analysis and of share-class cost comparisons.",
+          "why": "Rule 2341 distinguishes asset-based sales charges and service fees (0.75% / 0.25% caps). The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: FINRA Rule 2341).",
+          "db": "Once fee-table text is parsed from local filings, attach 12b-1 percentages as context beside waiver cards so partners see load and ongoing fee together.",
+          "tables": "Proposed parse of already-downloaded prospectus files into a new extraction table (not in the live database yet)"
+        }
+      ]
+    },
+    {
+      "id": "n1a-crossref",
+      "title": "Form N-1A required discount cross-references",
+      "blurb": "Item 3 and Item 12 require the fee table to point investors to sales-charge discount sections, and the summary teaser dollar figure must agree with the statutory schedule.",
+      "ideas": [
+        {
+          "id": "S026",
+          "title": "Form N-1A Item 12(a) fee-table narrative miner",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Local prospectus HTML parse of filings already on disk (no new SEC download).",
+          "issue": "A family can have structured breakpoint rows while the prospectus fee-table narrative never points the reader to the discount section, which is a disclosure-completeness miss.",
+          "why": "Form N-1A Item 3 fee-table narrative and Item 12 (Distribution Arrangements) require pointing investors to sales-charge discount sections.",
+          "sources": [
+            {
+              "label": "Form N-1A (PDF)",
+              "url": "https://www.sec.gov/files/form-n-1a.pdf"
+            }
+          ],
+          "db": "Search already-downloaded prospectus HTML for the “You may qualify for sales charge discounts if you and your family invest…” boilerplate and record the cited heading, then compare to families that have structured discount rows.",
+          "tables": "Already-downloaded prospectus files (every current filing has a local copy); not yet parsed into a table"
+        },
+        {
+          "id": "S038",
+          "title": "Summary-section fee-table discount teaser extractor",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Local prospectus HTML parse of filings already on disk (no new SEC download).",
+          "issue": "A summary prospectus fee-table teaser can quote a minimum investment that disagrees with the parsed breakpoint schedule, so an investor or a representative is pointed at the wrong threshold.",
+          "why": "Rule 498 summaries must include the Item 3 fee table with that teaser.",
+          "sources": [
+            {
+              "label": "Form N-1A (PDF)",
+              "url": "https://www.sec.gov/files/form-n-1a.pdf"
+            }
+          ],
+          "db": "Parse local 497K / 485BPOS HTML for the sentence and dollar figure, then join to structured breakpoint tiers and flag disagreements.",
+          "tables": "Already-downloaded prospectus files; structured breakpoint tiers after parse"
+        }
+      ]
+    },
+    {
+      "id": "identifiers",
+      "title": "Identifier, coverage, and “current” rule integrity",
+      "blurb": "If a ticker, Series ID, or Class ID is wrong, recycled, inactive, or stale, the interface will attach the wrong prospectus rule — a compliance failure even when the underlying extract is accurate.",
+      "ideas": [
+        {
+          "id": "S010",
+          "title": "company_tickers_mf.json weekly drift diff",
+          "tier": "P1",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Weekly snapshots of the official SEC mutual-fund ticker file (after the historical backfill; do not fetch during backfill).",
+          "issue": "Symbols, Series IDs, and Class IDs appear, disappear, or get recycled on SEC.gov while local fund and share-class records stay unchanged, so new or remapped classes never get rules and old tickers keep the wrong identity.",
+          "why": "The public company_tickers_mf.json file is the official ticker-to-Series/Class crosswalk.",
+          "sources": [
+            {
+              "label": "company_tickers_mf.json",
+              "url": "https://www.sec.gov/files/company_tickers_mf.json"
+            },
+            {
+              "label": "Accessing EDGAR Data",
+              "url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+            }
+          ],
+          "db": "Weekly diff against funds CIK / Series ID and share-class contract ID / ticker, reported as a reviewed CSV rather than a silent write into waiver tables.",
+          "tables": "funds.cik, funds.series_id, share_classes.class_contract_id, share_classes.ticker — plus new snapshot table (not present yet)"
+        },
+        {
+          "id": "S033",
+          "title": "company_tickers.json vs company_tickers_mf.json non-fund bleed detector",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Snapshots of both official ticker files (after backfill; do not fetch during backfill).",
+          "issue": "A ticker that also appears in the operating-company ticker file may be a collision or a recycled symbol, and joining on ticker alone can attach a fund rule to the wrong issuer.",
+          "why": "Accessing EDGAR Data publishes both company_tickers.json (operating companies) and company_tickers_mf.json (funds).",
+          "sources": [
+            {
+              "label": "Accessing EDGAR Data",
+              "url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+            },
+            {
+              "label": "company_tickers.json",
+              "url": "https://www.sec.gov/files/company_tickers.json"
+            },
+            {
+              "label": "company_tickers_mf.json",
+              "url": "https://www.sec.gov/files/company_tickers_mf.json"
+            }
+          ],
+          "db": "Find tickers present in the operating-company file and also in share_classes, as a public-file quality list.",
+          "tables": "share_classes.ticker plus new snapshot tables"
+        },
+        {
+          "id": "S011",
+          "title": "Series & Class CSV org-type 30 filter",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "Insurance separate accounts (organization types 31/32/33) mixed into open-end coverage metrics produce false “missing mutual-fund waiver” flags.",
+          "why": "The Investment Company Series and Class Information file includes Organization Type 30 (Form N-1A open-end).",
+          "sources": [
+            {
+              "label": "Investment Company Series and Class Information",
+              "url": "https://www.sec.gov/data-research/sec-markets-data/investment-company-series-class-information"
+            }
+          ],
+          "db": "The local Series/Class cache already has Entity Org Type. Restrict joins to org-type 30 and enrich funds with org type for downstream filters — no new download, but the column is not in the live tables yet. Coordinate with the pipeline owner before adding that column.",
+          "tables": "Local yearly Series and Class cache files (2010–2022 and 2024–2026; 2023 is missing). Not yet a live table."
+        },
+        {
+          "id": "S046",
+          "title": "Mandatory Series/Class identifier completeness gate",
+          "tier": "P2",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "A small number of funds and classes still lack Series ID or Class (contract) ID, and post-2006 filings without those identifiers will not join reliably to waiver rows.",
+          "why": "Post-2006 filings must carry Series and Class (contract) identifiers per the Series/Class FAQ.",
+          "sources": [
+            {
+              "label": "Series/Class FAQ (June 30, 2006)",
+              "url": "https://www.sec.gov/info/edgar/ednews/seriesclassfaq063006.htm"
+            }
+          ],
+          "db": "Audit funds.series_id and share_classes.class_contract_id nulls, and filings after February 6, 2006 missing those IDs, as an “EDGAR-complete” gate.",
+          "tables": "funds.series_id, share_classes.class_contract_id, filings.filing_date"
+        },
+        {
+          "id": "S057",
+          "title": "Inactive / Merged Series ID suppressor from SCUPDAT semantics",
+          "tier": "P1",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "A Series/Class file that includes official Active / Inactive / Merged status (the local yearly cache has no status column).",
+          "issue": "Stale-rule and pending-download boards keep flagging Series and Classes that are Inactive or Merged, creating false “missing current prospectus” alerts on funds that no longer exist.",
+          "why": "The Series/Class ID maintenance guide defines Active, Inactive, and Merged statuses. Status would come from the latest Series and Class CSV.",
+          "sources": [
+            {
+              "label": "Series/Class ID maintenance guide",
+              "url": "https://www.sec.gov/submit-filings/filer-support-resources/how-do-i-guides/obtain-update-investment-company-series-class-ids"
+            },
+            {
+              "label": "Investment Company Series and Class Information",
+              "url": "https://www.sec.gov/data-research/sec-markets-data/investment-company-series-class-information"
+            }
+          ],
+          "db": "Enrich local Series/Class rows with that status and hide Inactive/Merged IDs on stale-rule and pending-download boards. This waits on a status-bearing refresh after backfill.",
+          "tables": "Proposed series_class_census.status — not in the cached CSV or the live database"
+        },
+        {
+          "id": "S020",
+          "title": "N-CEN class/ticker census vs share_classes",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Form N-CEN filings (after backfill; do not fetch during backfill).",
+          "issue": "Classes present in a trust’s official N-CEN census but missing from share_classes will never receive structured waiver rows; local Class IDs absent from N-CEN may be stale or wrong.",
+          "why": "Form N-CEN Item C.2.d lists each Class with Class identification number and ticker; this complements the official mutual-fund ticker file.",
+          "sources": [
+            {
+              "label": "Form N-CEN (PDF)",
+              "url": "https://www.sec.gov/about/forms/formn-cen.pdf"
+            },
+            {
+              "label": "company_tickers_mf.json",
+              "url": "https://www.sec.gov/files/company_tickers_mf.json"
+            }
+          ],
+          "db": "Diff the N-CEN class census against share_classes for overlapping Series IDs and report both directions.",
+          "tables": "Proposed ncen_classes vs share_classes(class_contract_id, ticker)"
+        },
+        {
+          "id": "S021",
+          "title": "N-CEN terminated-series tombstone list",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Form N-CEN filings (after backfill; do not fetch during backfill).",
+          "issue": "Terminated Series IDs still generate “missing 485BPOS” or stale-current alerts because the database has no official end date.",
+          "why": "Item B.6.a.ii of Form N-CEN captures Series terminated during the reporting period (name, Series identification number, termination month/year).",
+          "sources": [
+            {
+              "label": "Form N-CEN (PDF)",
+              "url": "https://www.sec.gov/about/forms/formn-cen.pdf"
+            }
+          ],
+          "db": "Build a tombstone table of terminated Series IDs to suppress those alerts and to seed fund-lineage event hints, after N-CEN is ingested.",
+          "tables": "Proposed ncen_terminated_series"
+        },
+        {
+          "id": "S024",
+          "title": "Submissions API freshness watcher per CIK",
+          "tier": "P1",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "EDGAR submissions index (prefer the nightly submissions.zip after backfill; do not fetch during backfill).",
+          "issue": "A “current” rule whose latest local 485BPOS or 497 is days or weeks behind the submissions API means reviewers may apply superseded waiver text.",
+          "why": "The EDGAR APIs page documents per-registrant submissions JSON, updated in near-real time, under the fair-access request budget.",
+          "sources": [
+            {
+              "label": "EDGAR APIs",
+              "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+            },
+            {
+              "label": "Accessing EDGAR Data (fair-access budget)",
+              "url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+            }
+          ],
+          "db": "For each CIK in funds, compare the newest 485BPOS or 497 Accession Number in submissions JSON to local filings and output local lag days. Read-only monitoring; no worker changes.",
+          "tables": "funds.cik, filings.accession plus proposed submissions_index"
+        },
+        {
+          "id": "S054",
+          "title": "Multi-class vs multi-fund summary separation audit",
+          "tier": "P3",
+          "ready": true,
+          "readiness": "Ready now",
+          "issue": "If a local 497K extract incorrectly merges multiple Series IDs under one accession, waiver rows can be attached to the wrong fund.",
+          "why": "The Rule 498 staff guidance states a Summary Prospectus may cover only one fund but may describe multiple classes. The sourced idea had no markdown URL.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Rule 498 SECG / 33-8998).",
+          "db": "Audit filings joined to funds Series IDs and structured-rule tickers for 497K accessions that appear to merge more than one Series ID. Today this is mainly a filing-link audit, because no structured rows have form type 497K.",
+          "tables": "filings, funds.series_id, structured_rules.ticker, waiver_rules"
+        }
+      ]
+    },
+    {
+      "id": "ncen-family",
+      "title": "Prospectus vs N-CEN census consistency, and missing family names",
+      "blurb": "Without official family names and rule 22d-1 reliance flags, family-level waiver application and “does this trust even use scheduled sales-load variations?” checks are incomplete. The funds.family column is currently empty for every fund, so family filters should use the structured-rule family name today.",
+      "ideas": [
+        {
+          "id": "S019",
+          "title": "N-CEN family-of-funds name backfill",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Form N-CEN filings (after backfill; do not fetch during backfill).",
+          "issue": "Official family names are missing on the fund table, so family-level rights of accumulation, exchange, and NAV-transfer logic has to lean on the few names present in structured rules.",
+          "why": "Form N-CEN Item B.5 asks whether the Registrant is part of a “family of investment companies” and requires an identical family name across related registrants.",
+          "sources": [
+            {
+              "label": "Form N-CEN (PDF)",
+              "url": "https://www.sec.gov/about/forms/formn-cen.pdf"
+            }
+          ],
+          "db": "Pull public N-CEN family names by registrant, validate against structured_rules.fund_family where present, and backfill funds.family only after review.",
+          "tables": "Proposed ncen_families; funds.family (currently all NULL)"
+        },
+        {
+          "id": "S022",
+          "title": "Rule 22d-1 reliance flag from N-CEN Item C.7",
+          "tier": "P2",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Form N-CEN filings (after backfill; do not fetch during backfill).",
+          "issue": "A Series may show current breakpoint schedules or intermediary-tagged rows in our extract but not report rule 22d-1 reliance on N-CEN — or the reverse — which is a prospectus vs census inconsistency worth review.",
+          "why": "N-CEN Item C.7.h asks whether the Fund relied on rule 22d-1 (scheduled sales-load variations) during the period. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Form N-CEN Item C.7.h).",
+          "db": "After an N-CEN parse, join CIK / Series ID to trusts with current breakpoint or intermediary rows and flag disagreements in either direction.",
+          "tables": "Proposed ncen_rule_22d1 vs current structured_rules"
+        }
+      ]
+    },
+    {
+      "id": "lineage",
+      "title": "Fund lineage across renames and mergers",
+      "blurb": "When a trust renames or a Series is merged, historical waiver look-backs break unless predecessor and successor identifiers stay linked.",
+      "ideas": [
+        {
+          "id": "S036",
+          "title": "Submissions “formerNames” rename detector",
+          "tier": "P3",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "EDGAR submissions index (after backfill; do not fetch during backfill).",
+          "issue": "A registrant rename that is not recorded in fund lineage makes historical Accession Numbers and “current” rules look like two unrelated trusts.",
+          "why": "The submissions JSON object, per the EDGAR APIs page, includes former names.",
+          "sources": [
+            {
+              "label": "EDGAR APIs",
+              "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+            }
+          ],
+          "db": "Diff former names against fund names and propose fund-lineage rename events with Accession Number evidence. A small lineage table already exists for acquisitions and ticker recycling.",
+          "tables": "Proposed cik_former_names; funds.fund_name; fund_lineage"
+        },
+        {
+          "id": "S058",
+          "title": "Merged-status → fund_lineage auto-candidate",
+          "tier": "P3",
+          "ready": false,
+          "readiness": "Awaiting data",
+          "needs": "Series/Class status (after backfill; do not fetch during backfill).",
+          "issue": "When a Series or Class flips to Merged, look-backs on the predecessor ID go silent unless a lineage row points at the surviving Series.",
+          "why": "The Series/Class ID maintenance guide defines Merged status. The sourced idea had no markdown URL of its own.",
+          "sources": [],
+          "source_note": "No direct source URL in the approved priorities document (prose citation: Series/Class ID maintenance guide, Merged status).",
+          "db": "When status flips to Merged, propose a fund-lineage row linking the predecessor Class ID to a surviving Series ID if adjacent-year cache files support it, at medium confidence until a confirming filing is found.",
+          "tables": "Proposed series_class_census.status; fund_lineage"
+        }
+      ]
+    }
+  ]
+}
