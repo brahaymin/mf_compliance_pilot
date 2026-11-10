@@ -1,6 +1,6 @@
-# MF Compliance Pilot (public demo)
+# MF Feedback Pilot
 
-Static partner pilot for browsing **structured** mutual-fund sales-charge waiver, ROA, LOI, breakpoint, and waiver-limitation excerpts from public SEC EDGAR filings.
+Static MF Feedback Pilot for browsing **structured** mutual-fund sales-charge waiver, ROA, LOI, breakpoint, and waiver-limitation excerpts from public SEC EDGAR filings.
 
 ## Live site
 
