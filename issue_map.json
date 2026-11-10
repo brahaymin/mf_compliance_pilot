@@ -1,0 +1,149 @@
+{
+  "title": "Regulatory issue → structured_rules mapping",
+  "documentation": "Canonical map used by the pilot Issue view and by the proposed SQL view v_ui_issue_rules in schema/proposed_ui_views.sql. Keep those consumers in sync with this file. Only issue groups from docs/ideas-priority.md whose current structured_rules rows can support a filter are included. Groups that need fee-table parses, N-CEN, official ticker/status files, or the submissions index are omitted. A rule matches an issue if any clause in `match` is true. Within a clause, listed conditions are AND-ed. text_regex is matched case-insensitively against description, condition_text, source_snippet, and intermediary. Family display should use COALESCE(NULLIF(trim(funds.family), ''), structured_rules.fund_family) so the list stays data-driven and automatically prefers funds.family once that column is populated.",
+  "source": "docs/ideas-priority.md (approved included ideas) and docs/ideas.md batch 2026-11-10 (08:10 CT)",
+  "family_logic": "COALESCE(NULLIF(trim(funds.family), ''), structured_rules.fund_family). Identifier joins go ticker → share_classes → funds, disambiguating recycled tickers with funds.family when present, otherwise fund_name hints for the rule's fund_family.",
+  "issues": [
+    {
+      "id": "rn2107",
+      "title": "FINRA Notice 21-07 discount and waiver coverage",
+      "tier": "P1",
+      "sort_order": 1,
+      "blurb": "Firms are expected to know and apply every discount and waiver type the prospectus describes. This filter shows the family’s current structured waiver, breakpoint, ROA, LOI, and limitation language that maps to a 21-07-style inventory.",
+      "idea_ids": ["S001", "S027", "S029"],
+      "sources": [
+        {"label": "FINRA Regulatory Notice 21-07", "url": "https://www.finra.org/rules-guidance/notices/21-07"},
+        {"label": "Notice to Members 02-85", "url": "https://www.finra.org/rules-guidance/notices/02-85"},
+        {"label": "Form N-1A (PDF)", "url": "https://www.sec.gov/files/form-n-1a.pdf"}
+      ],
+      "match": [
+        {"categories": ["sales_charge_waiver", "roa", "loi", "breakpoint_schedule", "waiver_limitation"]}
+      ]
+    },
+    {
+      "id": "breakpoints",
+      "title": "Breakpoints, rights of accumulation, and letters of intent",
+      "tier": "P1",
+      "sort_order": 2,
+      "blurb": "Volume discounts, ROA, LOI, and householding language from the prospectus. This is the core of breakpoint-exam look-backs and the 2004 Form N-1A discount disclosure amendments.",
+      "idea_ids": ["S005", "S006", "S016", "S040", "S041", "S042", "S056", "S050"],
+      "sources": [
+        {"label": "2004 breakpoint disclosure amendments to Form N-1A", "url": "https://www.sec.gov/rules-regulations/2004/06/disclosure-breakpoint-discounts-mutual-funds"},
+        {"label": "FINRA breakpoints topic page", "url": "https://www.finra.org/rules-guidance/key-topics/breakpoints"},
+        {"label": "FINRA Breakpoints Frequently Asked Questions", "url": "https://www.finra.org/rules-guidance/guidance/faqs/breakpoints-frequently-asked-questions"},
+        {"label": "FINRA Regulatory Notice 21-07", "url": "https://www.finra.org/rules-guidance/notices/21-07"}
+      ],
+      "match": [
+        {"categories": ["breakpoint_schedule", "roa", "loi"]},
+        {"categories": ["sales_charge_waiver", "roa"], "text_regex": "household"}
+      ]
+    },
+    {
+      "id": "ror",
+      "title": "Rights of Reinstatement window mismatches",
+      "tier": "P1",
+      "sort_order": 3,
+      "blurb": "Prospectus reinstatement windows vary. Use this filter to see the family’s actual reinstatement language instead of assuming a single firm-wide period.",
+      "idea_ids": ["S002", "S030"],
+      "sources": [
+        {"label": "Rights of Reinstatement targeted exam letter", "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-rights-of-reinstatement"},
+        {"label": "FINRA Regulatory Notice 21-07", "url": "https://www.finra.org/rules-guidance/notices/21-07"},
+        {"label": "Notice to Members 02-85", "url": "https://www.finra.org/rules-guidance/notices/02-85"}
+      ],
+      "match": [
+        {"text_regex": "reinstat(?:e|ed|ement|ing)?|reinvestment privilege|rights? of reinstatement"}
+      ]
+    },
+    {
+      "id": "nav-exchange",
+      "title": "NAV transfers and same-day exchanges",
+      "tier": "P1",
+      "sort_order": 4,
+      "blurb": "Notice 21-07 Appendix II highlights NAV-transfer rights and same-day exchanges as common waiver types that written procedures often omit.",
+      "idea_ids": ["S003", "S017"],
+      "sources": [
+        {"label": "FINRA Regulatory Notice 21-07", "url": "https://www.finra.org/rules-guidance/notices/21-07"}
+      ],
+      "match": [
+        {"text_regex": "NAV\\s*-?\\s*transfers?|transfers? at NAV|purchases? at NAV|NAV purchases?|at net asset value|same[- ]day exchanges?|exchang(?:e|es|ed) at NAV"}
+      ]
+    },
+    {
+      "id": "intermediary",
+      "title": "Intermediary and Appendix A sales-load variations",
+      "tier": "P1",
+      "sort_order": 5,
+      "blurb": "IM Guidance 2016-06 describes intermediary-specific (Appendix A) variations. This filter keeps only rules that name an intermediary or use an intermediary waiver type.",
+      "idea_ids": ["S004", "S063"],
+      "sources": [
+        {"label": "IM Guidance Update 2016-06 (PDF)", "url": "https://www.sec.gov/investment/im-guidance-2016-06.pdf"}
+      ],
+      "match": [
+        {"require_intermediary": true},
+        {"waiver_types": ["intermediary_front_end", "intermediary_cdsc", "intermediary_discount"]}
+      ]
+    },
+    {
+      "id": "waiver-sweep",
+      "title": "Retirement, charity, and R-share waivers (2016 waiver sweep)",
+      "tier": "P1",
+      "sort_order": 6,
+      "blurb": "FINRA’s 2016 Mutual Fund Waiver Sweep asked whether eligible retirement and charitable accounts received Class A waivers, and whether R shares were offered instead.",
+      "idea_ids": ["S007", "S008", "S064"],
+      "sources": [
+        {"label": "May 2016 Mutual Fund Waiver targeted exam letter", "url": "https://www.finra.org/rules-guidance/guidance/sweep-letters-and-updates/letter-mutual-fund-waiver"}
+      ],
+      "match": [
+        {"text_regex": "retirement|401\\s*\\(\\s*k\\s*\\)|401k|403\\s*\\(\\s*b\\s*\\)|457\\b|\\bIRAs?\\b|pension|profit[- ]sharing|charit(?:y|able)|endowment|foundation|class\\s*r\\b|r-shares?|\\br shares\\b"}
+      ]
+    },
+    {
+      "id": "529",
+      "title": "529 plan waiver language",
+      "tier": "P1",
+      "sort_order": 7,
+      "blurb": "529 and college-savings waiver or aggregation language. A mismatch between a Series’ college-savings identity and this text is a missed- or wrongly-applied-waiver risk.",
+      "idea_ids": ["S065"],
+      "sources": [
+        {"label": "FINRA Regulatory Notice 21-07", "url": "https://www.finra.org/rules-guidance/notices/21-07"},
+        {"label": "FINRA Regulatory Notice 19-04", "url": "https://www.finra.org/rules-guidance/notices/19-04"}
+      ],
+      "match": [
+        {"text_regex": "\\b529\\b|college[- ]savings"}
+      ]
+    },
+    {
+      "id": "rule2341",
+      "title": "FINRA Rule 2341 sales-charge and “no-load” limits",
+      "tier": "P1",
+      "sort_order": 8,
+      "blurb": "Rule 2341 caps aggregate sales charges and restricts “no-load” claims. This filter surfaces Class A breakpoint schedules and any no-load or no-sales-charge language that should be reviewed against those limits. It is not a determination that a fund violates 2341.",
+      "idea_ids": ["S043", "S044"],
+      "sources": [
+        {"label": "FINRA Rule 2341", "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2341"}
+      ],
+      "match": [
+        {"categories": ["breakpoint_schedule"]},
+        {"text_regex": "no[- ]load|no sales charge|no-sales-charge"}
+      ]
+    }
+  ],
+  "excluded_issue_groups": [
+    {
+      "id": "n1a-crossref",
+      "reason": "Needs a local fee-table / summary-teaser parse (awaiting data)."
+    },
+    {
+      "id": "identifiers",
+      "reason": "Most ideas need official ticker, Series/Class status, or submissions-index files. Identifiers themselves are shown on every issue-view row, but this group is not a rule-text filter."
+    },
+    {
+      "id": "ncen-family",
+      "reason": "Needs Form N-CEN family names and rule 22d-1 flags (awaiting data)."
+    },
+    {
+      "id": "lineage",
+      "reason": "Needs submissions formerNames / official Merged status (awaiting data)."
+    }
+  ]
+}

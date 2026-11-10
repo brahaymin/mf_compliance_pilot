@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-asset-version="20261109-contacts">
+<html lang="en" data-asset-version="20261110-issues">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Partner pilot of mutual-fund compliance priorities and a feature guide. Public EDGAR sample only; not legal advice.">
   <title>Compliance priorities — MF Compliance Pilot</title>
-  <link rel="stylesheet" href="pilot.css?v=20261109-contacts">
-  <link rel="stylesheet" href="priorities.css?v=20261109-contacts">
+  <link rel="stylesheet" href="pilot.css?v=20261110-issues">
+  <link rel="stylesheet" href="priorities.css?v=20261110-issues">
 </head>
 <body>
   <a class="sr-only" href="#priorities">Skip to priorities</a>
-  <nav class="site-nav" aria-label="Pilot pages">
-    <a href="index.html">Rule sample</a>
+    <nav class="site-nav" aria-label="Pilot pages">
+    <a href="index.html">Issue view</a>
+    <a href="rules.html">Rule sample</a>
     <a href="priorities.html" aria-current="page">Priorities and feature guide</a>
     <a href="family-contacts.html">Family contacts</a>
   </nav>
@@ -79,7 +80,8 @@
         the complete live library.
       </p>
       <ul class="feature-list">
-        <li><strong>Search and filters.</strong> Reviewers can find a ticker, fund family, intermediary, or keyword, then narrow by category, current vs historical status, waiver type, and named intermediary. This is the start of a prospectus-first look-back: begin with the offering document, not informal knowledge.</li>
+        <li><strong>Issue view (landing page).</strong> The <a href="index.html">primary view</a> lets a reviewer pick a regulatory issue — Notice 21-07 waiver coverage, breakpoints / ROA / LOI, Rights of Reinstatement, NAV transfers, Appendix A intermediaries, the 2016 waiver sweep, 529 language, or Rule 2341 — and see only the family’s prospectus rules that map to it, ordered by the P1 / P2 / P3 tier of that issue. Each row shows the public EDGAR CIK, Series ID, Class ID, and a link to the Accession Number. A family with no current rules for a first-priority issue is flagged as a red “Coverage gap.” Use it to check whether written procedures and surveillance actually cover the discounts a family discloses, starting from the issue rather than from a ticker hunt.</li>
+        <li><strong>Search and filters.</strong> The <a href="rules.html">rule sample</a> still lets reviewers find a ticker, fund family, intermediary, or keyword, then narrow by category, current vs historical status, waiver type, and named intermediary. This is the start of a prospectus-first look-back: begin with the offering document, not informal knowledge.</li>
         <li><strong>Current vs historical badges.</strong> Every rule is marked current (green) or historical (red), with filing date, the gap since the prior version, and any later 497 amendment. That prevents someone from applying superseded waiver text to a later trade date.</li>
         <li><strong>Version timeline.</strong> Opening the chain shows how the same rule changed across filings, which supports “what language governed this date?” reviews.</li>
         <li><strong>Official filing link.</strong> Each card cites the Accession Number and a link to the public SEC filing, so a reviewer can walk from a ticker to the governing prospectus excerpt.</li>
@@ -107,9 +109,9 @@
         and related-party phrase banks, retirement and charity evidence for the
         2011–2015 waiver-sweep window, R-share vs Class A sibling checks, 529 language
         mismatches, Rule 2341 schedule quality checks, and identifier completeness —
-        can be built from tables already in the library. Several of those need Series ID
-        or the raw breakpoint tier JSON, which are in the database but not in this
-        public sample, so they are described on the cards rather than illustrated here.
+        can be built from tables already in the library. Series ID, Class ID, and CIK are now on the issue-view and rule-sample cards.
+        Some remaining checks still need raw breakpoint tier JSON or files that are not
+        in this public sample, so those are described on the cards rather than illustrated here.
       </p>
       <p>
         The thirteen “Awaiting data” ideas need something the live tables do not yet
@@ -128,6 +130,6 @@
       </p>
     </footer>
   </main>
-  <script src="priorities.js?v=20261109-contacts" defer></script>
+  <script src="priorities.js?v=20261110-issues" defer></script>
 </body>
 </html>

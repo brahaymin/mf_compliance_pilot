@@ -1,106 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" data-asset-version="20261109-contacts">
+<html lang="en" data-asset-version="20261110-issues">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pilot demo of structured mutual fund sales-charge waiver, ROA, LOI, and breakpoint rules. Static sample for partner review; not legal advice.">
-  <title>MF Compliance Structured Rules — Pilot Sample</title>
-  <link rel="stylesheet" href="pilot.css?v=20261109-contacts">
+  <meta name="description" content="Primary issue view of the mutual-fund compliance pilot: filter structured prospectus rules by regulatory issue, with EDGAR identifiers and coverage gaps. Public EDGAR sample only; not legal advice.">
+  <title>Issue view — MF Compliance Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261110-issues">
+  <link rel="stylesheet" href="issue-view.css?v=20261110-issues">
 </head>
 <body>
-  <a class="sr-only" href="#searchInput">Skip to search</a>
+  <a class="sr-only" href="#issueSelect">Skip to issue filter</a>
   <nav class="site-nav" aria-label="Pilot pages">
-    <a href="index.html" aria-current="page">Rule sample</a>
+    <a href="index.html" aria-current="page">Issue view</a>
+    <a href="rules.html">Rule sample</a>
     <a href="priorities.html">Priorities and feature guide</a>
     <a href="family-contacts.html">Family contacts</a>
   </nav>
   <main class="wrap">
     <header class="hero">
       <div class="hero-card">
-        <h1>Mutual Fund Structured Rules — Pilot Sample</h1>
+        <h1>Rules by regulatory issue</h1>
         <p>
-          Browse a static sample of structured sales-charge waiver, rights of accumulation (ROA),
-          letter of intent (LOI), breakpoint schedule, and waiver-limitation language from public SEC EDGAR filings.
-          Each rule is marked Current or Historical, with its filing date, the gap since the prior version,
-          and any later 497 amendment. Includes the full Guggenheim family (all downloaded trusts, with New Age Alpha successor filings) plus a Fidelity sample slice.
+          Pick a compliance issue, then read only the prospectus rules that map to it,
+          grouped by fund family. Each row cites its CIK, Series ID, Class ID, and
+          Accession Number. This is the primary view of the partner pilot.
+        </p>
+        <p>
+          Automated extracts from public SEC filings are unreviewed and are not legal advice.
         </p>
         <div class="badge-row" aria-hidden="true">
-          <span class="badge">Structured rules sample</span>
-          <span class="badge">Current vs historical</span>
-          <span class="badge">Public EDGAR excerpts</span>
+          <span class="badge">Partner pilot</span>
+          <span class="badge">Primary issue view</span>
+          <span class="badge">Public EDGAR identifiers</span>
           <span class="badge">Not legal advice</span>
-        </div>
-        <div class="tabs" role="tablist" aria-label="Sample dataset">
-          <button type="button" class="tab" role="tab" id="tabStructured" aria-selected="true" aria-controls="results">Structured rules</button>
-          <button type="button" class="tab" role="tab" id="tabLegacy" aria-selected="false" aria-controls="results">Legacy snippets</button>
         </div>
       </div>
     </header>
 
-    <section class="panel" aria-label="Search and filter rules">
-      <form id="searchForm" class="search-row" role="search">
+    <section class="panel" aria-label="Filter by issue and family">
+      <div>
+        <label id="issueLabel">Regulatory issue</label>
+        <div class="issue-pills" id="issuePills" role="listbox" aria-labelledby="issueLabel"></div>
+        <select id="issueSelect" class="issue-select-fallback" aria-label="Regulatory issue">
+          <option value="">Loading issues…</option>
+        </select>
+      </div>
+      <p class="issue-blurb" id="issueBlurb"></p>
+      <p class="issue-sources" id="issueSources"></p>
+      <div class="filters issue-filters">
         <div>
-          <label for="searchInput">Search by ticker, fund family, intermediary, or keyword</label>
-          <input
-            id="searchInput"
-            name="q"
-            type="search"
-            placeholder="Examples: Guggenheim, CDSC, breakpoint, GIBAX, Wells Fargo"
-            autocomplete="off"
-            spellcheck="false"
-          >
+          <label for="familyFilter">Fund family</label>
+          <select id="familyFilter">
+            <option value="">All families</option>
+          </select>
         </div>
-        <button type="submit" class="btn-primary">Search</button>
-        <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
-      </form>
-
-      <div id="structuredFilters">
-        <div class="chip-row" id="categoryChips" role="group" aria-label="Category filters"></div>
-        <div class="filters">
-          <div>
-            <label for="statusFilter">Status</label>
-            <select id="statusFilter">
-              <option value="current" selected>Current</option>
-              <option value="historical">Historical</option>
-              <option value="">All (current + historical)</option>
-            </select>
-          </div>
-          <div>
-            <label for="fundFamilyFilter">Fund family</label>
-            <select id="fundFamilyFilter">
-              <option value="">All families</option>
-            </select>
-          </div>
-          <div>
-            <label for="waiverTypeFilter">Waiver type</label>
-            <select id="waiverTypeFilter">
-              <option value="">All waiver types</option>
-            </select>
-          </div>
-          <div>
-            <label for="intermediaryFilter">Intermediary</label>
-            <select id="intermediaryFilter">
-              <option value="">All intermediaries</option>
-            </select>
-          </div>
+        <div>
+          <label for="statusFilter">Status</label>
+          <select id="statusFilter">
+            <option value="current" selected>Current</option>
+            <option value="historical">Historical</option>
+            <option value="">All (current + historical)</option>
+          </select>
+        </div>
+        <div class="issue-search">
+          <label for="searchInput">Search ticker, CIK, Series ID, or keyword</label>
+          <input id="searchInput" name="q" type="search" placeholder="Examples: ROA, 529, S000084967" autocomplete="off" spellcheck="false">
         </div>
       </div>
-
-      <div class="meta-bar" id="metaBar" aria-live="polite"></div>
-      <p class="meta-bar"><strong id="resultCount">Loading…</strong></p>
-      <div id="status" class="notice info" role="status" aria-live="polite">Loading sample rules…</div>
-      <p id="snapshotInfo" class="notice info" style="margin-top:0.75rem"></p>
+      <p class="meta-bar" id="resultCount">Loading…</p>
+      <div id="status" class="notice info" role="status">Loading issue map and rule sample…</div>
     </section>
 
-    <section id="results" class="results" aria-live="polite" aria-label="Matching rules"></section>
+    <section id="results" class="results" aria-live="polite" aria-label="Rules grouped by fund family"></section>
 
     <footer class="footer">
       <p>
-        Source data: public mutual-fund SEC filings via a structured export (<code>structured_rules_sample.json</code>).
-        Automated extracted text is unreviewed and is not legal advice. Coverage in this pilot is the full Guggenheim family (including New Age Alpha successor filings) plus a Fidelity sample slice.
+        Mapping is in <code>issue_map.json</code> (issue groups from the approved priorities list
+        that this sample can support). Identifiers are public EDGAR CIK, Series ID, and Class ID
+        values. Family names use the structured-rule family today and will prefer
+        <code>funds.family</code> when that column is populated. Not legal advice.
       </p>
     </footer>
   </main>
-  <script src="pilot.js?v=20261109-contacts" defer></script>
+  <script src="issue-view.js?v=20261110-issues" defer></script>
 </body>
 </html>

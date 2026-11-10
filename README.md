@@ -6,6 +6,8 @@ Static partner pilot for browsing **structured** mutual-fund sales-charge waiver
 
 https://brahaymin.github.io/mf_compliance_pilot/
 
+Issue view (landing page): https://brahaymin.github.io/mf_compliance_pilot/
+
 Priorities and feature guide: https://brahaymin.github.io/mf_compliance_pilot/priorities.html
 
 Family contacts: https://brahaymin.github.io/mf_compliance_pilot/family-contacts.html
@@ -14,7 +16,9 @@ Family contacts: https://brahaymin.github.io/mf_compliance_pilot/family-contacts
 
 | File | Role |
 | --- | --- |
-| `index.html` / `pilot.css` / `pilot.js` | Search UI (structured rules default; legacy snippets tab) |
+| `index.html` / `issue-view.css` / `issue-view.js` | Primary issue view: filter rules by regulatory issue, with EDGAR identifiers and coverage gaps |
+| `issue_map.json` | Documented issue → category / waiver_type / keyword mapping |
+| `rules.html` / `pilot.css` / `pilot.js` | Rule sample search UI (structured rules default; legacy snippets tab) |
 | `priorities.html` / `priorities.css` / `priorities.js` | Compliance priorities and feature guide |
 | `priorities_ideas.json` / `priorities_demo_stats.json` | Priorities list and public-sample illustrations |
 | `family-contacts.html` / `family-contacts.css` / `family-contacts.js` | Institutional fund-family contacts from prospectus filings |
