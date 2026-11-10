@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "title": "Mutual fund family contacts — Pilot sample",
+    "note": "Contact details as published in fund prospectus filings; not legal advice.",
+    "snapshot_date_america_chicago": "2026-11-09 21:34 CST",
+    "families": [
+      "Fidelity",
+      "Guggenheim",
+      "New Age Alpha Funds Trust"
+    ],
+    "entry_count": 32,
+    "selection_note": "Institutional contacts extracted from current Form 485BPOS filings already on disk for the named fund families. Each entry cites the most recent filing in which it appears. Filings older than about 16 months before a family's newest current 485BPOS, and contact values superseded in that latest wave, are omitted. Only the family's own (or named transfer agent's) phones, websites, service emails, and mailing addresses are kept. Personal names, individual emails, SSN/EIN-like numbers, counsel and registered-agent blocks, intermediary third-party addresses, and SEC/SIPC/FINRA contacts are excluded.",
+    "excluded_counts": {
+      "stale_or_superseded_filing": 61,
+      "regulator_or_sipc_contact": 998,
+      "unrelated_or_third_party_phone": 296,
+      "regulator_or_third_party_website": 385,
+      "non_shareholder_role_address": 2222,
+      "third_party_or_intermediary_address": 876,
+      "superseded_by_newer_filing": 7,
+      "counsel_registered_agent_or_personal_address": 477
+    },
+    "source": "Read-only local mf_compliance.db structured_rules joined to filings; prospectus text via filing_io.read_filing.",
+    "privacy_note": "Public institutional contact details only. No personal names or personal email addresses are included."
+  },
+  "families": [
+    {
+      "fund_family": "Fidelity",
+      "latest_current_485bpos": "2026-10-27",
+      "filings_reviewed": 46,
+      "groups": [
+        {
+          "purpose": "Shareholder services",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Automated service line",
+              "value": "1-800-544-5555",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Fund information",
+              "value": "1-800-544-3455",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Fund information",
+              "value": "1-800-544-8544",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Representative",
+              "value": "1-800-544-6666",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "website",
+              "label": "Website",
+              "value": "https://www.fidelity.com",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "address",
+              "label": "Mail (purchases)",
+              "value": "Fidelity Investments, P.O. Box 770001, Cincinnati, OH 45277-0003",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "address",
+              "label": "Mail (redemptions)",
+              "value": "Fidelity Investments, P.O. Box 770001, Cincinnati, OH 45277-0035",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "address",
+              "label": "Overnight mail",
+              "value": "Fidelity Investments, 100 Crosby Parkway, Covington, KY 41015",
+              "accession": "0000751199-26-000128",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/751199/000075119926000128/filing13342.htm"
+            }
+          ]
+        },
+        {
+          "purpose": "Retirement plans",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Corporate retirement plan accounts",
+              "value": "1-800-962-1375",
+              "accession": "0000751199-26-000128",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/751199/000075119926000128/filing13342.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Not-for-profit retirement plan accounts",
+              "value": "1-800-343-0860",
+              "accession": "0000751199-26-000128",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/751199/000075119926000128/filing13342.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Retirement specialists",
+              "value": "1-800-544-4774",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Workplace retirement information",
+              "value": "1-800-835-5092",
+              "accession": "0000751199-26-000128",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/751199/000075119926000128/filing13342.htm"
+            },
+            {
+              "type": "website",
+              "label": "Workplace retirement website",
+              "value": "https://www.401k.com",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            }
+          ]
+        },
+        {
+          "purpose": "Advisor/intermediary desk",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Intermediary / institutional representative",
+              "value": "1-877-208-0098",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "website",
+              "label": "Institutional website",
+              "value": "https://institutional.fidelity.com",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            }
+          ]
+        },
+        {
+          "purpose": "Fund offices",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Main office",
+              "value": "1-617-563-7000",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            },
+            {
+              "type": "address",
+              "label": "Principal offices",
+              "value": "245 Summer Street, Boston, MA 02210",
+              "accession": "0000795422-26-000127",
+              "filing_date": "2026-10-27",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/795422/000079542226000127/filing13319.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fund_family": "Guggenheim",
+      "latest_current_485bpos": "2026-07-29",
+      "filings_reviewed": 4,
+      "groups": [
+        {
+          "purpose": "Shareholder services",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Client services",
+              "value": "1-800-820-0888",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Express line (automated account information)",
+              "value": "1-800-717-7776",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "phone",
+              "label": "Fax",
+              "value": "1-855-671-8280",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "website",
+              "label": "Website",
+              "value": "https://www.guggenheiminvestments.com",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Mail",
+              "value": "Guggenheim Investments, P.O. Box 534493, Pittsburgh, PA 15253-4493",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Overnight mail",
+              "value": "500 Ross Street, 154-0520, Pittsburgh, PA 15262",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Overnight mail (exchanges)",
+              "value": "500 Ross Street, 254-0520, Pittsburgh, PA 15262",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            }
+          ]
+        },
+        {
+          "purpose": "Fund offices",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Main office",
+              "value": "1-301-296-5100",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Principal offices",
+              "value": "702 King Farm Boulevard, Suite 200, Rockville, MD 20850",
+              "accession": "0001193125-26-324260",
+              "filing_date": "2026-07-29",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/1092720/000119312526324260/d143843d485bpos.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fund_family": "New Age Alpha Funds Trust",
+      "latest_current_485bpos": "2026-01-28",
+      "filings_reviewed": 1,
+      "groups": [
+        {
+          "purpose": "Shareholder services",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Account assistance",
+              "value": "1-833-840-3937",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            },
+            {
+              "type": "website",
+              "label": "Website",
+              "value": "https://www.naafunds.com",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Transfer agent (overnight)",
+              "value": "225 Pictoria Drive, Suite 450, Cincinnati, OH 45246",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Transfer agent (regular mail)",
+              "value": "Ultimus Fund Solutions, LLC, P.O. Box 46707, Cincinnati, OH 45246-0707",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            }
+          ]
+        },
+        {
+          "purpose": "Fund offices",
+          "entries": [
+            {
+              "type": "phone",
+              "label": "Main office",
+              "value": "1-212-922-2699",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            },
+            {
+              "type": "address",
+              "label": "Principal offices",
+              "value": "555 Theodore Fremd Avenue, Suite A-101, Rye, NY 10580",
+              "accession": "0001580642-26-000493",
+              "filing_date": "2026-01-28",
+              "form_type": "485BPOS",
+              "edgar_url": "https://www.sec.gov/Archives/edgar/data/2013853/000158064226000493/newagealpha_485bpos.htm"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

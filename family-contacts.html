@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-asset-version="20261109-contacts">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Institutional fund-family contact details from public prospectus filings. Partner pilot; not legal advice.">
+  <title>Family contacts — MF Compliance Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261109-contacts">
+  <link rel="stylesheet" href="family-contacts.css?v=20261109-contacts">
+</head>
+<body>
+  <a class="sr-only" href="#family-contacts">Skip to family contacts</a>
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a href="index.html">Rule sample</a>
+    <a href="priorities.html">Priorities and feature guide</a>
+    <a href="family-contacts.html" aria-current="page">Family contacts</a>
+  </nav>
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <h1>Family contacts</h1>
+        <p>
+          Institutional shareholder-services, retirement, intermediary, and fund-office
+          contacts for the families in this pilot sample, taken from each family’s
+          recent Form 485BPOS prospectus filings.
+        </p>
+        <p>
+          Contact details as published in fund prospectus filings; not legal advice.
+        </p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Partner pilot</span>
+          <span class="badge">Prospectus filings</span>
+          <span class="badge">Institutional contacts only</span>
+          <span class="badge">Not legal advice</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="page-jump" id="family-jump" aria-label="Fund families"></nav>
+
+    <section class="panel" aria-label="How to read this page">
+      <p style="margin:0">
+        One compact card per fund family. Numbers, websites, and mailing addresses
+        are grouped by purpose. Each entry links to the most recent current prospectus
+        in which it appears. Personal names and personal email addresses are not included.
+        Rule cards on the <a href="index.html">rule sample</a> link here by family.
+      </p>
+    </section>
+
+    <section id="family-contacts" class="results" aria-live="polite" aria-label="Family contact cards"></section>
+    <p id="status" class="notice info" role="status">Loading family contacts…</p>
+
+    <footer class="footer">
+      <p>
+        Contact details as published in fund prospectus filings; not legal advice.
+        Source: current Form 485BPOS filings already on disk, exported to
+        <code>family_contacts.json</code>. Automated extracts are unreviewed.
+      </p>
+    </footer>
+  </main>
+  <script src="family-contacts.js?v=20261109-contacts" defer></script>
+</body>
+</html>

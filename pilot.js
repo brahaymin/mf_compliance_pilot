@@ -64,6 +64,10 @@
     node.textContent = value == null ? "" : String(value);
   }
 
+  function familySlug(name) {
+    return String(name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
   function safeSecUrl(url) {
     if (!url || typeof url !== "string") return null;
     var trimmed = url.trim();
@@ -551,8 +555,10 @@
       top.appendChild(src);
     }
     if (rule.fund_family) {
-      var fam = document.createElement("span");
+      var fam = document.createElement("a");
       fam.className = "chip";
+      fam.href = "family-contacts.html#" + familySlug(rule.fund_family);
+      fam.title = "Family contacts for " + rule.fund_family;
       text(fam, rule.fund_family);
       top.appendChild(fam);
     }

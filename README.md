@@ -8,6 +8,8 @@ https://brahaymin.github.io/mf_compliance_pilot/
 
 Priorities and feature guide: https://brahaymin.github.io/mf_compliance_pilot/priorities.html
 
+Family contacts: https://brahaymin.github.io/mf_compliance_pilot/family-contacts.html
+
 ## What’s included
 
 | File | Role |
@@ -15,6 +17,8 @@ Priorities and feature guide: https://brahaymin.github.io/mf_compliance_pilot/pr
 | `index.html` / `pilot.css` / `pilot.js` | Search UI (structured rules default; legacy snippets tab) |
 | `priorities.html` / `priorities.css` / `priorities.js` | Compliance priorities and feature guide |
 | `priorities_ideas.json` / `priorities_demo_stats.json` | Priorities list and public-sample illustrations |
+| `family-contacts.html` / `family-contacts.css` / `family-contacts.js` | Institutional fund-family contacts from prospectus filings |
+| `family_contacts.json` | One compact contact card per sample family (shareholder services, retirement, intermediary, fund offices) |
 | `structured_rules_sample.json` | Privacy-screened Guggenheim structured sample (deduped by logical rule; tickers merged), with Current/Historical status, filing dates, days since prior filing, supersession/amendment links and version timelines |
 | `sample_rules.json` | Legacy regex-snippet sample (secondary tab) |
 | `.nojekyll` | Serve files as plain static assets |

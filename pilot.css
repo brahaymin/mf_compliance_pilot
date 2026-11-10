@@ -249,3 +249,9 @@ button {
   color: var(--ink);
   border-bottom-color: var(--accent);
 }
+
+a.chip {
+  text-decoration: none;
+  color: inherit;
+}
+a.chip:hover { text-decoration: underline; color: var(--brand); }
