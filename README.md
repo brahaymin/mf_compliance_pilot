@@ -6,7 +6,7 @@ Static partner pilot for browsing **structured** mutual-fund sales-charge waiver
 
 https://brahaymin.github.io/mf_compliance_pilot/
 
-Issue view (landing page): https://brahaymin.github.io/mf_compliance_pilot/
+Rules (landing page): https://brahaymin.github.io/mf_compliance_pilot/
 
 Priorities and feature guide: https://brahaymin.github.io/mf_compliance_pilot/priorities.html
 
@@ -16,9 +16,9 @@ Family contacts: https://brahaymin.github.io/mf_compliance_pilot/family-contacts
 
 | File | Role |
 | --- | --- |
-| `index.html` / `issue-view.css` / `issue-view.js` | Primary issue view: filter rules by regulatory issue, with EDGAR identifiers and coverage gaps |
+| `index.html` / `pilot.css` / `pilot.js` | Unified rule browser (landing page): search and filter structured rules by issue, family, category, status, and keyword, with version timelines, EDGAR identifiers, and coverage gaps |
 | `issue_map.json` | Documented issue → category / waiver_type / keyword mapping |
-| `rules.html` / `pilot.css` / `pilot.js` | Rule sample search UI (structured rules default; legacy snippets tab) |
+| `rules.html` | Redirects to `index.html`, preserving the query string (for example `?issue=…`) |
 | `priorities.html` / `priorities.css` / `priorities.js` | Compliance priorities and feature guide |
 | `priorities_ideas.json` / `priorities_demo_stats.json` | Priorities list and public-sample illustrations |
 | `family-contacts.html` / `family-contacts.css` / `family-contacts.js` | Institutional fund-family contacts from prospectus filings |
@@ -29,7 +29,7 @@ Family contacts: https://brahaymin.github.io/mf_compliance_pilot/family-contacts
 
 ## Current vs historical
 
-Every rule card shows a solid green **CURRENT** or red **HISTORICAL** badge. Open `?status=historical` or `?status=all` to change the default filter. Assets are cache-busted with `?v=` (see `data-asset-version` in `index.html`).
+Every rule card shows a solid green **CURRENT** or red **HISTORICAL** badge. Open `?status=historical` or `?status=all` to change the default filter. Open `?issue=breakpoints` (or another issue id from `issue_map.json`) to start with that regulatory issue selected. Assets are cache-busted with `?v=` (see `data-asset-version` in `index.html`).
 
 Rules from each ticker's latest 485BPOS are Current; earlier versions are Historical. A later 497 that changes the wording supersedes the 485BPOS version (shown as "Amended by" / "Superseded by"). The Status filter defaults to Current.
 

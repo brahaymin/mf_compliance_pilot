@@ -1,6 +1,6 @@
 {
   "title": "Regulatory issue → structured_rules mapping",
-  "documentation": "Canonical map used by the pilot Issue view and by the proposed SQL view v_ui_issue_rules in schema/proposed_ui_views.sql. Keep those consumers in sync with this file. Only issue groups from docs/ideas-priority.md whose current structured_rules rows can support a filter are included. Groups that need fee-table parses, N-CEN, official ticker/status files, or the submissions index are omitted. A rule matches an issue if any clause in `match` is true. Within a clause, listed conditions are AND-ed. text_regex is matched case-insensitively against description, condition_text, source_snippet, and intermediary. Family display should use COALESCE(NULLIF(trim(funds.family), ''), structured_rules.fund_family) so the list stays data-driven and automatically prefers funds.family once that column is populated.",
+  "documentation": "Canonical map used by the pilot Rules browser and by the proposed SQL view v_ui_issue_rules in schema/proposed_ui_views.sql. Keep those consumers in sync with this file. Only issue groups from docs/ideas-priority.md whose current structured_rules rows can support a filter are included. Groups that need fee-table parses, N-CEN, official ticker/status files, or the submissions index are omitted. A rule matches an issue if any clause in `match` is true. Within a clause, listed conditions are AND-ed. text_regex is matched case-insensitively against description, condition_text, source_snippet, and intermediary. Family display should use COALESCE(NULLIF(trim(funds.family), ''), structured_rules.fund_family) so the list stays data-driven and automatically prefers funds.family once that column is populated.",
   "source": "docs/ideas-priority.md (approved included ideas) and docs/ideas.md batch 2026-11-10 (08:10 CT)",
   "family_logic": "COALESCE(NULLIF(trim(funds.family), ''), structured_rules.fund_family). Identifier joins go ticker → share_classes → funds, disambiguating recycled tickers with funds.family when present, otherwise fund_name hints for the rule's fund_family.",
   "issues": [
@@ -135,7 +135,7 @@
     },
     {
       "id": "identifiers",
-      "reason": "Most ideas need official ticker, Series/Class status, or submissions-index files. Identifiers themselves are shown on every issue-view row, but this group is not a rule-text filter."
+      "reason": "Most ideas need official ticker, Series/Class status, or submissions-index files. Identifiers themselves are shown on every rule card, but this group is not a rule-text filter."
     },
     {
       "id": "ncen-family",

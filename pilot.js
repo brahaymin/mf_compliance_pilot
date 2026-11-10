@@ -3,6 +3,7 @@
 
   var ASSET_VERSION = (document.documentElement.getAttribute("data-asset-version") || "1").replace(/[^\w.-]/g, "");
   var STRUCTURED_URL = "structured_rules_sample.json?v=" + ASSET_VERSION;
+  var ISSUE_MAP_URL = "issue_map.json?v=" + ASSET_VERSION;
   var LEGACY_URL = "sample_rules.json?v=" + ASSET_VERSION;
   var SEC_URL_RE = /^https:\/\/(?:www\.)?sec\.gov\//i;
 
@@ -32,6 +33,10 @@
     fundFamily: "",
     waiverType: "",
     intermediary: "",
+    issueId: "",
+    issues: [],
+    matchIndex: {},
+    openTimelines: false,
   };
 
   var els = {
@@ -51,6 +56,11 @@
     intermediaryFilter: document.getElementById("intermediaryFilter"),
     tabStructured: document.getElementById("tabStructured"),
     tabLegacy: document.getElementById("tabLegacy"),
+    issuePills: document.getElementById("issuePills"),
+    issueSelect: document.getElementById("issueSelect"),
+    issueBlurb: document.getElementById("issueBlurb"),
+    issueSources: document.getElementById("issueSources"),
+    issueContext: document.getElementById("issueContext"),
   };
 
   function setStatus(kind, message) {
@@ -132,6 +142,198 @@
     return WAIVER_TYPE_LABELS[wt] || wt || "";
   }
 
+  function companyUrl(id) {
+    if (!id || !/^[A-Z0-9]{6,10}$/i.test(String(id))) return null;
+    return "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + encodeURIComponent(id) + "&owner=include&count=40";
+  }
+
+  function ruleIssueText(r) {
+    return [r.description, r.condition_text, r.source_snippet, r.intermediary].map(function (x) { return x || ""; }).join(" ");
+  }
+
+  function matchesClause(rule, clause) {
+    if (clause.categories && clause.categories.indexOf(rule.category) === -1) return false;
+    if (clause.waiver_types && clause.waiver_types.indexOf(rule.waiver_type) === -1) return false;
+    if (clause.require_intermediary && !String(rule.intermediary || "").trim()) return false;
+    if (clause.text_regex && !new RegExp(clause.text_regex, "i").test(ruleIssueText(rule))) return false;
+    return true;
+  }
+
+  function matchesIssue(rule, issue) {
+    var clauses = (issue && issue.match) || [];
+    for (var i = 0; i < clauses.length; i++) {
+      if (matchesClause(rule, clauses[i])) return true;
+    }
+    return false;
+  }
+
+  function currentIssue() {
+    for (var i = 0; i < state.issues.length; i++) {
+      if (state.issues[i].id === state.issueId) return state.issues[i];
+    }
+    return null;
+  }
+
+  function buildMatchIndex() {
+    state.matchIndex = {};
+    state.issues.forEach(function (issue) {
+      state.matchIndex[issue.id] = state.structured.rules.filter(function (r) { return matchesIssue(r, issue); });
+    });
+  }
+
+  function allFamilies() {
+    var seen = {};
+    var out = [];
+    state.structured.rules.forEach(function (r) {
+      var f = r.fund_family;
+      if (f && !seen[f]) {
+        seen[f] = true;
+        out.push(f);
+      }
+    });
+    out.sort();
+    return out;
+  }
+
+  function coverageGapFamilies(issue) {
+    if (!issue || issue.tier !== "P1") return [];
+    if (state.status !== "current") return [];
+    if (normalize(state.query)) return [];
+    if (state.mode !== "structured") return [];
+    var families = state.fundFamily ? [state.fundFamily] : allFamilies();
+    var matched = state.matchIndex[issue.id] || [];
+    return families.filter(function (fam) {
+      return !matched.some(function (r) { return r.status === "current" && r.fund_family === fam; });
+    });
+  }
+
+  function renderIssuePicker() {
+    if (!els.issuePills && !els.issueSelect) return;
+    var issue = currentIssue();
+    if (els.issuePills) {
+      els.issuePills.innerHTML = "";
+      var allBtn = document.createElement("button");
+      allBtn.type = "button";
+      allBtn.className = "issue-pill";
+      allBtn.setAttribute("role", "option");
+      allBtn.setAttribute("aria-selected", state.issueId ? "false" : "true");
+      text(allBtn, "All issues");
+      allBtn.addEventListener("click", function () { selectIssue(""); });
+      els.issuePills.appendChild(allBtn);
+      state.issues.forEach(function (item) {
+        var pill = document.createElement("button");
+        pill.type = "button";
+        pill.className = "issue-pill";
+        pill.setAttribute("role", "option");
+        pill.setAttribute("aria-selected", item.id === state.issueId ? "true" : "false");
+        var tier = document.createElement("span");
+        tier.className = "tier";
+        text(tier, item.tier);
+        pill.appendChild(tier);
+        pill.appendChild(document.createTextNode(item.title));
+        pill.addEventListener("click", function () { selectIssue(item.id); });
+        els.issuePills.appendChild(pill);
+      });
+    }
+    if (els.issueSelect) {
+      els.issueSelect.innerHTML = "";
+      var optAll = document.createElement("option");
+      optAll.value = "";
+      text(optAll, "All issues");
+      els.issueSelect.appendChild(optAll);
+      state.issues.forEach(function (item) {
+        var opt = document.createElement("option");
+        opt.value = item.id;
+        text(opt, item.tier + " — " + item.title);
+        els.issueSelect.appendChild(opt);
+      });
+      els.issueSelect.value = state.issueId;
+    }
+    if (els.issueBlurb) text(els.issueBlurb, issue ? issue.blurb : "");
+    if (els.issueSources) {
+      els.issueSources.innerHTML = "";
+      if (issue && issue.sources) {
+        issue.sources.forEach(function (src) {
+          if (!src.url || !/^https:\/\//.test(src.url)) return;
+          var a = document.createElement("a");
+          a.href = src.url;
+          a.rel = "noopener noreferrer";
+          a.target = "_blank";
+          text(a, src.label || src.url);
+          els.issueSources.appendChild(a);
+        });
+      }
+    }
+    if (els.issueContext) els.issueContext.hidden = !issue;
+  }
+
+  function selectIssue(id) {
+    state.issueId = id || "";
+    renderIssuePicker();
+    render();
+  }
+
+  function idLink(value, label) {
+    var wrap = document.createElement("div");
+    var dt = document.createElement("dt");
+    text(dt, label);
+    var dd = document.createElement("dd");
+    var href = companyUrl(value);
+    if (href) {
+      var a = document.createElement("a");
+      a.href = href;
+      a.rel = "noopener noreferrer";
+      a.target = "_blank";
+      text(a, value);
+      dd.appendChild(a);
+    } else {
+      text(dd, value || "—");
+    }
+    wrap.appendChild(dt);
+    wrap.appendChild(dd);
+    return wrap;
+  }
+
+  function renderIdList(values, label, limit) {
+    var frag = document.createDocumentFragment();
+    var list = values || [];
+    var shown = list.slice(0, limit || 4);
+    shown.forEach(function (v) { frag.appendChild(idLink(v, label)); });
+    if (list.length > shown.length) {
+      var more = document.createElement("div");
+      var dt = document.createElement("dt");
+      text(dt, "");
+      var dd = document.createElement("dd");
+      dd.className = "more-ids";
+      text(dd, "+" + (list.length - shown.length) + " more " + label.toLowerCase() + (list.length - shown.length === 1 ? "" : "s"));
+      more.appendChild(dt);
+      more.appendChild(dd);
+      frag.appendChild(more);
+    }
+    if (!list.length) {
+      frag.appendChild(idLink("", label));
+    }
+    return frag;
+  }
+
+  function renderGap(family, issue) {
+    var card = document.createElement("article");
+    card.className = "card gap-card";
+    var badge = document.createElement("div");
+    badge.className = "gap-badge";
+    text(badge, "Coverage gap");
+    card.appendChild(badge);
+    var h = document.createElement("h2");
+    h.className = "card-title";
+    text(h, family);
+    card.appendChild(h);
+    var p = document.createElement("p");
+    p.className = "desc";
+    text(p, "No current rules in this sample map to “" + issue.title + "” for this family. That is a coverage gap for a first-priority issue.");
+    card.appendChild(p);
+    return card;
+  }
+
   function matchesStructured(rule, q) {
     if (!q) return true;
     var hay = [
@@ -149,6 +351,9 @@
       rule.status,
       categoryLabel(rule.category),
       (rule.tickers || []).join(" "),
+      (rule.ciks || []).join(" "),
+      (rule.series_ids || []).join(" "),
+      (rule.class_ids || []).join(" "),
     ]
       .map(normalize)
       .join("\n");
@@ -179,6 +384,14 @@
       if (state.fundFamily && (rule.fund_family || "") !== state.fundFamily) return false;
       if (state.waiverType && (rule.waiver_type || "") !== state.waiverType) return false;
       if (state.intermediary && (rule.intermediary || "") !== state.intermediary) return false;
+      if (state.issueId) {
+        var issueRules = state.matchIndex[state.issueId];
+        if (issueRules) {
+          if (issueRules.indexOf(rule) === -1) return false;
+        } else if (!matchesIssue(rule, currentIssue())) {
+          return false;
+        }
+      }
       return matchesStructured(rule, q);
     });
   }
@@ -434,6 +647,7 @@
     var chain = state.structured.chains[rule.chain_id];
     if (chain && chain.length > 1) {
       var det = document.createElement("details");
+      if (state.openTimelines) det.setAttribute("open", "");
       var sum = document.createElement("summary");
       text(sum, "Version timeline (" + chain.length + " filings)");
       det.appendChild(sum);
@@ -576,6 +790,13 @@
     appendHighlighted(title, rule.description || categoryLabel(rule.category), q);
     card.appendChild(title);
 
+    var ids = document.createElement("dl");
+    ids.className = "ids";
+    ids.appendChild(renderIdList(rule.ciks, "CIK", 3));
+    ids.appendChild(renderIdList(rule.series_ids, "Series ID", 3));
+    ids.appendChild(renderIdList(rule.class_ids, "Class ID", 3));
+    card.appendChild(ids);
+
     if (rule.intermediary) {
       var inter = document.createElement("p");
       inter.className = "desc";
@@ -613,7 +834,18 @@
     foot.className = "card-foot";
     if (rule.accession) {
       var acc = document.createElement("span");
-      text(acc, (rule.form_type || "Filing") + " · accession " + rule.accession);
+      var accHref = safeSecUrl(rule.edgar_url);
+      acc.appendChild(document.createTextNode((rule.form_type || "Filing") + " · accession "));
+      if (accHref) {
+        var accLink = document.createElement("a");
+        accLink.href = accHref;
+        accLink.target = "_blank";
+        accLink.rel = "noopener noreferrer";
+        text(accLink, rule.accession);
+        acc.appendChild(accLink);
+      } else {
+        acc.appendChild(document.createTextNode(rule.accession));
+      }
       foot.appendChild(acc);
     }
     var href = safeSecUrl(rule.edgar_url);
@@ -626,6 +858,26 @@
       foot.appendChild(link);
     }
     card.appendChild(foot);
+    var issue = currentIssue();
+    if (issue && issue.sources && issue.sources.length) {
+      var srcLine = document.createElement("p");
+      srcLine.className = "issue-source-line";
+      srcLine.appendChild(document.createTextNode("Issue source: "));
+      issue.sources.slice(0, 2).forEach(function (src, i) {
+        if (i) srcLine.appendChild(document.createTextNode(" · "));
+        if (src.url && /^https:\/\//.test(src.url)) {
+          var sa = document.createElement("a");
+          sa.href = src.url;
+          sa.rel = "noopener noreferrer";
+          sa.target = "_blank";
+          text(sa, src.label || src.url);
+          srcLine.appendChild(sa);
+        } else {
+          srcLine.appendChild(document.createTextNode(src.label || ""));
+        }
+      });
+      card.appendChild(srcLine);
+    }
     return card;
   }
 
@@ -697,19 +949,41 @@
       state.mode === "structured"
         ? state.structured.rules.length
         : state.legacy.rules.length;
-    text(els.count, matched.length + " of " + total + " sample " + (state.mode === "structured" ? "entries" : "rules"));
+    var issue = state.mode === "structured" ? currentIssue() : null;
+    var gaps = issue ? coverageGapFamilies(issue) : [];
+    var countLabel = matched.length + " of " + total + " sample " + (state.mode === "structured" ? "entries" : "rules");
+    if (issue) countLabel += " · " + issue.tier + " · " + issue.title;
+    if (gaps.length) countLabel += " · " + gaps.length + " coverage gap" + (gaps.length === 1 ? "" : "s");
+    text(els.count, countLabel);
     els.results.innerHTML = "";
 
+    if (gaps.length) {
+      var sum = document.createElement("p");
+      sum.className = "notice error coverage-summary";
+      text(sum, gaps.length + " coverage gap" + (gaps.length === 1 ? "" : "s") + " for this first-priority issue (no current rules in the sample).");
+      els.results.appendChild(sum);
+      gaps.forEach(function (fam) {
+        els.results.appendChild(renderGap(fam, issue));
+      });
+    } else if (issue && issue.tier === "P1" && state.status === "current" && !q) {
+      var ok = document.createElement("p");
+      ok.className = "notice info coverage-summary";
+      text(ok, "Every family in this view has at least one current rule for this first-priority issue.");
+      els.results.appendChild(ok);
+    }
+
     if (!matched.length) {
-      var empty = document.createElement("div");
-      empty.className = "empty panel";
-      text(
-        empty,
-        q || state.category || state.fundFamily || state.waiverType || state.intermediary || state.status
-          ? "No rules matched the current search/filters. Try another ticker, category, or keyword."
-          : "No rules available in this sample."
-      );
-      els.results.appendChild(empty);
+      if (!gaps.length) {
+        var empty = document.createElement("div");
+        empty.className = "empty panel";
+        text(
+          empty,
+          q || state.category || state.fundFamily || state.waiverType || state.intermediary || state.status || state.issueId
+            ? "No rules matched the current search/filters. Try another ticker, category, issue, or keyword."
+            : "No rules available in this sample."
+        );
+        els.results.appendChild(empty);
+      }
       return;
     }
 
@@ -793,10 +1067,12 @@
     state.fundFamily = "";
     state.waiverType = "";
     state.intermediary = "";
+    state.issueId = "";
     if (els.fundFamilyFilter) els.fundFamilyFilter.value = "";
     if (els.waiverTypeFilter) els.waiverTypeFilter.value = "";
     if (els.intermediaryFilter) els.intermediaryFilter.value = "";
     fillFilterOptions();
+    renderIssuePicker();
     els.search.focus();
     render();
   }
@@ -821,14 +1097,36 @@
       });
     }
     try {
-      var qs = new URLSearchParams(window.location.search).get("status");
+      var params = new URLSearchParams(window.location.search);
+      var qs = params.get("status");
       if (qs === "current" || qs === "historical" || qs === "all") state.status = qs === "all" ? "" : qs;
+      var qIssue = params.get("issue");
+      if (qIssue && qIssue !== "all") state.issueId = qIssue;
+      var qFam = params.get("family");
+      if (qFam) state.fundFamily = qFam;
+      var qText = params.get("q");
+      if (qText && els.search) {
+        state.query = qText;
+        els.search.value = qText;
+      }
+      var qCat = params.get("category");
+      if (qCat) state.category = qCat;
+      var qWaiver = params.get("waiver");
+      if (qWaiver) state.waiverType = qWaiver;
+      var qInter = params.get("intermediary");
+      if (qInter) state.intermediary = qInter;
+      if (params.get("timeline") === "open") state.openTimelines = true;
     } catch (e) { /* ignore */ }
     if (els.statusFilter) {
       els.statusFilter.value = state.status;
       els.statusFilter.addEventListener("change", function () {
         state.status = els.statusFilter.value || "";
         render();
+      });
+    }
+    if (els.issueSelect) {
+      els.issueSelect.addEventListener("change", function () {
+        selectIssue(els.issueSelect.value || "");
       });
     }
     if (els.waiverTypeFilter) {
@@ -847,12 +1145,22 @@
     if (els.tabLegacy) els.tabLegacy.addEventListener("click", function () { setMode("legacy"); });
 
     setStatus("info", "Loading structured sample…");
-    fetch(STRUCTURED_URL, { cache: "no-store" })
-      .then(function (res) {
+    Promise.all([
+      fetch(STRUCTURED_URL, { cache: "no-store" }).then(function (res) {
         if (!res.ok) throw new Error("Could not load " + STRUCTURED_URL + " (" + res.status + ").");
         return res.json();
-      })
-      .then(function (data) {
+      }),
+      fetch(ISSUE_MAP_URL, { cache: "no-store" }).then(function (res) {
+        if (!res.ok) throw new Error("Could not load " + ISSUE_MAP_URL + " (" + res.status + ").");
+        return res.json();
+      }).catch(function (err) {
+        console.warn(err);
+        return null;
+      }),
+    ])
+      .then(function (pair) {
+        var data = pair[0];
+        var map = pair[1];
         if (!data || !Array.isArray(data.rules)) throw new Error("Structured sample missing rules array.");
         if (data.meta && data.meta.schema && data.meta.schema !== "structured_rules_v2") {
           console.warn("Unexpected schema", data.meta.schema);
@@ -861,7 +1169,25 @@
         state.structured.rules = data.rules || [];
         state.structured.filings = data.filings && typeof data.filings === "object" ? data.filings : {};
         state.structured.chains = data.chains && typeof data.chains === "object" ? data.chains : {};
+        if (map && Array.isArray(map.issues)) {
+          var tierRank = { P1: 1, P2: 2, P3: 3 };
+          state.issues = map.issues.slice().sort(function (a, b) {
+            return (tierRank[a.tier] || 9) - (tierRank[b.tier] || 9) || (a.sort_order || 0) - (b.sort_order || 0);
+          });
+        }
+        if (state.issueId && !state.issues.some(function (issue) { return issue.id === state.issueId; })) {
+          state.issueId = "";
+        }
+        buildMatchIndex();
         fillFilterOptions();
+        if (els.fundFamilyFilter && state.fundFamily) els.fundFamilyFilter.value = state.fundFamily;
+        if (els.fundFamilyFilter && state.fundFamily && els.fundFamilyFilter.value !== state.fundFamily) {
+          state.fundFamily = "";
+          els.fundFamilyFilter.value = "";
+        }
+        if (els.waiverTypeFilter && state.waiverType) els.waiverTypeFilter.value = state.waiverType;
+        if (els.intermediaryFilter && state.intermediary) els.intermediaryFilter.value = state.intermediary;
+        renderIssuePicker();
         setMode("structured");
       })
       .catch(function (err) {
