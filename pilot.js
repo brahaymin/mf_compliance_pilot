@@ -456,7 +456,7 @@
         if (st === "current") li.className = "v-current";
         if (acc === rule.accession) li.className = (li.className ? li.className + " " : "") + "this-version";
         if (f && f.filing_date) {
-          li.appendChild(secLink(f.edgar_url, f.filing_date + " · " + (f.form_type || "filing")));
+          li.appendChild(secLink(f.edgar_url, f.filing_date + " · " + (f.form_type || "filing") + " · " + acc));
         } else {
           li.appendChild(document.createTextNode("Filing details not in sample (" + acc + ")"));
         }

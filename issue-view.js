@@ -16,12 +16,15 @@
   var state = {
     issues: [],
     rules: [],
+    filings: {},
+    chains: {},
     families: [],
     issueId: "",
     family: "",
     status: "current",
     query: "",
-    matchIndex: {}
+    matchIndex: {},
+    openTimelines: false
   };
 
   var els = {
@@ -58,6 +61,114 @@
     } catch (e) {
       return null;
     }
+  }
+
+  function filingInfo(accession) {
+    var f = state.filings[accession];
+    return f || null;
+  }
+
+  function secLink(url, label) {
+    var href = safeSecUrl(url);
+    if (!href) return document.createTextNode(label);
+    var a = document.createElement("a");
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    text(a, label);
+    return a;
+  }
+
+  function refLine(prefix, ref) {
+    var p = document.createElement("p");
+    var k = document.createElement("span");
+    k.className = "chain-key";
+    text(k, prefix + " ");
+    p.appendChild(k);
+    var f = filingInfo(ref.accession);
+    var label = (ref.form_type || "") + " filed " + (ref.filing_date || "?");
+    p.appendChild(secLink(f && f.edgar_url, label));
+    p.appendChild(document.createTextNode(" (" + ref.accession + ")"));
+    return p;
+  }
+
+  function renderChain(rule) {
+    var box = document.createElement("div");
+    box.className = "chain";
+    box.setAttribute("aria-label", "Version history");
+    var eff = document.createElement("p");
+    var k = document.createElement("span");
+    k.className = "chain-key";
+    text(k, "Effective: ");
+    eff.appendChild(k);
+    eff.appendChild(
+      document.createTextNode(
+        (rule.effective_from || rule.filing_date || "unknown") +
+          " → " +
+          (rule.effective_to ? rule.effective_to : rule.status === "current" ? "present" : "unknown")
+      )
+    );
+    box.appendChild(eff);
+    if (rule.days_since_prior != null && rule.prior_filing_date) {
+      var d = document.createElement("p");
+      text(
+        d,
+        rule.days_since_prior + " days after prior filing (" + rule.prior_filing_date + ") of this rule"
+      );
+      box.appendChild(d);
+    }
+    if (rule.superseded_by) box.appendChild(refLine("Superseded by", rule.superseded_by));
+    if (rule.amended_by) box.appendChild(refLine("Amended by", rule.amended_by));
+    if (rule.amendment_note) {
+      var n = document.createElement("p");
+      text(n, rule.amendment_note);
+      box.appendChild(n);
+    }
+    if (rule.chain_varies_by_ticker) {
+      var v = document.createElement("p");
+      text(v, "Version details shown for " + (rule.chain_shown_for || "first ticker") + "; other tickers may differ.");
+      box.appendChild(v);
+    }
+    var chain = state.chains[rule.chain_id];
+    if (chain && chain.length > 1) {
+      var det = document.createElement("details");
+      if (state.openTimelines) det.setAttribute("open", "");
+      var sum = document.createElement("summary");
+      text(sum, "Version timeline (" + chain.length + " filings)");
+      det.appendChild(sum);
+      var ol = document.createElement("ol");
+      ol.className = "timeline";
+      var sorted = chain.slice().sort(function (a, b) {
+        var fa = filingInfo(a[0]) || {};
+        var fb = filingInfo(b[0]) || {};
+        var da = fa.filing_date || "";
+        var db = fb.filing_date || "";
+        if (da !== db) return da < db ? -1 : 1;
+        return String(a[0]).localeCompare(String(b[0]));
+      });
+      sorted.forEach(function (item) {
+        var acc = item[0];
+        var st = item[1];
+        var f = filingInfo(acc);
+        var li = document.createElement("li");
+        if (st === "current") li.className = "v-current";
+        if (acc === rule.accession) li.className = (li.className ? li.className + " " : "") + "this-version";
+        if (f && f.filing_date) {
+          li.appendChild(secLink(f.edgar_url, f.filing_date + " · " + (f.form_type || "filing") + " · " + acc));
+        } else {
+          li.appendChild(document.createTextNode("Filing details not in sample (" + acc + ")"));
+        }
+        li.appendChild(
+          document.createTextNode(
+            " — " + (st === "current" ? "Current" : "Historical") + (acc === rule.accession ? " (this version)" : "")
+          )
+        );
+        ol.appendChild(li);
+      });
+      det.appendChild(ol);
+      box.appendChild(det);
+    }
+    return box;
   }
 
   function companyUrl(id) {
@@ -228,6 +339,8 @@
     ids.appendChild(renderIdList(rule.series_ids, "Series ID", 3));
     ids.appendChild(renderIdList(rule.class_ids, "Class ID", 3));
     card.appendChild(ids);
+
+    card.appendChild(renderChain(rule));
 
     var foot = document.createElement("div");
     foot.className = "card-foot";
@@ -436,6 +549,8 @@
       return (tierRank[a.tier] || 9) - (tierRank[b.tier] || 9) || (a.sort_order || 0) - (b.sort_order || 0);
     });
     state.rules = data.rules || [];
+    state.filings = data.filings || {};
+    state.chains = data.chains || {};
     state.issueId = (state.issues[0] && state.issues[0].id) || "";
     try {
       var params = new URLSearchParams(location.search);
@@ -450,6 +565,7 @@
         state.query = qText;
         if (els.search) els.search.value = qText;
       }
+      if (params.get("timeline") === "open") state.openTimelines = true;
     } catch (e) {}
     buildMatchIndex();
     populateFamilies();
