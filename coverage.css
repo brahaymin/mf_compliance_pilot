@@ -1,0 +1,7 @@
+.coverage-table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+.coverage-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.coverage-table th, .coverage-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.12); vertical-align: top; }
+.coverage-table th { font-weight: 600; }
+.coverage-table td.num, .coverage-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.coverage-card { margin-bottom: 1.75rem; }
+.coverage-meta { margin: 0 0 0.75rem; color: inherit; opacity: 0.85; }

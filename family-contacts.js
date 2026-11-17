@@ -98,18 +98,18 @@
     wrap.className = "contact-value";
     var val = entry.value || "";
     var href = null;
-    if (entry.type === "phone") href = telHref(val);
-    else if (entry.type === "website") href = safeSiteUrl(val);
-    else if (entry.type === "email") href = null; // only render if we ever add institutional inboxes; no mailto for now unless family domain
+    // Individual phones, e-mails, and mailing addresses are not published.
+    // Only allowlisted institutional websites may carry a value.
+    if (entry.type === "website") href = safeSiteUrl(val);
     if (href) {
       var a = document.createElement("a");
       a.href = href;
-      if (entry.type === "website") {
-        a.rel = "noopener noreferrer";
-        a.target = "_blank";
-      }
+      a.rel = "noopener noreferrer";
+      a.target = "_blank";
       text(a, val);
       wrap.appendChild(a);
+    } else if (entry.published_in_filing || !val) {
+      text(wrap, "Published in the source prospectus; contact details are not listed here.");
     } else {
       text(wrap, val);
     }
@@ -131,7 +131,8 @@
     meta.className = "family-meta";
     var n = 0;
     (card.groups || []).forEach(function (g) { n += (g.entries || []).length; });
-    text(meta, n + " contact" + (n === 1 ? "" : "s") +
+    text(meta, n + " prospectus contact type" + (n === 1 ? "" : "s") +
+      " (details in the source filing)" +
       (card.latest_current_485bpos ? " · latest current 485BPOS " + card.latest_current_485bpos : ""));
     article.appendChild(meta);
 
