@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-asset-version="20261110-unified">
+<html lang="en" data-asset-version="20261117-slices">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Institutional fund-family contact details from public prospectus filings. MF Feedback Pilot; not legal advice.">
+  <meta name="description" content="Prospectus contact types for sample fund families, with links to the public SEC source filings. Individual contact details are not listed. MF Feedback Pilot; not legal advice.">
   <title>Family contacts — MF Feedback Pilot</title>
-  <link rel="stylesheet" href="pilot.css?v=20261110-unified">
-  <link rel="stylesheet" href="family-contacts.css?v=20261110-unified">
+  <link rel="stylesheet" href="pilot.css?v=20261117-slices">
+  <link rel="stylesheet" href="family-contacts.css?v=20261117-slices">
 </head>
 <body>
   <a class="sr-only" href="#family-contacts">Skip to family contacts</a>
@@ -14,23 +14,26 @@
     <a href="index.html">Rules</a>
     <a href="priorities.html">Priorities</a>
     <a href="family-contacts.html" aria-current="page">Family contacts</a>
+    <a href="coverage.html">Coverage</a>
   </nav>
   <main class="wrap">
     <header class="hero">
       <div class="hero-card">
         <h1>Family contacts</h1>
         <p>
-          Institutional shareholder-services, retirement, intermediary, and fund-office
-          contacts for the families in this pilot sample, taken from each family’s
-          recent Form 485BPOS prospectus filings.
+          Shareholder-services, retirement, intermediary, and fund-office contact
+          types for the families in this pilot sample, taken from each family’s
+          recent Form 485BPOS prospectus filings. Individual names, e-mails, phone
+          numbers, and mailing addresses are not listed here; each entry links to
+          the public SEC source filing.
         </p>
         <p>
-          Contact details as published in fund prospectus filings; not legal advice.
+          Not legal advice.
         </p>
         <div class="badge-row" aria-hidden="true">
           <span class="badge">MF Feedback Pilot</span>
           <span class="badge">Prospectus filings</span>
-          <span class="badge">Institutional contacts only</span>
+          <span class="badge">Source filings only</span>
           <span class="badge">Not legal advice</span>
         </div>
       </div>
@@ -40,10 +43,11 @@
 
     <section class="panel" aria-label="How to read this page">
       <p style="margin:0">
-        One compact card per fund family. Numbers, websites, and mailing addresses
-        are grouped by purpose. Each entry links to the most recent current prospectus
-        in which it appears. Personal names and personal email addresses are not included.
-        Rule cards on the <a href="index.html">rule sample</a> link here by family.
+        One compact card per fund family. Contact types are grouped by purpose.
+        Each entry links to the most recent current prospectus in which that type
+        appears. Individual names, e-mails, phone numbers, and mailing addresses
+        are not published on this site. Allowlisted institutional websites may be
+        shown. Rule cards on the <a href="index.html">rule sample</a> link here by family.
       </p>
     </section>
 
@@ -52,12 +56,11 @@
 
     <footer class="footer">
       <p>
-        Contact details as published in fund prospectus filings; not legal advice.
-        Source: current Form 485BPOS filings already on disk, exported to
-        <code>family_contacts.json</code>. Automated extracts are unreviewed.
+        Not legal advice. Source: current Form 485BPOS filings, exported and
+        sanitized in <code>family_contacts.json</code>. Automated extracts are unreviewed.
       </p>
     </footer>
   </main>
-  <script src="family-contacts.js?v=20261110-unified" defer></script>
+  <script src="family-contacts.js?v=20261117-slices" defer></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-asset-version="20261117-slices">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aggregated public-filing counts for the local MF Compliance library, by year, form type, and fund family. MF Feedback Pilot; not legal advice.">
+  <title>Library coverage — MF Feedback Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261117-slices">
+  <link rel="stylesheet" href="coverage.css?v=20261117-slices">
+</head>
+<body>
+  <a class="sr-only" href="#coverage">Skip to coverage</a>
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a href="index.html">Rules</a>
+    <a href="priorities.html">Priorities</a>
+    <a href="family-contacts.html">Family contacts</a>
+    <a href="coverage.html" aria-current="page">Coverage</a>
+  </nav>
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <h1>Library coverage</h1>
+        <p>
+          Aggregated counts from the local MF Compliance library of public SEC
+          filings: filings by year and form type, and structured-rule coverage
+          by fund family. These are counts only. The database itself stays local
+          and is not hosted on this site.
+        </p>
+        <p>Automated counts are unreviewed and are not legal advice.</p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">MF Feedback Pilot</span>
+          <span class="badge">Aggregates only</span>
+          <span class="badge">Public filings</span>
+          <span class="badge">Not legal advice</span>
+        </div>
+      </div>
+    </header>
+
+    <p id="status" class="notice info" role="status">Loading coverage slices…</p>
+    <section id="coverage" class="results" aria-live="polite" aria-label="Library coverage tables"></section>
+
+    <footer class="footer">
+      <p>
+        Source: <code>coverage_slices.json</code>, a read-only aggregate export
+        from the local library. No filing body text or personal contact details
+        are included. Not legal advice.
+      </p>
+    </footer>
+  </main>
+  <script src="coverage.js?v=20261117-slices" defer></script>
+</body>
+</html>
