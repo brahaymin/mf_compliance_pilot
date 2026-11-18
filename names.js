@@ -97,9 +97,28 @@
     return hay.indexOf(query) !== -1;
   }
 
+
+  function splitItems(value) {
+    if (value == null || value === "") return [];
+    return String(value).split(";").map(function (part) { return part.trim(); }).filter(Boolean);
+  }
+
+  function stackedCell(value, className) {
+    var td = el("td", { className: className });
+    var items = splitItems(value);
+    if (!items.length) {
+      text(td, "—");
+      return td;
+    }
+    items.forEach(function (item) {
+      td.appendChild(el("div", { className: "names-item", text: item }));
+    });
+    return td;
+  }
+
   function filingLink(url) {
     if (!isSecUrl(url)) return el("span", { text: "—" });
-    var a = el("a", { text: "EDGAR filing" });
+    var a = el("a", { text: "View" });
     a.href = url;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
@@ -119,25 +138,36 @@
     var table = el("table", { className: "names-table" });
     var thead = document.createElement("thead");
     var headRow = document.createElement("tr");
-    ["Fund name", "Series ID", "Filing date", "Form", "Policy sentence", "EDGAR filing", "Note"].forEach(function (label) {
-      headRow.appendChild(el("th", { text: label }));
+    [
+      { label: "Fund name", className: "fund" },
+      { label: "Series ID", className: "series" },
+      { label: "Filing date", className: "date" },
+      { label: "Form", className: "form" },
+      { label: "Policy sentence", className: "policy" },
+      { label: "EDGAR", className: "edgar" }
+    ].forEach(function (h) {
+      headRow.appendChild(el("th", { className: h.className, text: h.label }));
     });
     thead.appendChild(headRow);
+
+    var colgroup = document.createElement("colgroup");
+    ["fund", "series", "date", "form", "policy", "edgar"].forEach(function (name) {
+      colgroup.appendChild(el("col", { className: name }));
+    });
+    table.appendChild(colgroup);
     table.appendChild(thead);
 
     var tbody = document.createElement("tbody");
     rows.forEach(function (row) {
       var tr = document.createElement("tr");
-      tr.appendChild(el("td", { text: row.fund_name || "—" }));
-      tr.appendChild(el("td", { text: row.series_id || "—" }));
-      tr.appendChild(el("td", { text: row.filing_date || "—" }));
-      tr.appendChild(el("td", { text: row.form || "—" }));
-      var policy = el("td", { className: "policy", text: row.policy_sentence || "—" });
-      tr.appendChild(policy);
-      var linkCell = document.createElement("td");
+      tr.appendChild(stackedCell(row.fund_name, "fund"));
+      tr.appendChild(stackedCell(row.series_id, "series"));
+      tr.appendChild(el("td", { className: "date", text: row.filing_date || "—" }));
+      tr.appendChild(el("td", { className: "form", text: row.form || "—" }));
+      tr.appendChild(el("td", { className: "policy", text: row.policy_sentence || "—" }));
+      var linkCell = el("td", { className: "edgar" });
       linkCell.appendChild(filingLink(row.sec_filing_url));
       tr.appendChild(linkCell);
-      tr.appendChild(el("td", { className: "row-disclaimer", text: DISCLAIMER }));
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
