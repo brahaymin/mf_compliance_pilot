@@ -1,0 +1,39 @@
+.pilot-disclaimer {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.names-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 1rem 0 0;
+  font-size: 0.92rem;
+}
+.names-meta dt { font-weight: 600; margin: 0; }
+.names-meta dd { margin: 0; }
+.names-search { margin: 1rem 0 0.25rem; }
+.names-search label { display: block; margin-bottom: 0.35rem; font-size: 0.92rem; }
+.names-search input[type="search"] {
+  width: 100%;
+  max-width: 40rem;
+  padding: 0.45rem 0.65rem;
+  font: inherit;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+.names-table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+.names-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.names-table th, .names-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  vertical-align: top;
+}
+.names-table th { font-weight: 600; }
+.names-table .policy { max-width: 36rem; }
+.names-table .row-disclaimer {
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
