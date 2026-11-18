@@ -17,6 +17,9 @@ REQUIRED = {
 
 def test_names_policy80_rows_are_pilot_with_required_fields():
     data = json.loads((ROOT / "names_policy80.json").read_text(encoding="utf-8"))
+    review = data["meta"]["review_score"]
+    assert isinstance(review, dict)
+    assert "score_both_correct" in review
     rows = data["rows"]
     assert isinstance(rows, list)
     assert rows
@@ -31,3 +34,7 @@ def test_names_policy80_rows_are_pilot_with_required_fields():
         assert url.startswith("https://www.sec.gov/") or url.startswith(
             "https://sec.gov/"
         ), f"row {i} non-SEC URL"
+        assert isinstance(row["other_funds_count"], int) and row["other_funds_count"] >= 0, (
+            f"row {i} other_funds_count={row.get('other_funds_count')!r}"
+        )
+        assert isinstance(row["note"], str), f"row {i} note={row.get('note')!r}"
