@@ -61,13 +61,9 @@
     }
   }
 
-  function formatReviewScore(review) {
-    if (!review || typeof review !== "object") return "—";
-    var score = review.score_both_correct;
+  function formatScore(score) {
     if (typeof score !== "number") return "—";
-    var label = String(score);
-    if (review.n != null) label += " (" + review.n + "-row review)";
-    return label;
+    return score.toFixed(2);
   }
 
   function addMeta(term, value) {
@@ -82,7 +78,10 @@
     meta = meta || {};
     addMeta("Generated", formatGeneratedAt(meta.generated_at));
     addMeta("Source", SOURCE_LABEL);
-    addMeta("Review score", formatReviewScore(meta.review_score));
+    var review = meta.review_score || {};
+    addMeta("Review score", formatScore(review.score_both_correct));
+    if (review.gate_result) addMeta("Gate result", review.gate_result);
+    if (review.known_limitation) addMeta("Known limitation", review.known_limitation);
   }
 
   function rowMatches(row, query) {
@@ -92,7 +91,8 @@
       row.series_id,
       row.filing_date,
       row.form,
-      row.policy_sentence
+      row.policy_sentence,
+      row.note
     ].join(" ").toLowerCase();
     return hay.indexOf(query) !== -1;
   }
@@ -113,6 +113,25 @@
     items.forEach(function (item) {
       td.appendChild(el("div", { className: "names-item", text: item }));
     });
+    return td;
+  }
+
+
+  function fundCell(row) {
+    var td = el("td", { className: "fund" });
+    var name = row && row.fund_name != null ? String(row.fund_name).trim() : "";
+    td.appendChild(el("div", { className: "names-item", text: name || "—" }));
+    var others = row && row.other_funds_count;
+    if (typeof others === "number" && others > 0) {
+      td.appendChild(el("div", {
+        className: "fund-others",
+        text: "and " + others + " other funds in this filing"
+      }));
+    }
+    var note = row && row.note;
+    if (typeof note === "string" && note.trim()) {
+      td.appendChild(el("div", { className: "fund-note", text: note }));
+    }
     return td;
   }
 
@@ -160,7 +179,7 @@
     var tbody = document.createElement("tbody");
     rows.forEach(function (row) {
       var tr = document.createElement("tr");
-      tr.appendChild(stackedCell(row.fund_name, "fund"));
+      tr.appendChild(fundCell(row));
       tr.appendChild(stackedCell(row.series_id, "series"));
       tr.appendChild(el("td", { className: "date", text: row.filing_date || "—" }));
       tr.appendChild(el("td", { className: "form", text: row.form || "—" }));
