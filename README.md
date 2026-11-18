@@ -16,6 +16,8 @@ Family contacts: https://mfcompliancepilot.vercel.app/family-contacts.html
 
 Library coverage: https://mfcompliancepilot.vercel.app/coverage.html
 
+Names Rule (80% policy): https://mfcompliancepilot.vercel.app/names.html
+
 Merging to `main` auto-deploys that Vercel project (GitHub commit statuses report it as `mf_compliance_pilot`; the public URL is unchanged). Pull requests typically get a Vercel preview deployment.
 
 The older GitHub Pages copy at https://brahaymin.github.io/mf_compliance_pilot/ is retired. A redirect stub lives in `docs/` (meta refresh plus a link to the Vercel site). After merge, set Pages to **Deploy from a branch**, branch `main`, folder `/docs`. Do not delete the repository or disable Pages. Until that setting is changed, Pages still publishes the repository root.
@@ -33,6 +35,8 @@ The older GitHub Pages copy at https://brahaymin.github.io/mf_compliance_pilot/ 
 | `family_contacts.json` | Sanitized contact-type cards per sample family (counts and source filings; allowlisted institutional websites only) |
 | `coverage.html` / `coverage.css` / `coverage.js` | Library coverage tables (counts by year, form type, and fund family) |
 | `coverage_slices.json` | Read-only aggregate export from the local SQLite library |
+| `names.html` / `names.css` / `names.js` | Names Rule 80% policy pilot table (fund name, series ID, filing date, form, policy sentence, EDGAR link) |
+| `names_policy80.json` | Pilot extract of 80% investment-policy rows from public SEC EDGAR filings |
 | `structured_rules_sample.json` | Privacy-screened Guggenheim structured sample (deduped by logical rule; tickers merged), with Current/Historical status, filing dates, days since prior filing, supersession/amendment links and version timelines |
 | `sample_rules.json` | Legacy regex-snippet sample (secondary tab) |
 | `scripts/refresh_pilot_data.py` | Read-only refresh: writes coverage slices, sanitizes contacts, runs the PII screen, and enforces the static size cap |
