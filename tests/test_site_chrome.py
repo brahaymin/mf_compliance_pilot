@@ -85,3 +85,8 @@ def test_no_contact_address_or_form_anywhere():
             assert 'role="search"' in chunk.split(">", 1)[0], path.name
     for path in (ROOT / "docs" / "drafts").glob("*.md"):
         assert "@" not in path.read_text(encoding="utf-8"), path.name
+
+
+def test_legal_drafts_not_in_repo():
+    """CEO 2026-11-25 12:40: draft terms/privacy stay private, off-repo, until lawyer review."""
+    assert not list((ROOT / "docs" / "drafts").glob("*.md"))
