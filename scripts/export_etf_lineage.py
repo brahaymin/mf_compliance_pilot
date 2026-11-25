@@ -23,19 +23,26 @@ ACC = re.compile(r"^\d{10}-\d{2}-\d{6}$")
 SERIES = re.compile(r"^S\d{9}$")
 URL = re.compile(r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/\d{10}-\d{2}-\d{6}-index\.htm$")
 FEE_STATUS = "pending review"
-ROW_KEYS = {"fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status", "source"}
+ROW_KEYS = {"status", "last_seen", "fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status", "source"}
 SOURCE = "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link"
 
 
 def build(full: list, source_year) -> dict:
     rows = []
+    year = max(c.get("last_year", source_year) for r in full for c in r["classes"]) if full else source_year
     for r in full:
+        cur = [c for c in r["classes"] if c.get("last_year", year) == year]
+        active = any(c["etf"] for c in cur) and any(not c["etf"] for c in cur)
         verified = str(r.get("link_status", "")).startswith("verified")
         rows.append({
+            "status": "active" if active else "closed",
+            "last_seen": min(max(c.get("last_year", year) for c in r["classes"] if c["etf"]),
+                             max(c.get("last_year", year) for c in r["classes"] if not c["etf"])),
             "fund_name": r.get("fund_name") or r["series_id"],
             "series_id": r["series_id"],
             "registrant_cik": int(r["cik"]),
-            "classes": sorted(({"name": c["name"], "ticker": c.get("ticker") or "", "etf": bool(c["etf"])}
+            "classes": sorted(({"name": c["name"], "ticker": c.get("ticker") or "", "etf": bool(c["etf"]),
+                                "active": c.get("last_year", year) == year, "last_year": c.get("last_year", year)}
                                for c in r["classes"]), key=lambda c: (c["etf"], c["name"])),
             "filing": ({"form": r["form"], "date": r["filing_date"], "accession": r["accession"], "url": r["filing_url"]}
                        if verified else None),
@@ -45,7 +52,10 @@ def build(full: list, source_year) -> dict:
     rows.sort(key=lambda x: (x["fund_name"].lower(), x["series_id"]))
     meta = {
         "label": "supervised pilot", "source": SOURCE, "outside_sources": "none used", "fee_status": FEE_STATUS, "source_year": source_year,
-        "series": len(rows), "etf_classes": sum(c["etf"] for r in rows for c in r["classes"]),
+        "series": len(rows), "active_series": sum(r["status"] == "active" for r in rows),
+        "closed_series": sum(r["status"] == "closed" for r in rows),
+        "status_rule": "Active: the SEC class list for the latest year still shows an ETF class and a mutual fund class. "
+                       "Closed: last seen together in an earlier year (last seen year shown).", "etf_classes": sum(c["etf"] for r in rows for c in r["classes"]),
         "other_classes": sum(not c["etf"] for r in rows for c in r["classes"]),
         "registrants": len({r["registrant_cik"] for r in rows}),
         "links_verified": sum(r["link_status"] == "verified" for r in rows),
@@ -66,12 +76,13 @@ def shape_errors(data) -> list:
     if m.get("series") != len(rows): e.append("meta.series count")
     for i, r in enumerate(rows):
         if set(r) != ROW_KEYS: e.append(f"row {i} keys {sorted(set(r) ^ ROW_KEYS)}")
+        if r.get("status") not in ("active", "closed") or not isinstance(r.get("last_seen"), int): e.append(f"row {i} status")
         if not SERIES.match(str(r.get("series_id"))): e.append(f"row {i} series_id")
         cl = r.get("classes") or []
         if sum(c.get("etf") is True for c in cl) < 1 or sum(c.get("etf") is False for c in cl) < 1:
             e.append(f"row {i} needs an ETF class and a fund class")
         for c in cl:
-            if set(c) != {"name", "ticker", "etf"}: e.append(f"row {i} class keys")
+            if set(c) != {"name", "ticker", "etf", "active", "last_year"}: e.append(f"row {i} class keys")
         f = r.get("filing")
         if r.get("link_status") == "verified":
             if not f or not ACC.match(str(f.get("accession"))) or not URL.match(str(f.get("url"))) \

@@ -45,7 +45,8 @@
 <!-- /site-chrome:accuracy -->
 
     <p id="status" class="notice info" role="status">Loading funds…</p>
-    <p><label for="etf-q">Filter by fund, ticker or Series ID</label> <input id="etf-q" type="search" autocomplete="off"></p>
+    <p><label for="etf-q">Filter by fund, ticker or Series ID</label> <input id="etf-q" type="search" autocomplete="off">
+      <label for="etf-status">Show</label> <select id="etf-status"><option value="active" selected>Active</option><option value="closed">Closed</option><option value="all">All</option></select></p>
     <section id="etf" class="results" aria-live="polite" aria-label="Funds with an ETF share class"></section>
 
     <footer class="footer">
