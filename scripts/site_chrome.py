@@ -28,6 +28,7 @@ PAGES = (
     ("priorities.html", "Free guide", "unreviewed"),
     ("family-contacts.html", "Family contacts", "unreviewed"),
     ("coverage.html", "Coverage", "unreviewed"),
+    ("fees.html", "Fee changes", "fees"),
 )
 
 BANNER = (
@@ -39,6 +40,12 @@ BANNER = (
 FOOTER = (
     "MF Feedback Pilot. Free and automated. Not legal advice. "
     "Public SEC EDGAR data only; v1 covers 2020 onward."
+)
+
+FEES = (
+    "Accuracy: supervised pilot. Every change shown was checked by hand against the fee "
+    "tables of both filings; unconfirmed rows are not published. Not graded on a random "
+    "sample, and not complete: filings without a single Series ID are skipped."
 )
 
 UNREVIEWED = (
@@ -84,8 +91,8 @@ def blocks_for(page: str, kind: str, names_text: str) -> dict:
         f'  <p class="site-banner" role="note">{html.escape(BANNER)}</p>\n'
         "</header>"
     )
-    text = names_text if kind == "names" else UNREVIEWED
-    status = "graded" if kind == "names" else "unreviewed"
+    text = {"names": names_text, "fees": FEES}.get(kind, UNREVIEWED)
+    status = {"names": "graded", "fees": "supervised"}.get(kind, "unreviewed")
     accuracy = f'<p class="accuracy-status" data-accuracy="{status}">{html.escape(text)}</p>'
     footer = f'<footer class="site-footer"><p>{html.escape(FOOTER)}</p></footer>'
     return {"header": header, "accuracy": accuracy, "footer": footer}
@@ -114,7 +121,7 @@ def render(text: str, blocks: dict) -> str:
             idx = text.index("</main>") + len("</main>")
             text = text[:idx] + "\n" + wrap(name, body) + text[idx:]
     if 'href="site.css' not in text:
-        text = text.replace("</head>", '  <link rel="stylesheet" href="site.css?v=20261125-launch">\n</head>', 1)
+        text = text.replace("</head>", '  <link rel="stylesheet" href="site.css?v=20261125-fees">\n</head>', 1)
     return text
 
 

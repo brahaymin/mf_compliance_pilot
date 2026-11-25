@@ -66,3 +66,4 @@
 
 /* Wide tables scroll inside their card on narrow screens. */
 table.matrix { display: block; max-width: 100%; overflow-x: auto; }
+.accuracy-status[data-accuracy="supervised"] { border-left-color: var(--brand, #0f4c81); }

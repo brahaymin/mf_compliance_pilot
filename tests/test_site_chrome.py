@@ -47,6 +47,8 @@ def test_accuracy_status_is_honest():
             assert 'data-accuracy="graded"' in acc
             assert f"{score:.2f}" in acc
             assert "Quality gate" in acc and "Known limitation" in acc
+        elif page == "fees.html":
+            assert 'data-accuracy="supervised"' in acc
         else:
             assert 'data-accuracy="unreviewed"' in acc
 

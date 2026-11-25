@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Supervised pilot: confirmed fund expense changes between consecutive public SEC EDGAR prospectus filings. Not legal advice.">
+  <title>Fee changes (supervised pilot) — MF Feedback Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261125-launch">
+  <link rel="stylesheet" href="fees.css?v=20261125-launch">
+  <link rel="stylesheet" href="site.css?v=20261125-fees">
+</head>
+<body>
+  <a class="sr-only" href="#fees">Skip to fee changes</a>
+  <!-- site-chrome:header -->
+<header class="site-header">
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a class="site-brand" href="index.html">MF Feedback Pilot</a>
+    <a href="index.html">Names rule</a>
+    <a href="rules.html">Rules (sample)</a>
+    <a href="priorities.html">Free guide</a>
+    <a href="family-contacts.html">Family contacts</a>
+    <a href="coverage.html">Coverage</a>
+    <a href="fees.html" aria-current="page">Fee changes</a>
+  </nav>
+  <p class="site-banner" role="note">Not legal advice. Public SEC EDGAR data only. v1 covers filings from 2020 onward only. Built automatically from filings; check the linked SEC document.</p>
+</header>
+<!-- /site-chrome:header -->
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <p class="pilot-disclaimer">Supervised pilot</p>
+        <h1>Fee changes</h1>
+        <p>
+          Changes in fund expense-table lines between a fund's new prospectus filing and its
+          prior one about a year earlier. Only changes confirmed by hand against both filings
+          are shown. Values are percent of net assets, as filed.
+        </p>
+        <dl id="fees-meta" class="names-meta"></dl>
+      </div>
+    </header>
+<!-- site-chrome:accuracy -->
+<p class="accuracy-status" data-accuracy="supervised">Accuracy: supervised pilot. Every change shown was checked by hand against the fee tables of both filings; unconfirmed rows are not published. Not graded on a random sample, and not complete: filings without a single Series ID are skipped.</p>
+<!-- /site-chrome:accuracy -->
+
+    <p id="status" class="notice info" role="status">Loading fee changes…</p>
+    <section id="fees" class="results" aria-live="polite" aria-label="Fee changes by fund"></section>
+
+    <footer class="footer">
+      <p>Source: <code>fee_changes.json</code>, confirmed rows from public SEC EDGAR filings only.</p>
+    </footer>
+  </main>
+<!-- site-chrome:footer -->
+<footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
+<!-- /site-chrome:footer -->
+  <script src="fees.js?v=20261125-launch" defer></script>
+</body>
+</html>

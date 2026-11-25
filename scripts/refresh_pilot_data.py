@@ -47,7 +47,8 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pii_screen
 import names_gate
-import site_chrome  # noqa: E402
+import site_chrome
+import export_fee_changes  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -63,6 +64,7 @@ DATA_FILES = (
     "priorities_ideas.json",
     "issue_map.json",
     "names_policy80.json",
+    "fee_changes.json",
 )
 NAMES_FILE = "names_policy80.json"
 
@@ -518,6 +520,11 @@ def main(argv=None):
         problems = names_gate.shape_errors(json.loads(names_path.read_text(encoding="utf-8")))
         if problems:
             errors.append("names shape gate failed: " + "; ".join(problems[:5]))
+    fees_path = out_dir / export_fee_changes.OUT_NAME
+    if fees_path.is_file():
+        problems = export_fee_changes.shape_errors(json.loads(fees_path.read_text(encoding="utf-8")))
+        if problems:
+            errors.append("fee shape gate failed: " + "; ".join(problems[:5]))
     if errors:
         raise RefreshError("; ".join(errors))
     # Keep the Names accuracy line on the site in step with the data.

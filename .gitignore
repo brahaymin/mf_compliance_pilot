@@ -3,3 +3,8 @@ __pycache__/
 .venv/
 *.pyc
 .DS_Store
+
+# Local fee-monitor sources must never be committed.
+page_feed.csv
+baseline*.csv
+review_*.csv
