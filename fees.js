@@ -63,7 +63,7 @@
     });
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-links")
+  fetch("fee_changes.json?v=20261125-forms")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });

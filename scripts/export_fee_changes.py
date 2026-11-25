@@ -105,7 +105,16 @@ def shape_errors(data, max_errors=20):
     return errors
 
 
-def build(feed_path):
+FORMS_FILE = "fee_filing_forms.json"  # accession -> form type, read from public EDGAR index pages
+
+
+def load_forms(root=REPO):
+    path = Path(root) / FORMS_FILE
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+
+
+def build(feed_path, forms=None):
+    forms = load_forms() if forms is None else forms
     with open(feed_path, newline="", encoding="utf-8") as f:
         src = list(csv.DictReader(f))
     rows = []
@@ -114,8 +123,8 @@ def build(feed_path):
             continue
         out = {k: (r.get(k) or "").strip() or None for k in FIELDS[:9]}
         # Form types and links only from fields present in the feed; missing -> None ("not recorded").
-        out["form_new"] = (r.get("form_new") or r.get("form") or "").strip() or None
-        out["form_prior"] = (r.get("form_prior") or "").strip() or None
+        out["form_new"] = (r.get("form_new") or r.get("form") or "").strip() or forms.get(out["filing_accession_new"])
+        out["form_prior"] = (r.get("form_prior") or "").strip() or forms.get(out["filing_accession_prior"])
         out["filing_url_new"] = filing_index_url(out["filing_accession_new"])
         out["filing_url_prior"] = filing_index_url(out["filing_accession_prior"])
         try:
