@@ -17,8 +17,8 @@
     addMeta("Series", m.active_series + " active, " + m.closed_series + " closed, " + m.series + " total. " + m.status_rule);
     addMeta("Coverage", m.series + " fund series, " + m.etf_classes + " ETF classes, " + m.other_classes +
       " mutual fund classes, " + m.registrants + " registrants (SEC class list " + m.source_year + ")");
-    addMeta("Prospectus links", m.links_verified + " verified against the fund's own tickers; " + m.links_flagged +
-      " flagged for review and not linked");
+    addMeta("Prospectus links", m.links_from_db + " from the v1 DB (series_primary_document); " + m.links_none +
+      " with no filing in the DB");
     addMeta("Scope", m.scope);
     addMeta("Source", m.source + ". Outside SEC sources: " + m.outside_sources + ".");
     if (m.hidden_series) addMeta("Hidden series", m.hidden_series + " omitted. " + (m.hide_rule || "") + " Source: " + (m.hide_source || "v1 MF DB") + ".");
@@ -30,9 +30,8 @@
       var t = el("table", { cls: "etf-classes" }, [el("thead", {}, [el("tr", {}, [el("th", { text: "Share class" }),
         el("th", { text: "Ticker" }), el("th", { cls: "num", text: "Expense ratio" })])]), el("tbody", {}, body)]);
       var f = r.filing, fl = f ? el("p", { cls: "sub filing" }, [el("strong", { text: "Latest prospectus: " }),
-        el("a", { text: f.form + " " + f.accession, href: f.url }), " · filed " + f.date])
-        : el("p", { cls: "sub filing" }, [el("strong", { text: "Latest prospectus: " }),
-          r.link_status === "flagged" ? "link flagged for review (may not match this fund), not shown" : "not found in v1 data"]);
+        el("a", { text: f.form + " " + f.accession, href: f.url }), " · filed " + f.date + " · source: v1 MF DB"])
+        : el("p", { cls: "sub filing" }, [el("strong", { text: "Latest prospectus: " }), "not found in v1 data"]);
       var card = el("article", { cls: "fund-card" }, [el("h2", {}, [r.fund_name + " ", el("span", { cls: "status-badge " + r.status,
         text: r.status === "active" ? "Active" : "Closed (last seen " + r.last_seen + ")" })]), fl,
         el("p", { cls: "sub" }, ["Source: " + (r.source ? "v1 MF DB" : "not recorded") + " · Fund series: ", el("a", { text: r.series_id,
@@ -55,6 +54,6 @@
   }
   q.addEventListener("input", apply);
   sf.addEventListener("change", apply);
-  fetch("etf_lineage.json?v=20261125-hide").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  fetch("etf_lineage.json?v=20261125-dblinks").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) { render(d); apply(); }).catch(function () { status.textContent = "Could not load the fund list."; status.className = "notice warn"; });
 })();

@@ -33,10 +33,11 @@ def test_fees_never_published():
     assert "0.03" not in json.dumps(data)
 
 
-def test_unverified_link_is_not_published():
-    data = etf.build(_full(status="mismatch"), 2026)
-    assert data["rows"][0]["filing"] is None and data["rows"][0]["link_status"] == "flagged"
+def test_full_json_link_is_not_published_without_db_row():
+    data = etf.build(_full(status="verified"), 2026)
+    assert data["rows"][0]["filing"] is None and data["rows"][0]["link_status"] == "none"
     data["rows"][0]["filing"] = {"form": "497K", "date": "2026-01-02", "accession": ACC, "url": "x"}
+    data["rows"][0]["link_status"] = "db"
     assert etf.shape_errors(data)
 
 
@@ -116,8 +117,122 @@ def test_published_json_omits_live_official_file_error_series():
     assert data["meta"]["closed_series"] == 5
     assert data["meta"]["series"] == 98
     assert data["meta"]["hidden_series"] == 5
+    assert data["meta"]["links_from_db"] == 84
+    assert data["meta"]["links_none"] == 14
+    assert data["meta"]["link_source"] == etf.LINK_SOURCE
+    assert sum(1 for r in data["rows"] if r["link_status"] == "db" and r["filing"]) == 84
+    assert sum(r["filing"] is None for r in data["rows"]) == 14
     if etf.DB_DEFAULT.is_file():
         hidden = etf.load_hidden_series()
         published = {r["series_id"] for r in data["rows"]}
         assert set(hidden).isdisjoint(published)
         assert data["meta"]["hidden_series"] == len(hidden)
+        docs = etf.load_primary_documents()
+        for r in data["rows"]:
+            url = (docs.get(r["series_id"]) or {}).get("source_url") or ""
+            if url:
+                assert r["link_status"] == "db" and r["filing"]["url"] == url
+            else:
+                assert r["filing"] is None and r["link_status"] == "none"
+        for sid in hidden:
+            assert not any(r["series_id"] == sid for r in data["rows"])
+
+
+DOC = "c497k.htm"
+DOC_URL = f"https://www.sec.gov/Archives/edgar/data/1/{ACC.replace('-', '')}/{DOC}"
+
+
+def _docs_db(rows=None, create_table=True):
+    fd, name = tempfile.mkstemp(suffix=".db")
+    import os
+    os.close(fd)
+    path = Path(name)
+    con = sqlite3.connect(path)
+    if create_table:
+        con.execute(
+            "CREATE TABLE series_primary_document ("
+            "series_id TEXT PRIMARY KEY, accession TEXT, primary_document TEXT, "
+            "form_type TEXT, filing_date TEXT, source_url TEXT)"
+        )
+        for row in rows or []:
+            con.execute(
+                "INSERT INTO series_primary_document "
+                "(series_id, accession, primary_document, form_type, filing_date, source_url) "
+                "VALUES (?,?,?,?,?,?)",
+                row,
+            )
+        con.commit()
+    con.close()
+    return path
+
+
+def test_missing_primary_document_table_publishes_no_links():
+    db = _docs_db(create_table=False)
+    try:
+        assert etf.load_primary_documents(db) == {}
+        data = etf.build(_full(), 2026, primary_docs=etf.load_primary_documents(db))
+        assert data["rows"][0]["filing"] is None
+        assert data["meta"]["links_from_db"] == 0
+        assert data["meta"]["links_none"] == 1
+        assert etf.shape_errors(data) == []
+    finally:
+        db.unlink()
+
+
+def test_db_primary_document_is_published_and_labeled():
+    db = _docs_db([
+        ("S000000001", ACC, DOC, "497K", "2026-01-02", DOC_URL),
+        ("S000000002", None, None, None, None, None),
+    ])
+    try:
+        docs = etf.load_primary_documents(db)
+        assert docs["S000000001"]["source_url"] == DOC_URL
+        assert docs["S000000002"]["source_url"] == ""
+        data = etf.build(_full(status="mismatch"), 2026, primary_docs=docs)
+        assert etf.shape_errors(data) == []
+        row = data["rows"][0]
+        assert row["link_status"] == "db"
+        assert row["filing"] == {"form": "497K", "date": "2026-01-02", "accession": ACC, "url": DOC_URL}
+        assert data["meta"]["links_from_db"] == 1
+        assert data["meta"]["link_source"] == etf.LINK_SOURCE
+        assert data["meta"]["fee_status"] == "pending review"
+    finally:
+        db.unlink()
+
+
+def test_blank_primary_document_is_not_invented():
+    db = _docs_db([("S000000001", None, None, None, None, None)])
+    try:
+        data = etf.build(_full(status="verified"), 2026, primary_docs=etf.load_primary_documents(db))
+        assert data["rows"][0]["filing"] is None and data["rows"][0]["link_status"] == "none"
+        assert data["meta"]["links_from_db"] == 0
+        assert etf.shape_errors(data) == []
+    finally:
+        db.unlink()
+
+
+def test_hidden_series_omitted_even_with_primary_document():
+    qdb = _quality_db([
+        ("S000000099", "official_file_error", 2024, "S000000098", "synthetic", "test", "2026-01-01"),
+    ])
+    ddb = _docs_db([
+        ("S000000001", ACC, DOC, "497K", "2026-01-02", DOC_URL),
+        ("S000000099", ACC, DOC, "497K", "2026-01-02", DOC_URL.replace("c497k", "other")),
+    ])
+    try:
+        hidden = etf.load_hidden_series(qdb)
+        docs = etf.load_primary_documents(ddb)
+        f = _full()
+        f.append(dict(_full()[0], series_id="S000000099", fund_name="Ghost Fund"))
+        data = etf.build(f, 2026, hidden=hidden, primary_docs=docs)
+        assert etf.shape_errors(data) == []
+        assert [r["series_id"] for r in data["rows"]] == ["S000000001"]
+        assert data["meta"]["hidden_series"] == 1
+        assert data["rows"][0]["link_status"] == "db"
+        assert all(r["series_id"] != "S000000099" for r in data["rows"])
+        dumped = json.dumps(data)
+        assert "Ghost Fund" not in dumped
+        assert DOC_URL.replace("c497k", "other") not in dumped
+    finally:
+        qdb.unlink()
+        ddb.unlink()
