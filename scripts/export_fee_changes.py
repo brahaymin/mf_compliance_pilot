@@ -30,7 +30,7 @@ FIELDS = (
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
     "form_new", "form_prior", "filing_url_new", "filing_url_prior",
-    "fund_type", "ticker",
+    "fund_type", "ticker", "doc_url_new", "doc_url_prior",
 )
 
 
@@ -95,6 +95,9 @@ def shape_errors(data, max_errors=20):
                 not ACCESSION.match(r["filing_accession_prior"])
                 or r["filing_url_prior"] != filing_index_url(r["filing_accession_prior"])):
             errors.append(f"row {i} bad prior accession or link")
+        for k in ("doc_url_new", "doc_url_prior"):
+            if r[k] is not None and not (r[k].startswith(EDGAR) and r[k].endswith(".htm")):
+                errors.append(f"row {i} bad {k}")
         for k in ("form_new", "form_prior"):
             if r[k] is not None and not re.match(r"^[0-9A-Z/-]{2,12}$", r[k]):
                 errors.append(f"row {i} bad {k}")
@@ -113,6 +116,7 @@ def shape_errors(data, max_errors=20):
     return errors
 
 
+DOCS_FILE = "fee_filing_docs.json"  # accession -> primary doc (Seq 1 on the EDGAR index page)
 FORMS_FILE = "fee_filing_forms.json"  # accession -> form type, read from public EDGAR index pages
 
 
@@ -135,6 +139,13 @@ def build(feed_path, forms=None):
         out["form_prior"] = (r.get("form_prior") or "").strip() or forms.get(out["filing_accession_prior"])
         out["filing_url_new"] = filing_index_url(out["filing_accession_new"])
         out["filing_url_prior"] = filing_index_url(out["filing_accession_prior"])
+        docs = load_forms.__globals__.get("_DOCS")
+        if docs is None:
+            dp = REPO / DOCS_FILE
+            docs = json.loads(dp.read_text(encoding="utf-8")) if dp.is_file() else {}
+            globals()["_DOCS"] = docs
+        out["doc_url_new"] = docs.get(out["filing_accession_new"] or "")
+        out["doc_url_prior"] = docs.get(out["filing_accession_prior"] or "")
         try:
             out["old"], out["new"] = float(out["old"]), float(out["new"])
         except (TypeError, ValueError):
