@@ -1,20 +1,23 @@
 {
  "meta": {
   "label": "supervised pilot",
-  "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+  "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
   "outside_sources": "none used",
   "fee_status": "pending review",
   "source_year": 2026,
-  "series": 103,
+  "series": 98,
   "active_series": 93,
-  "closed_series": 10,
+  "closed_series": 5,
   "status_rule": "Active: the SEC class list for the latest year still shows an ETF class and a mutual fund class. Closed: last seen together in an earlier year (last seen year shown).",
-  "etf_classes": 103,
-  "other_classes": 285,
-  "registrants": 26,
+  "etf_classes": 98,
+  "other_classes": 266,
+  "registrants": 23,
   "links_verified": 45,
   "links_flagged": 47,
-  "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' alongside mutual fund classes. No 'similar' funds."
+  "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' alongside mutual fund classes. No 'similar' funds.",
+  "hidden_series": 5,
+  "hide_source": "v1 MF DB (read-only): series_data_quality.flag = official_file_error",
+  "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list."
  },
  "rows": [
   {
@@ -59,7 +62,7 @@
     "accession": "0000355437-26-000209",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000209/0000355437-26-000209-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -85,7 +88,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -111,7 +114,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -179,7 +182,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -247,7 +250,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -320,7 +323,7 @@
     "accession": "0000035315-26-000786",
     "url": "https://www.sec.gov/Archives/edgar/data/35315/000003531526000786/0000035315-26-000786-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -381,7 +384,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -449,7 +452,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -494,7 +497,7 @@
     "accession": "0001193125-26-081620",
     "url": "https://www.sec.gov/Archives/edgar/data/892071/000119312526081620/0001193125-26-081620-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -539,7 +542,7 @@
     "accession": "0001193125-26-081626",
     "url": "https://www.sec.gov/Archives/edgar/data/892071/000119312526081626/0001193125-26-081626-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -612,7 +615,7 @@
     "accession": "0001999371-26-007319",
     "url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007319/0001999371-26-007319-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -678,7 +681,7 @@
     "accession": "0001999371-26-007072",
     "url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007072/0001999371-26-007072-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -730,7 +733,7 @@
     "accession": "0000355437-26-000134",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000134/0000355437-26-000134-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -775,7 +778,7 @@
     "accession": "0000355437-26-000133",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000133/0000355437-26-000133-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -806,7 +809,7 @@
     "accession": "0000355437-26-000135",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000135/0000355437-26-000135-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -832,7 +835,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -858,7 +861,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -889,7 +892,7 @@
     "accession": "0000861929-26-000036",
     "url": "https://www.sec.gov/Archives/edgar/data/861929/000086192926000036/0000861929-26-000036-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -920,7 +923,7 @@
     "accession": "0000355437-26-000210",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000210/0000355437-26-000210-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -946,7 +949,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -991,7 +994,7 @@
     "accession": "0000355437-26-000201",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000201/0000355437-26-000201-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1022,7 +1025,7 @@
     "accession": "0000355437-26-000199",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000199/0000355437-26-000199-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1081,7 +1084,7 @@
     "accession": "0000355437-26-000202",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000202/0000355437-26-000202-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1126,7 +1129,7 @@
     "accession": "0000355437-26-000132",
     "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000132/0000355437-26-000132-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1192,48 +1195,8 @@
     "accession": "0000036405-26-000183",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/0000036405-26-000183-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
-  },
-  {
-   "status": "closed",
-   "last_seen": 2024,
-   "fund_name": "Vanguard 500 Index Fund",
-   "series_id": "S000082144",
-   "registrant_cik": 923202,
-   "classes": [
-    {
-     "name": "Admiral Shares",
-     "ticker": "VFIAX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Select Shares",
-     "ticker": "VFFSX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Investor Shares",
-     "ticker": "VFINX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "ETF Shares",
-     "ticker": "VOO",
-     "etf": true,
-     "active": false,
-     "last_year": 2024
-    }
-   ],
-   "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
-   "link_status": "none"
   },
   {
    "status": "active",
@@ -1258,7 +1221,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1284,7 +1247,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1310,7 +1273,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1357,7 +1320,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1390,7 +1353,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1430,7 +1393,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "none"
   },
   {
@@ -1470,7 +1433,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1524,7 +1487,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1550,7 +1513,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1604,7 +1567,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1637,7 +1600,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1703,62 +1666,8 @@
     "accession": "0000036405-26-000199",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000199/0000036405-26-000199-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
-  },
-  {
-   "status": "closed",
-   "last_seen": 2024,
-   "fund_name": "Vanguard Extended Market Index Fund",
-   "series_id": "S000082147",
-   "registrant_cik": 862084,
-   "classes": [
-    {
-     "name": "Admiral Shares",
-     "ticker": "VEXAX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Plus Shares",
-     "ticker": "VEMPX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Select Shares",
-     "ticker": "VSEMX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Shares",
-     "ticker": "VIEIX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Investor Shares",
-     "ticker": "VEXMX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "ETF Shares",
-     "ticker": "VXF",
-     "etf": true,
-     "active": false,
-     "last_year": 2024
-    }
-   ],
-   "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
-   "link_status": "none"
   },
   {
    "status": "active",
@@ -1783,7 +1692,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -1835,7 +1744,7 @@
     "accession": "0000932471-19-006350",
     "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1880,7 +1789,7 @@
     "accession": "0001193125-26-077533",
     "url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077533/0001193125-26-077533-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1925,7 +1834,7 @@
     "accession": "0001193125-26-077485",
     "url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077485/0001193125-26-077485-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -1977,7 +1886,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2003,7 +1912,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2036,7 +1945,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2062,7 +1971,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2088,7 +1997,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2142,7 +2051,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2180,7 +2089,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2213,7 +2122,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2239,7 +2148,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2272,7 +2181,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2305,7 +2214,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2357,7 +2266,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2404,7 +2313,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2442,7 +2351,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2475,7 +2384,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2501,7 +2410,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2527,7 +2436,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2553,7 +2462,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2579,7 +2488,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2605,7 +2514,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2643,7 +2552,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2702,48 +2611,8 @@
     "accession": "0000036405-26-000205",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000205/0000036405-26-000205-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
-  },
-  {
-   "status": "closed",
-   "last_seen": 2024,
-   "fund_name": "Vanguard Mid-Cap Index Fund",
-   "series_id": "S000082143",
-   "registrant_cik": 889519,
-   "classes": [
-    {
-     "name": "Admiral Shares",
-     "ticker": "VIMAX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Shares",
-     "ticker": "VMCIX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Investor Shares",
-     "ticker": "VIMSX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "ETF Shares",
-     "ticker": "VO",
-     "etf": true,
-     "active": false,
-     "last_year": 2024
-    }
-   ],
-   "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
-   "link_status": "none"
   },
   {
    "status": "active",
@@ -2780,7 +2649,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2818,7 +2687,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2877,7 +2746,7 @@
     "accession": "0000932471-19-006350",
     "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2924,7 +2793,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -2955,7 +2824,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -2986,7 +2855,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3017,7 +2886,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3048,7 +2917,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3079,7 +2948,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3110,7 +2979,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3141,7 +3010,7 @@
     "accession": "0001193125-25-325145",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3167,7 +3036,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3193,7 +3062,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3219,7 +3088,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3245,7 +3114,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3271,7 +3140,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3297,7 +3166,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3323,7 +3192,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3349,7 +3218,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3403,7 +3272,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3441,7 +3310,7 @@
     "accession": "0001021882-26-000469",
     "url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000469/0001021882-26-000469-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3474,7 +3343,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3514,7 +3383,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3540,7 +3409,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3585,7 +3454,7 @@
     "accession": "0000036405-26-000201",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000201/0000036405-26-000201-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3644,48 +3513,8 @@
     "accession": "0000036405-26-000206",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000206/0000036405-26-000206-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
-  },
-  {
-   "status": "closed",
-   "last_seen": 2024,
-   "fund_name": "Vanguard Small-Cap Index Fund",
-   "series_id": "S000082145",
-   "registrant_cik": 794105,
-   "classes": [
-    {
-     "name": "Admiral Shares",
-     "ticker": "VSMAX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Shares",
-     "ticker": "VSCIX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Investor Shares",
-     "ticker": "NAESX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "ETF Shares",
-     "ticker": "VB",
-     "etf": true,
-     "active": false,
-     "last_year": 2024
-    }
-   ],
-   "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
-   "link_status": "none"
   },
   {
    "status": "active",
@@ -3729,7 +3558,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3762,7 +3591,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3823,7 +3652,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -3882,7 +3711,7 @@
     "accession": "0001193125-26-077547",
     "url": "https://www.sec.gov/Archives/edgar/data/1532203/000119312526077547/0001193125-26-077547-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -3948,7 +3777,7 @@
     "accession": "0000932471-14-004806",
     "url": "https://www.sec.gov/Archives/edgar/data/736054/000093247114004806/0000932471-14-004806-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -4014,62 +3843,8 @@
     "accession": "0000036405-26-000197",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/0000036405-26-000197-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
-  },
-  {
-   "status": "closed",
-   "last_seen": 2024,
-   "fund_name": "Vanguard Total Stock Market Index Fund",
-   "series_id": "S000082146",
-   "registrant_cik": 1409957,
-   "classes": [
-    {
-     "name": "Admiral Shares",
-     "ticker": "VTSAX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Plus Shares",
-     "ticker": "VSMPX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Select Shares",
-     "ticker": "VSTSX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Institutional Shares",
-     "ticker": "VITSX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "Investor Shares",
-     "ticker": "VTSMX",
-     "etf": false,
-     "active": false,
-     "last_year": 2024
-    },
-    {
-     "name": "ETF Shares",
-     "ticker": "VTI",
-     "etf": true,
-     "active": false,
-     "last_year": 2024
-    }
-   ],
-   "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
-   "link_status": "none"
   },
   {
    "status": "active",
@@ -4113,7 +3888,7 @@
     "accession": "0000932471-19-006350",
     "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   },
   {
@@ -4139,7 +3914,7 @@
     }
    ],
    "filing": null,
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "flagged"
   },
   {
@@ -4191,7 +3966,7 @@
     "accession": "0000036405-26-000181",
     "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
    },
-   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link",
+   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link; series_data_quality (flag=official_file_error) to omit official-file-error series",
    "link_status": "verified"
   }
  ]
