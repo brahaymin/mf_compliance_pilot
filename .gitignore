@@ -8,3 +8,6 @@ __pycache__/
 page_feed.csv
 baseline*.csv
 review_*.csv
+
+# Local jsdom install for render tests
+tests/.jsdom/

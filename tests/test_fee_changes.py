@@ -98,3 +98,45 @@ def test_form_types_come_from_edgar_map_only():
     for r in data["rows"]:
         assert r["form_new"] == forms.get(r["filing_accession_new"])
         assert r["form_prior"] == forms.get(r["filing_accession_prior"])
+
+
+def test_fund_type_split_labels_and_newest_first():
+    data = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))
+    rows = data["rows"]
+    assert len(rows) == 58
+    assert sum(r["fund_type"] == "Mutual fund" for r in rows) == 42
+    assert sum(r["fund_type"] == "ETF" for r in rows) == 16
+    assert fees.fund_type("") == "Unclassified" and fees.fund_type("X Bond Fund") == "Mutual fund"
+    dates = [r["filing_date_new"] for r in rows]
+    assert dates == sorted(dates, reverse=True)
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert 'filter.value = "all"' in js and "type-badge" in js and 'data-type' in js
+
+
+def test_tickers_never_guessed_and_search_present():
+    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    tick = json.loads((ROOT / "fee_class_tickers.json").read_text(encoding="utf-8"))
+    allowed = set(tick["classes"].values())
+    assert all(r["ticker"] is None or r["ticker"] in allowed for r in rows)
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert '"no ticker"' in js and "feesSearch" in js and "data-search" in js
+
+
+def test_rows_link_primary_documents_from_edgar_map():
+    docs = json.loads((ROOT / "fee_filing_docs.json").read_text(encoding="utf-8"))
+    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    for r in rows:
+        assert r["doc_url_new"] == docs[r["filing_accession_new"]]
+        assert r["doc_url_prior"] == docs[r["filing_accession_prior"]]
+        assert r["doc_url_new"].startswith(fees.EDGAR) and r["filing_accession_new"].replace("-", "") in r["doc_url_new"]
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert "index-link" in js and "Annual%20Fund%20Operating%20Expenses" in js
+
+
+def test_tickers_only_from_sec_id_map():
+    tick = json.loads((ROOT / "fee_class_tickers.json").read_text(encoding="utf-8"))
+    data = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))
+    for s, ts in data["meta"]["series_tickers"].items():
+        assert ts == tick["series"].get(s, [])
+    assert sum(1 for t in data["meta"]["series_tickers"].values() if t) == 3
+    assert "class_id" not in json.dumps(data)

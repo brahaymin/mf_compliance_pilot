@@ -1,0 +1,30 @@
+{
+ "classes": {
+  "C000193677": "FLOAX",
+  "C000193678": "FLOCX",
+  "C000193679": "FLOTX",
+  "C000199674": "GTAAX",
+  "C000199675": "GLACX",
+  "C000199676": "GTAIX",
+  "C000226943": "DGIBX",
+  "C000229059": "DGITX",
+  "C000229060": "DGINX"
+ },
+ "series": {
+  "S000059058": [
+   "FLOAX",
+   "FLOCX",
+   "FLOTX"
+  ],
+  "S000061654": [
+   "GLACX",
+   "GTAAX",
+   "GTAIX"
+  ],
+  "S000071589": [
+   "DGIBX",
+   "DGINX",
+   "DGITX"
+  ]
+ }
+}

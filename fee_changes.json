@@ -8,11 +8,36 @@
     "label": "supervised pilot",
     "review": "Each change was checked by hand against the fee tables of both filings (58/58 confirmed in the Nov 2026 baseline). Not graded on a random sample.",
     "row_count": 58,
+    "series_tickers": {
+      "S000059058": [
+        "FLOAX",
+        "FLOCX",
+        "FLOTX"
+      ],
+      "S000061654": [
+        "GLACX",
+        "GTAAX",
+        "GTAIX"
+      ],
+      "S000071589": [
+        "DGIBX",
+        "DGINX",
+        "DGITX"
+      ],
+      "S000085656": [],
+      "S000085657": [],
+      "S000085658": [],
+      "S000085659": [],
+      "S000091773": [],
+      "S000093518": []
+    },
     "source": "SEC EDGAR public filings (prospectus fee tables)",
     "units": "percent of net assets, as filed"
   },
   "rows": [
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007579",
@@ -24,11 +49,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": -4.25,
       "old": -10.3,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007579",
@@ -40,11 +69,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": 5.28,
       "old": 11.33,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007579",
@@ -56,11 +89,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": 4.38,
       "old": 10.43,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007581",
@@ -72,11 +109,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": -1.18,
       "old": -2.94,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007581",
@@ -88,11 +129,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 2.24,
       "old": 4.01,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007581",
@@ -104,11 +149,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 1.31,
       "old": 3.07,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007581",
@@ -120,11 +169,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 1.06,
       "old": 1.07,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007582",
@@ -136,11 +189,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": -1.07,
       "old": -1.98,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007582",
@@ -152,11 +209,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 2.06,
       "old": 2.96,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007582",
@@ -168,11 +229,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 1.2,
       "old": 2.11,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007582",
@@ -184,11 +249,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 0.99,
       "old": 0.98,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007583",
@@ -200,11 +269,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": -0.56,
       "old": -2.44,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007583",
@@ -216,11 +289,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 1.58,
       "old": 3.47,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007583",
@@ -232,11 +309,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 0.69,
       "old": 2.57,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007583",
@@ -248,11 +329,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 1.02,
       "old": 1.03,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -264,11 +349,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.73,
       "old": -20.32,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -280,11 +369,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.73,
       "old": -20.32,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -296,11 +389,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.98,
       "old": -20.57,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -312,11 +409,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.98,
       "old": -20.57,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -328,11 +429,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.68,
       "old": 21.27,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -344,11 +449,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.68,
       "old": 21.27,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -360,11 +469,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.93,
       "old": 21.52,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -376,11 +489,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.93,
       "old": 21.52,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -392,11 +509,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -408,11 +529,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -424,11 +549,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -440,11 +569,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -456,11 +589,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.58,
       "old": 1.7,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -472,11 +609,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 2.33,
       "old": 2.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -488,11 +629,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -504,11 +649,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGINX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -520,11 +669,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGITX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -536,11 +689,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGIBX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -552,11 +709,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -568,11 +729,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -584,11 +749,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -600,11 +769,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGINX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -616,11 +789,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGITX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -632,11 +809,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": "DGIBX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -648,11 +829,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 1.83,
       "old": 1.92,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOTX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -664,11 +849,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 2.83,
       "old": 2.92,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOCX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -680,11 +869,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 2.08,
       "old": 2.17,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -696,11 +889,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOTX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -712,11 +909,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOCX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -728,11 +929,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": "FLOAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -744,11 +949,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAIX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -760,11 +969,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GLACX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -776,11 +989,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -792,11 +1009,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.56,
       "old": 2.49,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAIX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -808,11 +1029,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 3.56,
       "old": 3.49,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GLACX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -824,11 +1049,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.81,
       "old": 2.74,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -840,11 +1069,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAIX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -856,11 +1089,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GLACX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -872,11 +1109,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -888,11 +1129,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 1.6,
       "old": 1.72,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAIX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -904,11 +1149,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.6,
       "old": 2.72,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GLACX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -920,11 +1169,15 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 1.85,
       "old": 1.97,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": "GTAAX"
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007546/dftactical30etf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225007353/donforlinestact30etf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007546",
@@ -936,9 +1189,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical 30 ETF",
+      "fund_type": "ETF",
       "new": 0.69,
       "old": 0.7,
-      "series_id": "S000093518"
+      "series_id": "S000093518",
+      "ticker": null
     }
   ]
 }

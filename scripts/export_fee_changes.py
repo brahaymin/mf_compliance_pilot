@@ -30,7 +30,15 @@ FIELDS = (
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
     "form_new", "form_prior", "filing_url_new", "filing_url_prior",
+    "fund_type", "ticker", "doc_url_new", "doc_url_prior",
 )
+
+
+def fund_type(name):
+    """Classify from the public fund name only."""
+    if not name:
+        return "Unclassified"
+    return "ETF" if re.search(r"\bETF\b", name) else "Mutual fund"
 EDGAR = "https://www.sec.gov/Archives/edgar/data/"
 
 
@@ -87,6 +95,9 @@ def shape_errors(data, max_errors=20):
                 not ACCESSION.match(r["filing_accession_prior"])
                 or r["filing_url_prior"] != filing_index_url(r["filing_accession_prior"])):
             errors.append(f"row {i} bad prior accession or link")
+        for k in ("doc_url_new", "doc_url_prior"):
+            if r[k] is not None and not (r[k].startswith(EDGAR) and r[k].endswith(".htm")):
+                errors.append(f"row {i} bad {k}")
         for k in ("form_new", "form_prior"):
             if r[k] is not None and not re.match(r"^[0-9A-Z/-]{2,12}$", r[k]):
                 errors.append(f"row {i} bad {k}")
@@ -105,12 +116,21 @@ def shape_errors(data, max_errors=20):
     return errors
 
 
+DOCS_FILE = "fee_filing_docs.json"  # accession -> primary doc (Seq 1 on the EDGAR index page)
 FORMS_FILE = "fee_filing_forms.json"  # accession -> form type, read from public EDGAR index pages
 
 
 def load_forms(root=REPO):
     path = Path(root) / FORMS_FILE
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+
+
+TICKERS_FILE = "fee_class_tickers.json"  # SEC company_tickers_mf.json, matched by series/class ID only
+
+
+def load_tickers(root=REPO):
+    path = Path(root) / TICKERS_FILE
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"series": {}, "classes": {}}
 
 
 def build(feed_path, forms=None):
@@ -127,16 +147,28 @@ def build(feed_path, forms=None):
         out["form_prior"] = (r.get("form_prior") or "").strip() or forms.get(out["filing_accession_prior"])
         out["filing_url_new"] = filing_index_url(out["filing_accession_new"])
         out["filing_url_prior"] = filing_index_url(out["filing_accession_prior"])
+        docs = load_forms.__globals__.get("_DOCS")
+        if docs is None:
+            dp = REPO / DOCS_FILE
+            docs = json.loads(dp.read_text(encoding="utf-8")) if dp.is_file() else {}
+            globals()["_DOCS"] = docs
+        out["doc_url_new"] = docs.get(out["filing_accession_new"] or "")
+        out["doc_url_prior"] = docs.get(out["filing_accession_prior"] or "")
         try:
             out["old"], out["new"] = float(out["old"]), float(out["new"])
         except (TypeError, ValueError):
             raise ExportError("non-numeric old/new value in a confirmed row")
+        out["fund_type"] = fund_type(out["fund_name"])
+        # No ticker source in the feed or published pilot data; never guessed.
+        tick = load_tickers()
+        out["ticker"] = tick["classes"].get((r.get("class_id") or "").strip())
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)
     rows.sort(key=lambda r: (r["filing_date_new"], r["fund_name"], r["field"]), reverse=True)
     return {
         "meta": {
             "label": "supervised pilot",
+            "series_tickers": {s: load_tickers()["series"].get(s, []) for s in sorted({r["series_id"] for r in rows})},
             "source": "SEC EDGAR public filings (prospectus fee tables)",
             "units": "percent of net assets, as filed",
             "row_count": len(rows),
