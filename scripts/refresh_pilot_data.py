@@ -45,7 +45,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import pii_screen  # noqa: E402
+import pii_screen
+import names_gate
+import site_chrome  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -60,7 +62,9 @@ DATA_FILES = (
     "priorities_demo_stats.json",
     "priorities_ideas.json",
     "issue_map.json",
+    "names_policy80.json",
 )
+NAMES_FILE = "names_policy80.json"
 
 # Institutional fund sites already allowlisted by family-contacts.js.
 ALLOWED_SITE_HOSTS = frozenset({
@@ -380,6 +384,33 @@ def maybe_run_exporter(exporter, db, out_path, extra_args):
         raise RefreshError(f"structured exporter exited {proc.returncode}: {' '.join(cmd)}")
 
 
+def stage_names_json(src, out_dir):
+    """Publish a new Names JSON only if the shape gate and PII screen pass.
+
+    Both gates run on the candidate before anything is written, so a
+    failing weekly Names update leaves the published file untouched.
+    """
+    src = Path(src)
+    try:
+        data = json.loads(src.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise RefreshError(f"names JSON unreadable: {type(exc).__name__}")
+    problems = names_gate.shape_errors(data)
+    if problems:
+        raise RefreshError("names shape gate failed; not published: " + "; ".join(problems[:5]))
+    hits, _ = pii_screen.scan_json_file(src)
+    if hits:
+        raise RefreshError(
+            "names PII screen failed; not published: "
+            + json.dumps(pii_screen.summarize(hits), sort_keys=True)
+        )
+    dest = Path(out_dir) / NAMES_FILE
+    tmp = dest.with_suffix(".json.tmp")
+    tmp.write_bytes(src.read_bytes())
+    tmp.replace(dest)
+    return {"names_policy80": "published", "rows": len(data["rows"])}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--db", help="Path to mf_compliance.db (opened mode=ro)")
@@ -392,12 +423,20 @@ def main(argv=None):
                     help="Optional path to export_structured_sample.py (private repo)")
     ap.add_argument("--structured-exporter-arg", action="append", default=None,
                     help="Extra arg for the structured exporter (repeatable)")
+    ap.add_argument("--names-json", default=None,
+                    help="Candidate names_policy80.json from the weekly Names job; "
+                         "published only if the shape gate and PII screen pass")
     ap.add_argument("--raw-limit", type=int, default=RAW_LIMIT)
     ap.add_argument("--gzip-limit", type=int, default=GZIP_LIMIT)
     args = ap.parse_args(argv)
 
     out_dir = Path(args.out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Weekly Names job, folded into the refresh. Gates run first so a
+    # failure stops the refresh before any other output is rewritten.
+    if args.names_json:
+        print(json.dumps(stage_names_json(args.names_json, out_dir), sort_keys=True))
 
     if not args.skip_db:
         if not args.db:
@@ -474,8 +513,16 @@ def main(argv=None):
             f"size cap exceeded: raw {raw_total} / {args.raw_limit}, "
             f"gzip {gz_total} / {args.gzip_limit}"
         )
+    names_path = out_dir / NAMES_FILE
+    if names_path.is_file():
+        problems = names_gate.shape_errors(json.loads(names_path.read_text(encoding="utf-8")))
+        if problems:
+            errors.append("names shape gate failed: " + "; ".join(problems[:5]))
     if errors:
         raise RefreshError("; ".join(errors))
+    # Keep the Names accuracy line on the site in step with the data.
+    if (out_dir / "index.html").is_file() and names_path.is_file():
+        site_chrome.apply(out_dir)
     return 0
 
 

@@ -1,20 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-asset-version="20261110-unified">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Redirecting to Rules — MF Feedback Pilot</title>
-  <link rel="canonical" href="index.html">
-  <script>
-    (function () {
-      window.location.replace("index.html" + window.location.search + window.location.hash);
-    })();
-  </script>
+  <meta name="description" content="Browse structured mutual-fund prospectus rules from public SEC filings. Filter by regulatory issue, family, category, or keyword. Each rule includes a version timeline and EDGAR identifiers. MF Feedback Pilot; not legal advice.">
+  <title>Rules (sample) — MF Feedback Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261125-launch">
+  <link rel="stylesheet" href="site.css?v=20261125-launch">
 </head>
 <body>
-  <p>The rule sample now lives on the main <a id="rules-redirect" href="index.html">Rules</a> page.</p>
-  <script>
-    document.getElementById("rules-redirect").href = "index.html" + window.location.search + window.location.hash;
-  </script>
+  <a class="sr-only" href="#searchInput">Skip to search</a>
+  <!-- site-chrome:header -->
+<header class="site-header">
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a class="site-brand" href="index.html">MF Feedback Pilot</a>
+    <a href="index.html">Names rule</a>
+    <a href="rules.html" aria-current="page">Rules (sample)</a>
+    <a href="priorities.html">Free guide</a>
+    <a href="family-contacts.html">Family contacts</a>
+    <a href="coverage.html">Coverage</a>
+  </nav>
+  <p class="site-banner" role="note">Not legal advice. Public SEC EDGAR data only. v1 covers filings from 2020 onward only. Built automatically from filings; check the linked SEC document.</p>
+</header>
+<!-- /site-chrome:header -->
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <p class="pilot-disclaimer">Sample only, not the full library</p>
+        <h1>Mutual Fund Structured Rules — Pilot Sample</h1>
+        <p>
+          Browse structured sales-charge waiver, rights of accumulation (ROA), letter of intent (LOI),
+          breakpoint, and waiver-limitation language from public SEC filings. Filter by regulatory issue,
+          family, category, or keyword. Each rule is marked Current or Historical, with its EDGAR identifiers,
+          a version timeline of prior filings, and a link to the SEC document.
+          Automated extracts are unreviewed and are not legal advice.
+        </p>
+        <div class="badge-row" aria-hidden="true">
+          <span class="badge">Sample: Guggenheim + Fidelity slice</span>
+          <span class="badge">Filter by issue</span>
+          <span class="badge">Public EDGAR identifiers</span>
+          <span class="badge">Not legal advice</span>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Sample dataset">
+          <button type="button" class="tab" role="tab" id="tabStructured" aria-selected="true" aria-controls="results">Structured rules</button>
+          <button type="button" class="tab" role="tab" id="tabLegacy" aria-selected="false" aria-controls="results">Legacy snippets</button>
+        </div>
+      </div>
+    </header>
+<!-- site-chrome:accuracy -->
+<p class="accuracy-status" data-accuracy="unreviewed">Accuracy: unreviewed. This tab has not been graded yet; check each item against the linked SEC filing.</p>
+<!-- /site-chrome:accuracy -->
+
+    <section class="panel" aria-label="Search and filter rules">
+      <form id="searchForm" class="search-row" role="search">
+        <div>
+          <label for="searchInput">Search by ticker, CIK, Series ID, fund family, intermediary, or keyword</label>
+          <input
+            id="searchInput"
+            name="q"
+            type="search"
+            placeholder="Examples: Guggenheim, CDSC, breakpoint, GIBAX, S000084967"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+        <button type="submit" class="btn-primary">Search</button>
+        <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
+      </form>
+
+      <div id="structuredFilters">
+        <div class="issue-filter" aria-label="Regulatory issue">
+          <label id="issueLabel" for="issueSelect">Regulatory issue</label>
+          <div class="issue-pills" id="issuePills" role="listbox" aria-labelledby="issueLabel"></div>
+          <select id="issueSelect" class="issue-select-fallback" aria-labelledby="issueLabel">
+            <option value="">All issues</option>
+          </select>
+          <div id="issueContext" class="issue-context" hidden>
+            <p class="issue-blurb" id="issueBlurb"></p>
+            <p class="issue-sources" id="issueSources"></p>
+          </div>
+        </div>
+        <div class="chip-row" id="categoryChips" role="group" aria-label="Category filters"></div>
+        <div class="filters">
+          <div>
+            <label for="statusFilter">Status</label>
+            <select id="statusFilter">
+              <option value="current" selected>Current</option>
+              <option value="historical">Historical</option>
+              <option value="">All (current + historical)</option>
+            </select>
+          </div>
+          <div>
+            <label for="fundFamilyFilter">Fund family</label>
+            <select id="fundFamilyFilter">
+              <option value="">All families</option>
+            </select>
+          </div>
+          <div>
+            <label for="waiverTypeFilter">Waiver type</label>
+            <select id="waiverTypeFilter">
+              <option value="">All waiver types</option>
+            </select>
+          </div>
+          <div>
+            <label for="intermediaryFilter">Intermediary</label>
+            <select id="intermediaryFilter">
+              <option value="">All intermediaries</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="meta-bar" id="metaBar" aria-live="polite"></div>
+      <p class="meta-bar"><strong id="resultCount">Loading…</strong></p>
+      <div id="status" class="notice info" role="status" aria-live="polite">Loading sample rules…</div>
+      <details class="sample-note">
+        <summary>About this sample</summary>
+        <p id="snapshotInfo"></p>
+      </details>
+    </section>
+
+    <section id="results" class="results" aria-live="polite" aria-label="Matching rules"></section>
+
+    <footer class="footer">
+      <p>
+        Source data: public mutual-fund SEC filings via a structured export (<code>structured_rules_sample.json</code>).
+        Issue mapping is in <code>issue_map.json</code>. Library-wide counts are on the
+        <a href="coverage.html">coverage</a> page. Automated extracted text is unreviewed and is not legal advice.
+        Identifiers are public EDGAR CIK, Series ID, and Class ID values. Family names use the structured-rule family today
+        and will prefer <code>funds.family</code> when that column is populated.
+      </p>
+    </footer>
+  </main>
+<!-- site-chrome:footer -->
+<footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
+<!-- /site-chrome:footer -->
+  <script src="pilot.js?v=20261110-unified" defer></script>
 </body>
 </html>

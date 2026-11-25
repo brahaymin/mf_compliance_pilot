@@ -8,15 +8,17 @@ The live MF Feedback Pilot is the Vercel site:
 
 https://mfcompliancepilot.vercel.app/
 
-Rules (landing page): https://mfcompliancepilot.vercel.app/
+Names Rule (front page): https://mfcompliancepilot.vercel.app/
 
-Priorities and feature guide: https://mfcompliancepilot.vercel.app/priorities.html
+Rules sample: https://mfcompliancepilot.vercel.app/rules.html
+
+Free guide (priorities): https://mfcompliancepilot.vercel.app/priorities.html
 
 Family contacts: https://mfcompliancepilot.vercel.app/family-contacts.html
 
 Library coverage: https://mfcompliancepilot.vercel.app/coverage.html
 
-Names Rule (80% policy): https://mfcompliancepilot.vercel.app/names.html
+`names.html` and old `index.html?issue=…` links redirect to the right page.
 
 Merging to `main` auto-deploys that Vercel project (GitHub commit statuses report it as `mf_compliance_pilot`; the public URL is unchanged). Pull requests typically get a Vercel preview deployment.
 
@@ -67,6 +69,22 @@ python3 -m pytest -q
 ```
 
 The script is deterministic for a given database snapshot (sorted JSON, no wall-clock timestamp). It does not write the database, and it does not read credentials or identity files. Optional `--structured-exporter` can rebuild `structured_rules_sample.json` with the private pipeline exporter; that is off by default so the sample stays inside the size cap.
+
+### Weekly Names update (part of the refresh)
+
+The weekly Names job hands its new `names_policy80.json` to the refresh:
+
+```bash
+python3 scripts/refresh_pilot_data.py --skip-db --names-json /path/to/candidate/names_policy80.json
+```
+
+The candidate is published only if the Names shape gate (`scripts/names_gate.py`) and the PII screen both pass; otherwise the refresh exits non-zero and the published file is untouched. The refresh also re-renders the shared page chrome so the Names accuracy line always matches `meta.review_score`. CI runs the same gates on every PR and push.
+
+## Shared chrome, accuracy and uptime
+
+- `scripts/site_chrome.py` writes the shared header, banner, accuracy status and footer into every tab (`--check` fails when stale). Styles: `site.css`.
+- `scripts/uptime_check.py` + `.github/workflows/uptime.yml`: hourly free check of every live tab (non-200 or missing content fails the run).
+- `docs/drafts/` holds DRAFT terms and privacy text for review; not linked, and excluded from Vercel via `.vercelignore`.
 
 ## Local preview
 

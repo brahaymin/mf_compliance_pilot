@@ -17,3 +17,9 @@ jobs:
         run: python -m pip install -r requirements-dev.txt
       - name: Run tests
         run: python -m pytest -q
+      - name: Site chrome is current
+        run: python scripts/site_chrome.py --check
+      - name: Refresh gates (PII screen, Names shape, size cap)
+        run: python scripts/refresh_pilot_data.py --skip-db --skip-contacts
+      - name: Refresh left no changes
+        run: git diff --exit-code
