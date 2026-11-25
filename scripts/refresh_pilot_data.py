@@ -65,6 +65,7 @@ DATA_FILES = (
     "issue_map.json",
     "names_policy80.json",
     "fee_changes.json",
+    "fee_filing_forms.json",
 )
 NAMES_FILE = "names_policy80.json"
 
