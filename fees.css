@@ -19,3 +19,4 @@
 .ticker { font-family: var(--mono); font-size:0.8rem; color: var(--muted); }
 .ticker.small { font-size:0.7rem; }
 #feesSearch { padding:0.35rem 0.6rem; border:1px solid var(--line); border-radius:8px; min-width:14rem; }
+.index-link { font-size:0.75rem; }

@@ -13,6 +13,8 @@
   },
   "rows": [
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007579",
@@ -31,6 +33,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007579",
@@ -49,6 +53,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007579/dukx_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006849/dukx_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007579",
@@ -67,6 +73,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007581",
@@ -85,6 +93,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007581",
@@ -103,6 +113,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007581",
@@ -121,6 +133,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007581/oceanparkhighinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006855/oceanparkhighincetf497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007581",
@@ -139,6 +153,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007582",
@@ -157,6 +173,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007582",
@@ -175,6 +193,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007582",
@@ -193,6 +213,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007582/nlftopdetf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006848/dukq_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007582",
@@ -211,6 +233,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007583",
@@ -229,6 +253,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007583",
@@ -247,6 +273,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007583",
@@ -265,6 +293,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007583/oceanparkdivinc497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006847/dukz_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007583",
@@ -283,6 +313,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -301,6 +333,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -319,6 +353,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -337,6 +373,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007516",
@@ -355,6 +393,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -373,6 +413,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -391,6 +433,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -409,6 +453,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -427,6 +473,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -445,6 +493,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -463,6 +513,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -481,6 +533,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007516/dgiusgovt_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006960/dgimmf_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007516",
@@ -499,6 +553,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -517,6 +573,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -535,6 +593,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -553,6 +613,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -571,6 +633,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -589,6 +653,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -607,6 +673,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -625,6 +693,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -643,6 +713,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -661,6 +733,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -679,6 +753,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -697,6 +773,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1843841/000158064225006959/dgibalanced_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007518",
@@ -715,6 +793,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -733,6 +813,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -751,6 +833,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -769,6 +853,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -787,6 +873,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -805,6 +893,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006894/dftactyield497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007535",
@@ -823,6 +913,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -841,6 +933,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -859,6 +953,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "waiver",
       "field_label": "Fee waiver / expense reimbursement",
       "filing_accession_new": "0001580642-26-007530",
@@ -877,6 +973,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -895,6 +993,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -913,6 +1013,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -931,6 +1033,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -949,6 +1053,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -967,6 +1073,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "other",
       "field_label": "Other expenses",
       "filing_accession_new": "0001580642-26-007530",
@@ -985,6 +1093,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -1003,6 +1113,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -1021,6 +1133,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225006887/dfallocation_497k.htm",
       "field": "net",
       "field_label": "Net expenses (after waiver)",
       "filing_accession_new": "0001580642-26-007530",
@@ -1039,6 +1153,8 @@
       "ticker": null
     },
     {
+      "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007546/dftactical30etf_497k.htm",
+      "doc_url_prior": "https://www.sec.gov/Archives/edgar/data/1314414/000158064225007353/donforlinestact30etf_497k.htm",
       "field": "total",
       "field_label": "Total annual fund operating expenses",
       "filing_accession_new": "0001580642-26-007546",

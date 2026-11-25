@@ -118,3 +118,14 @@ def test_tickers_never_guessed_and_search_present():
     assert all(r["ticker"] is None for r in rows)  # no ticker source today
     js = (ROOT / "fees.js").read_text(encoding="utf-8")
     assert '"no ticker"' in js and "feesSearch" in js and "data-search" in js
+
+
+def test_rows_link_primary_documents_from_edgar_map():
+    docs = json.loads((ROOT / "fee_filing_docs.json").read_text(encoding="utf-8"))
+    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    for r in rows:
+        assert r["doc_url_new"] == docs[r["filing_accession_new"]]
+        assert r["doc_url_prior"] == docs[r["filing_accession_prior"]]
+        assert r["doc_url_new"].startswith(fees.EDGAR) and r["filing_accession_new"].replace("-", "") in r["doc_url_new"]
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert "index-link" in js and "Annual%20Fund%20Operating%20Expenses" in js

@@ -14,6 +14,7 @@
     (kids || []).forEach(function (k) { n.appendChild(k); });
     return n;
   }
+  var FRAG = "#:~:text=Annual%20Fund%20Operating%20Expenses";
   function pct(v) { return (typeof v === "number" ? v.toFixed(2) : "—") + "%"; }
   function addMeta(t, v) {
     els.meta.appendChild(el("dt", { text: t }));
@@ -71,17 +72,19 @@
           el("td", { text: (d > 0 ? "+" : "") + d.toFixed(2) + " pts", cls: "num delta " + (d > 0 ? "up" : "down") })]);
       });
       var table = el("table", { cls: "fee-table" }, [el("thead", {}, [head]), el("tbody", {}, body)]);
-      function filingLine(label, acc, date, form, url) {
+      function filingLine(label, acc, date, form, url, doc) {
         var kids = [el("strong", { text: label + ": " })];
-        if (url) kids.push(el("a", { text: (form || "Filing") + " " + acc, href: url }));
+        if (doc) kids.push(el("a", { text: (form || "Filing") + " document " + acc, href: doc + FRAG, cls: "doc-link" }));
+        else if (url) kids.push(el("a", { text: (form || "Filing") + " " + acc, href: url }));
         else kids.push(document.createTextNode("not recorded"));
+        if (doc && url) { kids.push(document.createTextNode(" ")); kids.push(el("a", { text: "(index)", href: url, cls: "index-link" })); }
         kids.push(document.createTextNode(" · filed " + (date || "not recorded") +
           " · form " + (form || "not recorded")));
         return el("p", { cls: "sub filing" }, kids);
       }
       var sub = el("div", {}, [
-        filingLine("New fee appeared in", r0.filing_accession_new, r0.filing_date_new, r0.form_new, r0.filing_url_new),
-        filingLine("Compared against prior", r0.filing_accession_prior, r0.filing_date_prior, r0.form_prior, r0.filing_url_prior),
+        filingLine("New fee appeared in", r0.filing_accession_new, r0.filing_date_new, r0.form_new, r0.filing_url_new, r0.doc_url_new),
+        filingLine("Compared against prior", r0.filing_accession_prior, r0.filing_date_prior, r0.form_prior, r0.filing_url_prior, r0.doc_url_prior),
         el("p", { cls: "sub" }, [document.createTextNode("Fund series: "),
           el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) })])
       ]);
@@ -97,7 +100,7 @@
     apply();
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-type")
+  fetch("fee_changes.json?v=20261125-docs")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });
