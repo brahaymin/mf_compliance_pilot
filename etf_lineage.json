@@ -1,0 +1,2563 @@
+{
+ "meta": {
+  "label": "supervised pilot",
+  "fee_status": "pending review",
+  "source_year": 2026,
+  "series": 93,
+  "etf_classes": 93,
+  "other_classes": 204,
+  "registrants": 23,
+  "links_verified": 45,
+  "links_flagged": 43,
+  "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' alongside mutual fund classes. No 'similar' funds."
+ },
+ "rows": [
+  {
+   "fund_name": "DFA REAL ESTATE SECURITIES PORTFOLIO",
+   "series_id": "S000000949",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "DFA REAL ESTATE SECURITIES PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFREX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000209",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000209/0000355437-26-000209-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Dimensional US Core Equity Market Portfolio",
+   "series_id": "S000105259",
+   "registrant_cik": 2109839,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "none"
+  },
+  {
+   "fund_name": "Dimensional US Equity Market Portfolio",
+   "series_id": "S000105260",
+   "registrant_cik": 2109839,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "none"
+  },
+  {
+   "fund_name": "Fidelity Intermediate Municipal Income Fund",
+   "series_id": "S000007186",
+   "registrant_cik": 215829,
+   "classes": [
+    {
+     "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class A",
+     "ticker": "FZIAX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class C",
+     "ticker": "FZICX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class I",
+     "ticker": "FZIIX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class M",
+     "ticker": "FZITX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class Z",
+     "ticker": "FIQZX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Intermediate Municipal Income Fund",
+     "ticker": "FLTMX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "FIMU",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "none"
+  },
+  {
+   "fund_name": "Fidelity Real Estate Income Fund",
+   "series_id": "S000007192",
+   "registrant_cik": 754510,
+   "classes": [
+    {
+     "name": "Fidelity Advisor Real Estate Income Fund: Class A",
+     "ticker": "FRINX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Real Estate Income Fund: Class C",
+     "ticker": "FRIOX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Real Estate Income Fund: Class I",
+     "ticker": "FRIRX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Real Estate Income Fund: Class M",
+     "ticker": "FRIQX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Real Estate Income Fund: Class Z",
+     "ticker": "FIKMX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Real Estate Income Fund",
+     "ticker": "FRIFX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "FREI",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Fidelity Short-Term Bond Fund",
+   "series_id": "S000007007",
+   "registrant_cik": 35315,
+   "classes": [
+    {
+     "name": "Fidelity Advisor Short-Term Bond Fund: Class A",
+     "ticker": "FBNAX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Short-Term Bond Fund: Class C",
+     "ticker": "FANCX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Short-Term Bond Fund: Class I",
+     "ticker": "FBNIX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Short-Term Bond Fund: Class M",
+     "ticker": "FBNTX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Advisor Short-Term Bond Fund: Class Z",
+     "ticker": "FIKTX",
+     "etf": false
+    },
+    {
+     "name": "Fidelity Short-Term Bond Fund",
+     "ticker": "FSHBX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "FSTB",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-10-29",
+    "accession": "0000035315-26-000786",
+    "url": "https://www.sec.gov/Archives/edgar/data/35315/000003531526000786/0000035315-26-000786-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "First American Global Infrastructure Fund",
+   "series_id": "S000020012",
+   "registrant_cik": 820892,
+   "classes": [
+    {
+     "name": "Class A",
+     "ticker": "FGIAX",
+     "etf": false
+    },
+    {
+     "name": "Class C",
+     "ticker": "FGNCX",
+     "etf": false
+    },
+    {
+     "name": "Class I",
+     "ticker": "FGIYX",
+     "etf": false
+    },
+    {
+     "name": "Class R6",
+     "ticker": "FGIWX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "NGIF",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "none"
+  },
+  {
+   "fund_name": "Nuveen Dividend Growth Fund",
+   "series_id": "S000008519",
+   "registrant_cik": 1041673,
+   "classes": [
+    {
+     "name": "Class R6",
+     "ticker": "NSBFX",
+     "etf": false
+    },
+    {
+     "name": "Nuveen Dividend Growth Fund - Class A",
+     "ticker": "NSBAX",
+     "etf": false
+    },
+    {
+     "name": "Nuveen Dividend Growth Fund - Class C",
+     "ticker": "NSBCX",
+     "etf": false
+    },
+    {
+     "name": "Nuveen Dividend Growth Fund - Class I",
+     "ticker": "NSBRX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "NUDG",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "none"
+  },
+  {
+   "fund_name": "Relative Value Large Cap Fund",
+   "series_id": "S000006335",
+   "registrant_cik": 892071,
+   "classes": [
+    {
+     "name": "Class I-3",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "I CLASS",
+     "ticker": "TGDIX",
+     "etf": false
+    },
+    {
+     "name": "N Class",
+     "ticker": "TGDVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0001193125-26-081620",
+    "url": "https://www.sec.gov/Archives/edgar/data/892071/000119312526081620/0001193125-26-081620-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Select Equities Fund",
+   "series_id": "S000006325",
+   "registrant_cik": 892071,
+   "classes": [
+    {
+     "name": "Class I-3",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "I CLASS",
+     "ticker": "TGCEX",
+     "etf": false
+    },
+    {
+     "name": "N Class",
+     "ticker": "TGCNX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0001193125-26-081626",
+    "url": "https://www.sec.gov/Archives/edgar/data/892071/000119312526081626/0001193125-26-081626-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Thornburg American Opportunities Fund",
+   "series_id": "S000011846",
+   "registrant_cik": 816153,
+   "classes": [
+    {
+     "name": "Thornburg American Opportunities Fund - Class A",
+     "ticker": "TVAFX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg American Opportunities Fund - Class C",
+     "ticker": "TVCFX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg American Opportunities Fund - Class I",
+     "ticker": "TVIFX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg American Opportunities Fund - Class R3",
+     "ticker": "TVRFX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg American Opportunities Fund - Class R4",
+     "ticker": "TVIRX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg American Opportunities Fund - Class R5",
+     "ticker": "TVRRX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "TAOZ",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-03-31",
+    "accession": "0001999371-26-007319",
+    "url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007319/0001999371-26-007319-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Thornburg Core Growth Fund",
+   "series_id": "S000011850",
+   "registrant_cik": 816153,
+   "classes": [
+    {
+     "name": "Thornburg Focus Growth Fund - Class A",
+     "ticker": "THCGX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg Focus Growth Fund - Class C",
+     "ticker": "TCGCX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg Focus Growth Fund - Class I",
+     "ticker": "THIGX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg Focus Growth Fund - Class R3",
+     "ticker": "THCRX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg Focus Growth Fund - Class R4",
+     "ticker": "TCGRX",
+     "etf": false
+    },
+    {
+     "name": "Thornburg Focus Growth Fund - Class R5",
+     "ticker": "THGRX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "TFGZ",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-03-27",
+    "accession": "0001999371-26-007072",
+    "url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007072/0001999371-26-007072-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. CORE EQUITY 1 PORTFOLIO",
+   "series_id": "S000000979",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. CORE EQUITY 1 PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFEOX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000134",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000134/0000355437-26-000134-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. CORE EQUITY 2 PORTFOLIO",
+   "series_id": "S000000980",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. CORE EQUITY 2 PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFQTX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000133",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000133/0000355437-26-000133-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. High Relative Profitability Portfolio",
+   "series_id": "S000057237",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "DURPX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000135",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000135/0000355437-26-000135-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. Large Cap Equity Portfolio",
+   "series_id": "S000041113",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "U.S. Large Cap Growth Portfolio",
+   "series_id": "S000039438",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "U.S. LARGE COMPANY INSTITUTIONAL INDEX PORTFOLIO",
+   "series_id": "S000001014",
+   "registrant_cik": 861929,
+   "classes": [
+    {
+     "name": "U.S. LARGE COMPANY PORTFOLIO",
+     "ticker": "DFUSX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-08-05",
+    "accession": "0000861929-26-000036",
+    "url": "https://www.sec.gov/Archives/edgar/data/861929/000086192926000036/0000861929-26-000036-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. MICRO CAP PORTFOLIO",
+   "series_id": "S000000948",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. MICRO CAP PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFSCX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000210",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000210/0000355437-26-000210-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. Small Cap Growth Portfolio",
+   "series_id": "S000039439",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "Institutional Class",
+     "ticker": "",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "U.S. SMALL CAP PORTFOLIO",
+   "series_id": "S000000971",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. SMALL CAP PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFSTX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000201",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000201/0000355437-26-000201-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. SMALL CAP VALUE PORTFOLIO",
+   "series_id": "S000000987",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. SMALL CAP VALUE PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFSVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000199",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000199/0000355437-26-000199-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. Targeted Value Portfolio",
+   "series_id": "S000000970",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. Targeted Value Portfolio - Institutional Class",
+     "ticker": "DFFVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000202",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000202/0000355437-26-000202-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "U.S. VECTOR EQUITY PORTFOLIO",
+   "series_id": "S000000982",
+   "registrant_cik": 355437,
+   "classes": [
+    {
+     "name": "U.S. VECTOR EQUITY PORTFOLIO - INSTITUTIONAL CLASS",
+     "ticker": "DFVEX",
+     "etf": false
+    },
+    {
+     "name": "ETF Class",
+     "ticker": "",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0000355437-26-000132",
+    "url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000132/0000355437-26-000132-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard 500 Index Fund",
+   "series_id": "S000002839",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VFIAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VFFSX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VFINX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOO",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000183",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/0000036405-26-000183-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Communication Services Index Fund",
+   "series_id": "S000004443",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTCAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOX",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Consumer Discretionary Index Fund",
+   "series_id": "S000004446",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VCDAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VCR",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Consumer Staples Index Fund",
+   "series_id": "S000004447",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VCSAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VDC",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Developed Markets Index Fund",
+   "series_id": "S000004386",
+   "registrant_cik": 923202,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTMGX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VDIPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VTMNX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VDVIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VEA",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Dividend Appreciation Index Fund",
+   "series_id": "S000011322",
+   "registrant_cik": 734383,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VDADX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VIG",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Emerging Markets Government Bond Index Fund",
+   "series_id": "S000040750",
+   "registrant_cik": 1004655,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VGAVX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VGIVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VWOB",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Emerging Markets Stock Index Fund",
+   "series_id": "S000005786",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VEMAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VEMRX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VEMIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VEIEX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VWO",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Energy Index Fund",
+   "series_id": "S000004448",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VENAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VDE",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard European Stock Index Fund",
+   "series_id": "S000005787",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VEUSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VEUPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VESIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VEURX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VGK",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Extended Duration Treasury Index Fund",
+   "series_id": "S000018789",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VEDIX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VEDTX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "EDV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Extended Market Index Fund",
+   "series_id": "S000002841",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VEXAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VEMPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VSEMX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VIEIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VEXMX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VXF",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000199",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000199/0000036405-26-000199-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Financials Index Fund",
+   "series_id": "S000004449",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VFAIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VFH",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard FTSE All-World ex-US Index Fund",
+   "series_id": "S000015871",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VFWAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VFWPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VFWSX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VEU",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2019-02-26",
+    "accession": "0000932471-19-006350",
+    "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard FTSE All-World ex-US Small-Cap Index Fund",
+   "series_id": "S000025074",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VFSAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VFSNX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VSS",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0001193125-26-077533",
+    "url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077533/0001193125-26-077533-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Global ex-U.S. Real Estate Index Fund",
+   "series_id": "S000030007",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VGRLX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VGRNX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VNQI",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-02-27",
+    "accession": "0001193125-26-077485",
+    "url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077485/0001193125-26-077485-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Growth Index Fund",
+   "series_id": "S000002842",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VIGAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VIGIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VIGRX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VUG",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Health Care Index Fund",
+   "series_id": "S000004450",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VHCIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VHT",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard High Dividend Yield Index Fund",
+   "series_id": "S000014011",
+   "registrant_cik": 1004655,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VHYAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VYM",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Industrials Index Fund",
+   "series_id": "S000004451",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VINAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VIS",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Information Technology Index Fund",
+   "series_id": "S000004452",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VITAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VGT",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Intermediate-Term Bond Index Fund",
+   "series_id": "S000002561",
+   "registrant_cik": 794105,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VBILX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VBIUX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VBIMX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VBIIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "BIV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Intermediate-Term Corporate Bond Index Fund",
+   "series_id": "S000026863",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VICSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VICBX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VCIT",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Intermediate-Term Government Bond Index Fund",
+   "series_id": "S000026860",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSIGX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VIIGX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VGIT",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard International Dividend Appreciation Index Fund",
+   "series_id": "S000051871",
+   "registrant_cik": 1004655,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VIAAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VIGI",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard International High Dividend Yield Index Fund",
+   "series_id": "S000051872",
+   "registrant_cik": 1004655,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VIHAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VYMI",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Large-Cap Index Fund",
+   "series_id": "S000002843",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VLCAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VLISX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VLACX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VV",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Long-Term Bond Index Fund",
+   "series_id": "S000002562",
+   "registrant_cik": 794105,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VBLAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VBLIX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VBLLX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "BLV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Long-Term Corporate Bond Index Fund",
+   "series_id": "S000026864",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VLTCX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VLCIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VCLT",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Long-Term Government Bond Index Fund",
+   "series_id": "S000026861",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VLGSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VLGIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VGLT",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Materials Index Fund",
+   "series_id": "S000004441",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VMIAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VAW",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Mega Cap 300 Growth Index Fund",
+   "series_id": "S000019700",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMGAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "MGK",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Mega Cap 300 Index Fund",
+   "series_id": "S000019698",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMCTX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "MGC",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Mega Cap 300 Value Index Fund",
+   "series_id": "S000019699",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMVLX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "MGV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Mid-Cap Growth Index Fund",
+   "series_id": "S000012756",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VMGMX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VMGIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOT",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Mid-Cap Index Fund",
+   "series_id": "S000002844",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VIMAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VMCPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMCIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VIMSX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VO",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000205",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000205/0000036405-26-000205-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Mid-Cap Value Index Fund",
+   "series_id": "S000012757",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VMVAX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VMVIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOE",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Mortgage-Backed Securities Index Fund",
+   "series_id": "S000026865",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VMBSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMBIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VMBS",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Pacific Stock Index Fund",
+   "series_id": "S000005788",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VPADX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VPKIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VPACX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VPL",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2019-02-26",
+    "accession": "0000932471-19-006350",
+    "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard REIT Index Fund",
+   "series_id": "S000002924",
+   "registrant_cik": 734383,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VGSLX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VGSNX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VGSIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VNQ",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Russell 1000 Growth Index Fund",
+   "series_id": "S000030002",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRGWX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VONG",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 1000 Index Fund",
+   "series_id": "S000030000",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRNIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VONE",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 1000 Value Index Fund",
+   "series_id": "S000030001",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRVIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VONV",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 2000 Growth Index Fund",
+   "series_id": "S000030005",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRTGX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTWG",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 2000 Index Fund",
+   "series_id": "S000030003",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRTIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTWO",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 2000 Value Index Fund",
+   "series_id": "S000030004",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRTVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTWV",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Russell 3000 Index Fund",
+   "series_id": "S000030006",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VRTTX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTHR",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2025-12-19",
+    "accession": "0001193125-25-325145",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000119312525325145/0001193125-25-325145-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard S&P 500 Growth Index Fund",
+   "series_id": "S000030012",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSPGX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOOG",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P 500 Value Index Fund",
+   "series_id": "S000030013",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSPVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VOOV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P Mid-Cap 400 Growth Index Fund",
+   "series_id": "S000030016",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMFGX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "IVOG",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P Mid-Cap 400 Index Fund",
+   "series_id": "S000030014",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSPMX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "IVOO",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P Mid-Cap 400 Value Index Fund",
+   "series_id": "S000030015",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VMFVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "IVOV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P Small-Cap 600 Index Fund",
+   "series_id": "S000030017",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSMSX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VIOO",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard S&P Small-Cap 600 Value Index Fund",
+   "series_id": "S000030019",
+   "registrant_cik": 891190,
+   "classes": [
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSMVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VIOV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Short-Term Bond Index Fund",
+   "series_id": "S000002563",
+   "registrant_cik": 794105,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VBIRX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VBIPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VBITX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VBISX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "BSV",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Short-Term Corporate Bond Index Fund",
+   "series_id": "S000026862",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSCSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSTBX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VCSH",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-06-30",
+    "accession": "0001021882-26-000469",
+    "url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000469/0001021882-26-000469-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Short-Term Government Bond Index Fund",
+   "series_id": "S000026859",
+   "registrant_cik": 1021882,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSBSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSBIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VGSH",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Short-Term Inflation-Protected Securities Index Fund",
+   "series_id": "S000038501",
+   "registrant_cik": 836906,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTAPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VTSPX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VTIPX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTIP",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Small-Cap Growth Index Fund",
+   "series_id": "S000002846",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSGAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSGIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VISGX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VBK",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000201",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000201/0000036405-26-000201-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Small-Cap Index Fund",
+   "series_id": "S000002845",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSMAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VSCPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSCIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "NAESX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VB",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000206",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000206/0000036405-26-000206-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Small-Cap Value Index Fund",
+   "series_id": "S000002847",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VSIAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VSIIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VISVX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VBR",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Tax-Exempt Bond Index Fund",
+   "series_id": "S000048568",
+   "registrant_cik": 225997,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTEAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTEB",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Total Bond Market Index Fund",
+   "series_id": "S000002564",
+   "registrant_cik": 794105,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VBTLX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VBMPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VTBSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VBTIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VBMFX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "BND",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Total International Bond Index Fund",
+   "series_id": "S000035729",
+   "registrant_cik": 1532203,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTABX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VSIBX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VTIFX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VTIBX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "BNDX",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-02-27",
+    "accession": "0001193125-26-077547",
+    "url": "https://www.sec.gov/Archives/edgar/data/1532203/000119312526077547/0001193125-26-077547-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Total International Stock Index Fund",
+   "series_id": "S000002932",
+   "registrant_cik": 736054,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTIAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VTPSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VTISX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VTSNX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VGTSX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VXUS",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2014-02-27",
+    "accession": "0000932471-14-004806",
+    "url": "https://www.sec.gov/Archives/edgar/data/736054/000093247114004806/0000932471-14-004806-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Total Stock Market Index Fund",
+   "series_id": "S000002848",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTSAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Plus Shares",
+     "ticker": "VSMPX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Select Shares",
+     "ticker": "VSTSX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VITSX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VTSMX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTI",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "497K",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000197",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/0000036405-26-000197-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Total World Stock Index Fund",
+   "series_id": "S000022482",
+   "registrant_cik": 857489,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VTWAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VTWIX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VT",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2019-02-26",
+    "accession": "0000932471-19-006350",
+    "url": "https://www.sec.gov/Archives/edgar/data/857489/000093247119006350/0000932471-19-006350-index.htm"
+   },
+   "link_status": "verified"
+  },
+  {
+   "fund_name": "Vanguard Utilities Index Fund",
+   "series_id": "S000004445",
+   "registrant_cik": 52848,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VUIAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VPU",
+     "etf": true
+    }
+   ],
+   "filing": null,
+   "link_status": "flagged"
+  },
+  {
+   "fund_name": "Vanguard Value Index Fund",
+   "series_id": "S000002840",
+   "registrant_cik": 36405,
+   "classes": [
+    {
+     "name": "Admiral Shares",
+     "ticker": "VVIAX",
+     "etf": false
+    },
+    {
+     "name": "Institutional Shares",
+     "ticker": "VIVIX",
+     "etf": false
+    },
+    {
+     "name": "Investor Shares",
+     "ticker": "VIVAX",
+     "etf": false
+    },
+    {
+     "name": "ETF Shares",
+     "ticker": "VTV",
+     "etf": true
+    }
+   ],
+   "filing": {
+    "form": "485BPOS",
+    "date": "2026-04-28",
+    "accession": "0000036405-26-000181",
+    "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000181/0000036405-26-000181-index.htm"
+   },
+   "link_status": "verified"
+  }
+ ]
+}

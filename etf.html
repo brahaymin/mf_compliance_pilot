@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Supervised pilot: mutual funds that share one portfolio with an ETF share class, from public SEC EDGAR data. Not legal advice.">
+  <title>MF to ETF share classes (supervised pilot) — MF Feedback Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261125-launch">
+  <link rel="stylesheet" href="etf.css?v=20261125-etf">
+  <link rel="stylesheet" href="site.css?v=20261125-fees">
+</head>
+<body>
+  <a class="sr-only" href="#etf">Skip to fund list</a>
+  <!-- site-chrome:header -->
+<header class="site-header">
+  <nav class="site-nav" aria-label="Pilot pages">
+    <a class="site-brand" href="index.html">MF Feedback Pilot</a>
+    <a href="index.html">Names rule</a>
+    <a href="rules.html">Rules (sample)</a>
+    <a href="priorities.html">Free guide</a>
+    <a href="family-contacts.html">Family contacts</a>
+    <a href="coverage.html">Coverage</a>
+    <a href="fees.html">Fee changes</a>
+    <a href="etf.html" aria-current="page">MF to ETF</a>
+  </nav>
+  <p class="site-banner" role="note">Not legal advice. Public SEC EDGAR data only. v1 covers filings from 2020 onward only. Built automatically from filings; check the linked SEC document.</p>
+</header>
+<!-- /site-chrome:header -->
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <p class="pilot-disclaimer">Supervised pilot</p>
+        <h1>Mutual fund to ETF share classes</h1>
+        <p>
+          Funds where one portfolio has both mutual fund share classes and an ETF share class
+          (a class named "ETF Shares" or "ETF Class" in the SEC series and class list). Example:
+          Vanguard 500 Index Fund Admiral Shares and its ETF Shares (VOO). Only the same portfolio is
+          shown, never "similar" funds. Expense ratios per class are pending review and not shown yet.
+        </p>
+        <dl id="etf-meta" class="names-meta"></dl>
+      </div>
+    </header>
+<!-- site-chrome:accuracy -->
+<p class="accuracy-status" data-accuracy="pending">Accuracy: lineage: unreviewed; fees: pending blind check. Supervised pilot. Expense ratios are not shown until an independent 20-row blind check passes (at most 1 error).</p>
+<!-- /site-chrome:accuracy -->
+
+    <p id="status" class="notice info" role="status">Loading funds…</p>
+    <p><label for="etf-q">Filter by fund, ticker or Series ID</label> <input id="etf-q" type="search" autocomplete="off"></p>
+    <section id="etf" class="results" aria-live="polite" aria-label="Funds with an ETF share class"></section>
+
+    <footer class="footer">
+      <p>Source: <code>etf_lineage.json</code>, built from the public SEC series and class list and EDGAR filings only.</p>
+    </footer>
+  </main>
+<!-- site-chrome:footer -->
+<footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
+<script src="site.js?v=20261125-links" defer></script>
+<!-- /site-chrome:footer -->
+  <script src="etf.js?v=20261125-etf" defer></script>
+</body>
+</html>

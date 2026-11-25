@@ -1,0 +1,7 @@
+@import url("fees.css?v=20261125-links");
+.etf-classes { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+.etf-classes th, .etf-classes td { text-align: left; padding: 0.35rem 0.5rem; border-top: 1px solid var(--line); }
+.etf-classes td.num, .etf-classes th.num { text-align: right; white-space: nowrap; }
+.etf-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0 0.4rem; border-radius: 0.6rem; background: #e6f0ff; color: #1d4b8f; margin-left: 0.3rem; }
+.pending { color: var(--muted); font-style: italic; }
+#etf-q { width: min(100%, 22rem); padding: 0.35rem 0.5rem; }
