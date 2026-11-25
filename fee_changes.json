@@ -24,9 +24,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": -4.25,
       "old": -10.3,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
       "field": "total",
@@ -40,9 +42,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": 5.28,
       "old": 11.33,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
       "field": "other",
@@ -56,9 +60,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park International ETF",
+      "fund_type": "ETF",
       "new": 4.38,
       "old": 10.43,
-      "series_id": "S000085659"
+      "series_id": "S000085659",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -72,9 +78,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": -1.18,
       "old": -2.94,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
       "field": "total",
@@ -88,9 +96,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 2.24,
       "old": 4.01,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
       "field": "other",
@@ -104,9 +114,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 1.31,
       "old": 3.07,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
       "field": "net",
@@ -120,9 +132,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park High Income ETF",
+      "fund_type": "ETF",
       "new": 1.06,
       "old": 1.07,
-      "series_id": "S000085658"
+      "series_id": "S000085658",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -136,9 +150,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": -1.07,
       "old": -1.98,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
       "field": "total",
@@ -152,9 +168,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 2.06,
       "old": 2.96,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
       "field": "other",
@@ -168,9 +186,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 1.2,
       "old": 2.11,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
       "field": "net",
@@ -184,9 +204,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Domestic ETF",
+      "fund_type": "ETF",
       "new": 0.99,
       "old": 0.98,
-      "series_id": "S000085657"
+      "series_id": "S000085657",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -200,9 +222,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": -0.56,
       "old": -2.44,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
       "field": "total",
@@ -216,9 +240,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 1.58,
       "old": 3.47,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
       "field": "other",
@@ -232,9 +258,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 0.69,
       "old": 2.57,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
       "field": "net",
@@ -248,9 +276,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "Ocean Park Diversified Income ETF",
+      "fund_type": "ETF",
       "new": 1.02,
       "old": 1.03,
-      "series_id": "S000085656"
+      "series_id": "S000085656",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -264,9 +294,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.73,
       "old": -20.32,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -280,9 +312,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.73,
       "old": -20.32,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -296,9 +330,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.98,
       "old": -20.57,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -312,9 +348,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": -0.98,
       "old": -20.57,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "total",
@@ -328,9 +366,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.68,
       "old": 21.27,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "total",
@@ -344,9 +384,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.68,
       "old": 21.27,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "total",
@@ -360,9 +402,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.93,
       "old": 21.52,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "total",
@@ -376,9 +420,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.93,
       "old": 21.52,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "other",
@@ -392,9 +438,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "other",
@@ -408,9 +456,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "other",
@@ -424,9 +474,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "other",
@@ -440,9 +492,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI U.S. Government Money Market Fund",
+      "fund_type": "Mutual fund",
       "new": 1.48,
       "old": 21.07,
-      "series_id": "S000091773"
+      "series_id": "S000091773",
+      "ticker": null
     },
     {
       "field": "total",
@@ -456,9 +510,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.58,
       "old": 1.7,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -472,9 +528,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 2.33,
       "old": 2.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -488,9 +546,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -504,9 +564,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -520,9 +582,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -536,9 +600,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 1.33,
       "old": 1.45,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -552,9 +618,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -568,9 +636,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -584,9 +654,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -600,9 +672,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -616,9 +690,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "other",
@@ -632,9 +708,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DGI Balanced Fund",
+      "fund_type": "Mutual fund",
       "new": 0.29,
       "old": 0.42,
-      "series_id": "S000071589"
+      "series_id": "S000071589",
+      "ticker": null
     },
     {
       "field": "total",
@@ -648,9 +726,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 1.83,
       "old": 1.92,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "total",
@@ -664,9 +744,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 2.83,
       "old": 2.92,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "total",
@@ -680,9 +762,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 2.08,
       "old": 2.17,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "other",
@@ -696,9 +780,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "other",
@@ -712,9 +798,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "other",
@@ -728,9 +816,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Yield Fund",
+      "fund_type": "Mutual fund",
       "new": 0.64,
       "old": 0.53,
-      "series_id": "S000059058"
+      "series_id": "S000059058",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -744,9 +834,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -760,9 +852,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "waiver",
@@ -776,9 +870,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": -0.96,
       "old": -0.77,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "total",
@@ -792,9 +888,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.56,
       "old": 2.49,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "total",
@@ -808,9 +906,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 3.56,
       "old": 3.49,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "total",
@@ -824,9 +924,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.81,
       "old": 2.74,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "other",
@@ -840,9 +942,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "other",
@@ -856,9 +960,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "other",
@@ -872,9 +978,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 0.87,
       "old": 0.83,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "net",
@@ -888,9 +996,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 1.6,
       "old": 1.72,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "net",
@@ -904,9 +1014,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 2.6,
       "old": 2.72,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "net",
@@ -920,9 +1032,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical Allocation Fund",
+      "fund_type": "Mutual fund",
       "new": 1.85,
       "old": 1.97,
-      "series_id": "S000061654"
+      "series_id": "S000061654",
+      "ticker": null
     },
     {
       "field": "total",
@@ -936,9 +1050,11 @@
       "form_new": "497K",
       "form_prior": "497K",
       "fund_name": "DF Tactical 30 ETF",
+      "fund_type": "ETF",
       "new": 0.69,
       "old": 0.7,
-      "series_id": "S000093518"
+      "series_id": "S000093518",
+      "ticker": null
     }
   ]
 }

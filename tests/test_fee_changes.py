@@ -98,3 +98,23 @@ def test_form_types_come_from_edgar_map_only():
     for r in data["rows"]:
         assert r["form_new"] == forms.get(r["filing_accession_new"])
         assert r["form_prior"] == forms.get(r["filing_accession_prior"])
+
+
+def test_fund_type_split_labels_and_newest_first():
+    data = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))
+    rows = data["rows"]
+    assert len(rows) == 58
+    assert sum(r["fund_type"] == "Mutual fund" for r in rows) == 42
+    assert sum(r["fund_type"] == "ETF" for r in rows) == 16
+    assert fees.fund_type("") == "Unclassified" and fees.fund_type("X Bond Fund") == "Mutual fund"
+    dates = [r["filing_date_new"] for r in rows]
+    assert dates == sorted(dates, reverse=True)
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert 'filter.value = "all"' in js and "type-badge" in js and 'data-type' in js
+
+
+def test_tickers_never_guessed_and_search_present():
+    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    assert all(r["ticker"] is None for r in rows)  # no ticker source today
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert '"no ticker"' in js and "feesSearch" in js and "data-search" in js

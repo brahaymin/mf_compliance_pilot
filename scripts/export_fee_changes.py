@@ -30,7 +30,15 @@ FIELDS = (
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
     "form_new", "form_prior", "filing_url_new", "filing_url_prior",
+    "fund_type", "ticker",
 )
+
+
+def fund_type(name):
+    """Classify from the public fund name only."""
+    if not name:
+        return "Unclassified"
+    return "ETF" if re.search(r"\bETF\b", name) else "Mutual fund"
 EDGAR = "https://www.sec.gov/Archives/edgar/data/"
 
 
@@ -131,6 +139,9 @@ def build(feed_path, forms=None):
             out["old"], out["new"] = float(out["old"]), float(out["new"])
         except (TypeError, ValueError):
             raise ExportError("non-numeric old/new value in a confirmed row")
+        out["fund_type"] = fund_type(out["fund_name"])
+        # No ticker source in the feed or published pilot data; never guessed.
+        out["ticker"] = (r.get("ticker") or "").strip() or None
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)
     rows.sort(key=lambda r: (r["filing_date_new"], r["fund_name"], r["field"]), reverse=True)

@@ -91,3 +91,7 @@ The candidate is published only if the Names shape gate (`scripts/names_gate.py`
 ```bash
 python -m http.server 8765 --directory .
 ```
+
+## Post-launch list
+
+- SEC User-Agent: form-type lookup for fee_filing_forms.json used a generic UA without contact info; rerun through the pipeline's identity config is deferred.
