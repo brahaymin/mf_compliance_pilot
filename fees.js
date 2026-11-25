@@ -90,17 +90,17 @@
       ]);
       var card = el("article", { cls: "fund-card" }, [el("h2", {}, [document.createTextNode(r0.fund_name + " "),
         el("span", { cls: "type-badge", text: r0.fund_type }), document.createTextNode(" "),
-        el("span", { cls: "ticker", text: (function (t) { return t.length ? t.filter(function (x, i) { return t.indexOf(x) === i; }).join(", ") : "no ticker"; })(g.map(function (r) { return r.ticker; }).filter(Boolean)) })]), sub,
+        el("span", { cls: "ticker", text: tickers.length ? tickers.join(", ") : "no ticker" })]), sub,
         el("div", { cls: "fee-table-wrap" }, [table])]);
       card.setAttribute("data-type", r0.fund_type);
-      var tickers = g.map(function (r) { return r.ticker; }).filter(Boolean);
+      var tickers = ((data.meta || {}).series_tickers || {})[r0.series_id] || [];
       card.setAttribute("data-search", (r0.fund_name + " " + tickers.join(" ")).toLowerCase());
       els.list.appendChild(card);
     });
     apply();
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-docs")
+  fetch("fee_changes.json?v=20261125-tick")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });
