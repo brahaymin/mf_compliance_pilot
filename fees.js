@@ -27,6 +27,26 @@
     addMeta("Status", meta.label || "supervised pilot");
     addMeta("Confirmed changes", String(meta.row_count) + " across " + meta.fund_count + " funds");
     if (meta.known_limitation) addMeta("Known limitation", meta.known_limitation);
+    var counts = { all: rows.length, "Mutual fund": 0, ETF: 0 };
+    rows.forEach(function (r) { counts[r.fund_type] = (counts[r.fund_type] || 0) + 1; });
+    var countLine = el("p", { cls: "notice info", text: "" });
+    countLine.id = "feesCount";
+    var filter = el("select", {}, [["all", "All"], ["Mutual fund", "Mutual funds"], ["ETF", "ETFs"]].map(function (o) {
+      var op = el("option", { text: o[1] }); op.value = o[0]; return op;
+    }));
+    filter.id = "feesFilter"; filter.value = "all";
+    var label = el("label", { text: "Show: " }, [filter]);
+    els.list.parentNode.insertBefore(el("div", { cls: "fees-controls" }, [label, countLine]), els.list);
+    function apply() {
+      var shown = 0;
+      Array.prototype.forEach.call(els.list.querySelectorAll(".fund-card"), function (c) {
+        var on = filter.value === "all" || c.getAttribute("data-type") === filter.value;
+        c.hidden = !on; if (on) shown += c.querySelectorAll("tbody tr").length;
+      });
+      countLine.textContent = counts.all + " fee changes: " + counts["Mutual fund"] + " mutual funds, " +
+        counts.ETF + " ETFs. Showing " + shown + ".";
+    }
+    filter.addEventListener("change", apply);
     var groups = {}, order = [];
     rows.forEach(function (r) {
       var k = r.series_id + "|" + r.filing_accession_new;
@@ -39,7 +59,8 @@
         el("th", { text: "New", cls: "num" }), el("th", { text: "Change", cls: "num" })]);
       var body = g.map(function (r) {
         var d = r["new"] - r.old;
-        return el("tr", {}, [el("td", { text: r.field_label }), el("td", { text: pct(r.old), cls: "num" }),
+        return el("tr", {}, [el("td", {}, [document.createTextNode(r.field_label + " "),
+          el("span", { cls: "type-badge small", text: r.fund_type })]), el("td", { text: pct(r.old), cls: "num" }),
           el("td", { text: pct(r["new"]), cls: "num" }),
           el("td", { text: (d > 0 ? "+" : "") + d.toFixed(2) + " pts", cls: "num delta " + (d > 0 ? "up" : "down") })]);
       });
@@ -58,12 +79,16 @@
         el("p", { cls: "sub" }, [document.createTextNode("Fund series: "),
           el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) })])
       ]);
-      els.list.appendChild(el("article", { cls: "fund-card" }, [el("h2", { text: r0.fund_name }), sub,
-        el("div", { cls: "fee-table-wrap" }, [table])]));
+      var card = el("article", { cls: "fund-card" }, [el("h2", {}, [document.createTextNode(r0.fund_name + " "),
+        el("span", { cls: "type-badge", text: r0.fund_type })]), sub,
+        el("div", { cls: "fee-table-wrap" }, [table])]);
+      card.setAttribute("data-type", r0.fund_type);
+      els.list.appendChild(card);
     });
+    apply();
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-forms")
+  fetch("fee_changes.json?v=20261125-type")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });
