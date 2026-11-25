@@ -29,6 +29,7 @@ PAGES = (
     ("family-contacts.html", "Family contacts", "unreviewed"),
     ("coverage.html", "Coverage", "unreviewed"),
     ("fees.html", "Fee changes", "fees"),
+    ("etf.html", "MF to ETF", "etf"),
 )
 
 BANNER = (
@@ -46,6 +47,11 @@ FEES = (
     "Accuracy: supervised pilot. Every change shown was checked by hand against the fee "
     "tables of both filings; unconfirmed rows are not published. Not graded on a random "
     "sample, and not complete: filings without a single Series ID are skipped."
+)
+
+ETF = (
+    "Accuracy: lineage: unreviewed; fees: pending blind check. Supervised pilot. "
+    "Expense ratios are not shown until an independent 20-row blind check passes (at most 1 error)."
 )
 
 UNREVIEWED = (
@@ -91,8 +97,8 @@ def blocks_for(page: str, kind: str, names_text: str) -> dict:
         f'  <p class="site-banner" role="note">{html.escape(BANNER)}</p>\n'
         "</header>"
     )
-    text = {"names": names_text, "fees": FEES}.get(kind, UNREVIEWED)
-    status = {"names": "graded", "fees": "supervised"}.get(kind, "unreviewed")
+    text = {"names": names_text, "fees": FEES, "etf": ETF}.get(kind, UNREVIEWED)
+    status = {"names": "graded", "fees": "supervised", "etf": "pending"}.get(kind, "unreviewed")
     accuracy = f'<p class="accuracy-status" data-accuracy="{status}">{html.escape(text)}</p>'
     footer = (f'<footer class="site-footer"><p>{html.escape(FOOTER)}</p></footer>\n'
               '<script src="site.js?v=20261125-links" defer></script>')

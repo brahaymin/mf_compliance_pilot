@@ -49,6 +49,9 @@ def test_accuracy_status_is_honest():
             assert "Quality gate" in acc and "Known limitation" in acc
         elif page == "fees.html":
             assert 'data-accuracy="supervised"' in acc
+        elif page == "etf.html":
+            assert 'data-accuracy="pending"' in acc
+            assert "lineage: unreviewed; fees: pending blind check" in acc
         else:
             assert 'data-accuracy="unreviewed"' in acc
 

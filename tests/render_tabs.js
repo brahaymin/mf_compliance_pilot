@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, "..");
 
 const TABS = [
   { name: "fees", html: "fees.html", script: "fees.js", selector: "#fees .fund-card" },
+  { name: "etf", html: "etf.html", script: "etf.js", selector: "#etf .fund-card" },
   { name: "names", html: "index.html", script: "names.js", selector: "#names tbody tr, #names .name-row, #names article, #names li, #names .card" },
   { name: "rules", html: "rules.html", script: "pilot.js", selector: "#results article, #results .rule-card, #results .card, #results li, #results section" },
   { name: "priorities", html: "priorities.html", script: "priorities.js", selector: "#priorityList article, #priorityList .card, #priorityList li, #priorityList .idea" },
