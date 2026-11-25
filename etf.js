@@ -19,6 +19,7 @@
     addMeta("Prospectus links", m.links_verified + " verified against the fund's own tickers; " + m.links_flagged +
       " flagged for review and not linked");
     addMeta("Scope", m.scope);
+    addMeta("Source", m.source + ". Outside SEC sources: " + m.outside_sources + ".");
     d.rows.forEach(function (r) {
       var body = r.classes.map(function (c) {
         return el("tr", {}, [el("td", {}, [c.name, c.etf ? el("span", { cls: "etf-tag", text: "ETF" }) : ""]),
@@ -31,7 +32,7 @@
         : el("p", { cls: "sub filing" }, [el("strong", { text: "Latest prospectus: " }),
           r.link_status === "flagged" ? "link flagged for review (may not match this fund), not shown" : "not found in v1 data"]);
       var card = el("article", { cls: "fund-card" }, [el("h2", { text: r.fund_name }), fl,
-        el("p", { cls: "sub" }, ["Fund series: ", el("a", { text: r.series_id,
+        el("p", { cls: "sub" }, ["Source: " + (r.source ? "v1 MF DB" : "not recorded") + " · Fund series: ", el("a", { text: r.series_id,
           href: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + r.series_id })]),
         el("div", { cls: "fee-table-wrap" }, [t])]);
       card.dataset.q = (r.fund_name + " " + r.series_id + " " + r.classes.map(function (c) { return c.ticker + " " + c.name; }).join(" ")).toLowerCase();

@@ -23,7 +23,8 @@ ACC = re.compile(r"^\d{10}-\d{2}-\d{6}$")
 SERIES = re.compile(r"^S\d{9}$")
 URL = re.compile(r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/\d{10}-\d{2}-\d{6}-index\.htm$")
 FEE_STATUS = "pending review"
-ROW_KEYS = {"fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status"}
+ROW_KEYS = {"fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status", "source"}
+SOURCE = "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link"
 
 
 def build(full: list, source_year) -> dict:
@@ -38,11 +39,12 @@ def build(full: list, source_year) -> dict:
                                for c in r["classes"]), key=lambda c: (c["etf"], c["name"])),
             "filing": ({"form": r["form"], "date": r["filing_date"], "accession": r["accession"], "url": r["filing_url"]}
                        if verified else None),
+            "source": SOURCE,
             "link_status": "verified" if verified else ("flagged" if r.get("link_status") in ("mismatch", "file_missing") else "none"),
         })
     rows.sort(key=lambda x: (x["fund_name"].lower(), x["series_id"]))
     meta = {
-        "label": "supervised pilot", "fee_status": FEE_STATUS, "source_year": source_year,
+        "label": "supervised pilot", "source": SOURCE, "outside_sources": "none used", "fee_status": FEE_STATUS, "source_year": source_year,
         "series": len(rows), "etf_classes": sum(c["etf"] for r in rows for c in r["classes"]),
         "other_classes": sum(not c["etf"] for r in rows for c in r["classes"]),
         "registrants": len({r["registrant_cik"] for r in rows}),
