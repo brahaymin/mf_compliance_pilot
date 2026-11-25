@@ -1,0 +1,68 @@
+/* Shared chrome for every pilot tab (header, banner, accuracy, footer). */
+.site-header {
+  background: var(--surface, #fff);
+  border-bottom: 1px solid var(--line, #d7e0ea);
+}
+.site-header .site-nav { margin-top: 0; padding: 0.55rem 0; }
+.site-brand {
+  color: var(--ink, #152033) !important;
+  font-weight: 800;
+  margin-right: auto;
+}
+.site-banner {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: var(--warn-bg, #fff7e8);
+  color: var(--warn-ink, #7a4d00);
+  border-top: 1px solid #f0dfbf;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: center;
+}
+.pilot-disclaimer {
+  display: inline-block;
+  margin: 0 0 0.4rem !important;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.accuracy-status {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.9rem;
+  border-left: 4px solid var(--muted, #5b6b7c);
+  border-radius: 8px;
+  background: var(--surface, #fff);
+  box-shadow: var(--shadow);
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+.accuracy-status[data-accuracy="graded"] { border-left-color: var(--accent, #0b7a75); }
+.accuracy-status[data-accuracy="unreviewed"] { border-left-color: #b7791f; }
+.explainer {
+  margin: 0 0 1.2rem;
+  padding: 1rem 1.2rem;
+  background: var(--surface, #fff);
+  border: 1px solid var(--line, #d7e0ea);
+  border-radius: var(--radius, 14px);
+}
+.explainer h2 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+.explainer p { margin: 0.4rem 0; max-width: 75ch; }
+.site-footer {
+  width: min(var(--max, 1100px), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+  border-top: 1px solid var(--line, #d7e0ea);
+  color: var(--muted, #5b6b7c);
+  font-size: 0.85rem;
+}
+@media (max-width: 600px) {
+  .site-brand { width: 100%; }
+  .site-banner { text-align: left; }
+}
+
+/* Wide tables scroll inside their card on narrow screens. */
+table.matrix { display: block; max-width: 100%; overflow-x: auto; }

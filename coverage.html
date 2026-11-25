@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Aggregated public-filing counts for the local MF Compliance library, by year, form type, and fund family. MF Feedback Pilot; not legal advice.">
   <title>Library coverage — MF Feedback Pilot</title>
-  <link rel="stylesheet" href="pilot.css?v=20261117-slices">
+  <link rel="stylesheet" href="pilot.css?v=20261125-launch">
   <link rel="stylesheet" href="coverage.css?v=20261117-slices">
+  <link rel="stylesheet" href="site.css?v=20261125-launch">
 </head>
 <body>
   <a class="sr-only" href="#coverage">Skip to coverage</a>
+  <!-- site-chrome:header -->
+<header class="site-header">
   <nav class="site-nav" aria-label="Pilot pages">
-    <a href="index.html">Rules</a>
-    <a href="priorities.html">Priorities</a>
+    <a class="site-brand" href="index.html">MF Feedback Pilot</a>
+    <a href="index.html">Names rule</a>
+    <a href="rules.html">Rules (sample)</a>
+    <a href="priorities.html">Free guide</a>
     <a href="family-contacts.html">Family contacts</a>
     <a href="coverage.html" aria-current="page">Coverage</a>
-    <a href="names.html">Names rule</a>
   </nav>
+  <p class="site-banner" role="note">Not legal advice. Public SEC EDGAR data only. v1 covers filings from 2020 onward only. Built automatically from filings; check the linked SEC document.</p>
+</header>
+<!-- /site-chrome:header -->
   <main class="wrap">
     <header class="hero">
       <div class="hero-card">
@@ -36,6 +43,9 @@
         </div>
       </div>
     </header>
+<!-- site-chrome:accuracy -->
+<p class="accuracy-status" data-accuracy="unreviewed">Accuracy: unreviewed. This tab has not been graded yet; check each item against the linked SEC filing.</p>
+<!-- /site-chrome:accuracy -->
 
     <p id="status" class="notice info" role="status">Loading coverage slices…</p>
     <section id="coverage" class="results" aria-live="polite" aria-label="Library coverage tables"></section>
@@ -48,6 +58,9 @@
       </p>
     </footer>
   </main>
+<!-- site-chrome:footer -->
+<footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
+<!-- /site-chrome:footer -->
   <script src="coverage.js?v=20261117-slices" defer></script>
 </body>
 </html>

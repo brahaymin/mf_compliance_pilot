@@ -1,40 +1,41 @@
 """Shape checks for the published Names Rule pilot JSON."""
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REQUIRED = {
-    "fund_name",
-    "series_id",
-    "filing_date",
-    "form",
-    "accession",
-    "sec_filing_url",
-    "policy_sentence",
-    "status",
-}
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import names_gate  # noqa: E402
 
 
-def test_names_policy80_rows_are_pilot_with_required_fields():
+def test_published_names_json_passes_shape_gate():
     data = json.loads((ROOT / "names_policy80.json").read_text(encoding="utf-8"))
-    review = data["meta"]["review_score"]
-    assert isinstance(review, dict)
-    assert "score_both_correct" in review
-    rows = data["rows"]
-    assert isinstance(rows, list)
-    assert rows
-    for i, row in enumerate(rows):
-        missing = REQUIRED - set(row)
-        assert not missing, f"row {i} missing {sorted(missing)}"
-        assert row["status"] == "pilot", f"row {i} status={row['status']!r}"
-        series_id = row["series_id"]
-        assert isinstance(series_id, str) and series_id.strip(), f"row {i} empty series_id"
-        url = row["sec_filing_url"]
-        assert isinstance(url, str)
-        assert url.startswith("https://www.sec.gov/") or url.startswith(
-            "https://sec.gov/"
-        ), f"row {i} non-SEC URL"
-        assert isinstance(row["other_funds_count"], int) and row["other_funds_count"] >= 0, (
-            f"row {i} other_funds_count={row.get('other_funds_count')!r}"
-        )
-        assert isinstance(row["note"], str), f"row {i} note={row.get('note')!r}"
+    assert names_gate.shape_errors(data) == []
+
+
+def _good():
+    return {
+        "meta": {"row_count": 1, "review_score": {"score_both_correct": 0.9, "n": 20}},
+        "rows": [{
+            "fund_name": "Example Equity Fund", "series_id": "S000000001",
+            "filing_date": "2024-01-02", "form": "485BPOS",
+            "accession": "0000000000-24-000001",
+            "sec_filing_url": "https://www.sec.gov/Archives/edgar/data/1/a.htm",
+            "policy_sentence": "The Fund invests at least 80% of its net assets in equity securities.",
+            "status": "pilot", "other_funds_count": 0, "note": "",
+        }],
+    }
+
+
+def test_shape_gate_flags_bad_rows():
+    assert names_gate.shape_errors(_good()) == []
+    bad = _good()
+    bad["rows"][0]["sec_filing_url"] = "https://example.com/x"
+    bad["rows"][0]["status"] = "final"
+    del bad["meta"]["review_score"]
+    errs = names_gate.shape_errors(bad)
+    assert any("non-SEC" in e for e in errs)
+    assert any("status" in e for e in errs)
+    assert any("review_score" in e for e in errs)
+    assert names_gate.shape_errors({"meta": {}, "rows": []})

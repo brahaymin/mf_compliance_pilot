@@ -1,55 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-asset-version="20261118-names-refresh">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pilot extract of 80% investment policy sentences from public SEC EDGAR filings. Pilot data, not legal advice.">
-  <title>Names Rule — MF Feedback Pilot</title>
-  <link rel="stylesheet" href="pilot.css?v=20261118-names-refresh">
-  <link rel="stylesheet" href="names.css?v=20261118-names-refresh">
+  <title>Redirecting to Names rule — MF Feedback Pilot</title>
+  <link rel="canonical" href="index.html">
+  <script>
+    (function () {
+      window.location.replace("index.html" + window.location.search + window.location.hash);
+    })();
+  </script>
 </head>
 <body>
-  <a class="sr-only" href="#names">Skip to names rule table</a>
-  <nav class="site-nav" aria-label="Pilot pages">
-    <a href="index.html">Rules</a>
-    <a href="priorities.html">Priorities</a>
-    <a href="family-contacts.html">Family contacts</a>
-    <a href="coverage.html">Coverage</a>
-    <a href="names.html" aria-current="page">Names rule</a>
-  </nav>
-  <main class="wrap">
-    <header class="hero">
-      <div class="hero-card">
-        <p class="pilot-disclaimer">Pilot data, not legal advice</p>
-        <h1>Names Rule (80% policy)</h1>
-        <p>
-          Pilot extract of 80% investment-policy sentences from public SEC EDGAR
-          filings (Rule 35d-1). Only the fields published in the JSON are shown.
-        </p>
-        <div class="badge-row" aria-hidden="true">
-          <span class="badge">MF Feedback Pilot</span>
-          <span class="badge">Pilot data, not legal advice</span>
-          <span class="badge">Public filings</span>
-        </div>
-        <dl id="names-meta" class="names-meta"></dl>
-      </div>
-    </header>
-
-    <form id="namesSearchForm" class="names-search" role="search">
-      <label for="namesSearch">Search fund name, series ID, filing date, form, or policy sentence</label>
-      <input id="namesSearch" type="search" autocomplete="off">
-    </form>
-
-    <p id="status" class="notice info" role="status">Loading names rule data…</p>
-    <section id="names" class="results" aria-live="polite" aria-label="Names rule rows"></section>
-
-    <footer class="footer">
-      <p>
-        Source: <code>names_policy80.json</code>, public SEC EDGAR filings only.
-        Pilot data, not legal advice.
-      </p>
-    </footer>
-  </main>
-  <script src="names.js?v=20261118-names-refresh" defer></script>
+  <p>The Names rule table is now the <a id="names-redirect" href="index.html">front page</a>.</p>
+  <script>
+    document.getElementById("names-redirect").href = "index.html" + window.location.search + window.location.hash;
+  </script>
 </body>
 </html>

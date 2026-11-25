@@ -1,126 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" data-asset-version="20261110-unified">
+<html lang="en" data-asset-version="20261118-names-refresh">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Browse structured mutual-fund prospectus rules from public SEC filings. Filter by regulatory issue, family, category, or keyword. Each rule includes a version timeline and EDGAR identifiers. MF Feedback Pilot; not legal advice.">
-  <title>Rules — MF Feedback Pilot</title>
-  <link rel="stylesheet" href="pilot.css?v=20261110-unified">
+  <meta name="description" content="Pilot extract of 80% investment policy sentences from public SEC EDGAR filings. Pilot data, not legal advice.">
+  <title>Names Rule (80% policy) — MF Feedback Pilot</title>
+  <link rel="stylesheet" href="pilot.css?v=20261125-launch">
+  <link rel="stylesheet" href="names.css?v=20261118-names-refresh">
+  <script>
+    (function () {
+      var q = window.location.search;
+      if (/[?&](issue|status|family|category|q|tab)=/.test(q)) {
+        window.location.replace("rules.html" + q + window.location.hash);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="site.css?v=20261125-launch">
 </head>
 <body>
-  <a class="sr-only" href="#searchInput">Skip to search</a>
+  <a class="sr-only" href="#names">Skip to names rule table</a>
+  <!-- site-chrome:header -->
+<header class="site-header">
   <nav class="site-nav" aria-label="Pilot pages">
-    <a href="index.html" aria-current="page">Rules</a>
-    <a href="priorities.html">Priorities</a>
+    <a class="site-brand" href="index.html">MF Feedback Pilot</a>
+    <a href="index.html" aria-current="page">Names rule</a>
+    <a href="rules.html">Rules (sample)</a>
+    <a href="priorities.html">Free guide</a>
     <a href="family-contacts.html">Family contacts</a>
     <a href="coverage.html">Coverage</a>
-    <a href="names.html">Names rule</a>
   </nav>
+  <p class="site-banner" role="note">Not legal advice. Public SEC EDGAR data only. v1 covers filings from 2020 onward only. Built automatically from filings; check the linked SEC document.</p>
+</header>
+<!-- /site-chrome:header -->
   <main class="wrap">
     <header class="hero">
       <div class="hero-card">
-        <h1>Mutual Fund Structured Rules — Pilot Sample</h1>
+        <p class="pilot-disclaimer">Pilot data, not legal advice</p>
+        <h1>Names Rule (80% policy)</h1>
         <p>
-          Browse structured sales-charge waiver, rights of accumulation (ROA), letter of intent (LOI),
-          breakpoint, and waiver-limitation language from public SEC filings. Filter by regulatory issue,
-          family, category, or keyword. Each rule is marked Current or Historical, with its EDGAR identifiers,
-          a version timeline of prior filings, and a link to the SEC document.
-          Automated extracts are unreviewed and are not legal advice.
+          Pilot extract of 80% investment-policy sentences from public SEC EDGAR
+          filings (Rule 35d-1). Only the fields published in the JSON are shown.
         </p>
         <div class="badge-row" aria-hidden="true">
-          <span class="badge">Structured rules sample</span>
-          <span class="badge">Filter by issue</span>
-          <span class="badge">Public EDGAR identifiers</span>
-          <span class="badge">Not legal advice</span>
+          <span class="badge">MF Feedback Pilot</span>
+          <span class="badge">Pilot data, not legal advice</span>
+          <span class="badge">Public filings</span>
         </div>
-        <div class="tabs" role="tablist" aria-label="Sample dataset">
-          <button type="button" class="tab" role="tab" id="tabStructured" aria-selected="true" aria-controls="results">Structured rules</button>
-          <button type="button" class="tab" role="tab" id="tabLegacy" aria-selected="false" aria-controls="results">Legacy snippets</button>
-        </div>
+        <dl id="names-meta" class="names-meta"></dl>
       </div>
     </header>
+<!-- site-chrome:accuracy -->
+<p class="accuracy-status" data-accuracy="graded">Accuracy: graded 0.90 (fund name and policy sentence both correct) on a random sample of 20 rows; policy sentence alone 1.00. Quality gate (&lt;=1 error): not met; published on CEO go 2026-11-18 10:55 AM CT. Known limitation: Fund names come from the SEC yearly series list and can lag fund renames.</p>
+<!-- /site-chrome:accuracy -->
 
-    <section class="panel" aria-label="Search and filter rules">
-      <form id="searchForm" class="search-row" role="search">
-        <div>
-          <label for="searchInput">Search by ticker, CIK, Series ID, fund family, intermediary, or keyword</label>
-          <input
-            id="searchInput"
-            name="q"
-            type="search"
-            placeholder="Examples: Guggenheim, CDSC, breakpoint, GIBAX, S000084967"
-            autocomplete="off"
-            spellcheck="false"
-          >
-        </div>
-        <button type="submit" class="btn-primary">Search</button>
-        <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
-      </form>
-
-      <div id="structuredFilters">
-        <div class="issue-filter" aria-label="Regulatory issue">
-          <label id="issueLabel" for="issueSelect">Regulatory issue</label>
-          <div class="issue-pills" id="issuePills" role="listbox" aria-labelledby="issueLabel"></div>
-          <select id="issueSelect" class="issue-select-fallback" aria-labelledby="issueLabel">
-            <option value="">All issues</option>
-          </select>
-          <div id="issueContext" class="issue-context" hidden>
-            <p class="issue-blurb" id="issueBlurb"></p>
-            <p class="issue-sources" id="issueSources"></p>
-          </div>
-        </div>
-        <div class="chip-row" id="categoryChips" role="group" aria-label="Category filters"></div>
-        <div class="filters">
-          <div>
-            <label for="statusFilter">Status</label>
-            <select id="statusFilter">
-              <option value="current" selected>Current</option>
-              <option value="historical">Historical</option>
-              <option value="">All (current + historical)</option>
-            </select>
-          </div>
-          <div>
-            <label for="fundFamilyFilter">Fund family</label>
-            <select id="fundFamilyFilter">
-              <option value="">All families</option>
-            </select>
-          </div>
-          <div>
-            <label for="waiverTypeFilter">Waiver type</label>
-            <select id="waiverTypeFilter">
-              <option value="">All waiver types</option>
-            </select>
-          </div>
-          <div>
-            <label for="intermediaryFilter">Intermediary</label>
-            <select id="intermediaryFilter">
-              <option value="">All intermediaries</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="meta-bar" id="metaBar" aria-live="polite"></div>
-      <p class="meta-bar"><strong id="resultCount">Loading…</strong></p>
-      <div id="status" class="notice info" role="status" aria-live="polite">Loading sample rules…</div>
-      <details class="sample-note">
-        <summary>About this sample</summary>
-        <p id="snapshotInfo"></p>
-      </details>
+    <section class="explainer" aria-labelledby="explainer-title">
+      <h2 id="explainer-title">What happens on December 11, 2026</h2>
+      <p>
+        The SEC's amended Names Rule (Rule 35d-1, adopted September 2023) says a fund whose name
+        suggests a focus, such as a type of investment, an industry, or a region, must adopt a policy
+        to invest at least 80% of its assets in line with that name, and must define the name's terms
+        in its prospectus.
+      </p>
+      <p>
+        In March 2025 the SEC extended the compliance dates: <strong>June 11, 2026</strong> for fund
+        groups with $1 billion or more in net assets, and <strong>December 11, 2026</strong> for
+        smaller fund groups (less than $1 billion in net assets at the end of their most recent fiscal
+        year). An existing fund generally comes into compliance with its first annual prospectus update
+        or annual report filed on or after that date. The SEC separately extended the date for the
+        rule's Form N-PORT reporting changes in 2026.
+      </p>
+      <p>
+        The table below lists 80% policy sentences funds have already filed with the SEC.
+        Sources:
+        <a href="https://www.sec.gov/newsroom/press-releases/2025-54" rel="noopener">SEC press release 2025-54</a>,
+        <a href="https://www.federalregister.gov/documents/2025/03/20/2025-04705/investment-company-names-extension-of-compliance-date" rel="noopener">Federal Register, March 20, 2025</a>,
+        <a href="https://www.sec.gov/files/rules/final/2026/ic-35963.pdf" rel="noopener">SEC release IC-35963</a>.
+      </p>
     </section>
 
-    <section id="results" class="results" aria-live="polite" aria-label="Matching rules"></section>
+    <form id="namesSearchForm" class="names-search" role="search">
+      <label for="namesSearch">Search fund name, series ID, filing date, form, or policy sentence</label>
+      <input id="namesSearch" type="search" autocomplete="off">
+    </form>
+
+    <p id="status" class="notice info" role="status">Loading names rule data…</p>
+    <section id="names" class="results" aria-live="polite" aria-label="Names rule rows"></section>
 
     <footer class="footer">
       <p>
-        Source data: public mutual-fund SEC filings via a structured export (<code>structured_rules_sample.json</code>).
-        Issue mapping is in <code>issue_map.json</code>. Library-wide counts are on the
-        <a href="coverage.html">coverage</a> page. Automated extracted text is unreviewed and is not legal advice.
-        Identifiers are public EDGAR CIK, Series ID, and Class ID values. Family names use the structured-rule family today
-        and will prefer <code>funds.family</code> when that column is populated.
+        Source: <code>names_policy80.json</code>, public SEC EDGAR filings only.
+        Pilot data, not legal advice.
       </p>
     </footer>
   </main>
-  <script src="pilot.js?v=20261110-unified" defer></script>
+<!-- site-chrome:footer -->
+<footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
+<!-- /site-chrome:footer -->
+  <script src="names.js?v=20261118-names-refresh" defer></script>
 </body>
 </html>
