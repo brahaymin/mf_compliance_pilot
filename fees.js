@@ -88,12 +88,12 @@
         el("p", { cls: "sub" }, [document.createTextNode("Fund series: "),
           el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) })])
       ]);
+      var tickers = ((data.meta || {}).series_tickers || {})[r0.series_id] || [];
       var card = el("article", { cls: "fund-card" }, [el("h2", {}, [document.createTextNode(r0.fund_name + " "),
         el("span", { cls: "type-badge", text: r0.fund_type }), document.createTextNode(" "),
         el("span", { cls: "ticker", text: tickers.length ? tickers.join(", ") : "no ticker" })]), sub,
         el("div", { cls: "fee-table-wrap" }, [table])]);
       card.setAttribute("data-type", r0.fund_type);
-      var tickers = ((data.meta || {}).series_tickers || {})[r0.series_id] || [];
       card.setAttribute("data-search", (r0.fund_name + " " + tickers.join(" ")).toLowerCase());
       els.list.appendChild(card);
     });
