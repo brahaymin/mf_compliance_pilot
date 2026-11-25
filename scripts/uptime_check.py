@@ -18,6 +18,7 @@ CHECKS = (
     ("priorities.html", ("Free guide", "Not legal advice")),
     ("family-contacts.html", ("Family contacts", "Not legal advice")),
     ("coverage.html", ("Library coverage", "Not legal advice")),
+    ("fees.html", ("Fee changes", "Supervised pilot")),
     ("names_policy80.json", ('"review_score"', '"rows"')),
 )
 
