@@ -36,11 +36,16 @@
     }));
     filter.id = "feesFilter"; filter.value = "all";
     var label = el("label", { text: "Show: " }, [filter]);
-    els.list.parentNode.insertBefore(el("div", { cls: "fees-controls" }, [label, countLine]), els.list);
+    var search = el("input", {}); search.id = "feesSearch"; search.type = "search";
+    search.placeholder = "Search fund name or ticker";
+    search.addEventListener("input", function () { apply(); });
+    els.list.parentNode.insertBefore(el("div", { cls: "fees-controls" }, [label, search, countLine]), els.list);
     function apply() {
       var shown = 0;
       Array.prototype.forEach.call(els.list.querySelectorAll(".fund-card"), function (c) {
-        var on = filter.value === "all" || c.getAttribute("data-type") === filter.value;
+        var q = search.value.trim().toLowerCase();
+        var on = (filter.value === "all" || c.getAttribute("data-type") === filter.value) &&
+          (!q || c.getAttribute("data-search").indexOf(q) !== -1);
         c.hidden = !on; if (on) shown += c.querySelectorAll("tbody tr").length;
       });
       countLine.textContent = counts.all + " fee changes: " + counts["Mutual fund"] + " mutual funds, " +
@@ -60,7 +65,8 @@
       var body = g.map(function (r) {
         var d = r["new"] - r.old;
         return el("tr", {}, [el("td", {}, [document.createTextNode(r.field_label + " "),
-          el("span", { cls: "type-badge small", text: r.fund_type })]), el("td", { text: pct(r.old), cls: "num" }),
+          el("span", { cls: "type-badge small", text: r.fund_type }), document.createTextNode(" "),
+          el("span", { cls: "ticker small", text: r.ticker || "no ticker" })]), el("td", { text: pct(r.old), cls: "num" }),
           el("td", { text: pct(r["new"]), cls: "num" }),
           el("td", { text: (d > 0 ? "+" : "") + d.toFixed(2) + " pts", cls: "num delta " + (d > 0 ? "up" : "down") })]);
       });
@@ -80,9 +86,12 @@
           el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) })])
       ]);
       var card = el("article", { cls: "fund-card" }, [el("h2", {}, [document.createTextNode(r0.fund_name + " "),
-        el("span", { cls: "type-badge", text: r0.fund_type })]), sub,
+        el("span", { cls: "type-badge", text: r0.fund_type }), document.createTextNode(" "),
+        el("span", { cls: "ticker", text: (function (t) { return t.length ? t.filter(function (x, i) { return t.indexOf(x) === i; }).join(", ") : "no ticker"; })(g.map(function (r) { return r.ticker; }).filter(Boolean)) })]), sub,
         el("div", { cls: "fee-table-wrap" }, [table])]);
       card.setAttribute("data-type", r0.fund_type);
+      var tickers = g.map(function (r) { return r.ticker; }).filter(Boolean);
+      card.setAttribute("data-search", (r0.fund_name + " " + tickers.join(" ")).toLowerCase());
       els.list.appendChild(card);
     });
     apply();

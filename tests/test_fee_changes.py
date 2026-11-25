@@ -111,3 +111,10 @@ def test_fund_type_split_labels_and_newest_first():
     assert dates == sorted(dates, reverse=True)
     js = (ROOT / "fees.js").read_text(encoding="utf-8")
     assert 'filter.value = "all"' in js and "type-badge" in js and 'data-type' in js
+
+
+def test_tickers_never_guessed_and_search_present():
+    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    assert all(r["ticker"] is None for r in rows)  # no ticker source today
+    js = (ROOT / "fees.js").read_text(encoding="utf-8")
+    assert '"no ticker"' in js and "feesSearch" in js and "data-search" in js

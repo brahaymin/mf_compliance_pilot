@@ -30,7 +30,7 @@ FIELDS = (
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
     "form_new", "form_prior", "filing_url_new", "filing_url_prior",
-    "fund_type",
+    "fund_type", "ticker",
 )
 
 
@@ -140,6 +140,8 @@ def build(feed_path, forms=None):
         except (TypeError, ValueError):
             raise ExportError("non-numeric old/new value in a confirmed row")
         out["fund_type"] = fund_type(out["fund_name"])
+        # No ticker source in the feed or published pilot data; never guessed.
+        out["ticker"] = (r.get("ticker") or "").strip() or None
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)
     rows.sort(key=lambda r: (r["filing_date_new"], r["fund_name"], r["field"]), reverse=True)

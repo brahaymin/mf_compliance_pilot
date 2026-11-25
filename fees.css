@@ -16,3 +16,6 @@
 .type-badge.small { font-size:0.68rem; }
 .fees-controls { display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center; margin:0 0 1rem; }
 .fees-controls .notice { margin:0; }
+.ticker { font-family: var(--mono); font-size:0.8rem; color: var(--muted); }
+.ticker.small { font-size:0.7rem; }
+#feesSearch { padding:0.35rem 0.6rem; border:1px solid var(--line); border-radius:8px; min-width:14rem; }
