@@ -29,7 +29,16 @@ FIELDS = (
     "fund_name", "series_id", "field", "old", "new",
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
+    "form_new", "form_prior", "filing_url_new", "filing_url_prior",
 )
+EDGAR = "https://www.sec.gov/Archives/edgar/data/"
+
+
+def filing_index_url(accession):
+    """EDGAR filing index page for an accession (public; no guessing)."""
+    if not ACCESSION.match(accession or ""):
+        return None
+    return f"{EDGAR}{int(accession.split('-')[0])}/{accession.replace('-', '')}/{accession}-index.htm"
 FIELD_LABELS = {
     "total": "Total annual fund operating expenses",
     "net": "Net expenses (after waiver)",
@@ -66,22 +75,32 @@ def shape_errors(data, max_errors=20):
         if not isinstance(r, dict) or set(r) != set(FIELDS) | {"field_label"}:
             errors.append(f"row {i} has unexpected or missing keys")
             continue
-        if not SERIES.match(r["series_id"]):
+        if not SERIES.match(r["series_id"] or ""):
             errors.append(f"row {i} bad series_id")
         if r["field"] not in FIELD_LABELS:
             errors.append(f"row {i} unknown field")
-        for k in ("filing_accession_new", "filing_accession_prior"):
-            if not ACCESSION.match(r[k]):
+        if not ACCESSION.match(r["filing_accession_new"] or ""):
+            errors.append(f"row {i} bad filing_accession_new")
+        if r["filing_url_new"] != filing_index_url(r["filing_accession_new"]):
+            errors.append(f"row {i} filing_url_new does not match accession")
+        if r["filing_accession_prior"] is not None and (
+                not ACCESSION.match(r["filing_accession_prior"])
+                or r["filing_url_prior"] != filing_index_url(r["filing_accession_prior"])):
+            errors.append(f"row {i} bad prior accession or link")
+        for k in ("form_new", "form_prior"):
+            if r[k] is not None and not re.match(r"^[0-9A-Z/-]{2,12}$", r[k]):
                 errors.append(f"row {i} bad {k}")
-        for k in ("filing_date_new", "filing_date_prior"):
-            if not DATE.match(r[k]):
-                errors.append(f"row {i} bad {k}")
-        if r["filing_date_new"] < "2020-01-01" or r["filing_date_prior"] >= r["filing_date_new"]:
+        if not DATE.match(r["filing_date_new"] or ""):
+            errors.append(f"row {i} bad filing_date_new")
+        elif r["filing_date_prior"] is not None and not DATE.match(r["filing_date_prior"]):
+            errors.append(f"row {i} bad filing_date_prior")
+        elif r["filing_date_new"] < "2020-01-01" or (
+                r["filing_date_prior"] is not None and r["filing_date_prior"] >= r["filing_date_new"]):
             errors.append(f"row {i} dates out of order or before 2020")
         for k in ("old", "new"):
             if not isinstance(r[k], (int, float)) or isinstance(r[k], bool):
                 errors.append(f"row {i} {k} is not a number")
-        if not isinstance(r["fund_name"], str) or not r["fund_name"].strip():
+        if not isinstance(r["fund_name"], str) or not isinstance(r["series_id"], str) or not r["fund_name"].strip():
             errors.append(f"row {i} empty fund_name")
     return errors
 
@@ -93,10 +112,15 @@ def build(feed_path):
     for r in src:
         if (r.get("review_status") or "").strip() != "confirmed":
             continue
-        out = {k: (r.get(k) or "").strip() for k in FIELDS}
+        out = {k: (r.get(k) or "").strip() or None for k in FIELDS[:9]}
+        # Form types and links only from fields present in the feed; missing -> None ("not recorded").
+        out["form_new"] = (r.get("form_new") or r.get("form") or "").strip() or None
+        out["form_prior"] = (r.get("form_prior") or "").strip() or None
+        out["filing_url_new"] = filing_index_url(out["filing_accession_new"])
+        out["filing_url_prior"] = filing_index_url(out["filing_accession_prior"])
         try:
             out["old"], out["new"] = float(out["old"]), float(out["new"])
-        except ValueError:
+        except (TypeError, ValueError):
             raise ExportError("non-numeric old/new value in a confirmed row")
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)

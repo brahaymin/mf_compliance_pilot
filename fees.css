@@ -11,3 +11,4 @@
 .names-meta dt { font-weight: 700; }
 .names-meta dd { margin: 0; }
 @media (max-width: 600px) { .names-meta { grid-template-columns: 1fr; } .names-meta dd { margin-bottom: 0.3rem; } }
+.fund-card .sub.filing { margin: 0 0 0.25rem; color: var(--ink); }

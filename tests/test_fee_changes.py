@@ -78,3 +78,15 @@ def test_bad_shape_blocks_publish(tmp_path):
 def test_no_raw_fee_sources_in_repo():
     for pattern in ("page_feed*.csv", "baseline*.csv", "review_*.csv"):
         assert not list(ROOT.rglob(pattern)), pattern
+
+
+def test_rows_link_exact_filings_and_mark_missing_prior(tmp_path):
+    feed = _feed(tmp_path, [_row(), _row(field="net", filing_accession_prior="", filing_date_prior="")])
+    fees.publish(feed, tmp_path)
+    rows = json.loads((tmp_path / "fee_changes.json").read_text())["rows"]
+    by = {r["field"]: r for r in rows}
+    assert by["total"]["filing_url_new"] == (
+        "https://www.sec.gov/Archives/edgar/data/0/000000000026000002/0000000000-26-000002-index.htm")
+    assert by["total"]["filing_url_prior"].endswith("0000000000-25-000001-index.htm")
+    assert by["total"]["form_new"] is None  # feed has no form column -> "not recorded"
+    assert by["net"]["filing_accession_prior"] is None and by["net"]["filing_url_prior"] is None

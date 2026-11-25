@@ -10,7 +10,7 @@
     opts = opts || {};
     if (opts.text != null) n.textContent = opts.text;
     if (opts.cls) n.className = opts.cls;
-    if (opts.href) { n.href = opts.href; n.rel = "noopener"; }
+    if (opts.href) { n.href = opts.href; n.target = "_blank"; n.rel = "noopener"; }
     (kids || []).forEach(function (k) { n.appendChild(k); });
     return n;
   }
@@ -44,18 +44,26 @@
           el("td", { text: (d > 0 ? "+" : "") + d.toFixed(2) + " pts", cls: "num delta " + (d > 0 ? "up" : "down") })]);
       });
       var table = el("table", { cls: "fee-table" }, [el("thead", {}, [head]), el("tbody", {}, body)]);
-      var sub = el("p", { cls: "sub" }, [
-        document.createTextNode("Series "),
-        el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) }),
-        document.createTextNode(" · new filing " + r0.filing_date_new + " (" + r0.filing_accession_new +
-          ") vs prior " + r0.filing_date_prior + " (" + r0.filing_accession_prior + ")")
+      function filingLine(label, acc, date, form, url) {
+        var kids = [el("strong", { text: label + ": " })];
+        if (url) kids.push(el("a", { text: (form || "Filing") + " " + acc, href: url }));
+        else kids.push(document.createTextNode("not recorded"));
+        kids.push(document.createTextNode(" · filed " + (date || "not recorded") +
+          " · form " + (form || "not recorded")));
+        return el("p", { cls: "sub filing" }, kids);
+      }
+      var sub = el("div", {}, [
+        filingLine("New fee appeared in", r0.filing_accession_new, r0.filing_date_new, r0.form_new, r0.filing_url_new),
+        filingLine("Compared against prior", r0.filing_accession_prior, r0.filing_date_prior, r0.form_prior, r0.filing_url_prior),
+        el("p", { cls: "sub" }, [document.createTextNode("Fund series: "),
+          el("a", { text: r0.series_id, href: seriesUrl(r0.series_id) })])
       ]);
       els.list.appendChild(el("article", { cls: "fund-card" }, [el("h2", { text: r0.fund_name }), sub,
         el("div", { cls: "fee-table-wrap" }, [table])]));
     });
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-launch")
+  fetch("fee_changes.json?v=20261125-links")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });

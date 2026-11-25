@@ -94,7 +94,8 @@ def blocks_for(page: str, kind: str, names_text: str) -> dict:
     text = {"names": names_text, "fees": FEES}.get(kind, UNREVIEWED)
     status = {"names": "graded", "fees": "supervised"}.get(kind, "unreviewed")
     accuracy = f'<p class="accuracy-status" data-accuracy="{status}">{html.escape(text)}</p>'
-    footer = f'<footer class="site-footer"><p>{html.escape(FOOTER)}</p></footer>'
+    footer = (f'<footer class="site-footer"><p>{html.escape(FOOTER)}</p></footer>\n'
+              '<script src="site.js?v=20261125-links" defer></script>')
     return {"header": header, "accuracy": accuracy, "footer": footer}
 
 
