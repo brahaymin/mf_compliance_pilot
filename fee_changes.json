@@ -8,6 +8,29 @@
     "label": "supervised pilot",
     "review": "Each change was checked by hand against the fee tables of both filings (58/58 confirmed in the Nov 2026 baseline). Not graded on a random sample.",
     "row_count": 58,
+    "series_tickers": {
+      "S000059058": [
+        "FLOAX",
+        "FLOCX",
+        "FLOTX"
+      ],
+      "S000061654": [
+        "GLACX",
+        "GTAAX",
+        "GTAIX"
+      ],
+      "S000071589": [
+        "DGIBX",
+        "DGINX",
+        "DGITX"
+      ],
+      "S000085656": [],
+      "S000085657": [],
+      "S000085658": [],
+      "S000085659": [],
+      "S000091773": [],
+      "S000093518": []
+    },
     "source": "SEC EDGAR public filings (prospectus fee tables)",
     "units": "percent of net assets, as filed"
   },
@@ -630,7 +653,7 @@
       "new": 1.33,
       "old": 1.45,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGINX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
@@ -650,7 +673,7 @@
       "new": 1.33,
       "old": 1.45,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGITX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
@@ -670,7 +693,7 @@
       "new": 1.33,
       "old": 1.45,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGIBX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
@@ -750,7 +773,7 @@
       "new": 0.29,
       "old": 0.42,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGINX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
@@ -770,7 +793,7 @@
       "new": 0.29,
       "old": 0.42,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGITX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1843841/000158064226007518/dgibalancefund_497k.htm",
@@ -790,7 +813,7 @@
       "new": 0.29,
       "old": 0.42,
       "series_id": "S000071589",
-      "ticker": null
+      "ticker": "DGIBX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -810,7 +833,7 @@
       "new": 1.83,
       "old": 1.92,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOTX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -830,7 +853,7 @@
       "new": 2.83,
       "old": 2.92,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOCX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -850,7 +873,7 @@
       "new": 2.08,
       "old": 2.17,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -870,7 +893,7 @@
       "new": 0.64,
       "old": 0.53,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOTX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -890,7 +913,7 @@
       "new": 0.64,
       "old": 0.53,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOCX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007535/dftacticalyield497k.htm",
@@ -910,7 +933,7 @@
       "new": 0.64,
       "old": 0.53,
       "series_id": "S000059058",
-      "ticker": null
+      "ticker": "FLOAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -930,7 +953,7 @@
       "new": -0.96,
       "old": -0.77,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAIX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -950,7 +973,7 @@
       "new": -0.96,
       "old": -0.77,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GLACX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -970,7 +993,7 @@
       "new": -0.96,
       "old": -0.77,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -990,7 +1013,7 @@
       "new": 2.56,
       "old": 2.49,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAIX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1010,7 +1033,7 @@
       "new": 3.56,
       "old": 3.49,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GLACX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1030,7 +1053,7 @@
       "new": 2.81,
       "old": 2.74,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1050,7 +1073,7 @@
       "new": 0.87,
       "old": 0.83,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAIX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1070,7 +1093,7 @@
       "new": 0.87,
       "old": 0.83,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GLACX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1090,7 +1113,7 @@
       "new": 0.87,
       "old": 0.83,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1110,7 +1133,7 @@
       "new": 1.6,
       "old": 1.72,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAIX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1130,7 +1153,7 @@
       "new": 2.6,
       "old": 2.72,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GLACX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007530/dftacticalallocation497k.htm",
@@ -1150,7 +1173,7 @@
       "new": 1.85,
       "old": 1.97,
       "series_id": "S000061654",
-      "ticker": null
+      "ticker": "GTAAX"
     },
     {
       "doc_url_new": "https://www.sec.gov/Archives/edgar/data/1314414/000158064226007546/dftactical30etf_497k.htm",

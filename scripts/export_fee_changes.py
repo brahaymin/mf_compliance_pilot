@@ -125,6 +125,14 @@ def load_forms(root=REPO):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
 
 
+TICKERS_FILE = "fee_class_tickers.json"  # SEC company_tickers_mf.json, matched by series/class ID only
+
+
+def load_tickers(root=REPO):
+    path = Path(root) / TICKERS_FILE
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"series": {}, "classes": {}}
+
+
 def build(feed_path, forms=None):
     forms = load_forms() if forms is None else forms
     with open(feed_path, newline="", encoding="utf-8") as f:
@@ -152,13 +160,15 @@ def build(feed_path, forms=None):
             raise ExportError("non-numeric old/new value in a confirmed row")
         out["fund_type"] = fund_type(out["fund_name"])
         # No ticker source in the feed or published pilot data; never guessed.
-        out["ticker"] = (r.get("ticker") or "").strip() or None
+        tick = load_tickers()
+        out["ticker"] = tick["classes"].get((r.get("class_id") or "").strip())
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)
     rows.sort(key=lambda r: (r["filing_date_new"], r["fund_name"], r["field"]), reverse=True)
     return {
         "meta": {
             "label": "supervised pilot",
+            "series_tickers": {s: load_tickers()["series"].get(s, []) for s in sorted({r["series_id"] for r in rows})},
             "source": "SEC EDGAR public filings (prospectus fee tables)",
             "units": "percent of net assets, as filed",
             "row_count": len(rows),
