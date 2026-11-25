@@ -84,7 +84,7 @@ The candidate is published only if the Names shape gate (`scripts/names_gate.py`
 
 - `scripts/site_chrome.py` writes the shared header, banner, accuracy status and footer into every tab (`--check` fails when stale). Styles: `site.css`.
 - `scripts/uptime_check.py` + `.github/workflows/uptime.yml`: hourly free check of every live tab (non-200 or missing content fails the run).
-- `docs/drafts/` holds DRAFT terms and privacy text for review; not linked, and excluded from Vercel via `.vercelignore`.
+- Draft terms and privacy text are kept privately off-repo until lawyer review (not published).
 
 ## Local preview
 
