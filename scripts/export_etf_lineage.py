@@ -11,7 +11,7 @@ Usage: python3 scripts/export_etf_lineage.py --full /path/to/etf_lineage_full.js
 """
 from __future__ import annotations
 
-import argparse, json, os, re, sys, tempfile
+import argparse, json, os, re, sqlite3, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -24,13 +24,60 @@ SERIES = re.compile(r"^S\d{9}$")
 URL = re.compile(r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/\d{10}-\d{2}-\d{6}-index\.htm$")
 FEE_STATUS = "pending review"
 ROW_KEYS = {"status", "last_seen", "fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status", "source"}
-SOURCE = "v1 MF DB (read-only): sec_class_years classes/tickers; filings + filing_classes header rows for the prospectus link"
+SOURCE = (
+    "v1 MF DB (read-only): sec_class_years classes/tickers; "
+    "filings + filing_classes header rows for the prospectus link; "
+    "series_data_quality (flag=official_file_error) to omit official-file-error series"
+)
+HIDE_FLAG = "official_file_error"
+HIDE_SOURCE = "v1 MF DB (read-only): series_data_quality.flag = official_file_error"
+DB_DEFAULT = Path("/workspace/mf_compliance/data/mf_compliance.db")
 
 
-def build(full: list, source_year) -> dict:
+def load_hidden_series(db_path=None) -> dict:
+    """Map series_id -> flag row for official_file_error. Missing table or DB => {}."""
+    path = Path(db_path) if db_path is not None else DB_DEFAULT
+    if not path or not path.is_file():
+        return {}
+    con = sqlite3.connect(f"file:{path.resolve()}?mode=ro", uri=True)
+    try:
+        con.execute("PRAGMA query_only=ON")
+        try:
+            rows = con.execute(
+                "SELECT series_id, flag, source_year, live_series_id, note, provenance, recorded_at "
+                "FROM series_data_quality WHERE flag = ?",
+                (HIDE_FLAG,),
+            ).fetchall()
+        except sqlite3.OperationalError as exc:
+            if "no such table" in str(exc).lower() or "no such column" in str(exc).lower():
+                return {}
+            raise
+        out = {}
+        for series_id, flag, source_year, live_series_id, note, provenance, recorded_at in rows:
+            if series_id:
+                out[str(series_id)] = {
+                    "flag": flag,
+                    "source_year": source_year,
+                    "live_series_id": live_series_id,
+                    "note": note,
+                    "provenance": provenance,
+                    "recorded_at": recorded_at,
+                }
+        return out
+    finally:
+        con.close()
+
+
+
+def build(full: list, source_year, hidden=None) -> dict:
+    hidden = hidden or {}
     rows = []
     year = max(c.get("last_year", source_year) for r in full for c in r["classes"]) if full else source_year
+    omitted = 0
     for r in full:
+        if r["series_id"] in hidden:
+            omitted += 1
+            continue
         cur = [c for c in r["classes"] if c.get("last_year", year) == year]
         active = any(c["etf"] for c in cur) and any(not c["etf"] for c in cur)
         verified = str(r.get("link_status", "")).startswith("verified")
@@ -62,6 +109,9 @@ def build(full: list, source_year) -> dict:
         "links_flagged": sum(r["link_status"] == "flagged" for r in rows),
         "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' "
                  "alongside mutual fund classes. No 'similar' funds.",
+        "hidden_series": omitted,
+        "hide_source": HIDE_SOURCE,
+        "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list.",
     }
     return {"meta": meta, "rows": rows}
 
@@ -99,9 +149,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--full", required=True)
     ap.add_argument("--out-dir", default=str(REPO))
+    ap.add_argument("--db", default=str(DB_DEFAULT),
+                    help="v1 MF DB path, opened read-only. Missing table is treated as zero flags.")
     a = ap.parse_args(argv)
     full = json.loads(Path(a.full).read_text())
-    data = build(full, (full[0].get("source_year") if full else None) or 2026)
+    hidden = load_hidden_series(a.db)
+    data = build(full, (full[0].get("source_year") if full else None) or 2026, hidden=hidden)
     errs = shape_errors(data)
     if errs:
         print("shape gate failed: " + "; ".join(errs[:20]), file=sys.stderr); return 2

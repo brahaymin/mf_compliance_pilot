@@ -21,6 +21,7 @@
       " flagged for review and not linked");
     addMeta("Scope", m.scope);
     addMeta("Source", m.source + ". Outside SEC sources: " + m.outside_sources + ".");
+    if (m.hidden_series) addMeta("Hidden series", m.hidden_series + " omitted. " + (m.hide_rule || "") + " Source: " + (m.hide_source || "v1 MF DB") + ".");
     d.rows.forEach(function (r) {
       var body = r.classes.map(function (c) {
         return el("tr", {}, [el("td", {}, [c.name, c.etf ? el("span", { cls: "etf-tag", text: "ETF" }) : ""]),
@@ -54,6 +55,6 @@
   }
   q.addEventListener("input", apply);
   sf.addEventListener("change", apply);
-  fetch("etf_lineage.json?v=20261125-etf").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  fetch("etf_lineage.json?v=20261125-hide").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) { render(d); apply(); }).catch(function () { status.textContent = "Could not load the fund list."; status.className = "notice warn"; });
 })();
