@@ -75,6 +75,17 @@ async function runTab(tab) {
   if (hits < 1) {
     errors.push(new Error(tab.name + " rendered 0 nodes for " + tab.selector + "; status=" + JSON.stringify(status)));
   }
+  if (tab.name === "fees") {
+    window.document.querySelectorAll("#fees .ticker").forEach(function (n) {
+      var text = (n.textContent || "").trim();
+      if (text === "no ticker") return;
+      var label = n.querySelector(".ticker-source");
+      var src = label && (label.textContent || "").trim();
+      if (!src || (src !== "DB" && src !== "SEC")) {
+        errors.push(new Error("fees ticker lacks source label: " + JSON.stringify(text)));
+      }
+    });
+  }
   if (errors.length) {
     const msg = errors.map((e) => (e && e.stack) || String(e)).join("\n");
     throw new Error(tab.name + " failed:\n" + msg);

@@ -30,7 +30,7 @@ FIELDS = (
     "filing_accession_new", "filing_date_new",
     "filing_accession_prior", "filing_date_prior",
     "form_new", "form_prior", "filing_url_new", "filing_url_prior",
-    "fund_type", "ticker", "doc_url_new", "doc_url_prior",
+    "fund_type", "ticker", "ticker_source", "doc_url_new", "doc_url_prior",
 )
 
 
@@ -113,6 +113,11 @@ def shape_errors(data, max_errors=20):
                 errors.append(f"row {i} {k} is not a number")
         if not isinstance(r["fund_name"], str) or not isinstance(r["series_id"], str) or not r["fund_name"].strip():
             errors.append(f"row {i} empty fund_name")
+        if r.get("ticker"):
+            if r.get("ticker_source") not in ("DB", "SEC"):
+                errors.append(f"row {i} ticker missing source label")
+        elif r.get("ticker_source") is not None:
+            errors.append(f"row {i} ticker_source without ticker")
     return errors
 
 
@@ -126,6 +131,9 @@ def load_forms(root=REPO):
 
 
 TICKERS_FILE = "fee_class_tickers.json"  # SEC company_tickers_mf.json, matched by series/class ID only
+# v1 MF DB, opened read-only. Never write. Used first; SEC file is fallback only.
+DB_DEFAULT = Path("/workspace/mf_compliance/data/mf_compliance.db")
+_DB_TICKER_CACHE = {}
 
 
 def load_tickers(root=REPO):
@@ -133,7 +141,114 @@ def load_tickers(root=REPO):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"series": {}, "classes": {}}
 
 
-def build(feed_path, forms=None):
+def clean_ticker(value):
+    """Drop empty and sentinel values such as the literal '[NULL]'."""
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text or text.upper() in {"[NULL]", "NULL", "NONE", "N/A"}:
+        return None
+    return text
+
+
+def resolve_ticker(series_id, class_id, db_map, sec_classes):
+    """Match by series_id + class_contract_id only. DB first, then SEC, else none."""
+    series_id = (series_id or "").strip()
+    class_id = (class_id or "").strip()
+    if not series_id or not class_id:
+        return None, None
+    ticker = clean_ticker(db_map.get((series_id, class_id)))
+    if ticker:
+        return ticker, "DB"
+    ticker = clean_ticker(sec_classes.get(class_id))
+    if ticker:
+        return ticker, "SEC"
+    return None, None
+
+
+def series_ticker_entries(series_id, db_map, sec_series):
+    """All ID-matched tickers for a series, DB first, then SEC fallback, sorted."""
+    seen = set()
+    entries = []
+    for (sid, _cid), ticker in sorted(db_map.items(), key=lambda kv: (kv[0][0], clean_ticker(kv[1]) or "")):
+        if sid != series_id:
+            continue
+        ticker = clean_ticker(ticker)
+        if ticker and ticker not in seen:
+            entries.append({"ticker": ticker, "source": "DB"})
+            seen.add(ticker)
+    for ticker in sec_series.get(series_id, []):
+        ticker = clean_ticker(ticker)
+        if ticker and ticker not in seen:
+            entries.append({"ticker": ticker, "source": "SEC"})
+            seen.add(ticker)
+    entries.sort(key=lambda e: e["ticker"])
+    return entries
+
+
+def load_db_tickers(series_ids, db_path=None):
+    """Read tickers from share_classes then sec_class_years (latest year). mode=ro only."""
+    import sqlite3
+
+    path = DB_DEFAULT if db_path is None else (Path(db_path) if db_path else None)
+    series_ids = tuple(sorted({s for s in series_ids if s}))
+    if not series_ids or path is None or not path.is_file():
+        return {}
+    cache_key = (str(path.resolve()) if path.exists() else str(path), series_ids)
+    if cache_key in _DB_TICKER_CACHE:
+        return _DB_TICKER_CACHE[cache_key]
+    uri = f"file:{path}?mode=ro"
+    con = sqlite3.connect(uri, uri=True)
+    try:
+        cur = con.cursor()
+        placeholders = ",".join("?" * len(series_ids))
+        raw = {}
+        cur.execute(
+            f"""
+            SELECT f.series_id, sc.class_contract_id, sc.ticker
+            FROM share_classes sc
+            JOIN funds f ON f.fund_id = sc.fund_id
+            WHERE f.series_id IN ({placeholders})
+            """,
+            series_ids,
+        )
+        conflicts = set()
+        for series_id, class_id, ticker in cur.fetchall():
+            ticker = clean_ticker(ticker)
+            if not series_id or not class_id or not ticker:
+                continue
+            key = (series_id, class_id)
+            if key in conflicts:
+                continue
+            if key in raw and raw[key] != ticker:
+                del raw[key]
+                conflicts.add(key)
+                continue
+            raw[key] = ticker
+        # Fill remaining keys from the latest sec_class_years row with a ticker.
+        cur.execute(
+            f"""
+            SELECT series_id, class_contract_id, ticker, source_year
+            FROM sec_class_years
+            WHERE series_id IN ({placeholders})
+            ORDER BY source_year DESC
+            """,
+            series_ids,
+        )
+        for series_id, class_id, ticker, _year in cur.fetchall():
+            ticker = clean_ticker(ticker)
+            if not series_id or not class_id or not ticker:
+                continue
+            key = (series_id, class_id)
+            if key not in raw:
+                raw[key] = ticker
+    finally:
+        con.close()
+    _DB_TICKER_CACHE[cache_key] = raw
+    return raw
+
+
+def build(feed_path, forms=None, db_path=None):
     forms = load_forms() if forms is None else forms
     with open(feed_path, newline="", encoding="utf-8") as f:
         src = list(csv.DictReader(f))
@@ -159,16 +274,20 @@ def build(feed_path, forms=None):
         except (TypeError, ValueError):
             raise ExportError("non-numeric old/new value in a confirmed row")
         out["fund_type"] = fund_type(out["fund_name"])
-        # No ticker source in the feed or published pilot data; never guessed.
-        tick = load_tickers()
-        out["ticker"] = tick["classes"].get((r.get("class_id") or "").strip())
+        out["_class_id"] = (r.get("class_id") or "").strip()
         out["field_label"] = FIELD_LABELS.get(out["field"], out["field"])
         rows.append(out)
     rows.sort(key=lambda r: (r["filing_date_new"], r["fund_name"], r["field"]), reverse=True)
+    tick = load_tickers()
+    db_map = load_db_tickers({r["series_id"] for r in rows}, db_path=db_path)
+    for out in rows:
+        out["ticker"], out["ticker_source"] = resolve_ticker(
+            out["series_id"], out.pop("_class_id"), db_map, tick.get("classes") or {})
+    series_ids = sorted({r["series_id"] for r in rows})
     return {
         "meta": {
             "label": "supervised pilot",
-            "series_tickers": {s: load_tickers()["series"].get(s, []) for s in sorted({r["series_id"] for r in rows})},
+            "series_tickers": {s: series_ticker_entries(s, db_map, tick.get("series") or {}) for s in series_ids},
             "source": "SEC EDGAR public filings (prospectus fee tables)",
             "units": "percent of net assets, as filed",
             "row_count": len(rows),
@@ -183,8 +302,8 @@ def build(feed_path, forms=None):
     }
 
 
-def publish(feed_path, out_dir=REPO):
-    data = build(feed_path)
+def publish(feed_path, out_dir=REPO, db_path=None):
+    data = build(feed_path, db_path=db_path)
     problems = shape_errors(data)
     if problems:
         raise ExportError("fee shape gate failed; not published: " + "; ".join(problems[:5]))
