@@ -90,3 +90,13 @@ def test_no_contact_address_or_form_anywhere():
 def test_legal_drafts_not_in_repo():
     """CEO 2026-11-25 12:40: draft terms/privacy stay private, off-repo, until lawyer review."""
     assert not list((ROOT / "docs" / "drafts").glob("*.md"))
+
+
+def test_external_links_open_in_new_tab():
+    for page in PAGES:
+        text = (ROOT / page).read_text(encoding="utf-8")
+        assert 'src="site.js' in text, page
+        for tag in re.findall(r'<a [^>]*href="https?://[^>]*>', text):
+            assert 'target="_blank"' in tag and 'rel="noopener"' in tag, (page, tag)
+    js = (ROOT / "site.js").read_text(encoding="utf-8")
+    assert 'a[href^="http"]' in js and '"_blank"' in js and "MutationObserver" in js
