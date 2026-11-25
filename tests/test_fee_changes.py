@@ -114,12 +114,19 @@ def test_fund_type_split_labels_and_newest_first():
 
 
 def test_tickers_never_guessed_and_search_present():
-    rows = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))["rows"]
+    data = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))
     tick = json.loads((ROOT / "fee_class_tickers.json").read_text(encoding="utf-8"))
-    allowed = set(tick["classes"].values())
-    assert all(r["ticker"] is None or r["ticker"] in allowed for r in rows)
+    sec_allowed = set(tick["classes"].values())
+    for r in data["rows"]:
+        if r["ticker"] is None:
+            assert r["ticker_source"] is None
+        else:
+            assert r["ticker_source"] in ("DB", "SEC")
+            if r["ticker_source"] == "SEC":
+                assert r["ticker"] in sec_allowed
     js = (ROOT / "fees.js").read_text(encoding="utf-8")
     assert '"no ticker"' in js and "feesSearch" in js and "data-search" in js
+    assert "ticker-source" in js
 
 
 def test_rows_link_primary_documents_from_edgar_map():
@@ -133,10 +140,62 @@ def test_rows_link_primary_documents_from_edgar_map():
     assert "index-link" in js and "Annual%20Fund%20Operating%20Expenses" in js
 
 
-def test_tickers_only_from_sec_id_map():
-    tick = json.loads((ROOT / "fee_class_tickers.json").read_text(encoding="utf-8"))
+def test_tickers_db_first_then_sec_and_labeled():
     data = json.loads((ROOT / "fee_changes.json").read_text(encoding="utf-8"))
-    for s, ts in data["meta"]["series_tickers"].items():
-        assert ts == tick["series"].get(s, [])
-    assert sum(1 for t in data["meta"]["series_tickers"].values() if t) == 3
+    for entries in data["meta"]["series_tickers"].values():
+        assert isinstance(entries, list)
+        seen = set()
+        for e in entries:
+            assert e["source"] in ("DB", "SEC") and e["ticker"] and e["ticker"] not in seen
+            seen.add(e["ticker"])
+        assert entries == sorted(entries, key=lambda e: e["ticker"])
+    # All nine fund cards have at least one DB ticker after the N-CEN fill.
+    labeled = [e for entries in data["meta"]["series_tickers"].values() for e in entries]
+    assert sum(1 for entries in data["meta"]["series_tickers"].values() if entries) == 9
+    assert all(e["source"] == "DB" for e in labeled)
     assert "class_id" not in json.dumps(data)
+
+
+def test_resolve_ticker_db_first_id_only_and_null_sentinel():
+    db_map = {("S000000001", "C000000009"): "DBAAA", ("S000000001", "C000000010"): "[NULL]"}
+    sec = {"C000000009": "SECAA", "C000000011": "SECBB", "C000000010": "SECCC"}
+    assert fees.resolve_ticker("S000000001", "C000000009", db_map, sec) == ("DBAAA", "DB")
+    assert fees.resolve_ticker("S000000001", "C000000011", db_map, sec) == ("SECBB", "SEC")
+    assert fees.resolve_ticker("S000000001", "C000000010", db_map, sec) == ("SECCC", "SEC")
+    assert fees.resolve_ticker("S000000002", "C000000009", db_map, sec) == ("SECAA", "SEC")
+    assert fees.resolve_ticker("S000000001", "", db_map, sec) == (None, None)
+    assert fees.clean_ticker("[NULL]") is None
+    # Series list: DB tickers first, SEC only for gaps, no name matching required.
+    entries = fees.series_ticker_entries("S000000001", {("S000000001", "C000000009"): "DBAAA"},
+                                         {"S000000001": ["DBAAA", "SECBB"]})
+    assert entries == [{"ticker": "DBAAA", "source": "DB"}, {"ticker": "SECBB", "source": "SEC"}]
+
+
+def test_load_db_tickers_prefers_share_classes_over_sec_years(tmp_path):
+    import sqlite3
+    db = tmp_path / "mini.db"
+    con = sqlite3.connect(db)
+    con.executescript(
+        """
+        CREATE TABLE funds (fund_id INTEGER PRIMARY KEY, series_id TEXT, fund_name TEXT);
+        CREATE TABLE share_classes (
+            class_id INTEGER PRIMARY KEY, fund_id INTEGER, class_name TEXT,
+            ticker TEXT, class_contract_id TEXT
+        );
+        CREATE TABLE sec_class_years (
+            class_contract_id TEXT, source_year INTEGER, series_id TEXT, ticker TEXT,
+            PRIMARY KEY (class_contract_id, source_year)
+        );
+        INSERT INTO funds VALUES (1, 'S000000001', 'Example Growth Fund');
+        INSERT INTO share_classes VALUES (1, 1, 'Class A', 'DBAAA', 'C000000009');
+        INSERT INTO share_classes VALUES (2, 1, 'Legacy', '[NULL]', 'C000000009');
+        INSERT INTO sec_class_years VALUES ('C000000009', 2026, 'S000000001', 'OLDYZ');
+        INSERT INTO sec_class_years VALUES ('C000000012', 2026, 'S000000001', 'YEARX');
+        """
+    )
+    con.commit()
+    con.close()
+    got = fees.load_db_tickers(["S000000001"], db_path=db)
+    assert got[("S000000001", "C000000009")] == "DBAAA"
+    assert got[("S000000001", "C000000012")] == "YEARX"
+    assert "[NULL]" not in got.values()

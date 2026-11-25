@@ -23,6 +23,22 @@
   function seriesUrl(id) {
     return "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + encodeURIComponent(id);
   }
+  function tickerName(t) { return (t && t.ticker) ? t.ticker : t; }
+  function tickerBits(entries, small) {
+    var cls = small ? "ticker small" : "ticker";
+    if (!entries || !entries.length) return [el("span", { cls: cls, text: "no ticker" })];
+    var nodes = [];
+    entries.forEach(function (t, i) {
+      if (i) nodes.push(document.createTextNode(", "));
+      var kids = [document.createTextNode(tickerName(t))];
+      if (t && t.source) {
+        kids.push(document.createTextNode(" "));
+        kids.push(el("span", { cls: "ticker-source", text: t.source }));
+      }
+      nodes.push(el("span", { cls: cls }, kids));
+    });
+    return nodes;
+  }
   function render(data) {
     var meta = data.meta || {}, rows = data.rows || [];
     addMeta("Status", meta.label || "supervised pilot");
@@ -67,7 +83,7 @@
         var d = r["new"] - r.old;
         return el("tr", {}, [el("td", {}, [document.createTextNode(r.field_label + " "),
           el("span", { cls: "type-badge small", text: r.fund_type }), document.createTextNode(" "),
-          el("span", { cls: "ticker small", text: r.ticker || "no ticker" })]), el("td", { text: pct(r.old), cls: "num" }),
+          tickerBits(r.ticker ? [{ ticker: r.ticker, source: r.ticker_source }] : [], true)[0]]), el("td", { text: pct(r.old), cls: "num" }),
           el("td", { text: pct(r["new"]), cls: "num" }),
           el("td", { text: (d > 0 ? "+" : "") + d.toFixed(2) + " pts", cls: "num delta " + (d > 0 ? "up" : "down") })]);
       });
@@ -90,17 +106,17 @@
       ]);
       var tickers = ((data.meta || {}).series_tickers || {})[r0.series_id] || [];
       var card = el("article", { cls: "fund-card" }, [el("h2", {}, [document.createTextNode(r0.fund_name + " "),
-        el("span", { cls: "type-badge", text: r0.fund_type }), document.createTextNode(" "),
-        el("span", { cls: "ticker", text: tickers.length ? tickers.join(", ") : "no ticker" })]), sub,
+        el("span", { cls: "type-badge", text: r0.fund_type }), document.createTextNode(" ")]
+        .concat(tickerBits(tickers))), sub,
         el("div", { cls: "fee-table-wrap" }, [table])]);
       card.setAttribute("data-type", r0.fund_type);
-      card.setAttribute("data-search", (r0.fund_name + " " + tickers.join(" ")).toLowerCase());
+      card.setAttribute("data-search", (r0.fund_name + " " + tickers.map(tickerName).join(" ")).toLowerCase());
       els.list.appendChild(card);
     });
     apply();
     els.status.textContent = rows.length + " confirmed changes. Check each against the SEC filing.";
   }
-  fetch("fee_changes.json?v=20261125-tick")
+  fetch("fee_changes.json?v=20261125-dbtick")
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(render)
     .catch(function () { els.status.textContent = "Could not load fee changes."; els.status.className = "notice warn"; });
