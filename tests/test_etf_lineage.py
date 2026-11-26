@@ -240,7 +240,7 @@ def test_hidden_series_omitted_even_with_primary_document():
         ddb.unlink()
 
 
-def test_complete_etf_fee_is_published_and_mf_fee_is_not():
+def test_complete_sister_and_etf_fees_are_published():
     fees = {
         "C000000001": {"total": 0.42, "net": 0.41, "accession": ACC, "filing_url": DOC_URL, "form": "497K",
                        "total_line": "Total Annual Fund Operating Expenses 0.42%",
@@ -255,15 +255,35 @@ def test_complete_etf_fee_is_published_and_mf_fee_is_not():
     assert etf.shape_errors(data) == []
     by_id = {c["class_id"]: c for c in data["rows"][0]["classes"]}
     mf, etf_cls = by_id["C000000001"], by_id["C000000002"]
-    assert "expense_total" not in mf and "expense_net" not in mf
+    assert mf["expense_total"] == 0.42 and mf["expense_net"] == 0.41
+    assert mf["waiver_amount"] == 0.01 and mf["total_line"] and mf["net_line"]
+    assert mf["source"] == etf.FEE_SOURCE
+    assert mf["filing_url"] == DOC_URL
     assert etf_cls["expense_total"] == 0.21 and etf_cls["expense_net"] == 0.18
     assert etf_cls["waiver_amount"] == 0.03
     assert etf_cls["accession"] == ACC and etf_cls["filing_url"] == DOC_URL
     assert etf_cls["source"] == etf.FEE_SOURCE
-    dumped = json.dumps(data)
-    assert "0.42" not in dumped
-    assert data["meta"]["fees_published"] == 1
+    assert data["meta"]["fees_published"] == 2
+    assert data["meta"]["fees_published_active"] == 2
     assert data["meta"]["fee_status"] == "published"
+
+
+def test_inactive_sister_is_hidden_and_gets_no_fee():
+    f = _full(fees={
+        "C000000002": {"total": 0.03, "net": 0.03, "accession": ACC, "filing_url": DOC_URL, "form": "497K",
+                       "total_line": "Total Annual Fund Operating Expenses 0.03%"},
+        "C000000099": {"total": 0.99, "net": 0.99, "accession": ACC, "filing_url": DOC_URL, "form": "497K",
+                       "total_line": "Total Annual Fund Operating Expenses 0.99%"},
+    })
+    f[0]["classes"].append(
+        {"class_id": "C000000099", "name": "Signal Shares", "ticker": "EXSIX", "etf": False, "last_year": 2019}
+    )
+    data = etf.build(f, 2026)
+    assert etf.shape_errors(data) == []
+    names = [c["name"] for c in data["rows"][0]["classes"]]
+    assert "Signal Shares" not in names
+    assert "0.99" not in json.dumps(data)
+    assert data["meta"]["fees_published"] == 1
 
 
 def test_blank_reason_attached_for_known_class():
@@ -277,23 +297,30 @@ def test_blank_reason_attached_for_known_class():
     assert data["meta"]["fees_blank"] == 1
 
 
-def test_published_json_has_confirmed_etf_fees():
+def test_published_json_has_confirmed_allclass_fees():
     data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
     assert etf.shape_errors(data) == []
     assert data["meta"]["fee_status"] == "published"
-    assert data["meta"]["fees_published"] == 92
+    assert data["meta"]["fees_published"] == 296
     assert data["meta"]["fees_blank"] == 6
+    assert data["meta"]["fees_published_active"] == 295
+    assert data["meta"]["fees_blank_active"] == 2
+    assert data["meta"]["active_series"] == 93
     assert data["meta"]["fee_source"] == etf.FEE_SOURCE_META
-    published, blank, mf_fees, waivers = 0, 0, 0, 0
+    published = blank = etf_fees = sister_fees = waivers = inactive = 0
     reasons = {}
     for row in data["rows"]:
         for c in row["classes"]:
-            if not c.get("etf"):
-                if any(k in c for k in ("expense_total", "expense_net", "waiver_amount", "reason")):
-                    mf_fees += 1
-                continue
+            if c.get("active") is False and not c.get("etf"):
+                inactive += 1
+                assert "expense_total" not in c
             if "expense_total" in c:
                 published += 1
+                if c.get("etf"):
+                    etf_fees += 1
+                else:
+                    sister_fees += 1
+                    assert c.get("active") is True
                 assert isinstance(c["expense_total"], (int, float))
                 assert isinstance(c["expense_net"], (int, float))
                 assert "reason" not in c
@@ -311,18 +338,35 @@ def test_published_json_has_confirmed_etf_fees():
                     waivers += 1
                 else:
                     assert round(c["expense_total"] - c["expense_net"], 2) == 0
-                    assert "net_line" not in c
-            else:
+                    # Shared tables may still include an after-waiver line when this class's
+                    # net equals its total; never invent a waiver amount in that case.
+            elif c.get("reason"):
                 blank += 1
+                assert c.get("etf")
                 assert c["reason"] in etf.BLANK_REASONS.values()
                 assert "expense_total" not in c and "expense_net" not in c and "waiver_amount" not in c
                 reasons[c["class_id"]] = c["reason"]
-    assert published == 92 and blank == 6 and mf_fees == 0
-    assert waivers == 20
+    assert published == 296 and blank == 6
+    assert etf_fees == 92 and sister_fees == 204
+    assert data["meta"]["fees_published_active"] == 91 + 204
     assert reasons["C000275281"] == "not yet effective, no final prospectus"
     assert reasons["C000275282"] == "not yet effective, no final prospectus"
     for cid in ("C000092028", "C000092030", "C000092032", "C000109507"):
         assert reasons[cid] == "older class, no usable fee table in filings"
+    by_frag = {}
+    for row in data["rows"]:
+        for c in row["classes"]:
+            url = c.get("filing_url") or ""
+            if "#:~:text=" not in url:
+                continue
+            key = (c["accession"], url.split("#", 1)[1])
+            by_frag.setdefault(key, []).append(c)
+    for _, group in by_frag.items():
+        assert len({c.get("total_line") for c in group}) == 1
+    etf_frags = [(c["accession"], c["filing_url"].split("#", 1)[1])
+                 for row in data["rows"] for c in row["classes"]
+                 if c.get("etf") and c.get("filing_url")]
+    assert len(etf_frags) == len(set(etf_frags)) == 92
 
 
 FIMU_DOC = "https://www.sec.gov/Archives/edgar/data/215829/000021582926000051/filing12344.htm"
@@ -382,3 +426,41 @@ def test_shared_document_rows_have_distinct_deep_links():
             frag = url.split("#", 1)[1]
             frags.append(frag)
         assert len(set(frags)) == len(frags)
+
+
+def _published_classes():
+    data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
+    out = {}
+    for row in data["rows"]:
+        for c in row["classes"]:
+            if c.get("class_id"):
+                out[c["class_id"]] = (row, c)
+    return data, out
+
+
+def test_published_json_sister_waiver_and_no_waiver_and_fallback():
+    _, by = _published_classes()
+    # Waiver sister: FLTMX
+    fltmx = by["C000019665"][1]
+    assert fltmx["etf"] is False and fltmx["active"] is True
+    assert fltmx["expense_total"] == 0.39 and fltmx["expense_net"] == 0.37
+    assert fltmx["waiver_amount"] == 0.02 and fltmx["net_line"]
+    assert "#:~:text=" in fltmx["filing_url"]
+    # No-waiver sister: FSHBX
+    fshbx = by["C000019128"][1]
+    assert fshbx["expense_total"] == 0.3 and fshbx["expense_net"] == 0.3
+    assert "waiver_amount" not in fshbx and "net_line" not in fshbx
+    # Stored-filing fallback: FRIFX (class-primary 497 had no table)
+    frifx = by["C000019680"][1]
+    assert frifx["expense_total"] == 0.65 and frifx["expense_net"] == 0.65
+    assert frifx["accession"] == "0000754510-26-000241"
+    assert "#:~:text=" in frifx["filing_url"]
+    # First American R6 fallback
+    fgiwx = by["C000171406"][1]
+    assert fgiwx["expense_total"] == 1.0 and fgiwx["expense_net"] == 0.88
+    assert fgiwx["waiver_amount"] == 0.12 and fgiwx["accession"] == "0001193125-26-193816"
+    # Blank ETF still blank, no numbers or fee link
+    blank = by["C000275281"][1]
+    assert blank["etf"] is True
+    assert blank["reason"] == "not yet effective, no final prospectus"
+    assert "expense_total" not in blank and "filing_url" not in blank

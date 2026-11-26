@@ -52,7 +52,8 @@ def test_accuracy_status_is_honest():
         elif page == "etf.html":
             assert 'data-accuracy="supervised"' in acc
             assert "lineage: unreviewed" in acc
-            assert "92 confirmed ETF classes" in acc
+            assert "295 of 297 active share classes" in acc
+            assert "Inactive classes are hidden" in acc
             assert "Read the full filing" in acc
         else:
             assert 'data-accuracy="unreviewed"' in acc
