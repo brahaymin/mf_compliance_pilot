@@ -118,6 +118,57 @@ async function runTab(tab) {
     if (shown.length !== 93) {
       errors.push(new Error("etf default Active view expected 93 series, got " + shown.length));
     }
+    const totalLines = window.document.querySelectorAll(".fee-total-line");
+    if (totalLines.length !== 92) {
+      errors.push(new Error("etf expected 92 exact total lines, got " + totalLines.length));
+    }
+    let waiverLines = false;
+    window.document.querySelectorAll("#etf .etf-classes tbody tr").forEach(function (tr) {
+      if (tr.querySelector(".fee-waiver") && tr.querySelector(".fee-total-line") && tr.querySelector(".fee-net-line")) {
+        waiverLines = true;
+      }
+    });
+    if (!waiverLines) errors.push(new Error("etf waiver row missing both exact filing lines"));
+    const notes = window.document.querySelectorAll(".fee-note");
+    const noteText = Array.prototype.map.call(notes, function (n) { return (n.textContent || "").trim(); });
+    const noWaiver = noteText.filter(function (s) { return s === "no waiver in filing"; }).length;
+    if (noWaiver !== 72) {
+      errors.push(new Error("etf expected 72 'no waiver in filing' notes, got " + noWaiver));
+    }
+    // Shared-document rows must not reuse the same text fragment.
+    const byAcc = {};
+    window.document.querySelectorAll("#etf a.fee-filing").forEach(function (a) {
+      const href = a.getAttribute("href") || "";
+      const m = href.match(/(\d{18})\/[^#]+(?:#:~:text=.+)$/);
+      if (!m) return;
+      const acc = m[1];
+      (byAcc[acc] || (byAcc[acc] = [])).push(href);
+    });
+    Object.keys(byAcc).forEach(function (acc) {
+      const hrefs = byAcc[acc];
+      if (hrefs.length < 2) return;
+      const frags = hrefs.map(function (h) { return h.split("#")[1]; });
+      if (new Set(frags).size !== frags.length) {
+        errors.push(new Error("etf shared document " + acc + " has duplicate deep-link fragments"));
+      }
+    });
+    const fimu = Array.prototype.find.call(window.document.querySelectorAll("#etf a.fee-filing"), function (a) {
+      return /FIMU|000021582926000051/.test((a.getAttribute("href") || "") + " " + (a.closest("article") && a.closest("article").dataset.q || ""));
+    });
+    // FIMU is labeled by ticker in the row; find the filing link in the FIMU card.
+    let fimuHref = null;
+    window.document.querySelectorAll("#etf .fund-card").forEach(function (card) {
+      if ((card.dataset.q || "").indexOf("fimu") >= 0) {
+        const a = card.querySelector("a.fee-filing");
+        if (a) fimuHref = a.getAttribute("href") || "";
+      }
+    });
+    if (!fimuHref || fimuHref.indexOf("filing12344.htm") < 0 || fimuHref.indexOf("index.htm") >= 0) {
+      errors.push(new Error("etf FIMU href is not the stored document: " + JSON.stringify(fimuHref)));
+    }
+    if (!fimuHref || fimuHref.indexOf("#:~:text=") < 0) {
+      errors.push(new Error("etf FIMU href missing text fragment"));
+    }
   }
   if (tab.name === "fees") {
     window.document.querySelectorAll("#fees .ticker").forEach(function (n) {

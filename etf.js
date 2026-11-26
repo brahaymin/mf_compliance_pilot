@@ -18,10 +18,19 @@
       var waiver = (typeof c.waiver_amount === "number" && c.waiver_amount > 0)
         ? c.waiver_amount
         : Math.round((c.expense_total - c.expense_net) * 100) / 100;
+      var totalKids = [el("span", { cls: "fee-total", text: pct(c.expense_total) })];
+      if (c.total_line) {
+        totalKids.push(el("span", { cls: "fee-line fee-total-line", text: c.total_line }));
+      }
       var netKids = [el("span", { cls: "fee-net", text: pct(c.expense_net) })];
       if (waiver > 0) {
         netKids.push(" ");
         netKids.push(el("span", { cls: "fee-waiver", text: "Waiver " + pct(waiver) }));
+      }
+      if (c.net_line) {
+        netKids.push(el("span", { cls: "fee-line fee-net-line", text: c.net_line }));
+      } else {
+        netKids.push(el("span", { cls: "fee-note", text: "no waiver in filing" }));
       }
       var srcKids = [];
       if (c.filing_url) {
@@ -30,7 +39,7 @@
       }
       srcKids.push(el("span", { cls: "fee-source", text: "source: v1 MF DB" + (c.accession ? " · " + c.accession : "") }));
       return [
-        el("td", { cls: "num" }, [el("span", { cls: "fee-total", text: pct(c.expense_total) })]),
+        el("td", { cls: "num" }, totalKids),
         el("td", { cls: "num" }, netKids),
         el("td", { cls: "fee-src" }, srcKids)
       ];
@@ -88,6 +97,6 @@
   }
   q.addEventListener("input", apply);
   sf.addEventListener("change", apply);
-  fetch("etf_lineage.json?v=20261125-etffees").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  fetch("etf_lineage.json?v=20261126-feelinedeep").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) { render(d); apply(); }).catch(function () { status.textContent = "Could not load the fund list."; status.className = "notice warn"; });
 })();

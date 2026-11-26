@@ -3,7 +3,8 @@
 
 Reads the local output of mf_compliance scripts/etf_lineage.py (etf_lineage_full.json; never committed)
 and writes allowlisted public SEC fields only. ETF class expense ratios (Total and Net, plus a
-waiver amount when above 0) are published from the full file when both figures are present.
+waiver amount when above 0) are published from the full file when both figures are present,
+along with the exact Total/Net filing lines and a deep link to that class's fee table.
 A prospectus link is published only from series_primary_document in the v1 DB (read-only) when
 that row has a source_url; blank or missing rows stay unlinked. Shape gate and PII screen run
 before the published file is replaced; on failure nothing is written.
@@ -23,9 +24,9 @@ OUT_NAME = "etf_lineage.json"
 ACC = re.compile(r"^\d{10}-\d{2}-\d{6}$")
 SERIES = re.compile(r"^S\d{9}$")
 CLASS_ID = re.compile(r"^C\d{9}$")
-# Primary-document URL from series_primary_document or a class fee document (not an EDGAR index page).
+# Primary-document URL (exact document, not an EDGAR index page), optional text-fragment highlight.
 URL = re.compile(
-    r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9._-]+\.htm$"
+    r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9._-]+\.htm(?:#:~:text=.+)?$"
 )
 FEE_STATUS = "published"
 FEE_SOURCE = "v1 MF DB"
@@ -35,6 +36,7 @@ CLASS_REQUIRED = {"name", "ticker", "etf", "active", "last_year"}
 CLASS_OPTIONAL = {
     "class_id", "expense_total", "expense_net", "waiver_amount",
     "accession", "filing_url", "source", "form", "reason",
+    "total_line", "net_line",
 }
 # CEO-specified reasons for the six ETF classes with no published fee (run9).
 BLANK_REASONS = {
@@ -146,15 +148,27 @@ def etf_fee_fields(fee) -> dict | None:
     total, net = fee["total"], fee["net"]
     if not isinstance(total, (int, float)) or not isinstance(net, (int, float)):
         return None
+    url = (fee.get("filing_url") or "").split("#", 1)[0].strip()
+    frag = (fee.get("filing_url_fragment") or fee.get("text_fragment") or "").strip()
+    if frag and not frag.startswith("#"):
+        frag = "#" + frag
     out = {
         "expense_total": total,
         "expense_net": net,
         "accession": fee.get("accession"),
-        "filing_url": fee.get("filing_url"),
+        "filing_url": url + frag,
         "source": FEE_SOURCE,
     }
     if fee.get("form"):
         out["form"] = fee["form"]
+    line = (fee.get("total_line") or "").strip()
+    if line:
+        out["total_line"] = line
+    # Exact Net line only when the filing has an after-waiver line; never invent one.
+    if fee.get("waiver_line") and not fee.get("net_defaulted"):
+        net_line = (fee.get("net_line") or "").strip()
+        if net_line:
+            out["net_line"] = net_line
     waiver = round(total - net, 2)
     if waiver > 0:
         out["waiver_amount"] = waiver
@@ -235,7 +249,7 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
         "link_source": LINK_SOURCE,
         "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' "
                  "alongside mutual fund classes. No 'similar' funds.",
-        "hidden_series": omitted,
+        "hidden_series": len(hidden) if hidden else omitted,
         "hide_source": HIDE_SOURCE,
         "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list.",
         "fees_published": fees_published,
@@ -268,10 +282,19 @@ def _class_errors(i, c) -> list:
             e.append(f"row {i} waiver")
         acc = str(c.get("accession") or "")
         url = str(c.get("filing_url") or "")
-        if not ACC.match(acc) or not URL.match(url) or acc.replace("-", "") not in url:
+        base = url.split("#", 1)[0]
+        if (not ACC.match(acc) or not URL.match(url) or acc.replace("-", "") not in url
+                or base.lower().endswith("-index.htm") or base.lower().endswith("-index.html")):
             e.append(f"row {i} fee filing link")
         if c.get("source") != FEE_SOURCE:
             e.append(f"row {i} fee source")
+        if not (c.get("total_line") or "").strip():
+            e.append(f"row {i} total_line")
+        if "net_line" in c:
+            if not str(c.get("net_line") or "").strip():
+                e.append(f"row {i} empty net_line")
+        elif c.get("waiver_amount"):
+            e.append(f"row {i} waiver missing net_line")
     if has_reason:
         if not c.get("etf"):
             e.append(f"row {i} reason on mutual fund class")

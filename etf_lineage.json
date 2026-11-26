@@ -64,11 +64,13 @@
      "class_id": "C000268962",
      "expense_total": 0.22,
      "expense_net": 0.18,
-     "waiver_amount": 0.04,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.22%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.18%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.22%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.18%",
+     "waiver_amount": 0.04
     }
    ],
    "filing": {
@@ -105,9 +107,10 @@
      "expense_total": 0.12,
      "expense_net": 0.12,
      "accession": "0002109839-26-000013",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm#:~:text=that%20follows.%20Shareholder%20Fees%20%28fees%20paid%20directly%20from%20your%20investment%29%20%3A%20None%20Annual%20Fund%20Operating%20Expenses%20%28expenses%20that%20you%20pay%20each%20year%20as%20a%20percentage%20of%20the%20value%20of%20your%20investment%29%20Management%20Fee%200.12%25%20Other%20Expenses%201%20None-,Total%20Annual%20Fund%20Operating%20Expenses%200.12%25",
      "source": "v1 MF DB",
-     "form": "N-1A/A"
+     "form": "N-1A/A",
+     "total_line": "Total Annual Fund Operating Expenses 0.12%"
     }
    ],
    "filing": {
@@ -144,9 +147,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0002109839-26-000013",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "N-1A/A"
+     "form": "N-1A/A",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -230,11 +234,13 @@
      "class_id": "C000276224",
      "expense_total": 0.31,
      "expense_net": 0.3,
-     "waiver_amount": 0.01,
      "accession": "0000215829-26-000051",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/215829/000021582926000051/0000215829-26-000051-index.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/215829/000021582926000051/filing12344.htm#:~:text=Total%20annual%20operating%20expenses%200.31%25,Total%20annual%20operating%20expenses%20after%20fee%20waiver%20and%2For%20expense%20reimbursement%200.30%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total annual operating expenses 0.31%",
+     "net_line": "Total annual operating expenses after fee waiver and/or expense reimbursement 0.30%",
+     "waiver_amount": 0.01
     }
    ],
    "filing": {
@@ -318,11 +324,13 @@
      "class_id": "C000276225",
      "expense_total": 0.59,
      "expense_net": 0.57,
-     "waiver_amount": 0.02,
      "accession": "0000754510-26-000101",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/754510/000075451026000101/filing12457.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/754510/000075451026000101/filing12457.htm#:~:text=Total%20annual%20operating%20expenses%200.59%25,Total%20annual%20operating%20expenses%20after%20fee%20waiver%20and%2For%20expense%20reimbursement%200.57%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total annual operating expenses 0.59%",
+     "net_line": "Total annual operating expenses after fee waiver and/or expense reimbursement 0.57%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -406,11 +414,13 @@
      "class_id": "C000276223",
      "expense_total": 0.21,
      "expense_net": 0.2,
-     "waiver_amount": 0.01,
      "accession": "0000035315-26-000342",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/35315/000003531526000342/filing12348.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/35315/000003531526000342/filing12348.htm#:~:text=Total%20annual%20operating%20expenses%200.21%25,Total%20annual%20operating%20expenses%20after%20fee%20waiver%20and%2For%20expense%20reimbursement%200.20%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total annual operating expenses 0.21%",
+     "net_line": "Total annual operating expenses after fee waiver and/or expense reimbursement 0.20%",
+     "waiver_amount": 0.01
     }
    ],
    "filing": {
@@ -486,11 +496,13 @@
      "class_id": "C000275827",
      "expense_total": 1.13,
      "expense_net": 0.88,
-     "waiver_amount": 0.25,
      "accession": "0001193125-26-252383",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/820892/000119312526252383/d898313d497k.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/820892/000119312526252383/d898313d497k.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201.13%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waivers%20and%2For%20Expense%20Reimbursements%200.88%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1.13%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waivers and/or Expense Reimbursements 0.88%",
+     "waiver_amount": 0.25
     }
    ],
    "filing": {
@@ -574,11 +586,13 @@
      "class_id": "C000275829",
      "expense_total": 0.75,
      "expense_net": 0.61,
-     "waiver_amount": 0.14,
      "accession": "0001193125-26-252373",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1041673/000119312526252373/d125384d497k.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1041673/000119312526252373/d125384d497k.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.75%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waivers%20and%2For%20Expense%20Reimbursements%200.61%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.75%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waivers and/or Expense Reimbursements 0.61%",
+     "waiver_amount": 0.14
     }
    ],
    "filing": {
@@ -762,11 +776,13 @@
      "class_id": "C000272858",
      "expense_total": 0.93,
      "expense_net": 0.79,
-     "waiver_amount": 0.14,
      "accession": "0001999371-26-007319",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007319/taoz-497k_032726.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007319/taoz-497k_032726.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.93%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%2FExpense%20Reimbursement%200.79%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.93%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver/Expense Reimbursement 0.79%",
+     "waiver_amount": 0.14
     }
    ],
    "filing": {
@@ -842,11 +858,13 @@
      "class_id": "C000272859",
      "expense_total": 0.98,
      "expense_net": 0.79,
-     "waiver_amount": 0.19,
      "accession": "0001999371-26-007478",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007478/tfgz-497k_040126.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007478/tfgz-497k_040126.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.98%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%2FExpense%20Reimbursement%200.79%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.98%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver/Expense Reimbursement 0.79%",
+     "waiver_amount": 0.19
     }
    ],
    "filing": {
@@ -906,11 +924,13 @@
      "class_id": "C000268965",
      "expense_total": 0.17,
      "expense_net": 0.15,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.12%25%20Other%20Expenses%201%200.05%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.17%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.15%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.17%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.15%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -962,11 +982,13 @@
      "class_id": "C000268966",
      "expense_total": 0.21,
      "expense_net": 0.18,
-     "waiver_amount": 0.03,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.16%25%20Other%20Expenses%201%200.05%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.21%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.18%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.21%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.18%",
+     "waiver_amount": 0.03
     }
    ],
    "filing": {
@@ -1002,11 +1024,13 @@
      "class_id": "C000268972",
      "expense_total": 0.24,
      "expense_net": 0.22,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.19%25%20Other%20Expenses%201%200.05%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.24%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.22%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.24%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.22%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -1042,11 +1066,13 @@
      "class_id": "C000268971",
      "expense_total": 0.16,
      "expense_net": 0.14,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.16%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.14%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.16%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.14%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -1082,11 +1108,13 @@
      "class_id": "C000268969",
      "expense_total": 0.21,
      "expense_net": 0.18,
-     "waiver_amount": 0.03,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.15%25%20Other%20Expenses%201%200.06%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.21%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.18%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.21%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.18%",
+     "waiver_amount": 0.03
     }
    ],
    "filing": {
@@ -1122,11 +1150,13 @@
      "class_id": "C000268948",
      "expense_total": 0.09,
      "expense_net": 0.06,
-     "waiver_amount": 0.03,
      "accession": "0000930413-26-002005",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000093041326002005/c116846_497-ixbrl.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000093041326002005/c116846_497-ixbrl.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.06%25",
      "source": "v1 MF DB",
-     "form": "497"
+     "form": "497",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.06%",
+     "waiver_amount": 0.03
     }
    ],
    "filing": {
@@ -1162,11 +1192,13 @@
      "class_id": "C000268961",
      "expense_total": 0.43,
      "expense_net": 0.41,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.43%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.41%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.43%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.41%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -1202,11 +1234,13 @@
      "class_id": "C000268970",
      "expense_total": 0.33,
      "expense_net": 0.32,
-     "waiver_amount": 0.01,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Objective%20The%20investment%20objective%20of%20the%20U.S.%20Small%20Cap%20Growth%20Portfolio%20%28the%20%E2%80%9CPortfolio%E2%80%9D%29%20is%20to%20achieve%20long-term%20capital%20appreciation.%20Fees%20and%20Expenses%20of%20the%20Portfolio%20This%20table%20describes%20the%20fees%20and%20expenses%20you%20may%20pay%20if%20you%20buy%2C%20hold%20or%20sell%20ETF%20Class%20shares%20of%20the%20Portfolio.%20You%20may%20also%20incur%20usual%20and%20customary%20brokerage%20commissions%20when%20buying%20or%20selling%20the%20ETF%20Class%20shares%20of%20the%20Portfolio%2C%20which%20are%20not%20reflected%20in%20the%20table%20or%20Example%20that%20follows.%20Shareholder%20Fees%20%28fees%20paid%20directly%20from%20your%20investment%29%20%3A%20None%20Annual%20Fund%20Operating%20Expenses%20%28expenses%20that%20you%20pay%20each%20year%20as%20a%20percentage%20of%20the%20value%20of%20your%20investment%29%20Management%20Fee%200.28%25%20Other%20Expenses%201%200.05%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.33%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.32%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.33%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.32%",
+     "waiver_amount": 0.01
     }
    ],
    "filing": {
@@ -1258,11 +1292,13 @@
      "class_id": "C000268964",
      "expense_total": 0.31,
      "expense_net": 0.27,
-     "waiver_amount": 0.04,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.25%25%20Other%20Expenses%201%200.06%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.31%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.27%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.31%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.27%",
+     "waiver_amount": 0.04
     }
    ],
    "filing": {
@@ -1298,11 +1334,13 @@
      "class_id": "C000268968",
      "expense_total": 0.33,
      "expense_net": 0.31,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Objective%20The%20investment%20objective%20of%20the%20U.S.%20Small%20Cap%20Value%20Portfolio%20%28the%20%E2%80%9CPortfolio%E2%80%9D%29%20is%20to%20achieve%20long-term%20capital%20appreciation.%20Fees%20and%20Expenses%20of%20the%20Portfolio%20This%20table%20describes%20the%20fees%20and%20expenses%20you%20may%20pay%20if%20you%20buy%2C%20hold%20or%20sell%20ETF%20Class%20shares%20of%20the%20Portfolio.%20You%20may%20also%20incur%20usual%20and%20customary%20brokerage%20commissions%20when%20buying%20or%20selling%20the%20ETF%20Class%20shares%20of%20the%20Portfolio%2C%20which%20are%20not%20reflected%20in%20the%20table%20or%20Example%20that%20follows.%20Shareholder%20Fees%20%28fees%20paid%20directly%20from%20your%20investment%29%20%3A%20None%20Annual%20Fund%20Operating%20Expenses%20%28expenses%20that%20you%20pay%20each%20year%20as%20a%20percentage%20of%20the%20value%20of%20your%20investment%29%20Management%20Fee%200.28%25%20Other%20Expenses%201%200.05%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.33%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.31%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.33%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.31%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -1370,11 +1408,13 @@
      "class_id": "C000268963",
      "expense_total": 0.33,
      "expense_net": 0.29,
-     "waiver_amount": 0.04,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Fee%200.27%25%20Other%20Expenses%201%200.06%25-,Total%20Annual%20Fund%20Operating%20Expenses%200.33%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.29%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.33%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.29%",
+     "waiver_amount": 0.04
     }
    ],
    "filing": {
@@ -1426,11 +1466,13 @@
      "class_id": "C000268967",
      "expense_total": 0.26,
      "expense_net": 0.24,
-     "waiver_amount": 0.02,
      "accession": "0000355437-26-000120",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.26%25,Total%20Annual%20Fund%20Operating%20Expenses%20After%20Fee%20Waiver%20and%2For%20Expense%20Reimbursement%200.24%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 0.26%",
+     "net_line": "Total Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement 0.24%",
+     "waiver_amount": 0.02
     }
    ],
    "filing": {
@@ -1507,9 +1549,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000036405-26-000183",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/f44783d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/f44783d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -1546,9 +1589,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000649",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000649/f45479d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000649/f45479d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -1585,9 +1629,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000645",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000645/f45463d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000645/f45463d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -1624,9 +1669,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000650",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000650/f45464d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000650/f45464d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -1687,9 +1733,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000923202-26-000061",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/923202/000092320226000061/f44813d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/923202/000092320226000061/f44813d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -1734,9 +1781,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0000734383-26-000130",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000130/f45292d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000130/f45292d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.04%"
     }
    ],
    "filing": null,
@@ -1829,9 +1877,10 @@
      "expense_total": 0.15,
      "expense_net": 0.15,
      "accession": "0001193125-26-077518",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077518/f44024d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077518/f44024d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.15%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.15%"
     }
    ],
    "filing": {
@@ -1900,9 +1949,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001193125-26-077568",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077568/f44207d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077568/f44207d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -1939,9 +1989,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000644",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000644/f45466d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000644/f45466d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -2010,9 +2061,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001193125-26-077581",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077581/f44217d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077581/f44217d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.06%"
     }
    ],
    "filing": {
@@ -2057,9 +2109,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001683863-21-007313",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007313/f10559d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007313/f10559d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.06%"
     }
    ],
    "filing": {
@@ -2136,9 +2189,10 @@
      "expense_total": 0.05,
      "expense_net": 0.05,
      "accession": "0000036405-26-000199",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000199/f44851d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000199/f44851d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.05%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.05%"
     }
    ],
    "filing": {
@@ -2175,9 +2229,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000664",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000664/f45468d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000664/f45468d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -2238,9 +2293,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0001193125-26-077535",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077535/f44065d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077535/f44065d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.04%"
     }
    ],
    "filing": {
@@ -2293,9 +2349,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001193125-26-077533",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077533/f44067d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077533/f44067d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -2348,9 +2405,10 @@
      "expense_total": 0.12,
      "expense_net": 0.12,
      "accession": "0000857489-26-000106",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000085748926000106/f44740d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000085748926000106/f44740d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.12%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.12%"
     }
    ],
    "filing": {
@@ -2411,9 +2469,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0001683863-24-003041",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003041/f38349d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003041/f38349d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.04%"
     }
    ],
    "filing": {
@@ -2450,9 +2509,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000648",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000648/f45470d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000648/f45470d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -2497,9 +2557,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0001193125-26-077532",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077532/f44059d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077532/f44059d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.04%"
     }
    ],
    "filing": {
@@ -2536,9 +2597,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000647",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000647/f45473d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000647/f45473d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -2575,9 +2637,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000651",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000651/f45474d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000651/f45474d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -2646,9 +2709,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000794105-26-000121",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000121/f44831d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000121/f44831d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -2693,9 +2757,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000461",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000461/f45481d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000461/f45481d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -2740,9 +2805,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000464",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000464/f45475d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000464/f45475d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -2816,9 +2882,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001193125-26-077528",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077528/f44061d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077528/f44061d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.07%"
     }
    ],
    "filing": {
@@ -2863,9 +2930,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001193125-26-077558",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077558/f44082d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077558/f44082d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.07%"
     }
    ],
    "filing": {
@@ -2926,9 +2994,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0001683863-24-003037",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003037/f38352d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003037/f38352d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.04%"
     }
    ],
    "filing": {
@@ -2989,9 +3058,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000794105-26-000117",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000117/f44832d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000117/f44832d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -3036,9 +3106,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000468",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000468/f45472d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000468/f45472d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -3083,9 +3154,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000463",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000463/f45478d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000463/f45478d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -3151,9 +3223,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000646",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000646/f45476d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000646/f45476d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -3190,9 +3263,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-21-007301",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007301/f10523d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007301/f10523d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3229,9 +3303,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-21-007295",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007295/f10521d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007295/f10521d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3268,9 +3343,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-21-007297",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007297/f10524d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007297/f10524d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3315,9 +3391,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-24-003005",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003005/f38304d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003005/f38304d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3386,9 +3463,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000036405-26-000205",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000205/f44853d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000205/f44853d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.03%"
     }
    ],
    "filing": {
@@ -3433,9 +3511,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-24-003077",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003077/f38306d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003077/f38306d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3480,9 +3559,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000470",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000470/f45465d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000470/f45465d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -3551,9 +3631,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001193125-26-077577",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077577/f44211d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077577/f44211d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -3614,9 +3695,10 @@
      "expense_total": 0.13,
      "expense_net": 0.13,
      "accession": "0000734383-26-000136",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000136/f45323d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000136/f45323d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.13%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.13%"
     }
    ],
    "filing": null,
@@ -3648,9 +3730,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000444",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000444/f45580d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000444/f45580d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3687,9 +3770,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000441",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000441/f45569d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000441/f45569d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3726,9 +3810,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000440",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000440/f45570d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000440/f45570d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3765,9 +3850,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000443",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000443/f45584d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000443/f45584d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3804,9 +3890,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000445",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000445/f45582d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000445/f45582d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3843,9 +3930,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000442",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000442/f45583d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000442/f45583d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3882,9 +3970,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001021882-26-000453",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000453/f45585d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000453/f45585d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.06%"
     }
    ],
    "filing": {
@@ -3921,9 +4010,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0000891190-26-000228",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000228/f45650d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000228/f45650d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": null,
@@ -3955,9 +4045,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0000891190-26-000226",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000226/f45645d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000226/f45645d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": null,
@@ -3989,9 +4080,10 @@
      "expense_total": 0.1,
      "expense_net": 0.1,
      "accession": "0000891190-26-000224",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000224/f45521d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000224/f45521d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.10%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.10%"
     }
    ],
    "filing": null,
@@ -4023,9 +4115,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0000891190-26-000238",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000238/f45647d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000238/f45647d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": null,
@@ -4057,9 +4150,10 @@
      "expense_total": 0.1,
      "expense_net": 0.1,
      "accession": "0000891190-26-000227",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000227/f45644d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000227/f45644d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.10%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.10%"
     }
    ],
    "filing": null,
@@ -4091,9 +4185,10 @@
      "expense_total": 0.1,
      "expense_net": 0.1,
      "accession": "0001193125-25-325143",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000119312525325143/f43635d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000119312525325143/f43635d1.htm#:~:text=Vanguard%20S%26P%20Small-Cap%20600%20Growth%20ETF%2C%20an%20exchange-traded%20share%20class%20of%20Vanguard%20S%26P%20Small-Cap%20600%20Growth%20Index%20Fund%20%28the%20%E2%80%9CFund%E2%80%9D%29%2C%20seeks%20to%20track%20the%20performance%20of%20a%20benchmark%20index%20that%20measures%20the%20investment%20return%20of%20small-capitalization%20growth%20stocks%20in%20the%20United%20States.%20Fees%20and%20Expenses%20The%20following%20tables%20describe%20the%20fees%20and%20expenses%20you%20may%20pay%20if%20you%20buy%2C%20hold%2C%20and%20sell%20ETF%20Shares%20of%20the%20Fund.%20You%20may%20pay%20other%20fees%2C%20such%20as%20brokerage%20commissions%20and%20other%20fees%20to%20financial%20intermediaries%2C%20which%20are%20not%20reflected%20in%20the%20tables%20and%20example%20below.%20Shareholder%20Fees%20%28Fees%20paid%20directly%20from%20your%20investment%29%20Transaction%20Fee%20on%20Purchases%20and%20Sales%20None%20%2A%20Transaction%20Fee%20on%20Reinvested%20Dividends%20None%20%2A%20Transaction%20Fee%20on%20Conversion%20to%20ETF%20Shares%20None%20%2A%20%2A%20None%20through%20Vanguard%20%28Broker%20fees%20vary%29%20Annual%20Fund%20Operating%20Expenses%20%28Expenses%20that%20you%20pay%20each%20year%20as%20a%20percentage%20of%20the%20value%20of%20your%20investment%29%20Management%20Fees%200.08%25%2012b-1%20Distribution%20Fee%20None%20Other%20Expenses%200.02%25-,Total%20Annual%20Fund%20Operating%20Expenses%201%200.10%25",
      "source": "v1 MF DB",
-     "form": "485BPOS"
+     "form": "485BPOS",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.10%"
     }
    ],
    "filing": null,
@@ -4125,9 +4220,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0000891190-26-000225",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000225/f45520d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000225/f45520d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": null,
@@ -4159,9 +4255,10 @@
      "expense_total": 0.1,
      "expense_net": 0.1,
      "accession": "0000891190-26-000229",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000229/f45648d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000229/f45648d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.10%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.10%"
     }
    ],
    "filing": null,
@@ -4225,9 +4322,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000794105-26-000119",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000119/f44833d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000119/f44833d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4272,9 +4370,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000469",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000469/f45467d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000469/f45467d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4319,9 +4418,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001021882-26-000465",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000465/f45469d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000465/f45469d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4374,9 +4474,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001193125-26-024990",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/836906/000119312526024990/f43883d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/836906/000119312526024990/f43883d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4458,9 +4559,10 @@
      "expense_total": 0.05,
      "expense_net": 0.05,
      "accession": "0000036405-26-000201",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000201/f44860d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000201/f44860d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.05%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.05%"
     }
    ],
    "filing": {
@@ -4529,9 +4631,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000036405-26-000206",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000206/f44854d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000206/f44854d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%201%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 1 0.03%"
     }
    ],
    "filing": {
@@ -4584,9 +4687,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001683863-24-003078",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003078/f38308d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003078/f38308d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -4631,9 +4735,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0001193125-26-077582",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/225997/000119312526077582/f44109d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/225997/000119312526077582/f44109d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4710,9 +4815,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000794105-26-000124",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000124/f44834d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000124/f44834d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4781,9 +4887,10 @@
      "expense_total": 0.07,
      "expense_net": 0.07,
      "accession": "0001193125-26-077547",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/1532203/000119312526077547/f44092d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1532203/000119312526077547/f44092d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.07%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.07%"
     }
    ],
    "filing": {
@@ -4860,9 +4967,10 @@
      "expense_total": 0.05,
      "expense_net": 0.05,
      "accession": "0001193125-26-077510",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/736054/000119312526077510/f44038d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/736054/000119312526077510/f44038d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.05%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.05%"
     }
    ],
    "filing": {
@@ -4939,9 +5047,10 @@
      "expense_total": 0.03,
      "expense_net": 0.03,
      "accession": "0000036405-26-000197",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.03%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.03%"
     }
    ],
    "filing": {
@@ -4994,9 +5103,10 @@
      "expense_total": 0.06,
      "expense_net": 0.06,
      "accession": "0001193125-26-077566",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077566/f44201d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077566/f44201d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.06%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.06%"
     }
    ],
    "filing": {
@@ -5033,9 +5143,10 @@
      "expense_total": 0.09,
      "expense_net": 0.09,
      "accession": "0000052848-26-000652",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000652/f45480d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000652/f45480d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.09%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.09%"
     }
    ],
    "filing": {
@@ -5096,9 +5207,10 @@
      "expense_total": 0.04,
      "expense_net": 0.04,
      "accession": "0001683863-25-004110",
-     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386325004110/f41676d1.htm",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386325004110/f41676d1.htm#:~:text=Total%20Annual%20Fund%20Operating%20Expenses%200.04%25",
      "source": "v1 MF DB",
-     "form": "497K"
+     "form": "497K",
+     "total_line": "Total Annual Fund Operating Expenses 0.04%"
     }
    ],
    "filing": {
