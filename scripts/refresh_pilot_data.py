@@ -68,6 +68,7 @@ DATA_FILES = (
     "fee_filing_forms.json",
     "fee_filing_docs.json",
     "fee_class_tickers.json",
+    "etf_lineage.json",
 )
 NAMES_FILE = "names_policy80.json"
 

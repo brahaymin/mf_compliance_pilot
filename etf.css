@@ -8,3 +8,8 @@
 .status-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0 0.45rem; border-radius: 0.6rem; vertical-align: middle; }
 .status-badge.active { background: #e3f5ec; color: #0b6b40; }
 .status-badge.closed { background: #eee; color: #555; }
+.etf-classes .fee-total, .etf-classes .fee-net { font-variant-numeric: tabular-nums; }
+.etf-classes .fee-waiver { display: block; font-size: 0.85em; color: #5a3d00; }
+.etf-classes .fee-src { font-size: 0.85rem; }
+.etf-classes .fee-source { color: var(--muted, #555); }
+.etf-classes td.blank { font-style: italic; color: var(--muted, #555); }

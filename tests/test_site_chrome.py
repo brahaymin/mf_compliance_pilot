@@ -50,8 +50,10 @@ def test_accuracy_status_is_honest():
         elif page == "fees.html":
             assert 'data-accuracy="supervised"' in acc
         elif page == "etf.html":
-            assert 'data-accuracy="pending"' in acc
-            assert "lineage: unreviewed; fees: pending blind check" in acc
+            assert 'data-accuracy="supervised"' in acc
+            assert "lineage: unreviewed" in acc
+            assert "92 confirmed ETF classes" in acc
+            assert "Read the full filing" in acc
         else:
             assert 'data-accuracy="unreviewed"' in acc
 

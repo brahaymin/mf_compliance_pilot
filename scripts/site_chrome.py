@@ -50,8 +50,10 @@ FEES = (
 )
 
 ETF = (
-    "Accuracy: lineage: unreviewed; fees: pending blind check. Supervised pilot. "
-    "Expense ratios are not shown until an independent 20-row blind check passes (at most 1 error)."
+    "Accuracy: lineage: unreviewed; fees: 92 confirmed ETF classes published on CEO go "
+    "2026-11-25 8:32 PM CT (Total and Net; waiver shown when above 0). Six classes have no "
+    "usable fee (reason shown). Supervised pilot. Read the full filing; check each item against "
+    "the linked SEC document."
 )
 
 UNREVIEWED = (
@@ -98,7 +100,7 @@ def blocks_for(page: str, kind: str, names_text: str) -> dict:
         "</header>"
     )
     text = {"names": names_text, "fees": FEES, "etf": ETF}.get(kind, UNREVIEWED)
-    status = {"names": "graded", "fees": "supervised", "etf": "pending"}.get(kind, "unreviewed")
+    status = {"names": "graded", "fees": "supervised", "etf": "supervised"}.get(kind, "unreviewed")
     accuracy = f'<p class="accuracy-status" data-accuracy="{status}">{html.escape(text)}</p>'
     footer = (f'<footer class="site-footer"><p>{html.escape(FOOTER)}</p></footer>\n'
               '<script src="site.js?v=20261125-links" defer></script>')

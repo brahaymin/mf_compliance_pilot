@@ -6,7 +6,7 @@
   <meta name="description" content="Supervised pilot: mutual funds that share one portfolio with an ETF share class, from public SEC EDGAR data. Not legal advice.">
   <title>MF to ETF share classes (supervised pilot) — MF Feedback Pilot</title>
   <link rel="stylesheet" href="pilot.css?v=20261125-launch">
-  <link rel="stylesheet" href="etf.css?v=20261125-etf">
+  <link rel="stylesheet" href="etf.css?v=20261125-etffees">
   <link rel="stylesheet" href="site.css?v=20261125-fees">
 </head>
 <body>
@@ -35,13 +35,16 @@
           Funds where one portfolio has both mutual fund share classes and an ETF share class
           (a class named "ETF Shares" or "ETF Class" in the SEC series and class list). Example:
           Vanguard 500 Index Fund Admiral Shares and its ETF Shares (VOO). Only the same portfolio is
-          shown, never "similar" funds. Expense ratios per class are pending review and not shown yet.
+          shown, never "similar" funds. Expense ratios for 92 ETF classes show Total (before waiver)
+          and Net (after waiver); the waiver amount is shown only when it is above 0. Six classes have
+          no usable fee table (reason shown). Mutual fund class fees on this tab are not shown.
+          Read the full filing and check each item against the linked SEC document.
         </p>
         <dl id="etf-meta" class="names-meta"></dl>
       </div>
     </header>
 <!-- site-chrome:accuracy -->
-<p class="accuracy-status" data-accuracy="pending">Accuracy: lineage: unreviewed; fees: pending blind check. Supervised pilot. Expense ratios are not shown until an independent 20-row blind check passes (at most 1 error).</p>
+<p class="accuracy-status" data-accuracy="supervised">Accuracy: lineage: unreviewed; fees: 92 confirmed ETF classes published on CEO go 2026-11-25 8:32 PM CT (Total and Net; waiver shown when above 0). Six classes have no usable fee (reason shown). Supervised pilot. Read the full filing; check each item against the linked SEC document.</p>
 <!-- /site-chrome:accuracy -->
 
     <p id="status" class="notice info" role="status">Loading funds…</p>
@@ -57,6 +60,6 @@
 <footer class="site-footer"><p>MF Feedback Pilot. Free and automated. Not legal advice. Public SEC EDGAR data only; v1 covers 2020 onward.</p></footer>
 <script src="site.js?v=20261125-links" defer></script>
 <!-- /site-chrome:footer -->
-  <script src="etf.js?v=20261125-dblinks" defer></script>
+  <script src="etf.js?v=20261125-etffees" defer></script>
 </body>
 </html>
