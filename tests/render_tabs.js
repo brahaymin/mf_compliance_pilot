@@ -75,6 +75,50 @@ async function runTab(tab) {
   if (hits < 1) {
     errors.push(new Error(tab.name + " rendered 0 nodes for " + tab.selector + "; status=" + JSON.stringify(status)));
   }
+  if (tab.name === "etf") {
+    const totals = window.document.querySelectorAll(".fee-total");
+    if (totals.length !== 92) {
+      errors.push(new Error("etf expected 92 fee totals, got " + totals.length));
+    }
+    let waiverExample = false;
+    window.document.querySelectorAll("#etf .etf-classes tbody tr").forEach(function (tr) {
+      if (tr.querySelector(".fee-total") && tr.querySelector(".fee-net") && tr.querySelector(".fee-waiver")) {
+        waiverExample = true;
+      }
+    });
+    if (!waiverExample) errors.push(new Error("etf missing a waiver example with Total, Net, and waiver amount"));
+    const reasons = window.document.querySelectorAll(".fee-reason");
+    if (reasons.length !== 6) {
+      errors.push(new Error("etf expected 6 blank reasons, got " + reasons.length));
+    }
+    const reasonText = Array.prototype.map.call(reasons, function (n) { return (n.textContent || "").trim(); });
+    ["not yet effective, no final prospectus", "older class, no usable fee table in filings"].forEach(function (r) {
+      if (reasonText.indexOf(r) < 0) errors.push(new Error("etf missing blank reason: " + r));
+    });
+    window.document.querySelectorAll("td.blank").forEach(function (td) {
+      if (/\d+(?:\.\d+)?\s*%/.test(td.textContent || "")) {
+        errors.push(new Error("etf blank reason cell contains a fee number"));
+      }
+    });
+    const disclosure = window.document.body.textContent || "";
+    if (!/Read the full filing/i.test(disclosure)) {
+      errors.push(new Error("etf missing read-the-full-filing disclosure"));
+    }
+    const filter = window.document.getElementById("etf-status");
+    if (!filter || filter.value !== "active") {
+      errors.push(new Error("etf Active filter is not the default"));
+    }
+    const shown = Array.prototype.filter.call(window.document.querySelectorAll("#etf .fund-card"), function (c) {
+      return !c.hidden;
+    });
+    const closedShown = shown.filter(function (c) { return c.dataset.status === "closed"; });
+    if (closedShown.length !== 0) {
+      errors.push(new Error("etf default view shows closed series"));
+    }
+    if (shown.length !== 93) {
+      errors.push(new Error("etf default Active view expected 93 series, got " + shown.length));
+    }
+  }
   if (tab.name === "fees") {
     window.document.querySelectorAll("#fees .ticker").forEach(function (n) {
       var text = (n.textContent || "").trim();

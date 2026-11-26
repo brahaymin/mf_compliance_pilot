@@ -1,4 +1,4 @@
-"""MF-to-ETF tab: lineage only, no fee values, only verified links. Synthetic rows only."""
+"""MF-to-ETF tab: lineage plus confirmed ETF fees; only verified links. Synthetic rows only except published-JSON tests."""
 import json
 import sqlite3
 import sys
@@ -24,13 +24,15 @@ def _full(status="verified", fees=None):
 def test_published_json_passes_gates():
     data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
     assert etf.shape_errors(data) == []
-    assert data["meta"]["fee_status"] == "pending review"
+    assert data["meta"]["fee_status"] == "published"
 
 
-def test_fees_never_published():
+def test_incomplete_etf_fee_is_not_published():
     data = etf.build(_full(), 2026)
     assert etf.shape_errors(data) == []
     assert "0.03" not in json.dumps(data)
+    etf_cls = [c for c in data["rows"][0]["classes"] if c["etf"]][0]
+    assert "expense_total" not in etf_cls and "expense_net" not in etf_cls
 
 
 def test_full_json_link_is_not_published_without_db_row():
@@ -105,14 +107,14 @@ def test_official_file_error_series_are_omitted():
         assert data["meta"]["hidden_series"] == 1
         assert data["meta"]["series"] == 1
         assert data["meta"]["hide_source"] == etf.HIDE_SOURCE
-        assert data["meta"]["fee_status"] == "pending review"
+        assert data["meta"]["fee_status"] == "published"
     finally:
         db.unlink()
 
 
 def test_published_json_omits_live_official_file_error_series():
     data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
-    assert data["meta"]["fee_status"] == "pending review"
+    assert data["meta"]["fee_status"] == "published"
     assert data["meta"]["active_series"] == 93
     assert data["meta"]["closed_series"] == 5
     assert data["meta"]["series"] == 98
@@ -195,7 +197,7 @@ def test_db_primary_document_is_published_and_labeled():
         assert row["filing"] == {"form": "497K", "date": "2026-01-02", "accession": ACC, "url": DOC_URL}
         assert data["meta"]["links_from_db"] == 1
         assert data["meta"]["link_source"] == etf.LINK_SOURCE
-        assert data["meta"]["fee_status"] == "pending review"
+        assert data["meta"]["fee_status"] == "published"
     finally:
         db.unlink()
 
@@ -236,3 +238,77 @@ def test_hidden_series_omitted_even_with_primary_document():
     finally:
         qdb.unlink()
         ddb.unlink()
+
+
+def test_complete_etf_fee_is_published_and_mf_fee_is_not():
+    fees = {
+        "C000000001": {"total": 0.42, "net": 0.41, "accession": ACC, "filing_url": DOC_URL, "form": "497K"},
+        "C000000002": {"total": 0.21, "net": 0.18, "accession": ACC, "filing_url": DOC_URL, "form": "497K"},
+    }
+    data = etf.build(_full(fees=fees), 2026)
+    assert etf.shape_errors(data) == []
+    by_id = {c["class_id"]: c for c in data["rows"][0]["classes"]}
+    mf, etf_cls = by_id["C000000001"], by_id["C000000002"]
+    assert "expense_total" not in mf and "expense_net" not in mf
+    assert etf_cls["expense_total"] == 0.21 and etf_cls["expense_net"] == 0.18
+    assert etf_cls["waiver_amount"] == 0.03
+    assert etf_cls["accession"] == ACC and etf_cls["filing_url"] == DOC_URL
+    assert etf_cls["source"] == etf.FEE_SOURCE
+    dumped = json.dumps(data)
+    assert "0.42" not in dumped
+    assert data["meta"]["fees_published"] == 1
+    assert data["meta"]["fee_status"] == "published"
+
+
+def test_blank_reason_attached_for_known_class():
+    f = _full(fees={})
+    f[0]["classes"][1]["class_id"] = "C000275281"
+    data = etf.build(f, 2026)
+    assert etf.shape_errors(data) == []
+    etf_cls = [c for c in data["rows"][0]["classes"] if c["etf"]][0]
+    assert etf_cls["reason"] == "not yet effective, no final prospectus"
+    assert "expense_total" not in etf_cls and "expense_net" not in etf_cls
+    assert data["meta"]["fees_blank"] == 1
+
+
+def test_published_json_has_confirmed_etf_fees():
+    data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
+    assert etf.shape_errors(data) == []
+    assert data["meta"]["fee_status"] == "published"
+    assert data["meta"]["fees_published"] == 92
+    assert data["meta"]["fees_blank"] == 6
+    assert data["meta"]["fee_source"] == etf.FEE_SOURCE_META
+    published, blank, mf_fees, waivers = 0, 0, 0, 0
+    reasons = {}
+    for row in data["rows"]:
+        for c in row["classes"]:
+            if not c.get("etf"):
+                if any(k in c for k in ("expense_total", "expense_net", "waiver_amount", "reason")):
+                    mf_fees += 1
+                continue
+            if "expense_total" in c:
+                published += 1
+                assert isinstance(c["expense_total"], (int, float))
+                assert isinstance(c["expense_net"], (int, float))
+                assert "reason" not in c
+                assert c["source"] == etf.FEE_SOURCE
+                assert c["filing_url"].startswith("https://www.sec.gov/Archives/edgar/data/")
+                assert c["accession"].replace("-", "") in c["filing_url"]
+                w = c.get("waiver_amount")
+                if w is not None:
+                    assert w > 0
+                    assert w == round(c["expense_total"] - c["expense_net"], 2)
+                    waivers += 1
+                else:
+                    assert round(c["expense_total"] - c["expense_net"], 2) == 0
+            else:
+                blank += 1
+                assert c["reason"] in etf.BLANK_REASONS.values()
+                assert "expense_total" not in c and "expense_net" not in c and "waiver_amount" not in c
+                reasons[c["class_id"]] = c["reason"]
+    assert published == 92 and blank == 6 and mf_fees == 0
+    assert waivers == 20
+    assert reasons["C000275281"] == "not yet effective, no final prospectus"
+    assert reasons["C000275282"] == "not yet effective, no final prospectus"
+    for cid in ("C000092028", "C000092030", "C000092032", "C000109507"):
+        assert reasons[cid] == "older class, no usable fee table in filings"

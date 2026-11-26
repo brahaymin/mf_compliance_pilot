@@ -3,7 +3,7 @@
   "label": "supervised pilot",
   "source": "v1 MF DB (read-only): sec_class_years classes/tickers; series_primary_document for the prospectus/primary-document link; series_data_quality (flag=official_file_error) to omit official-file-error series",
   "outside_sources": "none used",
-  "fee_status": "pending review",
+  "fee_status": "published",
   "source_year": 2026,
   "series": 98,
   "active_series": 93,
@@ -18,7 +18,10 @@
   "scope": "Same portfolio only: a series whose SEC class list has a class named 'ETF Class' or 'ETF Shares' alongside mutual fund classes. No 'similar' funds.",
   "hidden_series": 5,
   "hide_source": "v1 MF DB (read-only): series_data_quality.flag = official_file_error",
-  "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list."
+  "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list.",
+  "fees_published": 92,
+  "fees_blank": 6,
+  "fee_source": "v1 MF DB, accession"
  },
  "rows": [
   {
@@ -33,28 +36,39 @@
      "ticker": "DFREX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002700"
     },
     {
      "name": "DFA Real Estate Securities Portfolio - Class R1",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053615"
     },
     {
      "name": "DFA Real Estate Securities Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053616"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268962",
+     "expense_total": 0.22,
+     "expense_net": 0.18,
+     "waiver_amount": 0.04,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -78,14 +92,22 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276006"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276005",
+     "expense_total": 0.12,
+     "expense_net": 0.12,
+     "accession": "0002109839-26-000013",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm",
+     "source": "v1 MF DB",
+     "form": "N-1A/A"
     }
    ],
    "filing": {
@@ -109,14 +131,22 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276008"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276007",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0002109839-26-000013",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/2109839/000210983926000013/n1aa.htm",
+     "source": "v1 MF DB",
+     "form": "N-1A/A"
     }
    ],
    "filing": {
@@ -140,56 +170,71 @@
      "ticker": "FZIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019666"
     },
     {
      "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class B",
      "ticker": "FZIBX",
      "etf": false,
      "active": false,
-     "last_year": 2016
+     "last_year": 2016,
+     "class_id": "C000019667"
     },
     {
      "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class C",
      "ticker": "FZICX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019668"
     },
     {
      "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class I",
      "ticker": "FZIIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019670"
     },
     {
      "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class M",
      "ticker": "FZITX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019669"
     },
     {
      "name": "Fidelity Advisor Intermediate Municipal Income Fund: Class Z",
      "ticker": "FIQZX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000205053"
     },
     {
      "name": "Fidelity Intermediate Municipal Income Fund",
      "ticker": "FLTMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019665"
     },
     {
      "name": "ETF Class",
      "ticker": "FIMU",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276224",
+     "expense_total": 0.31,
+     "expense_net": 0.3,
+     "waiver_amount": 0.01,
+     "accession": "0000215829-26-000051",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/215829/000021582926000051/0000215829-26-000051-index.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -213,56 +258,71 @@
      "ticker": "FRINX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000087887"
     },
     {
      "name": "Fidelity Advisor Real Estate Income Fund: Class B",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2010
+     "last_year": 2010,
+     "class_id": "C000087888"
     },
     {
      "name": "Fidelity Advisor Real Estate Income Fund: Class C",
      "ticker": "FRIOX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000087889"
     },
     {
      "name": "Fidelity Advisor Real Estate Income Fund: Class I",
      "ticker": "FRIRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000087891"
     },
     {
      "name": "Fidelity Advisor Real Estate Income Fund: Class M",
      "ticker": "FRIQX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000087890"
     },
     {
      "name": "Fidelity Advisor Real Estate Income Fund: Class Z",
      "ticker": "FIKMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000205040"
     },
     {
      "name": "Fidelity Real Estate Income Fund",
      "ticker": "FRIFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019680"
     },
     {
      "name": "ETF Class",
      "ticker": "FREI",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276225",
+     "expense_total": 0.59,
+     "expense_net": 0.57,
+     "waiver_amount": 0.02,
+     "accession": "0000754510-26-000101",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/754510/000075451026000101/filing12457.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -286,56 +346,71 @@
      "ticker": "FSBFX",
      "etf": false,
      "active": false,
-     "last_year": 2015
+     "last_year": 2015,
+     "class_id": "C000076768"
     },
     {
      "name": "Fidelity Advisor Short-Term Bond Fund: Class A",
      "ticker": "FBNAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000171437"
     },
     {
      "name": "Fidelity Advisor Short-Term Bond Fund: Class C",
      "ticker": "FANCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000171439"
     },
     {
      "name": "Fidelity Advisor Short-Term Bond Fund: Class I",
      "ticker": "FBNIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000171440"
     },
     {
      "name": "Fidelity Advisor Short-Term Bond Fund: Class M",
      "ticker": "FBNTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000171438"
     },
     {
      "name": "Fidelity Advisor Short-Term Bond Fund: Class Z",
      "ticker": "FIKTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000205020"
     },
     {
      "name": "Fidelity Short-Term Bond Fund",
      "ticker": "FSHBX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000019128"
     },
     {
      "name": "ETF Class",
      "ticker": "FSTB",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000276223",
+     "expense_total": 0.21,
+     "expense_net": 0.2,
+     "waiver_amount": 0.01,
+     "accession": "0000035315-26-000342",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/35315/000003531526000342/filing12348.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -359,49 +434,63 @@
      "ticker": "FGIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000056118"
     },
     {
      "name": "Class C",
      "ticker": "FGNCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000070757"
     },
     {
      "name": "Class I",
      "ticker": "FGIYX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000056119"
     },
     {
      "name": "Class R3",
      "ticker": "FGNRX",
      "etf": false,
      "active": false,
-     "last_year": 2021
+     "last_year": 2021,
+     "class_id": "C000070758"
     },
     {
      "name": "Class R6",
      "ticker": "FGIWX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000171406"
     },
     {
      "name": "Class T",
      "ticker": "0066",
      "etf": false,
      "active": false,
-     "last_year": 2021
+     "last_year": 2021,
+     "class_id": "C000188685"
     },
     {
      "name": "ETF Class",
      "ticker": "NGIF",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000275827",
+     "expense_total": 1.13,
+     "expense_net": 0.88,
+     "waiver_amount": 0.25,
+     "accession": "0001193125-26-252383",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/820892/000119312526252383/d898313d497k.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -425,56 +514,71 @@
      "ticker": "NBDRX",
      "etf": false,
      "active": false,
-     "last_year": 2021
+     "last_year": 2021,
+     "class_id": "C000074306"
     },
     {
      "name": "Class R6",
      "ticker": "NSBFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000125378"
     },
     {
      "name": "Class T",
      "ticker": "0030",
      "etf": false,
      "active": false,
-     "last_year": 2021
+     "last_year": 2021,
+     "class_id": "C000184987"
     },
     {
      "name": "Nuveen Dividend Growth Fund - Class A",
      "ticker": "NSBAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000023379"
     },
     {
      "name": "Nuveen Dividend Growth Fund - Class C",
      "ticker": "NSBCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000023381"
     },
     {
      "name": "Nuveen Dividend Growth Fund - Class I",
      "ticker": "NSBRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000023382"
     },
     {
      "name": "Nuveen Santa Barbara Dividend Growth Fund - Class B",
      "ticker": "NSBBX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000023380"
     },
     {
      "name": "ETF Class",
      "ticker": "NUDG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000275829",
+     "expense_total": 0.75,
+     "expense_net": 0.61,
+     "waiver_amount": 0.14,
+     "accession": "0001193125-26-252373",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1041673/000119312526252373/d125384d497k.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -498,28 +602,33 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000263825"
     },
     {
      "name": "I CLASS",
      "ticker": "TGDIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000017421"
     },
     {
      "name": "N Class",
      "ticker": "TGDVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000017422"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000275282",
+     "reason": "not yet effective, no final prospectus"
     }
    ],
    "filing": {
@@ -543,28 +652,33 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000263822"
     },
     {
      "name": "I CLASS",
      "ticker": "TGCEX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000017399"
     },
     {
      "name": "N Class",
      "ticker": "TGCNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000017400"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000275281",
+     "reason": "not yet effective, no final prospectus"
     }
    ],
    "filing": {
@@ -588,56 +702,71 @@
      "ticker": "TVAFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032361"
     },
     {
      "name": "Thornburg American Opportunities Fund - Class C",
      "ticker": "TVCFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032363"
     },
     {
      "name": "Thornburg American Opportunities Fund - Class I",
      "ticker": "TVIFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032364"
     },
     {
      "name": "Thornburg American Opportunities Fund - Class R3",
      "ticker": "TVRFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000042670"
     },
     {
      "name": "Thornburg American Opportunities Fund - Class R4",
      "ticker": "TVIRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000042669"
     },
     {
      "name": "Thornburg American Opportunities Fund - Class R5",
      "ticker": "TVRRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032366"
     },
     {
      "name": "Thornburg Value Fund - Class B",
      "ticker": "TVBFX",
      "etf": false,
      "active": false,
-     "last_year": 2016
+     "last_year": 2016,
+     "class_id": "C000032362"
     },
     {
      "name": "ETF Class",
      "ticker": "TAOZ",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000272858",
+     "expense_total": 0.93,
+     "expense_net": 0.79,
+     "waiver_amount": 0.14,
+     "accession": "0001999371-26-007319",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007319/taoz-497k_032726.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -661,49 +790,63 @@
      "ticker": "THCGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032375"
     },
     {
      "name": "Thornburg Focus Growth Fund - Class C",
      "ticker": "TCGCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032376"
     },
     {
      "name": "Thornburg Focus Growth Fund - Class I",
      "ticker": "THIGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032377"
     },
     {
      "name": "Thornburg Focus Growth Fund - Class R3",
      "ticker": "THCRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000042674"
     },
     {
      "name": "Thornburg Focus Growth Fund - Class R4",
      "ticker": "TCGRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000042673"
     },
     {
      "name": "Thornburg Focus Growth Fund - Class R5",
      "ticker": "THGRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032379"
     },
     {
      "name": "ETF Class",
      "ticker": "TFGZ",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000272859",
+     "expense_total": 0.98,
+     "expense_net": 0.79,
+     "waiver_amount": 0.19,
+     "accession": "0001999371-26-007478",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/816153/000199937126007478/tfgz-497k_040126.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -727,35 +870,47 @@
      "ticker": "DFEOX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002730"
     },
     {
      "name": "U.S. Core Equity 1 Portfolio - Class R1",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053639"
     },
     {
      "name": "U.S. Core Equity 1 Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053640"
     },
     {
      "name": "U.S. Core Equity 1 Portfolio - Class R25",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000102748"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268965",
+     "expense_total": 0.17,
+     "expense_net": 0.15,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -779,28 +934,39 @@
      "ticker": "DFQTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002731"
     },
     {
      "name": "U.S. Core Equity 2 Portfolio - Class R1",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053641"
     },
     {
      "name": "U.S. Core Equity 2 Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053642"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268966",
+     "expense_total": 0.21,
+     "expense_net": 0.18,
+     "waiver_amount": 0.03,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -824,14 +990,23 @@
      "ticker": "DURPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000182415"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268972",
+     "expense_total": 0.24,
+     "expense_net": 0.22,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -855,14 +1030,23 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000127650"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268971",
+     "expense_total": 0.16,
+     "expense_net": 0.14,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -886,14 +1070,23 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000121545"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268969",
+     "expense_total": 0.21,
+     "expense_net": 0.18,
+     "waiver_amount": 0.03,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -917,14 +1110,23 @@
      "ticker": "DFUSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002765"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268948",
+     "expense_total": 0.09,
+     "expense_net": 0.06,
+     "waiver_amount": 0.03,
+     "accession": "0000930413-26-002005",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000093041326002005/c116846_497-ixbrl.htm",
+     "source": "v1 MF DB",
+     "form": "497"
     }
    ],
    "filing": {
@@ -948,14 +1150,23 @@
      "ticker": "DFSCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002699"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268961",
+     "expense_total": 0.43,
+     "expense_net": 0.41,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -979,14 +1190,23 @@
      "ticker": "",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000121546"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268970",
+     "expense_total": 0.33,
+     "expense_net": 0.32,
+     "waiver_amount": 0.01,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -1010,28 +1230,39 @@
      "ticker": "DFSTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002722"
     },
     {
      "name": "U.S. Small Cap Portfolio - Class R1",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053635"
     },
     {
      "name": "U.S. Small Cap Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053636"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268964",
+     "expense_total": 0.31,
+     "expense_net": 0.27,
+     "waiver_amount": 0.04,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -1055,14 +1286,23 @@
      "ticker": "DFSVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002738"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268968",
+     "expense_total": 0.33,
+     "expense_net": 0.31,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -1086,42 +1326,55 @@
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000053633"
     },
     {
      "name": "U.S. Targeted Value Portfolio - Class R10",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000102745"
     },
     {
      "name": "U.S. Targeted Value Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000053634"
     },
     {
      "name": "U.S. Targeted Value Portfolio - Class R25",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000102746"
     },
     {
      "name": "U.S. Targeted Value Portfolio - Institutional Class",
      "ticker": "DFFVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002721"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268963",
+     "expense_total": 0.33,
+     "expense_net": 0.29,
+     "waiver_amount": 0.04,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -1145,28 +1398,39 @@
      "ticker": "DFVEX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000002733"
     },
     {
      "name": "U.S. Vector Equity Portfolio - Class R1",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053643"
     },
     {
      "name": "U.S. Vector Equity Portfolio - Class R2",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2019
+     "last_year": 2019,
+     "class_id": "C000053644"
     },
     {
      "name": "ETF Class",
      "ticker": "",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000268967",
+     "expense_total": 0.26,
+     "expense_net": 0.24,
+     "waiver_amount": 0.02,
+     "accession": "0000355437-26-000120",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/355437/000035543726000120/c485bpos.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": {
@@ -1190,49 +1454,62 @@
      "ticker": "VFIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007774"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000179713"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VFFSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170274"
     },
     {
      "name": "Institutional Shares",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000179712"
     },
     {
      "name": "Investor Shares",
      "ticker": "VFINX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007773"
     },
     {
      "name": "Signal Shares",
      "ticker": "VIFSX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035202"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092055",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000036405-26-000183",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/f44783d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1256,14 +1533,22 @@
      "ticker": "VTCAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012208"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOX",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012209",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000649",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000649/f45479d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1287,14 +1572,22 @@
      "ticker": "VCDAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012214"
     },
     {
      "name": "ETF Shares",
      "ticker": "VCR",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012215",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000645",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000645/f45463d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1318,14 +1611,22 @@
      "ticker": "VCSAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012216"
     },
     {
      "name": "ETF Shares",
      "ticker": "VDC",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012217",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000650",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000650/f45464d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1349,35 +1650,46 @@
      "ticker": "VTMGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012140"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VDIPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000135477"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VTMNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012141"
     },
     {
      "name": "Investor Shares",
      "ticker": "VDVIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000135478"
     },
     {
      "name": "ETF Shares",
      "ticker": "VEA",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000051262",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000923202-26-000061",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/923202/000092320226000061/f44813d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1401,21 +1713,30 @@
      "ticker": "VDADX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000135474"
     },
     {
      "name": "Investor Shares",
      "ticker": "VDAIX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000031349"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000031350",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0000734383-26-000130",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000130/f45292d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -1434,28 +1755,33 @@
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2012
+     "last_year": 2012,
+     "class_id": "C000109505"
     },
     {
      "name": "Institutional Shares",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2012
+     "last_year": 2012,
+     "class_id": "C000109506"
     },
     {
      "name": "Investor Shares",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2012
+     "last_year": 2012,
+     "class_id": "C000109504"
     },
     {
      "name": "ETF Shares",
      "ticker": "",
      "etf": true,
      "active": false,
-     "last_year": 2012
+     "last_year": 2012,
+     "class_id": "C000109507",
+     "reason": "older class, no usable fee table in filings"
     }
    ],
    "filing": null,
@@ -1474,28 +1800,38 @@
      "ticker": "VGAVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000126407"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VGIVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000126409"
     },
     {
      "name": "Investor Shares",
      "ticker": "VGOVX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000126410"
     },
     {
      "name": "ETF Shares",
      "ticker": "VWOB",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000126408",
+     "expense_total": 0.15,
+     "expense_net": 0.15,
+     "accession": "0001193125-26-077518",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077518/f44024d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1519,42 +1855,54 @@
      "ticker": "VEMAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000035633"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VEMRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096106"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VEMIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015901"
     },
     {
      "name": "Investor Shares",
      "ticker": "VEIEX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015900"
     },
     {
      "name": "Signal Shares",
      "ticker": "VERSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000038994"
     },
     {
      "name": "ETF Shares",
      "ticker": "VWO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015902",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001193125-26-077568",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077568/f44207d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1578,14 +1926,22 @@
      "ticker": "VENAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012218"
     },
     {
      "name": "ETF Shares",
      "ticker": "VDE",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012219",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000644",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000644/f45466d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1609,42 +1965,54 @@
      "ticker": "VEUSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015904"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VEUPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096107"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VESIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015905"
     },
     {
      "name": "Investor Shares",
      "ticker": "VEURX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015903"
     },
     {
      "name": "Signal Shares",
      "ticker": "VESSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000038995"
     },
     {
      "name": "ETF Shares",
      "ticker": "VGK",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015906",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001193125-26-077581",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077581/f44217d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1668,21 +2036,30 @@
      "ticker": "VEDIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000051980"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VEDTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000051979"
     },
     {
      "name": "ETF Shares",
      "ticker": "EDV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000051981",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001683863-21-007313",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007313/f10559d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1706,49 +2083,62 @@
      "ticker": "VEXAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007780"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VEMPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096110"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VSEMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170275"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VIEIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007781"
     },
     {
      "name": "Investor Shares",
      "ticker": "VEXMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007779"
     },
     {
      "name": "Signal Shares",
      "ticker": "VEMSX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035204"
     },
     {
      "name": "ETF Shares",
      "ticker": "VXF",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007782",
+     "expense_total": 0.05,
+     "expense_net": 0.05,
+     "accession": "0000036405-26-000199",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000199/f44851d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1772,14 +2162,22 @@
      "ticker": "VFAIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012220"
     },
     {
      "name": "ETF Shares",
      "ticker": "VFH",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012221",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000664",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000664/f45468d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1803,35 +2201,46 @@
      "ticker": "VFWAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105302"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VFWPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096109"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VFWSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000043573"
     },
     {
      "name": "Investor Shares",
      "ticker": "VFWIX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000043571"
     },
     {
      "name": "ETF Shares",
      "ticker": "VEU",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000043572",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0001193125-26-077535",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077535/f44065d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1855,28 +2264,38 @@
      "ticker": "VFSAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000209801"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VFSNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000074580"
     },
     {
      "name": "Investor Shares",
      "ticker": "VFSVX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000074579"
     },
     {
      "name": "ETF Shares",
      "ticker": "VSS",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000074581",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001193125-26-077533",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077533/f44067d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1900,28 +2319,38 @@
      "ticker": "VGRLX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092024"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VGRNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092026"
     },
     {
      "name": "Investor",
      "ticker": "VGXRX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000092023"
     },
     {
      "name": "ETF Shares",
      "ticker": "VNQI",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092025",
+     "expense_total": 0.12,
+     "expense_net": 0.12,
+     "accession": "0000857489-26-000106",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000085748926000106/f44740d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1945,35 +2374,46 @@
      "ticker": "VIGAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007784"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VIGIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007785"
     },
     {
      "name": "Investor Shares",
      "ticker": "VIGRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007783"
     },
     {
      "name": "Signal Shares",
      "ticker": "VIGSX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035205"
     },
     {
      "name": "ETF Shares",
      "ticker": "VUG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007786",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0001683863-24-003041",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003041/f38349d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -1997,14 +2437,22 @@
      "ticker": "VHCIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012222"
     },
     {
      "name": "ETF Shares",
      "ticker": "VHT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012223",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000648",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000648/f45470d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2028,21 +2476,30 @@
      "ticker": "VHYAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000209802"
     },
     {
      "name": "Investor Shares",
      "ticker": "VHDYX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000038294"
     },
     {
      "name": "ETF Shares",
      "ticker": "VYM",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000038295",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0001193125-26-077532",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077532/f44059d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2066,14 +2523,22 @@
      "ticker": "VINAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012224"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIS",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012225",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000647",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000647/f45473d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2097,14 +2562,22 @@
      "ticker": "VITAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012226"
     },
     {
      "name": "ETF Shares",
      "ticker": "VGT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012227",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000651",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000651/f45474d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2128,42 +2601,54 @@
      "ticker": "VBILX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007058"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VBIUX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105308"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VBIMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000024520"
     },
     {
      "name": "Investor Shares",
      "ticker": "VBIIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007057"
     },
     {
      "name": "Signal Shares",
      "ticker": "VIBSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000035214"
     },
     {
      "name": "ETF Shares",
      "ticker": "BIV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000046841",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000794105-26-000121",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000121/f44831d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2187,21 +2672,30 @@
      "ticker": "VICSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080853"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VICBX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080854"
     },
     {
      "name": "ETF Shares",
      "ticker": "VCIT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080855",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000461",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000461/f45481d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2225,21 +2719,30 @@
      "ticker": "VSIGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080844"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VIIGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080845"
     },
     {
      "name": "ETF Shares",
      "ticker": "VGIT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080846",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000464",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000464/f45475d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2263,14 +2766,17 @@
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092029"
     },
     {
      "name": "ETF Shares",
      "ticker": "",
      "etf": true,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092030",
+     "reason": "older class, no usable fee table in filings"
     }
    ],
    "filing": null,
@@ -2289,21 +2795,30 @@
      "ticker": "VIAAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000163310"
     },
     {
      "name": "Investor Shares",
      "ticker": "VIAIX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000163312"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIGI",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000163311",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001193125-26-077528",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077528/f44061d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2327,21 +2842,30 @@
      "ticker": "VIHAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000163313"
     },
     {
      "name": "Investor Shares",
      "ticker": "VIHIX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000163315"
     },
     {
      "name": "ETF Shares",
      "ticker": "VYMI",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000163314",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001193125-26-077558",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1004655/000119312526077558/f44082d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2365,35 +2889,46 @@
      "ticker": "VLCAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007788"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VLISX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007789"
     },
     {
      "name": "Investor Shares",
      "ticker": "VLACX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007787"
     },
     {
      "name": "Signal Shares",
      "ticker": "VLCSX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035206"
     },
     {
      "name": "ETF Shares",
      "ticker": "VV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007790",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0001683863-24-003037",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003037/f38352d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2417,35 +2952,46 @@
      "ticker": "VBLAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000209800"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VBLIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105309"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VBLLX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000024522"
     },
     {
      "name": "Investor Shares",
      "ticker": "VBLTX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000007059"
     },
     {
      "name": "ETF Shares",
      "ticker": "BLV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000046842",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000794105-26-000117",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000117/f44832d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2469,21 +3015,30 @@
      "ticker": "VLTCX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080856"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VLCIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080857"
     },
     {
      "name": "ETF Shares",
      "ticker": "VCLT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080858",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000468",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000468/f45472d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2507,21 +3062,30 @@
      "ticker": "VLGSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080847"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VLGIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080848"
     },
     {
      "name": "ETF Shares",
      "ticker": "VGLT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080849",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000463",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000463/f45478d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2545,14 +3109,17 @@
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092031"
     },
     {
      "name": "ETF Shares",
      "ticker": "",
      "etf": true,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092032",
+     "reason": "older class, no usable fee table in filings"
     }
    ],
    "filing": null,
@@ -2571,14 +3138,22 @@
      "ticker": "VMIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012205"
     },
     {
      "name": "ETF Shares",
      "ticker": "VAW",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012206",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000646",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000646/f45476d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2602,14 +3177,22 @@
      "ticker": "VMGAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055215"
     },
     {
      "name": "ETF Shares",
      "ticker": "MGK",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055216",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-21-007301",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007301/f10523d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2633,14 +3216,22 @@
      "ticker": "VMCTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055209"
     },
     {
      "name": "ETF Shares",
      "ticker": "MGC",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055210",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-21-007295",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007295/f10521d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2664,14 +3255,22 @@
      "ticker": "VMVLX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055212"
     },
     {
      "name": "ETF Shares",
      "ticker": "MGV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000055213",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-21-007297",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000168386321007297/f10524d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2695,21 +3294,30 @@
      "ticker": "VMGMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105306"
     },
     {
      "name": "Investor Shares",
      "ticker": "VMGIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000034427"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000034428",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-24-003005",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003005/f38304d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2733,42 +3341,54 @@
      "ticker": "VIMAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007792"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VMCPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096111"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VMCIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007793"
     },
     {
      "name": "Investor Shares",
      "ticker": "VIMSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007791"
     },
     {
      "name": "Signal Shares",
      "ticker": "VMISX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035207"
     },
     {
      "name": "ETF Shares",
      "ticker": "VO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007794",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000036405-26-000205",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000205/f44853d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2792,21 +3412,30 @@
      "ticker": "VMVAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105307"
     },
     {
      "name": "Investor Shares",
      "ticker": "VMVIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000034429"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOE",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000034430",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-24-003077",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003077/f38306d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2830,21 +3459,30 @@
      "ticker": "VMBSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080859"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VMBIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080860"
     },
     {
      "name": "ETF Shares",
      "ticker": "VMBS",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080861",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000470",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000470/f45465d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2868,42 +3506,54 @@
      "ticker": "VPADX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015908"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VPAPX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000096108"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VPKIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015909"
     },
     {
      "name": "Investor Shares",
      "ticker": "VPACX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015907"
     },
     {
      "name": "Signal Shares",
      "ticker": "VPASX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000038996"
     },
     {
      "name": "ETF Shares",
      "ticker": "VPL",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000015910",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001193125-26-077577",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077577/f44211d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -2927,35 +3577,46 @@
      "ticker": "VGSLX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000008011"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VGSNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000008012"
     },
     {
      "name": "Investor Shares",
      "ticker": "VGSIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000008010"
     },
     {
      "name": "Signal Shares",
      "ticker": "VGRSX",
      "etf": false,
      "active": false,
-     "last_year": 2018
+     "last_year": 2018,
+     "class_id": "C000038987"
     },
     {
      "name": "ETF Shares",
      "ticker": "VNQ",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000032424",
+     "expense_total": 0.13,
+     "expense_net": 0.13,
+     "accession": "0000734383-26-000136",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/734383/000073438326000136/f45323d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -2974,14 +3635,22 @@
      "ticker": "VRGWX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092013"
     },
     {
      "name": "ETF Shares",
      "ticker": "VONG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092014",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000444",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000444/f45580d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3005,14 +3674,22 @@
      "ticker": "VRNIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092009"
     },
     {
      "name": "ETF Shares",
      "ticker": "VONE",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092010",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000441",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000441/f45569d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3036,14 +3713,22 @@
      "ticker": "VRVIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092011"
     },
     {
      "name": "ETF Shares",
      "ticker": "VONV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092012",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000440",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000440/f45570d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3067,14 +3752,22 @@
      "ticker": "VRTGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092019"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTWG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092020",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000443",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000443/f45584d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3098,14 +3791,22 @@
      "ticker": "VRTIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092015"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTWO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092016",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000445",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000445/f45582d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3129,14 +3830,22 @@
      "ticker": "VRTVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092018"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTWV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092017",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000442",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000442/f45583d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3160,14 +3869,22 @@
      "ticker": "VRTTX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092021"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTHR",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092022",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001021882-26-000453",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000453/f45585d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3191,14 +3908,22 @@
      "ticker": "VSPGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092035"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOOG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092034",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0000891190-26-000228",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000228/f45650d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3217,14 +3942,22 @@
      "ticker": "VSPVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092037"
     },
     {
      "name": "ETF Shares",
      "ticker": "VOOV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092036",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0000891190-26-000226",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000226/f45645d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3243,14 +3976,22 @@
      "ticker": "VMFGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092042"
     },
     {
      "name": "ETF Shares",
      "ticker": "IVOG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092043",
+     "expense_total": 0.1,
+     "expense_net": 0.1,
+     "accession": "0000891190-26-000224",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000224/f45521d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3269,14 +4010,22 @@
      "ticker": "VSPMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092039"
     },
     {
      "name": "ETF Shares",
      "ticker": "IVOO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092038",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0000891190-26-000238",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000238/f45647d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3295,14 +4044,22 @@
      "ticker": "VMFVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092041"
     },
     {
      "name": "ETF Shares",
      "ticker": "IVOV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092040",
+     "expense_total": 0.1,
+     "expense_net": 0.1,
+     "accession": "0000891190-26-000227",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000227/f45644d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3321,14 +4078,22 @@
      "ticker": "VSGNX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000092047"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIOG",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092046",
+     "expense_total": 0.1,
+     "expense_net": 0.1,
+     "accession": "0001193125-25-325143",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000119312525325143/f43635d1.htm",
+     "source": "v1 MF DB",
+     "form": "485BPOS"
     }
    ],
    "filing": null,
@@ -3347,14 +4112,22 @@
      "ticker": "VSMSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092045"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIOO",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092044",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0000891190-26-000225",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000225/f45520d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3373,14 +4146,22 @@
      "ticker": "VSMVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092049"
     },
     {
      "name": "ETF Shares",
      "ticker": "VIOV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000092048",
+     "expense_total": 0.1,
+     "expense_net": 0.1,
+     "accession": "0000891190-26-000229",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/891190/000089119026000229/f45648d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": null,
@@ -3399,42 +4180,54 @@
      "ticker": "VBIRX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007061"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VBIPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105311"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VBITX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105310"
     },
     {
      "name": "Investor Shares",
      "ticker": "VBISX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007060"
     },
     {
      "name": "Signal Shares",
      "ticker": "VBSSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000035215"
     },
     {
      "name": "ETF Shares",
      "ticker": "BSV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000046843",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000794105-26-000119",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000119/f44833d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3458,21 +4251,30 @@
      "ticker": "VSCSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080850"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VSTBX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080851"
     },
     {
      "name": "ETF Shares",
      "ticker": "VCSH",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080852",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000469",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000469/f45467d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3496,21 +4298,30 @@
      "ticker": "VSBSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080841"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VSBIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080842"
     },
     {
      "name": "ETF Shares",
      "ticker": "VGSH",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000080843",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001021882-26-000465",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1021882/000102188226000465/f45469d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3534,28 +4345,38 @@
      "ticker": "VTAPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000118814"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VTSPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000118816"
     },
     {
      "name": "Investor Shares",
      "ticker": "VTIPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000118817"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTIP",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000118815",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001193125-26-024990",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/836906/000119312526024990/f43883d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3579,14 +4400,17 @@
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092027"
     },
     {
      "name": "ETF Shares",
      "ticker": "",
      "etf": true,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000092028",
+     "reason": "older class, no usable fee table in filings"
     }
    ],
    "filing": null,
@@ -3605,28 +4429,38 @@
      "ticker": "VSGAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105304"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VSGIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007800"
     },
     {
      "name": "Investor Shares",
      "ticker": "VISGX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007799"
     },
     {
      "name": "ETF Shares",
      "ticker": "VBK",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007801",
+     "expense_total": 0.05,
+     "expense_net": 0.05,
+     "accession": "0000036405-26-000201",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000201/f44860d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3650,42 +4484,54 @@
      "ticker": "VSMAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007796"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VSCPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000096112"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VSCIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007797"
     },
     {
      "name": "Investor Shares",
      "ticker": "NAESX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007795"
     },
     {
      "name": "Signal Shares",
      "ticker": "VSISX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035208"
     },
     {
      "name": "ETF Shares",
      "ticker": "VB",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007798",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000036405-26-000206",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000206/f44854d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3709,28 +4555,38 @@
      "ticker": "VSIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000105305"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VSIIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007803"
     },
     {
      "name": "Investor Shares",
      "ticker": "VISVX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007802"
     },
     {
      "name": "ETF Shares",
      "ticker": "VBR",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007804",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001683863-24-003078",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386324003078/f38308d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3754,21 +4610,30 @@
      "ticker": "VTEAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000153131"
     },
     {
      "name": "Investor Shares",
      "ticker": "VTEBX",
      "etf": false,
      "active": false,
-     "last_year": 2022
+     "last_year": 2022,
+     "class_id": "C000153133"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTEB",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000153132",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0001193125-26-077582",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/225997/000119312526077582/f44109d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3792,49 +4657,62 @@
      "ticker": "VBTLX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007063"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VBMPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000081425"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VTBSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170279"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VBTIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007064"
     },
     {
      "name": "Investor Shares",
      "ticker": "VBMFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007062"
     },
     {
      "name": "Signal Shares",
      "ticker": "VBTSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000035216"
     },
     {
      "name": "ETF Shares",
      "ticker": "BND",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000046844",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000794105-26-000124",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/794105/000079410526000124/f44834d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3858,42 +4736,54 @@
      "ticker": "VTABX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000109501"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VSIBX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170277"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VTIFX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000109502"
     },
     {
      "name": "Investor Shares",
      "ticker": "VTIBX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000109500"
     },
     {
      "name": "Transition Shares",
      "ticker": "",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000125776"
     },
     {
      "name": "ETF Shares",
      "ticker": "BNDX",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000109503",
+     "expense_total": 0.07,
+     "expense_net": 0.07,
+     "accession": "0001193125-26-077547",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/1532203/000119312526077547/f44092d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3917,49 +4807,62 @@
      "ticker": "VTIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000094037"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VTPSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000094039"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VTISX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170278"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VTSNX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000094036"
     },
     {
      "name": "Investor Shares",
      "ticker": "VGTSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000008020"
     },
     {
      "name": "Signal Shares",
      "ticker": "VTSGX",
      "etf": false,
      "active": false,
-     "last_year": 2015
+     "last_year": 2015,
+     "class_id": "C000094040"
     },
     {
      "name": "ETF Shares",
      "ticker": "VXUS",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000094038",
+     "expense_total": 0.05,
+     "expense_net": 0.05,
+     "accession": "0001193125-26-077510",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/736054/000119312526077510/f44038d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -3983,49 +4886,62 @@
      "ticker": "VTSAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007806"
     },
     {
      "name": "Institutional Plus Shares",
      "ticker": "VSMPX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000155407"
     },
     {
      "name": "Institutional Select Shares",
      "ticker": "VSTSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000170276"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VITSX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007807"
     },
     {
      "name": "Investor Shares",
      "ticker": "VTSMX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007805"
     },
     {
      "name": "Signal Shares",
      "ticker": "VTSSX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035211"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTI",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007808",
+     "expense_total": 0.03,
+     "expense_net": 0.03,
+     "accession": "0000036405-26-000197",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -4049,28 +4965,38 @@
      "ticker": "VTWAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000209799"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VTWIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000065039"
     },
     {
      "name": "Investor Shares",
      "ticker": "VTWSX",
      "etf": false,
      "active": false,
-     "last_year": 2024
+     "last_year": 2024,
+     "class_id": "C000065037"
     },
     {
      "name": "ETF Shares",
      "ticker": "VT",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000065038",
+     "expense_total": 0.06,
+     "expense_net": 0.06,
+     "accession": "0001193125-26-077566",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/857489/000119312526077566/f44201d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -4094,14 +5020,22 @@
      "ticker": "VUIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012212"
     },
     {
      "name": "ETF Shares",
      "ticker": "VPU",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000012213",
+     "expense_total": 0.09,
+     "expense_net": 0.09,
+     "accession": "0000052848-26-000652",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/52848/000005284826000652/f45480d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {
@@ -4125,35 +5059,46 @@
      "ticker": "VVIAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007776"
     },
     {
      "name": "Institutional Shares",
      "ticker": "VIVIX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007777"
     },
     {
      "name": "Investor Shares",
      "ticker": "VIVAX",
      "etf": false,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007775"
     },
     {
      "name": "Signal Shares",
      "ticker": "VVISX",
      "etf": false,
      "active": false,
-     "last_year": 2014
+     "last_year": 2014,
+     "class_id": "C000035203"
     },
     {
      "name": "ETF Shares",
      "ticker": "VTV",
      "etf": true,
      "active": true,
-     "last_year": 2026
+     "last_year": 2026,
+     "class_id": "C000007778",
+     "expense_total": 0.04,
+     "expense_net": 0.04,
+     "accession": "0001683863-25-004110",
+     "filing_url": "https://www.sec.gov/Archives/edgar/data/36405/000168386325004110/f41676d1.htm",
+     "source": "v1 MF DB",
+     "form": "497K"
     }
    ],
    "filing": {

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Publish the MF-to-ETF supervised-pilot tab data (etf_lineage.json): lineage only.
+"""Publish the MF-to-ETF supervised-pilot tab data (etf_lineage.json).
 
 Reads the local output of mf_compliance scripts/etf_lineage.py (etf_lineage_full.json; never committed)
-and writes allowlisted public SEC fields only. Fee values are NEVER written here: fees stay
-'pending review' until an independent 20-row blind check passes (<=1 error). A prospectus link is
-published only from series_primary_document in the v1 DB (read-only) when that row has a source_url;
-blank or missing rows stay unlinked. Shape gate and PII screen run before the published file is
-replaced; on failure nothing is written.
+and writes allowlisted public SEC fields only. ETF class expense ratios (Total and Net, plus a
+waiver amount when above 0) are published from the full file when both figures are present.
+A prospectus link is published only from series_primary_document in the v1 DB (read-only) when
+that row has a source_url; blank or missing rows stay unlinked. Shape gate and PII screen run
+before the published file is replaced; on failure nothing is written.
 
 Usage: python3 scripts/export_etf_lineage.py --full /path/to/etf_lineage_full.json
 """
@@ -22,12 +22,29 @@ REPO = Path(__file__).resolve().parent.parent
 OUT_NAME = "etf_lineage.json"
 ACC = re.compile(r"^\d{10}-\d{2}-\d{6}$")
 SERIES = re.compile(r"^S\d{9}$")
-# Primary-document URL from series_primary_document (not an EDGAR index page).
+CLASS_ID = re.compile(r"^C\d{9}$")
+# Primary-document URL from series_primary_document or a class fee document (not an EDGAR index page).
 URL = re.compile(
     r"^https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9._-]+\.htm$"
 )
-FEE_STATUS = "pending review"
+FEE_STATUS = "published"
+FEE_SOURCE = "v1 MF DB"
+FEE_SOURCE_META = "v1 MF DB, accession"
 ROW_KEYS = {"status", "last_seen", "fund_name", "series_id", "registrant_cik", "classes", "filing", "link_status", "source"}
+CLASS_REQUIRED = {"name", "ticker", "etf", "active", "last_year"}
+CLASS_OPTIONAL = {
+    "class_id", "expense_total", "expense_net", "waiver_amount",
+    "accession", "filing_url", "source", "form", "reason",
+}
+# CEO-specified reasons for the six ETF classes with no published fee (run9).
+BLANK_REASONS = {
+    "C000275281": "not yet effective, no final prospectus",
+    "C000275282": "not yet effective, no final prospectus",
+    "C000092028": "older class, no usable fee table in filings",
+    "C000092030": "older class, no usable fee table in filings",
+    "C000092032": "older class, no usable fee table in filings",
+    "C000109507": "older class, no usable fee table in filings",
+}
 SOURCE = (
     "v1 MF DB (read-only): sec_class_years classes/tickers; "
     "series_primary_document for the prospectus/primary-document link; "
@@ -122,6 +139,61 @@ def _filing_from_db(doc) -> dict | None:
     }
 
 
+def etf_fee_fields(fee) -> dict | None:
+    """Allowlisted ETF fee fields from a full-file fee record. Both figures required."""
+    if not isinstance(fee, dict) or fee.get("total") is None or fee.get("net") is None:
+        return None
+    total, net = fee["total"], fee["net"]
+    if not isinstance(total, (int, float)) or not isinstance(net, (int, float)):
+        return None
+    out = {
+        "expense_total": total,
+        "expense_net": net,
+        "accession": fee.get("accession"),
+        "filing_url": fee.get("filing_url"),
+        "source": FEE_SOURCE,
+    }
+    if fee.get("form"):
+        out["form"] = fee["form"]
+    waiver = round(total - net, 2)
+    if waiver > 0:
+        out["waiver_amount"] = waiver
+    return out
+
+
+def _public_class(c, year, fees_map) -> dict:
+    item = {
+        "name": c["name"],
+        "ticker": c.get("ticker") or "",
+        "etf": bool(c["etf"]),
+        "active": c.get("last_year", year) == year,
+        "last_year": c.get("last_year", year),
+    }
+    cid = c.get("class_id")
+    if cid:
+        item["class_id"] = cid
+    if item["etf"] and cid:
+        fields = etf_fee_fields((fees_map or {}).get(cid))
+        if fields:
+            item.update(fields)
+        elif cid in BLANK_REASONS:
+            item["reason"] = BLANK_REASONS[cid]
+    return item
+
+
+def _fee_counts(rows):
+    published = blank = 0
+    for r in rows:
+        for c in r["classes"]:
+            if not c.get("etf"):
+                continue
+            if "expense_total" in c and "expense_net" in c:
+                published += 1
+            elif c.get("reason"):
+                blank += 1
+    return published, blank
+
+
 def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
     hidden = hidden or {}
     primary_docs = primary_docs or {}
@@ -142,14 +214,14 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
             "fund_name": r.get("fund_name") or r["series_id"],
             "series_id": r["series_id"],
             "registrant_cik": int(r["cik"]),
-            "classes": sorted(({"name": c["name"], "ticker": c.get("ticker") or "", "etf": bool(c["etf"]),
-                                "active": c.get("last_year", year) == year, "last_year": c.get("last_year", year)}
-                               for c in r["classes"]), key=lambda c: (c["etf"], c["name"])),
+            "classes": sorted((_public_class(c, year, r.get("fees") or {}) for c in r["classes"]),
+                              key=lambda c: (c["etf"], c["name"])),
             "filing": filing,
             "source": SOURCE,
             "link_status": "db" if filing else "none",
         })
     rows.sort(key=lambda x: (x["fund_name"].lower(), x["series_id"]))
+    fees_published, fees_blank = _fee_counts(rows)
     meta = {
         "label": "supervised pilot", "source": SOURCE, "outside_sources": "none used", "fee_status": FEE_STATUS, "source_year": source_year,
         "series": len(rows), "active_series": sum(r["status"] == "active" for r in rows),
@@ -166,8 +238,48 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
         "hidden_series": omitted,
         "hide_source": HIDE_SOURCE,
         "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list.",
+        "fees_published": fees_published,
+        "fees_blank": fees_blank,
+        "fee_source": FEE_SOURCE_META,
     }
     return {"meta": meta, "rows": rows}
+
+
+def _class_errors(i, c) -> list:
+    e = []
+    keys = set(c)
+    if not CLASS_REQUIRED <= keys or (keys - CLASS_REQUIRED - CLASS_OPTIONAL):
+        e.append(f"row {i} class keys")
+        return e
+    cid = c.get("class_id")
+    if cid is not None and not CLASS_ID.match(str(cid)):
+        e.append(f"row {i} class_id")
+    has_fee = "expense_total" in c or "expense_net" in c
+    has_reason = "reason" in c
+    if has_fee and has_reason:
+        e.append(f"row {i} fee and reason")
+    if has_fee:
+        if not c.get("etf"):
+            e.append(f"row {i} mutual fund fee")
+        if not isinstance(c.get("expense_total"), (int, float)) or not isinstance(c.get("expense_net"), (int, float)):
+            e.append(f"row {i} fee numbers")
+        waiver = c.get("waiver_amount")
+        if waiver is not None and (not isinstance(waiver, (int, float)) or waiver <= 0):
+            e.append(f"row {i} waiver")
+        acc = str(c.get("accession") or "")
+        url = str(c.get("filing_url") or "")
+        if not ACC.match(acc) or not URL.match(url) or acc.replace("-", "") not in url:
+            e.append(f"row {i} fee filing link")
+        if c.get("source") != FEE_SOURCE:
+            e.append(f"row {i} fee source")
+    if has_reason:
+        if not c.get("etf"):
+            e.append(f"row {i} reason on mutual fund class")
+        if c.get("reason") not in BLANK_REASONS.values():
+            e.append(f"row {i} reason text")
+        if any(k in c for k in ("expense_total", "expense_net", "waiver_amount", "accession", "filing_url")):
+            e.append(f"row {i} blank has fee fields")
+    return e
 
 
 def shape_errors(data) -> list:
@@ -180,6 +292,10 @@ def shape_errors(data) -> list:
     if m.get("series") != len(rows): e.append("meta.series count")
     if m.get("links_from_db") != sum(r.get("link_status") == "db" for r in rows): e.append("meta.links_from_db")
     if m.get("links_none") != sum(r.get("link_status") != "db" for r in rows): e.append("meta.links_none")
+    published, blank = _fee_counts(rows)
+    if m.get("fees_published") != published: e.append("meta.fees_published")
+    if m.get("fees_blank") != blank: e.append("meta.fees_blank")
+    if m.get("fee_source") != FEE_SOURCE_META: e.append("meta.fee_source")
     for i, r in enumerate(rows):
         if set(r) != ROW_KEYS: e.append(f"row {i} keys {sorted(set(r) ^ ROW_KEYS)}")
         if r.get("status") not in ("active", "closed") or not isinstance(r.get("last_seen"), int): e.append(f"row {i} status")
@@ -188,7 +304,7 @@ def shape_errors(data) -> list:
         if sum(c.get("etf") is True for c in cl) < 1 or sum(c.get("etf") is False for c in cl) < 1:
             e.append(f"row {i} needs an ETF class and a fund class")
         for c in cl:
-            if set(c) != {"name", "ticker", "etf", "active", "last_year"}: e.append(f"row {i} class keys")
+            e.extend(_class_errors(i, c))
         f = r.get("filing")
         if r.get("link_status") == "db":
             acc = str((f or {}).get("accession") or "")
@@ -198,7 +314,7 @@ def shape_errors(data) -> list:
         elif f is not None:
             e.append(f"row {i} link published without a DB primary document")
     text = json.dumps(data).lower()
-    for banned in ("expense_ratio", "\"fees\"", "\"total\"", "\"net\"", "filing_id", "local_path"):
+    for banned in ("filing_id", "local_path"):
         if banned in text: e.append(f"banned field {banned}")
     return e
 
