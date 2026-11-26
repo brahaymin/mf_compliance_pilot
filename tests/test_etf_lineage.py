@@ -242,8 +242,14 @@ def test_hidden_series_omitted_even_with_primary_document():
 
 def test_complete_etf_fee_is_published_and_mf_fee_is_not():
     fees = {
-        "C000000001": {"total": 0.42, "net": 0.41, "accession": ACC, "filing_url": DOC_URL, "form": "497K"},
-        "C000000002": {"total": 0.21, "net": 0.18, "accession": ACC, "filing_url": DOC_URL, "form": "497K"},
+        "C000000001": {"total": 0.42, "net": 0.41, "accession": ACC, "filing_url": DOC_URL, "form": "497K",
+                       "total_line": "Total Annual Fund Operating Expenses 0.42%",
+                       "net_line": "Total Annual Fund Operating Expenses After Fee Waiver 0.41%",
+                       "waiver_line": True, "net_defaulted": False},
+        "C000000002": {"total": 0.21, "net": 0.18, "accession": ACC, "filing_url": DOC_URL, "form": "497K",
+                       "total_line": "Total Annual Fund Operating Expenses 0.21%",
+                       "net_line": "Total Annual Fund Operating Expenses After Fee Waiver 0.18%",
+                       "waiver_line": True, "net_defaulted": False},
     }
     data = etf.build(_full(fees=fees), 2026)
     assert etf.shape_errors(data) == []
@@ -294,13 +300,18 @@ def test_published_json_has_confirmed_etf_fees():
                 assert c["source"] == etf.FEE_SOURCE
                 assert c["filing_url"].startswith("https://www.sec.gov/Archives/edgar/data/")
                 assert c["accession"].replace("-", "") in c["filing_url"]
+                assert "#:~:text=" in c["filing_url"]
+                assert not c["filing_url"].split("#", 1)[0].lower().endswith("-index.htm")
+                assert c["total_line"]
                 w = c.get("waiver_amount")
                 if w is not None:
                     assert w > 0
                     assert w == round(c["expense_total"] - c["expense_net"], 2)
+                    assert c.get("net_line")
                     waivers += 1
                 else:
                     assert round(c["expense_total"] - c["expense_net"], 2) == 0
+                    assert "net_line" not in c
             else:
                 blank += 1
                 assert c["reason"] in etf.BLANK_REASONS.values()
@@ -312,3 +323,62 @@ def test_published_json_has_confirmed_etf_fees():
     assert reasons["C000275282"] == "not yet effective, no final prospectus"
     for cid in ("C000092028", "C000092030", "C000092032", "C000109507"):
         assert reasons[cid] == "older class, no usable fee table in filings"
+
+
+FIMU_DOC = "https://www.sec.gov/Archives/edgar/data/215829/000021582926000051/filing12344.htm"
+SHARED_DIM = "0000355437-26-000120"
+SHARED_N1A = "0002109839-26-000013"
+DIM_CLASSES = [
+    "C000268961", "C000268962", "C000268963", "C000268964", "C000268965", "C000268966",
+    "C000268967", "C000268968", "C000268969", "C000268970", "C000268971", "C000268972",
+]
+
+
+def _published_etf_classes():
+    data = json.loads((ROOT / "etf_lineage.json").read_text(encoding="utf-8"))
+    out = {}
+    for row in data["rows"]:
+        for c in row["classes"]:
+            if c.get("etf"):
+                out[c["class_id"]] = c
+    return data, out
+
+
+def test_published_json_keeps_run9_figures_and_adds_lines():
+    data, by = _published_etf_classes()
+    assert etf.shape_errors(data) == []
+    # NUDG waiver example
+    nudg = by["C000275829"]
+    assert nudg["expense_total"] == 0.75 and nudg["expense_net"] == 0.61
+    assert nudg["waiver_amount"] == 0.14
+    assert nudg["total_line"].startswith("Total Annual Fund Operating Expenses")
+    assert "0.75%" in nudg["total_line"]
+    assert "After Fee Waivers" in nudg["net_line"] and "0.61%" in nudg["net_line"]
+    # no-waiver example: Dimensional N-1A/A 0.12
+    core = by["C000276005"]
+    assert core["expense_total"] == 0.12 and core["expense_net"] == 0.12
+    assert "waiver_amount" not in core and "net_line" not in core
+    assert "0.12%" in core["total_line"]
+
+
+def test_fimu_points_at_stored_document_not_index():
+    _, by = _published_etf_classes()
+    fimu = by["C000276224"]
+    assert fimu["expense_total"] == 0.31 and fimu["expense_net"] == 0.3
+    assert fimu["filing_url"].startswith(FIMU_DOC)
+    assert "#:~:text=" in fimu["filing_url"]
+    assert "index.htm" not in fimu["filing_url"]
+    assert "0.31%" in fimu["total_line"] and "0.30%" in fimu["net_line"]
+
+
+def test_shared_document_rows_have_distinct_deep_links():
+    _, by = _published_etf_classes()
+    for acc, ids in ((SHARED_DIM, DIM_CLASSES), (SHARED_N1A, ["C000276005", "C000276007"])):
+        frags = []
+        for cid in ids:
+            url = by[cid]["filing_url"]
+            assert acc.replace("-", "") in url
+            assert "#:~:text=" in url
+            frag = url.split("#", 1)[1]
+            frags.append(frag)
+        assert len(set(frags)) == len(frags)
