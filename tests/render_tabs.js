@@ -77,8 +77,8 @@ async function runTab(tab) {
   }
   if (tab.name === "etf") {
     const totals = window.document.querySelectorAll(".fee-total");
-    if (totals.length !== 92) {
-      errors.push(new Error("etf expected 92 fee totals, got " + totals.length));
+    if (totals.length !== 296) {
+      errors.push(new Error("etf expected 296 fee totals, got " + totals.length));
     }
     let waiverExample = false;
     window.document.querySelectorAll("#etf .etf-classes tbody tr").forEach(function (tr) {
@@ -119,8 +119,8 @@ async function runTab(tab) {
       errors.push(new Error("etf default Active view expected 93 series, got " + shown.length));
     }
     const totalLines = window.document.querySelectorAll(".fee-total-line");
-    if (totalLines.length !== 92) {
-      errors.push(new Error("etf expected 92 exact total lines, got " + totalLines.length));
+    if (totalLines.length !== 296) {
+      errors.push(new Error("etf expected 296 exact total lines, got " + totalLines.length));
     }
     let waiverLines = false;
     window.document.querySelectorAll("#etf .etf-classes tbody tr").forEach(function (tr) {
@@ -132,37 +132,89 @@ async function runTab(tab) {
     const notes = window.document.querySelectorAll(".fee-note");
     const noteText = Array.prototype.map.call(notes, function (n) { return (n.textContent || "").trim(); });
     const noWaiver = noteText.filter(function (s) { return s === "no waiver in filing"; }).length;
-    if (noWaiver !== 72) {
-      errors.push(new Error("etf expected 72 'no waiver in filing' notes, got " + noWaiver));
+    if (noWaiver !== 233) {
+      errors.push(new Error("etf expected 233 'no waiver in filing' notes, got " + noWaiver));
     }
-    // Shared-document rows must not reuse the same text fragment.
-    const byAcc = {};
+    function rowByTicker(ticker) {
+      return Array.prototype.find.call(window.document.querySelectorAll("#etf .etf-classes tbody tr"), function (tr) {
+        const td = tr.querySelectorAll("td")[1];
+        const t = ((td && td.textContent) || "").trim();
+        return t === ticker || t.indexOf(ticker + " ") === 0;
+      });
+    }
+    function assertFeeRow(ticker, total, net, wantsWaiver) {
+      const tr = rowByTicker(ticker);
+      if (!tr) { errors.push(new Error("etf missing row for " + ticker)); return; }
+      const tot = tr.querySelector(".fee-total");
+      const n = tr.querySelector(".fee-net");
+      const w = tr.querySelector(".fee-waiver");
+      const line = tr.querySelector(".fee-total-line");
+      const a = tr.querySelector("a.fee-filing");
+      if (!tot || (tot.textContent || "").trim() !== total) errors.push(new Error(ticker + " total: " + JSON.stringify(tot && tot.textContent)));
+      if (!n || (n.textContent || "").trim() !== net) errors.push(new Error(ticker + " net: " + JSON.stringify(n && n.textContent)));
+      if (wantsWaiver) {
+        if (!w) errors.push(new Error(ticker + " missing waiver amount"));
+      } else if (w) {
+        errors.push(new Error(ticker + " unexpected waiver amount"));
+      }
+      if (!line || !(line.textContent || "").trim()) errors.push(new Error(ticker + " missing exact filing line"));
+      const href = a && a.getAttribute("href") || "";
+      if (href.indexOf("#:~:text=") < 0) errors.push(new Error(ticker + " missing class-specific highlight link"));
+    }
+    assertFeeRow("FLTMX", "0.39%", "0.37%", true);
+    assertFeeRow("FSHBX", "0.30%", "0.30%", false);
+    assertFeeRow("FRIFX", "0.65%", "0.65%", false);
+    assertFeeRow("NUDG", "0.75%", "0.61%", true);
+    const frifx = rowByTicker("FRIFX");
+    const frifxHref = frifx && frifx.querySelector("a.fee-filing") && frifx.querySelector("a.fee-filing").getAttribute("href") || "";
+    if (frifxHref.indexOf("000075451026000241") < 0) {
+      errors.push(new Error("FRIFX href is not the stored fallback filing: " + JSON.stringify(frifxHref)));
+    }
+    let blankOk = 0;
+    window.document.querySelectorAll("#etf .fund-card").forEach(function (card) {
+      const q = card.dataset.q || "";
+      if (q.indexOf("s000006325") < 0 && q.indexOf("s000006335") < 0) return;
+      card.querySelectorAll(".etf-classes tbody tr").forEach(function (tr) {
+        if (!tr.querySelector(".etf-tag")) return;
+        const reason = tr.querySelector(".fee-reason");
+        const txt = (reason && reason.textContent || "").trim();
+        if (txt !== "not yet effective, no final prospectus") {
+          errors.push(new Error("TCW ETF class missing not-yet-effective reason: " + JSON.stringify(txt)));
+          return;
+        }
+        if (tr.querySelector(".fee-total") || tr.querySelector("a.fee-filing") || /\d+(?:\.\d+)?\s*%/.test(tr.textContent || "")) {
+          errors.push(new Error("TCW ETF blank row has a fee number or link"));
+          return;
+        }
+        blankOk += 1;
+      });
+    });
+    if (blankOk !== 2) errors.push(new Error("etf expected 2 TCW not-yet-effective blank ETF rows, got " + blankOk));
+    const metaText = (window.document.getElementById("etf-meta") && window.document.getElementById("etf-meta").textContent) || "";
+    if (metaText.indexOf("295 of 297") < 0) {
+      errors.push(new Error("etf meta missing active fee counts: " + JSON.stringify(metaText.slice(0, 400))));
+    }
+    // Sisters in one fee table may share a highlight; different exact lines must not.
+    const fragLines = {};
     window.document.querySelectorAll("#etf a.fee-filing").forEach(function (a) {
       const href = a.getAttribute("href") || "";
       const m = href.match(/(\d{18})\/[^#]+(?:#:~:text=.+)$/);
       if (!m) return;
-      const acc = m[1];
-      (byAcc[acc] || (byAcc[acc] = [])).push(href);
+      const key = m[1] + " " + href.split("#")[1];
+      const lineEl = a.closest("tr") && a.closest("tr").querySelector(".fee-total-line");
+      const line = (lineEl && lineEl.textContent || "").trim();
+      (fragLines[key] || (fragLines[key] = [])).push(line);
     });
-    Object.keys(byAcc).forEach(function (acc) {
-      const hrefs = byAcc[acc];
-      if (hrefs.length < 2) return;
-      const frags = hrefs.map(function (h) { return h.split("#")[1]; });
-      if (new Set(frags).size !== frags.length) {
-        errors.push(new Error("etf shared document " + acc + " has duplicate deep-link fragments"));
+    Object.keys(fragLines).forEach(function (key) {
+      if (new Set(fragLines[key]).size !== 1) {
+        errors.push(new Error("etf shared fragment has different filing lines: " + key));
       }
     });
-    const fimu = Array.prototype.find.call(window.document.querySelectorAll("#etf a.fee-filing"), function (a) {
-      return /FIMU|000021582926000051/.test((a.getAttribute("href") || "") + " " + (a.closest("article") && a.closest("article").dataset.q || ""));
-    });
-    // FIMU is labeled by ticker in the row; find the filing link in the FIMU card.
     let fimuHref = null;
-    window.document.querySelectorAll("#etf .fund-card").forEach(function (card) {
-      if ((card.dataset.q || "").indexOf("fimu") >= 0) {
-        const a = card.querySelector("a.fee-filing");
-        if (a) fimuHref = a.getAttribute("href") || "";
-      }
-    });
+    const fimuRow = rowByTicker("FIMU");
+    if (fimuRow && fimuRow.querySelector("a.fee-filing")) {
+      fimuHref = fimuRow.querySelector("a.fee-filing").getAttribute("href") || "";
+    }
     if (!fimuHref || fimuHref.indexOf("filing12344.htm") < 0 || fimuHref.indexOf("index.htm") >= 0) {
       errors.push(new Error("etf FIMU href is not the stored document: " + JSON.stringify(fimuHref)));
     }

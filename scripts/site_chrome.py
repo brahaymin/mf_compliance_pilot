@@ -50,10 +50,11 @@ FEES = (
 )
 
 ETF = (
-    "Accuracy: lineage: unreviewed; fees: 92 confirmed ETF classes published on CEO go "
-    "2026-11-25 8:32 PM CT (Total and Net; waiver shown when above 0). Six classes have no "
-    "usable fee (reason shown). Supervised pilot. Read the full filing; check each item against "
-    "the linked SEC document."
+    "Accuracy: lineage: unreviewed; fees: 295 of 297 active share classes published on CEO go "
+    "2026-11-26 11:36 AM CT (Total and Net for ETF and sister classes; waiver shown when above 0). "
+    "Two active ETF classes that are not yet effective, and four closed-series older classes, have "
+    "no usable fee (reason shown). Inactive classes are hidden. Supervised pilot. Read the full "
+    "filing; check each item against the linked SEC document."
 )
 
 UNREVIEWED = (

@@ -58,8 +58,16 @@
     addMeta("Prospectus links", m.links_from_db + " from the v1 DB (series_primary_document); " + m.links_none +
       " with no filing in the DB");
     if (m.fees_published != null) {
-      addMeta("ETF expense ratios", m.fees_published + " with Total and Net; " + (m.fees_blank || 0) +
-        " with no usable fee table (reason shown). Source: " + (m.fee_source || "v1 MF DB") + ".");
+      var activeFees = m.fees_published_active, activeBlank = m.fees_blank_active;
+      var line = m.fees_published + " with Total and Net; " + (m.fees_blank || 0) +
+        " with no usable fee table (reason shown).";
+      if (activeFees != null) {
+        line = activeFees + " of " + (activeFees + (activeBlank || 0)) +
+          " active share classes with Total and Net; " + (activeBlank || 0) +
+          " active ETF classes with no usable fee table (reason shown). " +
+          m.fees_published + " published in all, including closed series.";
+      }
+      addMeta("Expense ratios", line + " Source: " + (m.fee_source || "v1 MF DB") + ".");
     }
     addMeta("Scope", m.scope);
     addMeta("Source", m.source + ". Outside SEC sources: " + m.outside_sources + ".");
@@ -97,6 +105,6 @@
   }
   q.addEventListener("input", apply);
   sf.addEventListener("change", apply);
-  fetch("etf_lineage.json?v=20261126-feelinedeep").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  fetch("etf_lineage.json?v=20261126-allclass").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) { render(d); apply(); }).catch(function () { status.textContent = "Could not load the fund list."; status.className = "notice warn"; });
 })();

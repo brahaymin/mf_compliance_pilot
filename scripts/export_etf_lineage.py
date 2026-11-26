@@ -2,9 +2,11 @@
 """Publish the MF-to-ETF supervised-pilot tab data (etf_lineage.json).
 
 Reads the local output of mf_compliance scripts/etf_lineage.py (etf_lineage_full.json; never committed)
-and writes allowlisted public SEC fields only. ETF class expense ratios (Total and Net, plus a
-waiver amount when above 0) are published from the full file when both figures are present,
-along with the exact Total/Net filing lines and a deep link to that class's fee table.
+and writes allowlisted public SEC fields only. Expense ratios (Total and Net, plus a
+waiver amount when above 0) are published for each active share class — ETF and sister
+classes — when both figures are present, along with the exact Total/Net filing lines and a
+deep link to that class's fee table. Inactive classes are omitted. The two non-effective
+TCW ETF classes stay blank with the existing reason.
 A prospectus link is published only from series_primary_document in the v1 DB (read-only) when
 that row has a source_url; blank or missing rows stay unlinked. Shape gate and PII screen run
 before the published file is replaced; on failure nothing is written.
@@ -186,21 +188,30 @@ def _public_class(c, year, fees_map) -> dict:
     cid = c.get("class_id")
     if cid:
         item["class_id"] = cid
-    if item["etf"] and cid:
+    # Fees for any current-year class, and for an ETF class on a closed series.
+    # Inactive sister classes are not published (they are omitted from the row).
+    if cid and (item["active"] or item["etf"]):
         fields = etf_fee_fields((fees_map or {}).get(cid))
         if fields:
             item.update(fields)
-        elif cid in BLANK_REASONS:
+        elif item["etf"] and cid in BLANK_REASONS:
             item["reason"] = BLANK_REASONS[cid]
     return item
+
+
+def _keep_class(c, year, series_active, last_seen) -> bool:
+    """Current-year classes always; ETF classes always; last-seen fund class on a closed series."""
+    if c.get("last_year", year) == year:
+        return True
+    if c.get("etf"):
+        return True
+    return (not series_active) and c.get("last_year") == last_seen
 
 
 def _fee_counts(rows):
     published = blank = 0
     for r in rows:
         for c in r["classes"]:
-            if not c.get("etf"):
-                continue
             if "expense_total" in c and "expense_net" in c:
                 published += 1
             elif c.get("reason"):
@@ -220,15 +231,17 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
             continue
         cur = [c for c in r["classes"] if c.get("last_year", year) == year]
         active = any(c["etf"] for c in cur) and any(not c["etf"] for c in cur)
+        last_seen = min(max(c.get("last_year", year) for c in r["classes"] if c["etf"]),
+                        max(c.get("last_year", year) for c in r["classes"] if not c["etf"]))
         filing = _filing_from_db(primary_docs.get(r["series_id"]))
+        kept = [c for c in r["classes"] if _keep_class(c, year, active, last_seen)]
         rows.append({
             "status": "active" if active else "closed",
-            "last_seen": min(max(c.get("last_year", year) for c in r["classes"] if c["etf"]),
-                             max(c.get("last_year", year) for c in r["classes"] if not c["etf"])),
+            "last_seen": last_seen,
             "fund_name": r.get("fund_name") or r["series_id"],
             "series_id": r["series_id"],
             "registrant_cik": int(r["cik"]),
-            "classes": sorted((_public_class(c, year, r.get("fees") or {}) for c in r["classes"]),
+            "classes": sorted((_public_class(c, year, r.get("fees") or {}) for c in kept),
                               key=lambda c: (c["etf"], c["name"])),
             "filing": filing,
             "source": SOURCE,
@@ -236,6 +249,7 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
         })
     rows.sort(key=lambda x: (x["fund_name"].lower(), x["series_id"]))
     fees_published, fees_blank = _fee_counts(rows)
+    fees_published_active, fees_blank_active = _fee_counts([r for r in rows if r["status"] == "active"])
     meta = {
         "label": "supervised pilot", "source": SOURCE, "outside_sources": "none used", "fee_status": FEE_STATUS, "source_year": source_year,
         "series": len(rows), "active_series": sum(r["status"] == "active" for r in rows),
@@ -254,6 +268,8 @@ def build(full: list, source_year, hidden=None, primary_docs=None) -> dict:
         "hide_rule": "Every series with series_data_quality.flag = official_file_error is omitted; not a hardcoded list.",
         "fees_published": fees_published,
         "fees_blank": fees_blank,
+        "fees_published_active": fees_published_active,
+        "fees_blank_active": fees_blank_active,
         "fee_source": FEE_SOURCE_META,
     }
     return {"meta": meta, "rows": rows}
@@ -273,8 +289,8 @@ def _class_errors(i, c) -> list:
     if has_fee and has_reason:
         e.append(f"row {i} fee and reason")
     if has_fee:
-        if not c.get("etf"):
-            e.append(f"row {i} mutual fund fee")
+        if not c.get("active") and not c.get("etf"):
+            e.append(f"row {i} fee on inactive class")
         if not isinstance(c.get("expense_total"), (int, float)) or not isinstance(c.get("expense_net"), (int, float)):
             e.append(f"row {i} fee numbers")
         waiver = c.get("waiver_amount")
@@ -318,6 +334,9 @@ def shape_errors(data) -> list:
     published, blank = _fee_counts(rows)
     if m.get("fees_published") != published: e.append("meta.fees_published")
     if m.get("fees_blank") != blank: e.append("meta.fees_blank")
+    pub_a, blank_a = _fee_counts([r for r in rows if r.get("status") == "active"])
+    if m.get("fees_published_active") not in (None, pub_a): e.append("meta.fees_published_active")
+    if m.get("fees_blank_active") not in (None, blank_a): e.append("meta.fees_blank_active")
     if m.get("fee_source") != FEE_SOURCE_META: e.append("meta.fee_source")
     for i, r in enumerate(rows):
         if set(r) != ROW_KEYS: e.append(f"row {i} keys {sorted(set(r) ^ ROW_KEYS)}")
